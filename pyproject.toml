@@ -1,0 +1,22 @@
+[project]
+name = "worldcup"
+version = "0.1.0"
+description = "Predicting the 2026 FIFA World Cup via Monte Carlo simulation."
+readme = "README.md"
+authors = [
+    { name = "maltysnack", email = "39046911+Maltysnack@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "duckdb>=1.5.2",
+    "pandas>=3.0.2",
+    "pyarrow>=24.0.0",
+    "requests>=2.33.1",
+]
+
+[project.scripts]
+worldcup-ingest = "worldcup.ingest:main"
+
+[build-system]
+requires = ["uv_build>=0.11.11,<0.12.0"]
+build-backend = "uv_build"
