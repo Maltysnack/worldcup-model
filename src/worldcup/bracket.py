@@ -141,7 +141,7 @@ def load_data():
         )
         fixtures = con.execute(
             """
-            SELECT date, home_team, away_team, neutral
+            SELECT date, home_team, away_team, neutral, city, country
             FROM matches
             WHERE tournament = 'FIFA World Cup'
               AND date >= DATE '2026-06-11'

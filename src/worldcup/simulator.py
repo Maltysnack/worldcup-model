@@ -207,7 +207,8 @@ def simulate_one(
 def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: int = 7):
     """For each unplayed WC fixture compute W/D/L probabilities, expected
     goals, and the most-common (modal) scoreline by Monte Carlo sampling
-    with the same Poisson model."""
+    with the same Poisson model. Also includes venue (city, country)
+    so the website can display it."""
     rng = np.random.default_rng(seed)
     out = []
     for row in fixtures.itertuples(index=False):
@@ -220,7 +221,6 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
         n_home = int((h_samples > a_samples).sum())
         n_away = int((a_samples > h_samples).sum())
         n_draw = n_samples - n_home - n_away
-        # Modal scoreline
         score_counts: Counter = Counter(zip(h_samples.tolist(), a_samples.tolist()))
         (modal_h, modal_a), modal_count = score_counts.most_common(1)[0]
         out.append({
@@ -228,6 +228,8 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
             "home_team": h,
             "away_team": a,
             "neutral": bool(row.neutral),
+            "city": row.city if hasattr(row, "city") else None,
+            "country": row.country if hasattr(row, "country") else None,
             "p_home_win": round(n_home / n_samples, 4),
             "p_draw": round(n_draw / n_samples, 4),
             "p_away_win": round(n_away / n_samples, 4),
