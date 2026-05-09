@@ -19,6 +19,7 @@ worldcup-ingest = "worldcup.ingest:main"
 worldcup-elo = "worldcup.elo:main"
 worldcup-bracket = "worldcup.bracket:main"
 worldcup-simulate = "worldcup.simulator:main"
+worldcup-backtest = "worldcup.backtest:main"
 
 [build-system]
 requires = ["uv_build>=0.11.11,<0.12.0"]

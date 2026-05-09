@@ -43,18 +43,21 @@ from worldcup.bracket import (
     label_groups_by_fifa,
     load_data,
 )
+from worldcup.calibration import (
+    LAMBDA_AWAY_AT_PARITY,
+    LAMBDA_HOME_AT_PARITY,
+    SLOPE_AWAY,
+    SLOPE_HOME,
+)
 from worldcup.db import PROJECT_ROOT
 from worldcup.elo import HOME_ADVANTAGE, MODEL_VERSION
+from worldcup.form import apply_form
 from worldcup.squad import ELO_WEIGHT, blended_ratings
 
 OUTPUT_PATH = PROJECT_ROOT / "data" / "simulation.json"
 N_SIMS = 10_000
 
-# Calibration: fit empirically from 15k post-2010 international matches
-LAMBDA_HOME_AT_PARITY = 1.41
-LAMBDA_AWAY_AT_PARITY = 1.07
-SLOPE_HOME = 0.0024
-SLOPE_AWAY = -0.0030
+# Calibration constants live in worldcup.calibration (imported above).
 
 # Penalty shootout: very weak Elo influence (it's nearly a coin flip)
 PEN_ELO_DIVISOR = 600.0
@@ -268,11 +271,11 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
 
 
 def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
-    model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}"
+    model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}+form"
     print(f"Monte Carlo simulator (model: {model_id}, n={n_sims:,})")
 
     raw_ratings, fixtures = load_data()
-    ratings = blended_ratings(raw_ratings)
+    ratings = apply_form(blended_ratings(raw_ratings))
     derived = derive_groups_from_fixtures(fixtures)
     groups_by_letter = label_groups_by_fifa(derived)
 

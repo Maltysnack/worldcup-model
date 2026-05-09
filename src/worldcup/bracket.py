@@ -27,6 +27,7 @@ from datetime import datetime
 
 from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import HOME_ADVANTAGE, MODEL_VERSION, expected_score
+from worldcup.form import apply_form
 from worldcup.squad import ELO_WEIGHT, blended_ratings
 
 OUTPUT_PATH = PROJECT_ROOT / "data" / "bracket.json"
@@ -263,10 +264,10 @@ def build_match(team_a, team_b, ratings):
 
 
 def main() -> None:
-    model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}"
+    model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}+form"
     print(f"Generating bracket using official FIFA 2026 structure (model: {model_id})")
     raw_ratings, fixtures = load_data()
-    ratings = blended_ratings(raw_ratings)
+    ratings = apply_form(blended_ratings(raw_ratings))
     print(f"  loaded {len(ratings)} team ratings, {len(fixtures)} group fixtures")
 
     derived = derive_groups_from_fixtures(fixtures)
