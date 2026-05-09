@@ -25,10 +25,20 @@ import sys
 from collections import defaultdict
 from datetime import datetime
 
+import numpy as np
+
 from worldcup.db import PROJECT_ROOT, connect
-from worldcup.elo import HOME_ADVANTAGE, MODEL_VERSION, expected_score
+from worldcup.elo import MODEL_VERSION
 from worldcup.form import apply_form
+from worldcup.goals import sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
+
+# Number of group sims when computing predicted standings. The bracket
+# is a single deterministic prediction, but the group standings driving
+# it come from the average of GROUP_SIM_N Monte Carlo runs of the 6
+# group fixtures, so the predicted bracket reflects the simulator's
+# probability model rather than a naive "higher Elo wins" rule.
+GROUP_SIM_N = 4000
 
 OUTPUT_PATH = PROJECT_ROOT / "data" / "bracket.json"
 
@@ -163,28 +173,65 @@ def label_groups_by_fifa(derived: list[list[str]]) -> dict[str, list[str]]:
     return labelled
 
 
-def simulate_group(teams, fixtures, ratings):
-    """Deterministic group sim: higher Elo wins each match. 3 pts for a
-    win, 0 for loss (no draws under deterministic rule)."""
+def simulate_group_mc(teams, fixtures, ratings, rng):
+    """Monte Carlo group sim. Plays the 6 fixtures GROUP_SIM_N times,
+    averages points/goal-diff/goals-for per team. Uses the same Poisson
+    goals model as the simulator, so the predicted standings reflect
+    real probabilities (draws happen, upsets happen) rather than a
+    naive "higher-Elo-always-wins" rule."""
     members = set(teams)
-    points = {t: 0 for t in teams}
+    pts_total = {t: 0.0 for t in teams}
+    gd_total = {t: 0.0 for t in teams}
+    gf_total = {t: 0.0 for t in teams}
+
     group_fixtures = fixtures[
         fixtures["home_team"].isin(members) & fixtures["away_team"].isin(members)
     ]
-    for row in group_fixtures.itertuples(index=False):
-        rh = ratings.get(row.home_team, 1500.0)
-        ra = ratings.get(row.away_team, 1500.0)
-        eff_h = rh + (0.0 if row.neutral else HOME_ADVANTAGE)
-        winner = row.home_team if expected_score(eff_h, ra) >= 0.5 else row.away_team
-        points[winner] += 3
+    fixture_rows = list(group_fixtures.itertuples(index=False))
+
+    for _ in range(GROUP_SIM_N):
+        sim_pts = {t: 0 for t in teams}
+        sim_gd = {t: 0 for t in teams}
+        sim_gf = {t: 0 for t in teams}
+        for row in fixture_rows:
+            h, a = row.home_team, row.away_team
+            sa, sb, win = sim_match(
+                ratings[h], ratings[a],
+                neutral=bool(row.neutral), ko=False, rng=rng,
+            )
+            if win == 0:
+                sim_pts[h] += 3
+            elif win == 1:
+                sim_pts[a] += 3
+            else:
+                sim_pts[h] += 1
+                sim_pts[a] += 1
+            sim_gd[h] += sa - sb
+            sim_gd[a] += sb - sa
+            sim_gf[h] += sa
+            sim_gf[a] += sb
+        for t in teams:
+            pts_total[t] += sim_pts[t]
+            gd_total[t] += sim_gd[t]
+            gf_total[t] += sim_gf[t]
+
+    avg_pts = {t: pts_total[t] / GROUP_SIM_N for t in teams}
+    avg_gd = {t: gd_total[t] / GROUP_SIM_N for t in teams}
+    avg_gf = {t: gf_total[t] / GROUP_SIM_N for t in teams}
+
+    # FIFA tiebreaker order: points → goal difference → goals for
     standings = sorted(
-        teams, key=lambda t: (points[t], ratings.get(t, 1500.0)), reverse=True
+        teams,
+        key=lambda t: (avg_pts[t], avg_gd[t], avg_gf[t]),
+        reverse=True,
     )
     return [
         {
             "team": t,
             "rating": round(ratings.get(t, 1500.0)),
-            "predicted_points": points[t],
+            "predicted_points": round(avg_pts[t], 1),
+            "predicted_goal_diff": round(avg_gd[t], 2),
+            "predicted_goals_for": round(avg_gf[t], 2),
             "position": i + 1,
         }
         for i, t in enumerate(standings)
@@ -199,21 +246,16 @@ def winner_of(team_a: str, team_b: str, ratings: dict[str, float]) -> str:
 def assign_best_thirds(
     third_place_by_group: dict[str, dict],
     advancing_groups: set[str],
-    ratings: dict[str, float],
 ):
     """For each R32 slot needing a "best 3rd from {groups}", pick the
-    highest-Elo eligible 3rd-place team that hasn't been assigned yet.
-    Slots are processed in order so highest-priority slots get first pick.
-
-    This is an approximation of FIFA's exact lookup table but produces
-    sensible deterministic pairings with the right teams advancing.
+    eligible 3rd-place team with the highest predicted points (then
+    goal diff, then goals for) that hasn't been assigned yet. This is
+    an approximation of FIFA's exact 8-of-12 lookup table but produces
+    sensible pairings.
     """
-    # Identify the 8 best third-place teams overall by Elo
-    eligible = sorted(
-        advancing_groups,
-        key=lambda g: ratings.get(third_place_by_group[g]["team"], 1500),
-        reverse=True,
-    )[:8]
+    def rank_key(letter):
+        s = third_place_by_group[letter]
+        return (s["predicted_points"], s["predicted_goal_diff"], s["predicted_goals_for"])
 
     third_assignments: dict[int, str] = {}
     used_groups: set[str] = set()
@@ -223,19 +265,15 @@ def assign_best_thirds(
             if spec[0] != "3":
                 continue
             allowed = set(spec[1])
-            # Pick highest-Elo eligible third-placer from allowed groups
             candidates = [
-                g for g in eligible if g in allowed and g not in used_groups
+                g for g in advancing_groups
+                if g in allowed and g not in used_groups
             ]
             if not candidates:
-                # Fallback: any unused 3rd placer
-                candidates = [g for g in eligible if g not in used_groups]
+                candidates = [g for g in advancing_groups if g not in used_groups]
             if not candidates:
                 raise RuntimeError(f"No 3rd-place team available for match {i}")
-            best = max(
-                candidates,
-                key=lambda g: ratings.get(third_place_by_group[g]["team"], 1500),
-            )
+            best = max(candidates, key=rank_key)
             third_assignments[i] = third_place_by_group[best]["team"]
             used_groups.add(best)
 
@@ -276,30 +314,38 @@ def main() -> None:
 
     groups_by_letter = label_groups_by_fifa(derived)
 
-    # Simulate each group
+    # Simulate each group via Monte Carlo
+    rng = np.random.default_rng(123)
     group_results = []
     group_winners: dict[str, str] = {}
     group_runners: dict[str, str] = {}
     third_place_by_group: dict[str, dict] = {}
 
     for letter in "ABCDEFGHIJKL":
-        standings = simulate_group(groups_by_letter[letter], fixtures, ratings)
+        standings = simulate_group_mc(
+            groups_by_letter[letter], fixtures, ratings, rng
+        )
         group_results.append({"name": letter, "standings": standings})
         group_winners[letter] = standings[0]["team"]
         group_runners[letter] = standings[1]["team"]
         third_place_by_group[letter] = standings[2]
 
-    # 8 best third-place teams advance
+    # 8 best third-place teams advance, ranked by FIFA criteria:
+    # average points → goal diff → goals for (all from MC).
     best_thirds = sorted(
         third_place_by_group.items(),
-        key=lambda kv: ratings.get(kv[1]["team"], 1500),
+        key=lambda kv: (
+            kv[1]["predicted_points"],
+            kv[1]["predicted_goal_diff"],
+            kv[1]["predicted_goals_for"],
+        ),
         reverse=True,
     )[:8]
     advancing_third_groups = {letter for letter, _ in best_thirds}
 
     # Assign best 3rds to R32 slots
     third_assignments = assign_best_thirds(
-        third_place_by_group, advancing_third_groups, ratings
+        third_place_by_group, advancing_third_groups
     )
 
     # Mark qualification status on group standings

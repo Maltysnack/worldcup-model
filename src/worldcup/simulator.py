@@ -43,24 +43,14 @@ from worldcup.bracket import (
     label_groups_by_fifa,
     load_data,
 )
-from worldcup.calibration import (
-    LAMBDA_AWAY_AT_PARITY,
-    LAMBDA_HOME_AT_PARITY,
-    SLOPE_AWAY,
-    SLOPE_HOME,
-)
 from worldcup.db import PROJECT_ROOT
 from worldcup.elo import HOME_ADVANTAGE, MODEL_VERSION
 from worldcup.form import apply_form
+from worldcup.goals import expected_goals, sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
 
 OUTPUT_PATH = PROJECT_ROOT / "data" / "simulation.json"
 N_SIMS = 10_000
-
-# Calibration constants live in worldcup.calibration (imported above).
-
-# Penalty shootout: very weak Elo influence (it's nearly a coin flip)
-PEN_ELO_DIVISOR = 600.0
 
 ROUND_LABELS = [
     "group_stage",     # eliminated in groups (or didn't make best-3rd cut)
@@ -71,33 +61,6 @@ ROUND_LABELS = [
     "runner_up",       # lost the Final
     "champion",        # won
 ]
-
-
-def expected_goals(eff_gap: float) -> tuple[float, float]:
-    return (
-        LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * eff_gap),
-        LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * eff_gap),
-    )
-
-
-def sim_match(rating_a, rating_b, *, neutral, ko, rng):
-    """Sample a single match; return (score_a, score_b, winner_index 0|1).
-    For knockouts (ko=True), draws are resolved by penalty shootout.
-    Home advantage applies only to the FIRST team and only if not neutral."""
-    eff_a = rating_a + (0.0 if neutral else HOME_ADVANTAGE)
-    eff_b = rating_b
-    lh, la = expected_goals(eff_a - eff_b)
-    sa = rng.poisson(lh)
-    sb = rng.poisson(la)
-    if sa > sb:
-        return sa, sb, 0
-    if sb > sa:
-        return sa, sb, 1
-    if not ko:
-        return sa, sb, -1  # draw is a real outcome in groups
-    # Penalty shootout
-    p_a = 1.0 / (1.0 + 10 ** ((eff_b - eff_a) / PEN_ELO_DIVISOR))
-    return sa, sb, (0 if rng.random() < p_a else 1)
 
 
 def simulate_one(
