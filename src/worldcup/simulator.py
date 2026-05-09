@@ -43,6 +43,12 @@ from worldcup.bracket import (
     label_groups_by_fifa,
     load_data,
 )
+from worldcup.calibration import (
+    LAMBDA_AWAY_AT_PARITY,
+    LAMBDA_HOME_AT_PARITY,
+    SLOPE_AWAY,
+    SLOPE_HOME,
+)
 from worldcup.db import PROJECT_ROOT
 from worldcup.elo import HOME_ADVANTAGE, MODEL_VERSION
 from worldcup.form import apply_form

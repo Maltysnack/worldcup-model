@@ -1156,7 +1156,7 @@
       "modal_score_pct": 0.1244
     }
   ],
-  "generated_at": "2026-05-09T00:55:27Z",
+  "generated_at": "2026-05-09T01:14:58Z",
   "n_simulations": 10000,
   "calibration": {
     "lambda_home_at_parity": 1.41,
