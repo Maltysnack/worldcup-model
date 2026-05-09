@@ -232,6 +232,41 @@ def simulate_one(
     return team_round, match_winner
 
 
+def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: int = 7):
+    """For each unplayed WC fixture compute W/D/L probabilities, expected
+    goals, and the most-common (modal) scoreline by Monte Carlo sampling
+    with the same Poisson model."""
+    rng = np.random.default_rng(seed)
+    out = []
+    for row in fixtures.itertuples(index=False):
+        h, a = row.home_team, row.away_team
+        eff_h = ratings[h] + (0.0 if row.neutral else HOME_ADVANTAGE)
+        eff_a = ratings[a]
+        lh, la = expected_goals(eff_h - eff_a)
+        h_samples = rng.poisson(lh, size=n_samples)
+        a_samples = rng.poisson(la, size=n_samples)
+        n_home = int((h_samples > a_samples).sum())
+        n_away = int((a_samples > h_samples).sum())
+        n_draw = n_samples - n_home - n_away
+        # Modal scoreline
+        score_counts: Counter = Counter(zip(h_samples.tolist(), a_samples.tolist()))
+        (modal_h, modal_a), modal_count = score_counts.most_common(1)[0]
+        out.append({
+            "match_date": row.date.strftime("%Y-%m-%d") if hasattr(row.date, "strftime") else str(row.date),
+            "home_team": h,
+            "away_team": a,
+            "neutral": bool(row.neutral),
+            "p_home_win": round(n_home / n_samples, 4),
+            "p_draw": round(n_draw / n_samples, 4),
+            "p_away_win": round(n_away / n_samples, 4),
+            "expected_home_goals": round(float(lh), 2),
+            "expected_away_goals": round(float(la), 2),
+            "modal_score": [int(modal_h), int(modal_a)],
+            "modal_score_pct": round(modal_count / n_samples, 4),
+        })
+    return out
+
+
 def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
     model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}"
     print(f"Monte Carlo simulator (model: {model_id}, n={n_sims:,})")
@@ -292,10 +327,15 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
         })
     team_stats.sort(key=lambda x: x["p_champion"], reverse=True)
 
+    print("\nGenerating per-match predictions for upcoming fixtures")
+    match_predictions = predict_upcoming_matches(ratings, fixtures)
+    print(f"  produced {len(match_predictions)} match predictions")
+
     output = {
         "model_version": model_id,
         "elo_version": MODEL_VERSION,
         "elo_weight": ELO_WEIGHT,
+        "match_predictions": match_predictions,
         "generated_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
         "n_simulations": n_sims,
         "calibration": {
