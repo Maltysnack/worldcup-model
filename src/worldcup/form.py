@@ -41,8 +41,15 @@ MIN_MATCHES = 5
 # current calibration. So 1 goal of residual ≈ 180 Elo. We shrink that
 # heavily because international form is noisy and 12 months is short.
 ELO_PER_GOAL_DIFF = 180.0
-SHRINKAGE = 0.40
-ELO_CAP = 50.0
+SHRINKAGE = 0.35
+ELO_CAP = 40.0
+
+# Winsorize each match's residual before averaging. A single freak match
+# (e.g. England-vs-Andorra where the goals model expects +7 and gets +1
+# because the strong side stops trying once they're up 2-0) shouldn't
+# dominate a team's form score. Capping per-match contribution at ±2
+# means form is driven by the *consistent* trend, not outliers.
+RESIDUAL_CLIP = 2.0
 
 
 def compute_form_bumps(as_of_date=None) -> dict[str, float]:
@@ -78,6 +85,8 @@ def compute_form_bumps(as_of_date=None) -> dict[str, float]:
     )
     expected_diff = lh - la
     residual_home = actual_diff - expected_diff  # from home team's POV
+    # Winsorize per-match residuals so freak mismatches don't dominate
+    residual_home = np.clip(residual_home, -RESIDUAL_CLIP, RESIDUAL_CLIP)
 
     per_team: dict[str, list[float]] = defaultdict(list)
     homes = df["home_team"].tolist()

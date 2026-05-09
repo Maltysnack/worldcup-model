@@ -124,6 +124,15 @@ SF_FEEDS = [
 ]
 FINAL_FEED = (104, 101, 102)
 
+# Visual ordering: top-to-bottom so adjacent matches in each round
+# feed into the same match in the next round. Derived by walking the
+# tree backwards from the Final. With this order, R16 matches sit
+# midway between the two R32 matches that feed them, etc.
+R32_VISUAL_ORDER = [74, 77, 73, 75, 83, 84, 81, 82, 76, 78, 79, 80, 86, 88, 85, 87]
+R16_VISUAL_ORDER = [89, 90, 93, 94, 91, 92, 95, 96]
+QF_VISUAL_ORDER = [97, 98, 99, 100]
+SF_VISUAL_ORDER = [101, 102]
+
 
 def load_data():
     with connect(read_only=True) as con:
@@ -380,10 +389,10 @@ def main() -> None:
     )
 
     knockout = {
-        "round_of_32": [matches[i] for i in range(73, 89)],
-        "round_of_16": [matches[i] for i, _, _ in R16_FEEDS],
-        "quarter_finals": [matches[i] for i, _, _ in QF_FEEDS],
-        "semi_finals": [matches[i] for i, _, _ in SF_FEEDS],
+        "round_of_32": [matches[i] for i in R32_VISUAL_ORDER],
+        "round_of_16": [matches[i] for i in R16_VISUAL_ORDER],
+        "quarter_finals": [matches[i] for i in QF_VISUAL_ORDER],
+        "semi_finals": [matches[i] for i in SF_VISUAL_ORDER],
         "final": [matches[FINAL_FEED[0]]],
         "champion": matches[FINAL_FEED[0]]["winner"],
     }
