@@ -1300,7 +1300,7 @@
       "modal_score_pct": 0.1216
     }
   ],
-  "generated_at": "2026-05-09T02:30:35Z",
+  "generated_at": "2026-05-09T02:59:24Z",
   "n_simulations": 10000,
   "calibration": {
     "lambda_home_at_parity": 1.41,
@@ -1363,6 +1363,7 @@
     {
       "team": "Spain",
       "rating": 2008,
+      "raw_rating": 2055,
       "p_champion": 17.13,
       "p_final": 24.49,
       "p_semis": 41.31,
@@ -1373,6 +1374,7 @@
     {
       "team": "France",
       "rating": 1986,
+      "raw_rating": 1987,
       "p_champion": 14.67,
       "p_final": 22.8,
       "p_semis": 33.46,
@@ -1383,6 +1385,7 @@
     {
       "team": "Argentina",
       "rating": 1966,
+      "raw_rating": 2036,
       "p_champion": 10.4,
       "p_final": 19.59,
       "p_semis": 36.2,
@@ -1393,6 +1396,7 @@
     {
       "team": "Portugal",
       "rating": 1935,
+      "raw_rating": 1905,
       "p_champion": 6.24,
       "p_final": 11.73,
       "p_semis": 23.84,
@@ -1403,6 +1407,7 @@
     {
       "team": "Ecuador",
       "rating": 1903,
+      "raw_rating": 1896,
       "p_champion": 5.58,
       "p_final": 11.41,
       "p_semis": 19.61,
@@ -1413,6 +1418,7 @@
     {
       "team": "Brazil",
       "rating": 1917,
+      "raw_rating": 1915,
       "p_champion": 5.53,
       "p_final": 12.59,
       "p_semis": 21.759999999999998,
@@ -1423,6 +1429,7 @@
     {
       "team": "England",
       "rating": 1921,
+      "raw_rating": 1925,
       "p_champion": 4.55,
       "p_final": 9.69,
       "p_semis": 17.93,
@@ -1433,6 +1440,7 @@
     {
       "team": "Colombia",
       "rating": 1901,
+      "raw_rating": 1906,
       "p_champion": 3.92,
       "p_final": 8.29,
       "p_semis": 17.869999999999997,
@@ -1443,6 +1451,7 @@
     {
       "team": "Netherlands",
       "rating": 1891,
+      "raw_rating": 1894,
       "p_champion": 3.69,
       "p_final": 7.8100000000000005,
       "p_semis": 14.24,
@@ -1453,6 +1462,7 @@
     {
       "team": "Japan",
       "rating": 1891,
+      "raw_rating": 1886,
       "p_champion": 3.3,
       "p_final": 7.31,
       "p_semis": 13.1,
@@ -1463,6 +1473,7 @@
     {
       "team": "Germany",
       "rating": 1873,
+      "raw_rating": 1887,
       "p_champion": 3.14,
       "p_final": 7.04,
       "p_semis": 13.530000000000001,
@@ -1473,6 +1484,7 @@
     {
       "team": "Turkey",
       "rating": 1882,
+      "raw_rating": 1842,
       "p_champion": 2.88,
       "p_final": 6.0600000000000005,
       "p_semis": 13.670000000000002,
@@ -1483,6 +1495,7 @@
     {
       "team": "Switzerland",
       "rating": 1872,
+      "raw_rating": 1827,
       "p_champion": 2.78,
       "p_final": 6.71,
       "p_semis": 14.61,
@@ -1493,6 +1506,7 @@
     {
       "team": "Morocco",
       "rating": 1870,
+      "raw_rating": 1892,
       "p_champion": 2.68,
       "p_final": 5.8100000000000005,
       "p_semis": 11.41,
@@ -1503,6 +1517,7 @@
     {
       "team": "Senegal",
       "rating": 1875,
+      "raw_rating": 1852,
       "p_champion": 2.02,
       "p_final": 5.29,
       "p_semis": 10.27,
@@ -1513,6 +1528,7 @@
     {
       "team": "Norway",
       "rating": 1860,
+      "raw_rating": 1808,
       "p_champion": 1.76,
       "p_final": 4.5,
       "p_semis": 9.07,
@@ -1523,6 +1539,7 @@
     {
       "team": "Belgium",
       "rating": 1849,
+      "raw_rating": 1808,
       "p_champion": 1.43,
       "p_final": 3.34,
       "p_semis": 9.370000000000001,
@@ -1533,6 +1550,7 @@
     {
       "team": "Uruguay",
       "rating": 1850,
+      "raw_rating": 1856,
       "p_champion": 1.37,
       "p_final": 3.7800000000000002,
       "p_semis": 10.84,
@@ -1543,6 +1561,7 @@
     {
       "team": "Croatia",
       "rating": 1846,
+      "raw_rating": 1868,
       "p_champion": 1.16,
       "p_final": 2.84,
       "p_semis": 7.5,
@@ -1553,6 +1572,7 @@
     {
       "team": "Paraguay",
       "rating": 1825,
+      "raw_rating": 1810,
       "p_champion": 0.95,
       "p_final": 2.37,
       "p_semis": 6.29,
@@ -1563,6 +1583,7 @@
     {
       "team": "Mexico",
       "rating": 1805,
+      "raw_rating": 1870,
       "p_champion": 0.89,
       "p_final": 2.74,
       "p_semis": 6.78,
@@ -1573,6 +1594,7 @@
     {
       "team": "South Korea",
       "rating": 1808,
+      "raw_rating": 1807,
       "p_champion": 0.84,
       "p_final": 2.34,
       "p_semis": 6.01,
@@ -1583,6 +1605,7 @@
     {
       "team": "Ivory Coast",
       "rating": 1806,
+      "raw_rating": 1741,
       "p_champion": 0.63,
       "p_final": 1.83,
       "p_semis": 4.76,
@@ -1593,6 +1616,7 @@
     {
       "team": "Canada",
       "rating": 1782,
+      "raw_rating": 1795,
       "p_champion": 0.48,
       "p_final": 1.77,
       "p_semis": 5.91,
@@ -1603,6 +1627,7 @@
     {
       "team": "United States",
       "rating": 1778,
+      "raw_rating": 1771,
       "p_champion": 0.39,
       "p_final": 1.48,
       "p_semis": 5.29,
@@ -1613,6 +1638,7 @@
     {
       "team": "Australia",
       "rating": 1791,
+      "raw_rating": 1821,
       "p_champion": 0.37,
       "p_final": 1.0899999999999999,
       "p_semis": 3.76,
@@ -1623,6 +1649,7 @@
     {
       "team": "Algeria",
       "rating": 1789,
+      "raw_rating": 1782,
       "p_champion": 0.28,
       "p_final": 0.99,
       "p_semis": 3.4299999999999997,
@@ -1633,6 +1660,7 @@
     {
       "team": "Austria",
       "rating": 1773,
+      "raw_rating": 1769,
       "p_champion": 0.15,
       "p_final": 0.55,
       "p_semis": 2.34,
@@ -1643,6 +1671,7 @@
     {
       "team": "DR Congo",
       "rating": 1761,
+      "raw_rating": 1705,
       "p_champion": 0.15,
       "p_final": 0.58,
       "p_semis": 2.16,
@@ -1653,6 +1682,7 @@
     {
       "team": "Scotland",
       "rating": 1746,
+      "raw_rating": 1722,
       "p_champion": 0.11,
       "p_final": 0.41,
       "p_semis": 1.5,
@@ -1663,6 +1693,7 @@
     {
       "team": "Sweden",
       "rating": 1735,
+      "raw_rating": 1704,
       "p_champion": 0.11,
       "p_final": 0.43,
       "p_semis": 1.42,
@@ -1673,6 +1704,7 @@
     {
       "team": "Uzbekistan",
       "rating": 1750,
+      "raw_rating": 1777,
       "p_champion": 0.09,
       "p_final": 0.27,
       "p_semis": 1.61,
@@ -1683,6 +1715,7 @@
     {
       "team": "Panama",
       "rating": 1734,
+      "raw_rating": 1780,
       "p_champion": 0.06,
       "p_final": 0.36,
       "p_semis": 1.2999999999999998,
@@ -1693,6 +1726,7 @@
     {
       "team": "Czech Republic",
       "rating": 1695,
+      "raw_rating": 1692,
       "p_champion": 0.05,
       "p_final": 0.31,
       "p_semis": 0.8500000000000001,
@@ -1703,6 +1737,7 @@
     {
       "team": "Egypt",
       "rating": 1735,
+      "raw_rating": 1755,
       "p_champion": 0.05,
       "p_final": 0.36,
       "p_semis": 1.7599999999999998,
@@ -1713,6 +1748,7 @@
     {
       "team": "Iran",
       "rating": 1718,
+      "raw_rating": 1815,
       "p_champion": 0.05,
       "p_final": 0.24,
       "p_semis": 1.26,
@@ -1723,6 +1759,7 @@
     {
       "team": "Tunisia",
       "rating": 1704,
+      "raw_rating": 1685,
       "p_champion": 0.04,
       "p_final": 0.29,
       "p_semis": 0.79,
@@ -1733,6 +1770,7 @@
     {
       "team": "Bosnia and Herzegovina",
       "rating": 1693,
+      "raw_rating": 1607,
       "p_champion": 0.03,
       "p_final": 0.17,
       "p_semis": 0.78,
@@ -1743,6 +1781,7 @@
     {
       "team": "Ghana",
       "rating": 1678,
+      "raw_rating": 1585,
       "p_champion": 0.02,
       "p_final": 0.06,
       "p_semis": 0.33,
@@ -1753,6 +1792,7 @@
     {
       "team": "Iraq",
       "rating": 1676,
+      "raw_rating": 1721,
       "p_champion": 0.01,
       "p_final": 0.060000000000000005,
       "p_semis": 0.22,
@@ -1763,6 +1803,7 @@
     {
       "team": "Jordan",
       "rating": 1677,
+      "raw_rating": 1711,
       "p_champion": 0.01,
       "p_final": 0.09,
       "p_semis": 0.5,
@@ -1773,6 +1814,7 @@
     {
       "team": "New Zealand",
       "rating": 1650,
+      "raw_rating": 1677,
       "p_champion": 0.01,
       "p_final": 0.05,
       "p_semis": 0.33,
@@ -1783,6 +1825,7 @@
     {
       "team": "Cape Verde",
       "rating": 1666,
+      "raw_rating": 1636,
       "p_champion": 0.0,
       "p_final": 0.04,
       "p_semis": 0.39999999999999997,
@@ -1793,6 +1836,7 @@
     {
       "team": "Cura\u00e7ao",
       "rating": 1609,
+      "raw_rating": 1562,
       "p_champion": 0.0,
       "p_final": 0.0,
       "p_semis": 0.06,
@@ -1803,6 +1847,7 @@
     {
       "team": "Haiti",
       "rating": 1656,
+      "raw_rating": 1634,
       "p_champion": 0.0,
       "p_final": 0.0,
       "p_semis": 0.12,
@@ -1813,6 +1858,7 @@
     {
       "team": "Qatar",
       "rating": 1562,
+      "raw_rating": 1609,
       "p_champion": 0.0,
       "p_final": 0.0,
       "p_semis": 0.04,
@@ -1823,6 +1869,7 @@
     {
       "team": "Saudi Arabia",
       "rating": 1648,
+      "raw_rating": 1658,
       "p_champion": 0.0,
       "p_final": 0.02,
       "p_semis": 0.25,
@@ -1833,6 +1880,7 @@
     {
       "team": "South Africa",
       "rating": 1624,
+      "raw_rating": 1622,
       "p_champion": 0.0,
       "p_final": 0.02,
       "p_semis": 0.16,

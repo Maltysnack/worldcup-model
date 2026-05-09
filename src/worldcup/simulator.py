@@ -246,6 +246,9 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
     print(f"Monte Carlo simulator (model: {model_id}, n={n_sims:,})")
 
     raw_ratings, fixtures = load_data()
+    # Keep the raw Elo for export (used by the website to rank teams
+    # for dark-horse selection without double-counting the blend
+    # corrections we already apply).
     ratings = apply_form(blended_ratings(raw_ratings))
     derived = derive_groups_from_fixtures(fixtures)
     groups_by_letter = label_groups_by_fifa(derived)
@@ -286,6 +289,7 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
         team_stats.append({
             "team": t,
             "rating": round(ratings[t]),
+            "raw_rating": round(raw_ratings.get(t, 1500)),
             "p_champion": pct("champion"),
             "p_final": pct("champion") + pct("runner_up"),
             "p_semis": (
