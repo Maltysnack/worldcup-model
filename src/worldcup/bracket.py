@@ -210,6 +210,7 @@ def simulate_group_mc(teams, fixtures, ratings, rng):
             sa, sb, win = sim_match(
                 ratings[h], ratings[a],
                 neutral=bool(row.neutral), ko=False, rng=rng,
+                team_a=h, team_b=a,
             )
             if win == 0:
                 sim_pts[h] += 3
