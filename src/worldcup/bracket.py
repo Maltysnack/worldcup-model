@@ -29,6 +29,7 @@ import numpy as np
 
 from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import MODEL_VERSION
+from worldcup.profiles import current_profile, file_suffix, table_suffix
 from worldcup.form import apply_form
 from worldcup.goals import sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
@@ -40,7 +41,9 @@ from worldcup.squad import ELO_WEIGHT, blended_ratings
 # probability model rather than a naive "higher Elo wins" rule.
 GROUP_SIM_N = 4000
 
-OUTPUT_PATH = PROJECT_ROOT / "data" / "bracket.json"
+_PROFILE = current_profile()
+OUTPUT_PATH = PROJECT_ROOT / "data" / f"bracket{file_suffix(_PROFILE)}.json"
+_ELO_TABLE = f"elo_current{table_suffix(_PROFILE)}"
 
 # ISO 3166-1 alpha-2 codes (with subdivision codes for England/Scotland)
 # used to fetch flags from https://flagcdn.com/<size>/<code>.png
@@ -137,7 +140,7 @@ SF_VISUAL_ORDER = [101, 102]
 def load_data():
     with connect(read_only=True) as con:
         ratings = dict(
-            con.execute("SELECT team, rating FROM elo_current").fetchall()
+            con.execute(f"SELECT team, rating FROM {_ELO_TABLE}").fetchall()
         )
         fixtures = con.execute(
             """

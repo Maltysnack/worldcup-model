@@ -37,6 +37,9 @@ from worldcup.calibration import (
 )
 from worldcup.db import connect
 from worldcup.elo import HOME_ADVANTAGE
+from worldcup.profiles import current_profile, table_suffix
+
+_PRED_TABLE = f"predictions{table_suffix(current_profile())}"
 
 EPS = 1e-12
 
@@ -98,7 +101,7 @@ def fetch_world_cup(year: int):
     `predictions` table populated by the chronological Elo walk."""
     with connect(read_only=True) as con:
         df = con.execute(
-            """
+            f"""
             SELECT
                 match_date,
                 home_team,
@@ -108,7 +111,7 @@ def fetch_world_cup(year: int):
                 rating_away_pre,
                 actual_home_goals,
                 actual_away_goals
-            FROM predictions
+            FROM {_PRED_TABLE}
             WHERE tournament = 'FIFA World Cup'
               AND EXTRACT(YEAR FROM match_date) = ?
             ORDER BY match_date

@@ -23,6 +23,9 @@ import numpy as np
 
 from worldcup.db import connect
 from worldcup.goals import sim_match
+from worldcup.profiles import current_profile, table_suffix
+
+_PRED_TABLE = f"predictions{table_suffix(current_profile())}"
 
 N_SIMS = 10_000
 LOCKED_YEARS = {2022}  # never touch these
@@ -115,14 +118,14 @@ def fetch_pre_wc_ratings(year: int, teams: list[str]) -> dict[str, float]:
     the chronological Elo walk."""
     with connect(read_only=True) as con:
         df = con.execute(
-            """
+            f"""
             WITH first_match AS (
               SELECT team, MIN(match_date) AS d FROM (
-                SELECT match_date, home_team AS team FROM predictions
+                SELECT match_date, home_team AS team FROM {_PRED_TABLE}
                 WHERE tournament = 'FIFA World Cup'
                   AND EXTRACT(YEAR FROM match_date) = ?
                 UNION ALL
-                SELECT match_date, away_team AS team FROM predictions
+                SELECT match_date, away_team AS team FROM {_PRED_TABLE}
                 WHERE tournament = 'FIFA World Cup'
                   AND EXTRACT(YEAR FROM match_date) = ?
               ) GROUP BY team
@@ -131,7 +134,7 @@ def fetch_pre_wc_ratings(year: int, teams: list[str]) -> dict[str, float]:
               CASE WHEN p.home_team = t.team
                    THEN p.rating_home_pre ELSE p.rating_away_pre END AS rating
             FROM first_match t
-            JOIN predictions p ON p.match_date = t.d
+            JOIN {_PRED_TABLE} p ON p.match_date = t.d
               AND (p.home_team = t.team OR p.away_team = t.team)
             """,
             [year, year],

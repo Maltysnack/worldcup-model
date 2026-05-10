@@ -33,6 +33,9 @@ from worldcup.calibration import (
 )
 from worldcup.db import connect
 from worldcup.elo import HOME_ADVANTAGE
+from worldcup.profiles import current_profile, table_suffix
+
+_PRED_TABLE = f"predictions{table_suffix(current_profile())}"
 
 LOOKBACK_DAYS = 365
 MIN_MATCHES = 5
@@ -57,15 +60,15 @@ def compute_form_bumps(as_of_date=None) -> dict[str, float]:
     with connect(read_only=True) as con:
         if as_of_date is None:
             as_of_date = con.execute(
-                "SELECT MAX(match_date) FROM predictions WHERE actual_home_goals IS NOT NULL"
+                f"SELECT MAX(match_date) FROM {_PRED_TABLE} WHERE actual_home_goals IS NOT NULL"
             ).fetchone()[0]
         cutoff = as_of_date - timedelta(days=LOOKBACK_DAYS)
         df = con.execute(
-            """
+            f"""
             SELECT match_date, home_team, away_team, neutral,
                    rating_home_pre, rating_away_pre,
                    actual_home_goals, actual_away_goals
-            FROM predictions
+            FROM {_PRED_TABLE}
             WHERE match_date >= ? AND match_date <= ?
               AND actual_home_goals IS NOT NULL
             """,

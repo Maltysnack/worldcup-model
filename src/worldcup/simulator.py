@@ -51,11 +51,13 @@ from worldcup.calibration import (
 )
 from worldcup.db import PROJECT_ROOT
 from worldcup.elo import HOME_ADVANTAGE, MODEL_VERSION
+from worldcup.profiles import current_profile, file_suffix, table_suffix
 from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
 
-OUTPUT_PATH = PROJECT_ROOT / "data" / "simulation.json"
+_PROFILE = current_profile()
+OUTPUT_PATH = PROJECT_ROOT / "data" / f"simulation{file_suffix(_PROFILE)}.json"
 N_SIMS = 10_000
 
 ROUND_LABELS = [
