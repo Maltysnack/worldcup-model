@@ -56,24 +56,25 @@ def wld_probs_batch(
     neutral: np.ndarray,
     *,
     slope_mult: float = 1.0,
-    n_samples: int = 10000,
-    seed: int = 17,
+    rho: float | None = None,
 ) -> np.ndarray:
-    """Return shape (n_matches, 3) of [p_home, p_draw, p_away] via
-    Poisson sampling with the simulator's calibration."""
-    rng = np.random.default_rng(seed)
+    """Return shape (n_matches, 3) of [p_home, p_draw, p_away] using
+    the Dixon-Coles-corrected joint distribution. Analytic, no
+    sampling needed."""
+    from worldcup.calibration import DIXON_COLES_RHO
+    from worldcup.goals import wld_probs
+
+    if rho is None:
+        rho = DIXON_COLES_RHO
     eff_h = rating_h + np.where(neutral, 0.0, HOME_ADVANTAGE)
     eff_a = rating_a
     gap = eff_h - eff_a
     lh = LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * slope_mult * gap)
     la = LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * slope_mult * gap)
-    # Sample: shape (n_matches, n_samples)
-    sh = rng.poisson(lh[:, None], size=(len(lh), n_samples))
-    sa = rng.poisson(la[:, None], size=(len(la), n_samples))
-    p_h = (sh > sa).mean(axis=1)
-    p_a = (sa > sh).mean(axis=1)
-    p_d = 1.0 - p_h - p_a
-    return np.stack([p_h, p_d, p_a], axis=1)
+    out = np.empty((len(lh), 3))
+    for i in range(len(lh)):
+        out[i] = wld_probs(float(lh[i]), float(la[i]), rho)
+    return out
 
 
 def log_loss(probs: np.ndarray, actuals: np.ndarray) -> float:
@@ -148,7 +149,9 @@ def main() -> None:
     flat[~home_better] = [0.15, 0.30, 0.55]
     print(f"  Flat heuristic (55/30/15) log-loss={log_loss(flat, actuals):.4f}  Brier={brier(flat, actuals):.4f}")
 
+    # Slope sweep at the calibrated rho
     print()
+    print(f"  Slope sweep (Dixon-Coles rho = {-0.10:.2f}):")
     print(f"  {'slope_mult':>10}  {'log-loss':>10}  {'Brier':>8}")
     print(f"  {'-' * 32}")
     best = (None, float("inf"), None)
@@ -162,11 +165,27 @@ def main() -> None:
             marker = "  <- best so far"
         print(f"  {mult:>10.2f}  {ll:>10.4f}  {br:>8.4f}{marker}")
 
+    # Dixon-Coles rho sweep at slope_mult=1.0
     print()
-    print(f"Best slope multiplier: {best[0]:.2f}  (log-loss {best[1]:.4f}, Brier {best[2]:.4f})")
+    print(f"  Dixon-Coles rho sweep (slope_mult = 1.00):")
+    print(f"  {'rho':>10}  {'log-loss':>10}  {'Brier':>8}")
+    print(f"  {'-' * 32}")
+    best_rho = (None, float("inf"), None)
+    for rho in [-0.20, -0.15, -0.10, -0.05, 0.0, 0.05, 0.10]:
+        probs = wld_probs_batch(rating_h, rating_a, neutral, rho=rho)
+        ll = log_loss(probs, actuals)
+        br = brier(probs, actuals)
+        marker = ""
+        if ll < best_rho[1]:
+            best_rho = (rho, ll, br)
+            marker = "  <- best so far"
+        print(f"  {rho:>+10.2f}  {ll:>10.4f}  {br:>8.4f}{marker}")
+
     print()
-    print(f"Reference: bookmaker log-loss for the 2018 WC was around 0.95-1.00.")
-    print(f"Our pure-Elo + Poisson model at the best multiplier:")
+    print(f"Best slope multiplier: {best[0]:.2f}  (log-loss {best[1]:.4f})")
+    print(f"Best rho:              {best_rho[0]:+.2f}  (log-loss {best_rho[1]:.4f})")
+    print()
+    print(f"Reference: bookmaker log-loss for WC was around 0.95-1.00.")
     print(f"  - Beats uniform if log-loss < {-np.log(1/3):.4f}")
     print(f"  - Beats the flat heuristic if log-loss < {log_loss(flat, actuals):.4f}")
 
