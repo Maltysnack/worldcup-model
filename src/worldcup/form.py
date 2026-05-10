@@ -40,23 +40,39 @@ _PRED_TABLE = f"predictions{table_suffix(current_profile())}"
 LOOKBACK_DAYS = 365
 MIN_MATCHES = 5
 
-# Approximate gradient: 100 Elo gap → ~0.55 goals of expected diff at the
-# current calibration. So 1 goal of residual ≈ 180 Elo. We shrink that
-# heavily because international form is noisy and 12 months is short.
-ELO_PER_GOAL_DIFF = 180.0
-SHRINKAGE = 0.35
+# Form metric. Three implementations:
+#   "goals":            per-match residual = actual goal-diff - expected
+#                       goal-diff, winsorised at +/-RESIDUAL_CLIP.
+#   "goals-filtered":   same as "goals" but skip matches where the model
+#                       expected a lopsided result (|expected diff| >
+#                       LOPSIDED_THRESHOLD). Teams are not punished for
+#                       routinely beating Andorra by "only" 2-0 when the
+#                       model expected 7-0. Matches against peers are
+#                       still scored normally.
+#   "points":           per-match residual = actual W/D/L points -
+#                       expected points. Robust to lopsided games but
+#                       loses scoreline info; tends to under-penalise
+#                       big-name teams that lose narrowly to peers.
+FORM_METRIC = "goals"  # see backtest in 2026-05-11 session for the comparison
+
+SHRINKAGE = 0.40
 ELO_CAP = 40.0
 
-# Winsorize each match's residual before averaging. A single freak match
-# (e.g. England-vs-Andorra where the goals model expects +7 and gets +1
-# because the strong side stops trying once they're up 2-0) shouldn't
-# dominate a team's form score. Capping per-match contribution at ±2
-# means form is driven by the *consistent* trend, not outliers.
+# Goals metric only
+ELO_PER_GOAL_DIFF = 180.0
 RESIDUAL_CLIP = 2.0
+# Skip matches where the model expected a goal-diff bigger than this in
+# magnitude. Anything wider tends to be "minnow blowout" territory where
+# real teams stop trying once the result is secured, so the residual
+# carries no signal about the strong team's actual quality.
+LOPSIDED_THRESHOLD = 4.0
+
+# Points metric only
+ELO_PER_POINT_DIFF = 80.0
 
 
-def compute_form_bumps(as_of_date=None) -> dict[str, float]:
-    """Return {team: elo_bump} where bump is in raw Elo points."""
+def _load_recent(as_of_date=None):
+    """Pull recent matches with rating_pre values from the predictions table."""
     with connect(read_only=True) as con:
         if as_of_date is None:
             as_of_date = con.execute(
@@ -74,7 +90,10 @@ def compute_form_bumps(as_of_date=None) -> dict[str, float]:
             """,
             [cutoff, as_of_date],
         ).fetchdf()
+    return df
 
+
+def _form_bumps_goals(df, *, filter_lopsided: bool = False) -> dict[str, float]:
     eff_h = df["rating_home_pre"].to_numpy() + np.where(
         df["neutral"].to_numpy(), 0.0, HOME_ADVANTAGE
     )
@@ -87,14 +106,21 @@ def compute_form_bumps(as_of_date=None) -> dict[str, float]:
         df["actual_home_goals"].to_numpy() - df["actual_away_goals"].to_numpy()
     )
     expected_diff = lh - la
-    residual_home = actual_diff - expected_diff  # from home team's POV
-    # Winsorize per-match residuals so freak mismatches don't dominate
+    residual_home = actual_diff - expected_diff
     residual_home = np.clip(residual_home, -RESIDUAL_CLIP, RESIDUAL_CLIP)
+    # If filtering, drop matches where the model expected a lopsided result.
+    keep = (
+        np.abs(expected_diff) <= LOPSIDED_THRESHOLD
+        if filter_lopsided
+        else np.ones(len(df), dtype=bool)
+    )
 
     per_team: dict[str, list[float]] = defaultdict(list)
     homes = df["home_team"].tolist()
     aways = df["away_team"].tolist()
     for i in range(len(df)):
+        if not keep[i]:
+            continue
         per_team[homes[i]].append(float(residual_home[i]))
         per_team[aways[i]].append(float(-residual_home[i]))
 
@@ -107,6 +133,62 @@ def compute_form_bumps(as_of_date=None) -> dict[str, float]:
         bump = SHRINKAGE * ELO_PER_GOAL_DIFF * avg
         bumps[team] = float(np.clip(bump, -ELO_CAP, ELO_CAP))
     return bumps
+
+
+def _form_bumps_points(df) -> dict[str, float]:
+    """Form via expected-vs-actual W/D/L points instead of goals.
+    Naturally robust to lopsided expected scorelines (Andorra, etc):
+    winning a match the model said you'd win is a 0 residual no matter
+    what scoreline."""
+    from worldcup.goals import wld_probs  # avoid circular at module load
+
+    eff_h = df["rating_home_pre"].to_numpy() + np.where(
+        df["neutral"].to_numpy(), 0.0, HOME_ADVANTAGE
+    )
+    eff_a = df["rating_away_pre"].to_numpy()
+    gap = eff_h - eff_a
+    lh = LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap)
+    la = LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap)
+
+    h_goals = df["actual_home_goals"].to_numpy()
+    a_goals = df["actual_away_goals"].to_numpy()
+
+    per_team: dict[str, list[float]] = defaultdict(list)
+    homes = df["home_team"].tolist()
+    aways = df["away_team"].tolist()
+
+    for i in range(len(df)):
+        p_home, p_draw, p_away = wld_probs(float(lh[i]), float(la[i]))
+        exp_home_pts = 3 * p_home + 1 * p_draw
+        exp_away_pts = 3 * p_away + 1 * p_draw
+        if h_goals[i] > a_goals[i]:
+            actual_home_pts, actual_away_pts = 3, 0
+        elif h_goals[i] < a_goals[i]:
+            actual_home_pts, actual_away_pts = 0, 3
+        else:
+            actual_home_pts, actual_away_pts = 1, 1
+        per_team[homes[i]].append(actual_home_pts - exp_home_pts)
+        per_team[aways[i]].append(actual_away_pts - exp_away_pts)
+
+    bumps: dict[str, float] = {}
+    for team, residuals in per_team.items():
+        if len(residuals) < MIN_MATCHES:
+            bumps[team] = 0.0
+            continue
+        avg = float(np.mean(residuals))
+        bump = SHRINKAGE * ELO_PER_POINT_DIFF * avg
+        bumps[team] = float(np.clip(bump, -ELO_CAP, ELO_CAP))
+    return bumps
+
+
+def compute_form_bumps(as_of_date=None) -> dict[str, float]:
+    """Return {team: elo_bump} based on the active FORM_METRIC."""
+    df = _load_recent(as_of_date)
+    if FORM_METRIC == "points":
+        return _form_bumps_points(df)
+    if FORM_METRIC == "goals-filtered":
+        return _form_bumps_goals(df, filter_lopsided=True)
+    return _form_bumps_goals(df, filter_lopsided=False)
 
 
 def apply_form(ratings: dict[str, float], as_of_date=None) -> dict[str, float]:

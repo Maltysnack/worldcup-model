@@ -10,16 +10,16 @@
       "neutral": false,
       "city": "Mexico City",
       "country": "Mexico",
-      "p_home_win": 0.751,
-      "p_draw": 0.1728,
-      "p_away_win": 0.0762,
-      "expected_home_goals": 2.28,
+      "p_home_win": 0.7542,
+      "p_draw": 0.1608,
+      "p_away_win": 0.085,
+      "expected_home_goals": 2.27,
       "expected_away_goals": 0.59,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1482
+      "modal_score_pct": 0.1522
     },
     {
       "match_date": "2026-06-11",
@@ -28,16 +28,16 @@
       "neutral": true,
       "city": "Zapopan",
       "country": "Mexico",
-      "p_home_win": 0.5858,
-      "p_draw": 0.2396,
-      "p_away_win": 0.1746,
-      "expected_home_goals": 1.73,
-      "expected_away_goals": 0.83,
+      "p_home_win": 0.5992,
+      "p_draw": 0.2306,
+      "p_away_win": 0.1702,
+      "expected_home_goals": 1.75,
+      "expected_away_goals": 0.82,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.129
+      "modal_score_pct": 0.1326
     },
     {
       "match_date": "2026-06-12",
@@ -46,16 +46,16 @@
       "neutral": false,
       "city": "Toronto",
       "country": "Canada",
-      "p_home_win": 0.644,
-      "p_draw": 0.2208,
-      "p_away_win": 0.1352,
+      "p_home_win": 0.6394,
+      "p_draw": 0.2202,
+      "p_away_win": 0.1404,
       "expected_home_goals": 1.89,
       "expected_away_goals": 0.74,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1342
+      "modal_score_pct": 0.1336
     },
     {
       "match_date": "2026-06-12",
@@ -64,16 +64,16 @@
       "neutral": false,
       "city": "Inglewood",
       "country": "United States",
-      "p_home_win": 0.4468,
-      "p_draw": 0.2662,
-      "p_away_win": 0.287,
-      "expected_home_goals": 1.42,
-      "expected_away_goals": 1.06,
+      "p_home_win": 0.4428,
+      "p_draw": 0.2564,
+      "p_away_win": 0.3008,
+      "expected_home_goals": 1.4,
+      "expected_away_goals": 1.08,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.119
+      "modal_score_pct": 0.1234
     },
     {
       "match_date": "2026-06-13",
@@ -82,16 +82,16 @@
       "neutral": true,
       "city": "Vancouver",
       "country": "Canada",
-      "p_home_win": 0.299,
-      "p_draw": 0.273,
-      "p_away_win": 0.428,
-      "expected_home_goals": 1.13,
-      "expected_away_goals": 1.41,
+      "p_home_win": 0.2908,
+      "p_draw": 0.2748,
+      "p_away_win": 0.4344,
+      "expected_home_goals": 1.12,
+      "expected_away_goals": 1.42,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.126
+      "modal_score_pct": 0.1268
     },
     {
       "match_date": "2026-06-13",
@@ -100,16 +100,16 @@
       "neutral": true,
       "city": "East Rutherford",
       "country": "United States",
-      "p_home_win": 0.5198,
-      "p_draw": 0.2636,
-      "p_away_win": 0.2166,
-      "expected_home_goals": 1.56,
+      "p_home_win": 0.527,
+      "p_draw": 0.2616,
+      "p_away_win": 0.2114,
+      "expected_home_goals": 1.57,
       "expected_away_goals": 0.94,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.129
+      "modal_score_pct": 0.1294
     },
     {
       "match_date": "2026-06-13",
@@ -118,16 +118,16 @@
       "neutral": true,
       "city": "Foxborough",
       "country": "United States",
-      "p_home_win": 0.3204,
-      "p_draw": 0.2678,
-      "p_away_win": 0.4118,
+      "p_home_win": 0.3154,
+      "p_draw": 0.2774,
+      "p_away_win": 0.4072,
       "expected_home_goals": 1.14,
       "expected_away_goals": 1.39,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1316
+      "modal_score_pct": 0.1366
     },
     {
       "match_date": "2026-06-13",
@@ -136,16 +136,16 @@
       "neutral": true,
       "city": "Santa Clara",
       "country": "United States",
-      "p_home_win": 0.0716,
-      "p_draw": 0.1412,
-      "p_away_win": 0.7872,
+      "p_home_win": 0.0788,
+      "p_draw": 0.1338,
+      "p_away_win": 0.7874,
       "expected_home_goals": 0.69,
       "expected_away_goals": 2.59,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.1266
+      "modal_score_pct": 0.1284
     },
     {
       "match_date": "2026-06-14",
@@ -154,16 +154,16 @@
       "neutral": true,
       "city": "Houston",
       "country": "United States",
-      "p_home_win": 0.8322,
-      "p_draw": 0.119,
-      "p_away_win": 0.0488,
-      "expected_home_goals": 2.56,
-      "expected_away_goals": 0.51,
+      "p_home_win": 0.817,
+      "p_draw": 0.1354,
+      "p_away_win": 0.0476,
+      "expected_home_goals": 2.52,
+      "expected_away_goals": 0.52,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.162
+      "modal_score_pct": 0.154
     },
     {
       "match_date": "2026-06-14",
@@ -172,16 +172,16 @@
       "neutral": true,
       "city": "Philadelphia",
       "country": "United States",
-      "p_home_win": 0.3018,
-      "p_draw": 0.272,
-      "p_away_win": 0.4262,
-      "expected_home_goals": 1.15,
-      "expected_away_goals": 1.38,
+      "p_home_win": 0.3106,
+      "p_draw": 0.2596,
+      "p_away_win": 0.4298,
+      "expected_home_goals": 1.16,
+      "expected_away_goals": 1.37,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1252
+      "modal_score_pct": 0.1226
     },
     {
       "match_date": "2026-06-14",
@@ -190,16 +190,16 @@
       "neutral": true,
       "city": "Arlington",
       "country": "United States",
-      "p_home_win": 0.4562,
+      "p_home_win": 0.4504,
       "p_draw": 0.2652,
-      "p_away_win": 0.2786,
-      "expected_home_goals": 1.41,
-      "expected_away_goals": 1.07,
+      "p_away_win": 0.2844,
+      "expected_home_goals": 1.4,
+      "expected_away_goals": 1.08,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1234
+      "modal_score_pct": 0.1214
     },
     {
       "match_date": "2026-06-14",
@@ -208,16 +208,16 @@
       "neutral": true,
       "city": "Guadalupe",
       "country": "Mexico",
-      "p_home_win": 0.5016,
-      "p_draw": 0.2554,
-      "p_away_win": 0.243,
-      "expected_home_goals": 1.55,
-      "expected_away_goals": 0.95,
+      "p_home_win": 0.4888,
+      "p_draw": 0.2684,
+      "p_away_win": 0.2428,
+      "expected_home_goals": 1.54,
+      "expected_away_goals": 0.96,
       "modal_score": [
         1,
-        0
+        1
       ],
-      "modal_score_pct": 0.1228
+      "modal_score_pct": 0.1234
     },
     {
       "match_date": "2026-06-15",
@@ -226,16 +226,16 @@
       "neutral": true,
       "city": "Seattle",
       "country": "United States",
-      "p_home_win": 0.6292,
-      "p_draw": 0.222,
-      "p_away_win": 0.1488,
-      "expected_home_goals": 1.83,
-      "expected_away_goals": 0.77,
+      "p_home_win": 0.6298,
+      "p_draw": 0.2222,
+      "p_away_win": 0.148,
+      "expected_home_goals": 1.85,
+      "expected_away_goals": 0.76,
       "modal_score": [
-        1,
+        2,
         0
       ],
-      "modal_score_pct": 0.1354
+      "modal_score_pct": 0.1324
     },
     {
       "match_date": "2026-06-15",
@@ -244,16 +244,16 @@
       "neutral": true,
       "city": "Inglewood",
       "country": "United States",
-      "p_home_win": 0.5438,
-      "p_draw": 0.245,
-      "p_away_win": 0.2112,
-      "expected_home_goals": 1.63,
-      "expected_away_goals": 0.89,
+      "p_home_win": 0.5392,
+      "p_draw": 0.2472,
+      "p_away_win": 0.2136,
+      "expected_home_goals": 1.61,
+      "expected_away_goals": 0.9,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.137
+      "modal_score_pct": 0.132
     },
     {
       "match_date": "2026-06-15",
@@ -262,16 +262,16 @@
       "neutral": true,
       "city": "Miami Gardens",
       "country": "United States",
-      "p_home_win": 0.177,
-      "p_draw": 0.2244,
-      "p_away_win": 0.5986,
+      "p_home_win": 0.1758,
+      "p_draw": 0.2288,
+      "p_away_win": 0.5954,
       "expected_home_goals": 0.91,
       "expected_away_goals": 1.85,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1226
+      "modal_score_pct": 0.1174
     },
     {
       "match_date": "2026-06-15",
@@ -280,16 +280,16 @@
       "neutral": true,
       "city": "Atlanta",
       "country": "United States",
-      "p_home_win": 0.8734,
-      "p_draw": 0.096,
-      "p_away_win": 0.0306,
-      "expected_home_goals": 2.92,
-      "expected_away_goals": 0.43,
+      "p_home_win": 0.8656,
+      "p_draw": 0.0978,
+      "p_away_win": 0.0366,
+      "expected_home_goals": 2.88,
+      "expected_away_goals": 0.44,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1476
+      "modal_score_pct": 0.1468
     },
     {
       "match_date": "2026-06-16",
@@ -298,16 +298,16 @@
       "neutral": true,
       "city": "Kansas City",
       "country": "United States",
-      "p_home_win": 0.6964,
-      "p_draw": 0.1874,
-      "p_away_win": 0.1162,
+      "p_home_win": 0.6984,
+      "p_draw": 0.1914,
+      "p_away_win": 0.1102,
       "expected_home_goals": 2.04,
-      "expected_away_goals": 0.68,
+      "expected_away_goals": 0.67,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.137
+      "modal_score_pct": 0.1396
     },
     {
       "match_date": "2026-06-16",
@@ -316,16 +316,16 @@
       "neutral": true,
       "city": "Santa Clara",
       "country": "United States",
-      "p_home_win": 0.6,
-      "p_draw": 0.2302,
-      "p_away_win": 0.1698,
-      "expected_home_goals": 1.76,
-      "expected_away_goals": 0.81,
+      "p_home_win": 0.5948,
+      "p_draw": 0.2332,
+      "p_away_win": 0.172,
+      "expected_home_goals": 1.75,
+      "expected_away_goals": 0.82,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1286
+      "modal_score_pct": 0.1342
     },
     {
       "match_date": "2026-06-16",
@@ -334,16 +334,16 @@
       "neutral": true,
       "city": "East Rutherford",
       "country": "United States",
-      "p_home_win": 0.6064,
-      "p_draw": 0.2326,
-      "p_away_win": 0.161,
+      "p_home_win": 0.6176,
+      "p_draw": 0.2184,
+      "p_away_win": 0.164,
       "expected_home_goals": 1.81,
       "expected_away_goals": 0.78,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1326
+      "modal_score_pct": 0.1382
     },
     {
       "match_date": "2026-06-16",
@@ -352,16 +352,16 @@
       "neutral": true,
       "city": "Foxborough",
       "country": "United States",
-      "p_home_win": 0.1904,
-      "p_draw": 0.2228,
-      "p_away_win": 0.5868,
+      "p_home_win": 0.1812,
+      "p_draw": 0.2314,
+      "p_away_win": 0.5874,
       "expected_home_goals": 0.93,
-      "expected_away_goals": 1.79,
+      "expected_away_goals": 1.81,
       "modal_score": [
-        0,
+        1,
         1
       ],
-      "modal_score_pct": 0.116
+      "modal_score_pct": 0.1128
     },
     {
       "match_date": "2026-06-17",
@@ -370,16 +370,16 @@
       "neutral": true,
       "city": "Arlington",
       "country": "United States",
-      "p_home_win": 0.5216,
-      "p_draw": 0.2634,
-      "p_away_win": 0.215,
+      "p_home_win": 0.5306,
+      "p_draw": 0.2486,
+      "p_away_win": 0.2208,
       "expected_home_goals": 1.62,
       "expected_away_goals": 0.9,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1236
+      "modal_score_pct": 0.1264
     },
     {
       "match_date": "2026-06-17",
@@ -388,16 +388,16 @@
       "neutral": true,
       "city": "Toronto",
       "country": "Canada",
-      "p_home_win": 0.372,
-      "p_draw": 0.2628,
-      "p_away_win": 0.3652,
-      "expected_home_goals": 1.27,
-      "expected_away_goals": 1.22,
+      "p_home_win": 0.3704,
+      "p_draw": 0.281,
+      "p_away_win": 0.3486,
+      "expected_home_goals": 1.28,
+      "expected_away_goals": 1.21,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.126
+      "modal_score_pct": 0.138
     },
     {
       "match_date": "2026-06-17",
@@ -406,16 +406,16 @@
       "neutral": true,
       "city": "Houston",
       "country": "United States",
-      "p_home_win": 0.7128,
-      "p_draw": 0.1926,
-      "p_away_win": 0.0946,
-      "expected_home_goals": 2.07,
+      "p_home_win": 0.7142,
+      "p_draw": 0.1846,
+      "p_away_win": 0.1012,
+      "expected_home_goals": 2.06,
       "expected_away_goals": 0.66,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1468
+      "modal_score_pct": 0.1366
     },
     {
       "match_date": "2026-06-17",
@@ -424,16 +424,16 @@
       "neutral": true,
       "city": "Mexico City",
       "country": "Mexico",
-      "p_home_win": 0.239,
-      "p_draw": 0.2554,
-      "p_away_win": 0.5056,
-      "expected_home_goals": 1.02,
-      "expected_away_goals": 1.61,
+      "p_home_win": 0.2362,
+      "p_draw": 0.248,
+      "p_away_win": 0.5158,
+      "expected_home_goals": 1.01,
+      "expected_away_goals": 1.62,
       "modal_score": [
-        1,
+        0,
         1
       ],
-      "modal_score_pct": 0.1184
+      "modal_score_pct": 0.122
     },
     {
       "match_date": "2026-06-18",
@@ -442,16 +442,16 @@
       "neutral": false,
       "city": "Vancouver",
       "country": "Canada",
-      "p_home_win": 0.8302,
-      "p_draw": 0.1298,
-      "p_away_win": 0.04,
-      "expected_home_goals": 2.63,
+      "p_home_win": 0.8314,
+      "p_draw": 0.1234,
+      "p_away_win": 0.0452,
+      "expected_home_goals": 2.62,
       "expected_away_goals": 0.49,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1502
+      "modal_score_pct": 0.1484
     },
     {
       "match_date": "2026-06-18",
@@ -460,16 +460,16 @@
       "neutral": true,
       "city": "Atlanta",
       "country": "United States",
-      "p_home_win": 0.5824,
-      "p_draw": 0.2388,
-      "p_away_win": 0.1788,
-      "expected_home_goals": 1.69,
-      "expected_away_goals": 0.85,
+      "p_home_win": 0.5766,
+      "p_draw": 0.2294,
+      "p_away_win": 0.194,
+      "expected_home_goals": 1.68,
+      "expected_away_goals": 0.86,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1376
+      "modal_score_pct": 0.1306
     },
     {
       "match_date": "2026-06-18",
@@ -478,16 +478,16 @@
       "neutral": false,
       "city": "Zapopan",
       "country": "Mexico",
-      "p_home_win": 0.5206,
-      "p_draw": 0.2406,
-      "p_away_win": 0.2388,
-      "expected_home_goals": 1.55,
-      "expected_away_goals": 0.95,
+      "p_home_win": 0.5078,
+      "p_draw": 0.2584,
+      "p_away_win": 0.2338,
+      "expected_home_goals": 1.54,
+      "expected_away_goals": 0.96,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1308
+      "modal_score_pct": 0.1256
     },
     {
       "match_date": "2026-06-18",
@@ -496,16 +496,16 @@
       "neutral": true,
       "city": "Inglewood",
       "country": "United States",
-      "p_home_win": 0.7032,
-      "p_draw": 0.1962,
-      "p_away_win": 0.1006,
+      "p_home_win": 0.6978,
+      "p_draw": 0.195,
+      "p_away_win": 0.1072,
       "expected_home_goals": 2.06,
       "expected_away_goals": 0.67,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.142
+      "modal_score_pct": 0.1444
     },
     {
       "match_date": "2026-06-19",
@@ -514,16 +514,16 @@
       "neutral": true,
       "city": "Philadelphia",
       "country": "United States",
-      "p_home_win": 0.8056,
-      "p_draw": 0.1348,
-      "p_away_win": 0.0596,
-      "expected_home_goals": 2.5,
-      "expected_away_goals": 0.52,
+      "p_home_win": 0.8124,
+      "p_draw": 0.1304,
+      "p_away_win": 0.0572,
+      "expected_home_goals": 2.49,
+      "expected_away_goals": 0.53,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1536
+      "modal_score_pct": 0.1494
     },
     {
       "match_date": "2026-06-19",
@@ -532,16 +532,16 @@
       "neutral": true,
       "city": "Foxborough",
       "country": "United States",
-      "p_home_win": 0.2924,
-      "p_draw": 0.2636,
-      "p_away_win": 0.444,
-      "expected_home_goals": 1.09,
-      "expected_away_goals": 1.48,
+      "p_home_win": 0.3018,
+      "p_draw": 0.2552,
+      "p_away_win": 0.443,
+      "expected_home_goals": 1.1,
+      "expected_away_goals": 1.47,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.124
+      "modal_score_pct": 0.1182
     },
     {
       "match_date": "2026-06-19",
@@ -550,16 +550,16 @@
       "neutral": true,
       "city": "Santa Clara",
       "country": "United States",
-      "p_home_win": 0.544,
-      "p_draw": 0.2512,
-      "p_away_win": 0.2048,
+      "p_home_win": 0.5398,
+      "p_draw": 0.239,
+      "p_away_win": 0.2212,
       "expected_home_goals": 1.61,
       "expected_away_goals": 0.91,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1278
+      "modal_score_pct": 0.1292
     },
     {
       "match_date": "2026-06-19",
@@ -568,16 +568,16 @@
       "neutral": false,
       "city": "Seattle",
       "country": "United States",
-      "p_home_win": 0.5096,
-      "p_draw": 0.2588,
-      "p_away_win": 0.2316,
-      "expected_home_goals": 1.55,
-      "expected_away_goals": 0.95,
+      "p_home_win": 0.5002,
+      "p_draw": 0.2712,
+      "p_away_win": 0.2286,
+      "expected_home_goals": 1.54,
+      "expected_away_goals": 0.96,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1264
+      "modal_score_pct": 0.124
     },
     {
       "match_date": "2026-06-20",
@@ -586,16 +586,16 @@
       "neutral": true,
       "city": "Kansas City",
       "country": "United States",
-      "p_home_win": 0.8302,
-      "p_draw": 0.1206,
-      "p_away_win": 0.0492,
-      "expected_home_goals": 2.68,
+      "p_home_win": 0.8214,
+      "p_draw": 0.128,
+      "p_away_win": 0.0506,
+      "expected_home_goals": 2.67,
       "expected_away_goals": 0.48,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1516
+      "modal_score_pct": 0.154
     },
     {
       "match_date": "2026-06-20",
@@ -604,16 +604,16 @@
       "neutral": true,
       "city": "Toronto",
       "country": "Canada",
-      "p_home_win": 0.5586,
-      "p_draw": 0.2354,
-      "p_away_win": 0.206,
-      "expected_home_goals": 1.65,
-      "expected_away_goals": 0.88,
+      "p_home_win": 0.5452,
+      "p_draw": 0.2426,
+      "p_away_win": 0.2122,
+      "expected_home_goals": 1.62,
+      "expected_away_goals": 0.9,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1388
+      "modal_score_pct": 0.1372
     },
     {
       "match_date": "2026-06-20",
@@ -622,16 +622,16 @@
       "neutral": true,
       "city": "Houston",
       "country": "United States",
-      "p_home_win": 0.6464,
-      "p_draw": 0.2166,
-      "p_away_win": 0.137,
+      "p_home_win": 0.6504,
+      "p_draw": 0.2134,
+      "p_away_win": 0.1362,
       "expected_home_goals": 1.92,
       "expected_away_goals": 0.73,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.135
+      "modal_score_pct": 0.139
     },
     {
       "match_date": "2026-06-20",
@@ -640,16 +640,16 @@
       "neutral": true,
       "city": "Guadalupe",
       "country": "Mexico",
-      "p_home_win": 0.1954,
-      "p_draw": 0.2296,
-      "p_away_win": 0.575,
+      "p_home_win": 0.191,
+      "p_draw": 0.2346,
+      "p_away_win": 0.5744,
       "expected_home_goals": 0.94,
-      "expected_away_goals": 1.77,
+      "expected_away_goals": 1.78,
       "modal_score": [
         0,
-        2
+        1
       ],
-      "modal_score_pct": 0.1136
+      "modal_score_pct": 0.1168
     },
     {
       "match_date": "2026-06-21",
@@ -658,16 +658,16 @@
       "neutral": true,
       "city": "Inglewood",
       "country": "United States",
-      "p_home_win": 0.6554,
-      "p_draw": 0.2022,
-      "p_away_win": 0.1424,
-      "expected_home_goals": 1.91,
-      "expected_away_goals": 0.73,
+      "p_home_win": 0.662,
+      "p_draw": 0.2074,
+      "p_away_win": 0.1306,
+      "expected_home_goals": 1.94,
+      "expected_away_goals": 0.72,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.143
+      "modal_score_pct": 0.1408
     },
     {
       "match_date": "2026-06-21",
@@ -676,16 +676,16 @@
       "neutral": true,
       "city": "Vancouver",
       "country": "Canada",
-      "p_home_win": 0.3174,
-      "p_draw": 0.2684,
-      "p_away_win": 0.4142,
-      "expected_home_goals": 1.17,
-      "expected_away_goals": 1.35,
+      "p_home_win": 0.3228,
+      "p_draw": 0.278,
+      "p_away_win": 0.3992,
+      "expected_home_goals": 1.18,
+      "expected_away_goals": 1.34,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1274
+      "modal_score_pct": 0.1344
     },
     {
       "match_date": "2026-06-21",
@@ -694,16 +694,16 @@
       "neutral": true,
       "city": "Atlanta",
       "country": "United States",
-      "p_home_win": 0.894,
-      "p_draw": 0.0792,
-      "p_away_win": 0.0268,
-      "expected_home_goals": 3.05,
+      "p_home_win": 0.8894,
+      "p_draw": 0.0834,
+      "p_away_win": 0.0272,
+      "expected_home_goals": 3.03,
       "expected_away_goals": 0.41,
       "modal_score": [
         3,
         0
       ],
-      "modal_score_pct": 0.154
+      "modal_score_pct": 0.1574
     },
     {
       "match_date": "2026-06-21",
@@ -712,16 +712,16 @@
       "neutral": true,
       "city": "Miami Gardens",
       "country": "United States",
-      "p_home_win": 0.6966,
-      "p_draw": 0.1942,
-      "p_away_win": 0.1092,
-      "expected_home_goals": 2.09,
-      "expected_away_goals": 0.65,
+      "p_home_win": 0.6932,
+      "p_draw": 0.193,
+      "p_away_win": 0.1138,
+      "expected_home_goals": 2.07,
+      "expected_away_goals": 0.66,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1378
+      "modal_score_pct": 0.1356
     },
     {
       "match_date": "2026-06-22",
@@ -730,16 +730,16 @@
       "neutral": true,
       "city": "Arlington",
       "country": "United States",
-      "p_home_win": 0.7054,
-      "p_draw": 0.1864,
-      "p_away_win": 0.1082,
-      "expected_home_goals": 2.07,
+      "p_home_win": 0.7014,
+      "p_draw": 0.1902,
+      "p_away_win": 0.1084,
+      "expected_home_goals": 2.09,
       "expected_away_goals": 0.66,
       "modal_score": [
-        1,
+        2,
         0
       ],
-      "modal_score_pct": 0.1382
+      "modal_score_pct": 0.1424
     },
     {
       "match_date": "2026-06-22",
@@ -748,16 +748,16 @@
       "neutral": true,
       "city": "Philadelphia",
       "country": "United States",
-      "p_home_win": 0.8608,
-      "p_draw": 0.0996,
-      "p_away_win": 0.0396,
-      "expected_home_goals": 2.8,
+      "p_home_win": 0.8584,
+      "p_draw": 0.104,
+      "p_away_win": 0.0376,
+      "expected_home_goals": 2.81,
       "expected_away_goals": 0.45,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.151
+      "modal_score_pct": 0.1514
     },
     {
       "match_date": "2026-06-22",
@@ -766,16 +766,16 @@
       "neutral": true,
       "city": "Santa Clara",
       "country": "United States",
-      "p_home_win": 0.2944,
-      "p_draw": 0.263,
-      "p_away_win": 0.4426,
+      "p_home_win": 0.2986,
+      "p_draw": 0.2644,
+      "p_away_win": 0.437,
       "expected_home_goals": 1.11,
-      "expected_away_goals": 1.45,
+      "expected_away_goals": 1.44,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1258
+      "modal_score_pct": 0.1264
     },
     {
       "match_date": "2026-06-22",
@@ -784,16 +784,16 @@
       "neutral": true,
       "city": "East Rutherford",
       "country": "United States",
-      "p_home_win": 0.4318,
-      "p_draw": 0.2648,
-      "p_away_win": 0.3034,
+      "p_home_win": 0.4266,
+      "p_draw": 0.2668,
+      "p_away_win": 0.3066,
       "expected_home_goals": 1.38,
       "expected_away_goals": 1.1,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1266
+      "modal_score_pct": 0.1336
     },
     {
       "match_date": "2026-06-23",
@@ -802,16 +802,16 @@
       "neutral": true,
       "city": "Zapopan",
       "country": "Mexico",
-      "p_home_win": 0.6448,
-      "p_draw": 0.226,
-      "p_away_win": 0.1292,
-      "expected_home_goals": 1.9,
+      "p_home_win": 0.644,
+      "p_draw": 0.2098,
+      "p_away_win": 0.1462,
+      "expected_home_goals": 1.88,
       "expected_away_goals": 0.74,
       "modal_score": [
-        2,
+        1,
         0
       ],
-      "modal_score_pct": 0.1298
+      "modal_score_pct": 0.1286
     },
     {
       "match_date": "2026-06-23",
@@ -820,16 +820,16 @@
       "neutral": true,
       "city": "Foxborough",
       "country": "United States",
-      "p_home_win": 0.7732,
-      "p_draw": 0.1508,
-      "p_away_win": 0.076,
-      "expected_home_goals": 2.37,
-      "expected_away_goals": 0.56,
+      "p_home_win": 0.7704,
+      "p_draw": 0.153,
+      "p_away_win": 0.0766,
+      "expected_home_goals": 2.33,
+      "expected_away_goals": 0.57,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1514
+      "modal_score_pct": 0.143
     },
     {
       "match_date": "2026-06-23",
@@ -838,16 +838,16 @@
       "neutral": true,
       "city": "Toronto",
       "country": "Canada",
-      "p_home_win": 0.2706,
-      "p_draw": 0.2586,
-      "p_away_win": 0.4708,
-      "expected_home_goals": 1.07,
+      "p_home_win": 0.2802,
+      "p_draw": 0.2572,
+      "p_away_win": 0.4626,
+      "expected_home_goals": 1.08,
       "expected_away_goals": 1.5,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.131
+      "modal_score_pct": 0.1242
     },
     {
       "match_date": "2026-06-23",
@@ -856,16 +856,16 @@
       "neutral": true,
       "city": "Houston",
       "country": "United States",
-      "p_home_win": 0.728,
-      "p_draw": 0.1772,
-      "p_away_win": 0.0948,
-      "expected_home_goals": 2.14,
-      "expected_away_goals": 0.64,
+      "p_home_win": 0.7316,
+      "p_draw": 0.1762,
+      "p_away_win": 0.0922,
+      "expected_home_goals": 2.15,
+      "expected_away_goals": 0.63,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.143
+      "modal_score_pct": 0.1452
     },
     {
       "match_date": "2026-06-24",
@@ -874,16 +874,16 @@
       "neutral": true,
       "city": "Seattle",
       "country": "United States",
-      "p_home_win": 0.668,
-      "p_draw": 0.2062,
-      "p_away_win": 0.1258,
+      "p_home_win": 0.6618,
+      "p_draw": 0.2146,
+      "p_away_win": 0.1236,
       "expected_home_goals": 1.96,
       "expected_away_goals": 0.71,
       "modal_score": [
-        2,
+        1,
         0
       ],
-      "modal_score_pct": 0.1434
+      "modal_score_pct": 0.1372
     },
     {
       "match_date": "2026-06-24",
@@ -892,16 +892,16 @@
       "neutral": false,
       "city": "Vancouver",
       "country": "Canada",
-      "p_home_win": 0.3874,
-      "p_draw": 0.268,
-      "p_away_win": 0.3446,
-      "expected_home_goals": 1.3,
+      "p_home_win": 0.3736,
+      "p_draw": 0.2812,
+      "p_away_win": 0.3452,
+      "expected_home_goals": 1.29,
       "expected_away_goals": 1.19,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1264
+      "modal_score_pct": 0.133
     },
     {
       "match_date": "2026-06-24",
@@ -910,16 +910,16 @@
       "neutral": false,
       "city": "Mexico City",
       "country": "Mexico",
-      "p_home_win": 0.645,
-      "p_draw": 0.2164,
-      "p_away_win": 0.1386,
-      "expected_home_goals": 1.9,
-      "expected_away_goals": 0.74,
+      "p_home_win": 0.6452,
+      "p_draw": 0.2102,
+      "p_away_win": 0.1446,
+      "expected_home_goals": 1.91,
+      "expected_away_goals": 0.73,
       "modal_score": [
-        1,
+        2,
         0
       ],
-      "modal_score_pct": 0.1344
+      "modal_score_pct": 0.1334
     },
     {
       "match_date": "2026-06-24",
@@ -928,16 +928,16 @@
       "neutral": true,
       "city": "Atlanta",
       "country": "United States",
-      "p_home_win": 0.7434,
-      "p_draw": 0.176,
-      "p_away_win": 0.0806,
-      "expected_home_goals": 2.26,
-      "expected_away_goals": 0.59,
+      "p_home_win": 0.7428,
+      "p_draw": 0.1726,
+      "p_away_win": 0.0846,
+      "expected_home_goals": 2.24,
+      "expected_away_goals": 0.6,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1542
+      "modal_score_pct": 0.1492
     },
     {
       "match_date": "2026-06-24",
@@ -946,16 +946,16 @@
       "neutral": true,
       "city": "Miami Gardens",
       "country": "United States",
-      "p_home_win": 0.2166,
-      "p_draw": 0.2458,
-      "p_away_win": 0.5376,
+      "p_home_win": 0.2182,
+      "p_draw": 0.2484,
+      "p_away_win": 0.5334,
       "expected_home_goals": 0.98,
       "expected_away_goals": 1.68,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1218
+      "modal_score_pct": 0.12
     },
     {
       "match_date": "2026-06-24",
@@ -964,16 +964,16 @@
       "neutral": true,
       "city": "Guadalupe",
       "country": "Mexico",
-      "p_home_win": 0.2058,
-      "p_draw": 0.2372,
-      "p_away_win": 0.557,
-      "expected_home_goals": 0.96,
-      "expected_away_goals": 1.73,
+      "p_home_win": 0.2028,
+      "p_draw": 0.2348,
+      "p_away_win": 0.5624,
+      "expected_home_goals": 0.95,
+      "expected_away_goals": 1.74,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1166
+      "modal_score_pct": 0.1258
     },
     {
       "match_date": "2026-06-25",
@@ -982,16 +982,16 @@
       "neutral": true,
       "city": "Philadelphia",
       "country": "United States",
-      "p_home_win": 0.1752,
-      "p_draw": 0.231,
-      "p_away_win": 0.5938,
+      "p_home_win": 0.1848,
+      "p_draw": 0.2154,
+      "p_away_win": 0.5998,
       "expected_home_goals": 0.91,
       "expected_away_goals": 1.85,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.115
+      "modal_score_pct": 0.1174
     },
     {
       "match_date": "2026-06-25",
@@ -1000,16 +1000,16 @@
       "neutral": true,
       "city": "East Rutherford",
       "country": "United States",
-      "p_home_win": 0.4858,
-      "p_draw": 0.2652,
-      "p_away_win": 0.249,
-      "expected_home_goals": 1.48,
-      "expected_away_goals": 1.01,
+      "p_home_win": 0.4954,
+      "p_draw": 0.2548,
+      "p_away_win": 0.2498,
+      "expected_home_goals": 1.49,
+      "expected_away_goals": 1.0,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.1286
+      "modal_score_pct": 0.123
     },
     {
       "match_date": "2026-06-25",
@@ -1018,16 +1018,16 @@
       "neutral": true,
       "city": "Arlington",
       "country": "United States",
-      "p_home_win": 0.6674,
+      "p_home_win": 0.6694,
       "p_draw": 0.1988,
-      "p_away_win": 0.1338,
-      "expected_home_goals": 1.92,
-      "expected_away_goals": 0.73,
+      "p_away_win": 0.1318,
+      "expected_home_goals": 1.94,
+      "expected_away_goals": 0.72,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1418
+      "modal_score_pct": 0.1408
     },
     {
       "match_date": "2026-06-25",
@@ -1036,16 +1036,16 @@
       "neutral": true,
       "city": "Santa Clara",
       "country": "United States",
-      "p_home_win": 0.5096,
-      "p_draw": 0.255,
-      "p_away_win": 0.2354,
-      "expected_home_goals": 1.54,
-      "expected_away_goals": 0.96,
+      "p_home_win": 0.514,
+      "p_draw": 0.257,
+      "p_away_win": 0.229,
+      "expected_home_goals": 1.55,
+      "expected_away_goals": 0.95,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.126
+      "modal_score_pct": 0.1268
     },
     {
       "match_date": "2026-06-25",
@@ -1054,16 +1054,16 @@
       "neutral": true,
       "city": "Kansas City",
       "country": "United States",
-      "p_home_win": 0.207,
-      "p_draw": 0.2208,
-      "p_away_win": 0.5722,
-      "expected_home_goals": 0.94,
-      "expected_away_goals": 1.78,
+      "p_home_win": 0.2034,
+      "p_draw": 0.2328,
+      "p_away_win": 0.5638,
+      "expected_home_goals": 0.95,
+      "expected_away_goals": 1.76,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1202
+      "modal_score_pct": 0.1154
     },
     {
       "match_date": "2026-06-25",
@@ -1072,16 +1072,16 @@
       "neutral": false,
       "city": "Inglewood",
       "country": "United States",
-      "p_home_win": 0.3586,
-      "p_draw": 0.271,
-      "p_away_win": 0.3704,
-      "expected_home_goals": 1.24,
-      "expected_away_goals": 1.25,
+      "p_home_win": 0.352,
+      "p_draw": 0.2766,
+      "p_away_win": 0.3714,
+      "expected_home_goals": 1.23,
+      "expected_away_goals": 1.27,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.13
+      "modal_score_pct": 0.1362
     },
     {
       "match_date": "2026-06-26",
@@ -1090,16 +1090,16 @@
       "neutral": true,
       "city": "Houston",
       "country": "United States",
-      "p_home_win": 0.473,
-      "p_draw": 0.262,
-      "p_away_win": 0.265,
-      "expected_home_goals": 1.48,
-      "expected_away_goals": 1.01,
+      "p_home_win": 0.4812,
+      "p_draw": 0.2666,
+      "p_away_win": 0.2522,
+      "expected_home_goals": 1.49,
+      "expected_away_goals": 1.0,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.1224
+      "modal_score_pct": 0.1218
     },
     {
       "match_date": "2026-06-26",
@@ -1108,16 +1108,16 @@
       "neutral": true,
       "city": "Seattle",
       "country": "United States",
-      "p_home_win": 0.4886,
-      "p_draw": 0.2536,
-      "p_away_win": 0.2578,
-      "expected_home_goals": 1.47,
+      "p_home_win": 0.4876,
+      "p_draw": 0.2652,
+      "p_away_win": 0.2472,
+      "expected_home_goals": 1.48,
       "expected_away_goals": 1.01,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1316
+      "modal_score_pct": 0.1334
     },
     {
       "match_date": "2026-06-26",
@@ -1126,16 +1126,16 @@
       "neutral": true,
       "city": "Vancouver",
       "country": "Canada",
-      "p_home_win": 0.176,
-      "p_draw": 0.2246,
-      "p_away_win": 0.5994,
+      "p_home_win": 0.1742,
+      "p_draw": 0.2166,
+      "p_away_win": 0.6092,
       "expected_home_goals": 0.9,
       "expected_away_goals": 1.88,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.1114
+      "modal_score_pct": 0.1106
     },
     {
       "match_date": "2026-06-26",
@@ -1144,16 +1144,16 @@
       "neutral": true,
       "city": "Foxborough",
       "country": "United States",
-      "p_home_win": 0.257,
-      "p_draw": 0.2738,
-      "p_away_win": 0.4692,
-      "expected_home_goals": 1.07,
-      "expected_away_goals": 1.51,
+      "p_home_win": 0.2748,
+      "p_draw": 0.25,
+      "p_away_win": 0.4752,
+      "expected_home_goals": 1.08,
+      "expected_away_goals": 1.49,
       "modal_score": [
-        1,
+        0,
         1
       ],
-      "modal_score_pct": 0.1338
+      "modal_score_pct": 0.1204
     },
     {
       "match_date": "2026-06-26",
@@ -1162,16 +1162,16 @@
       "neutral": true,
       "city": "Toronto",
       "country": "Canada",
-      "p_home_win": 0.7224,
-      "p_draw": 0.186,
+      "p_home_win": 0.7332,
+      "p_draw": 0.1752,
       "p_away_win": 0.0916,
-      "expected_home_goals": 2.18,
+      "expected_home_goals": 2.19,
       "expected_away_goals": 0.62,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1474
+      "modal_score_pct": 0.1448
     },
     {
       "match_date": "2026-06-26",
@@ -1180,16 +1180,16 @@
       "neutral": true,
       "city": "Zapopan",
       "country": "Mexico",
-      "p_home_win": 0.229,
-      "p_draw": 0.2378,
-      "p_away_win": 0.5332,
+      "p_home_win": 0.232,
+      "p_draw": 0.246,
+      "p_away_win": 0.522,
       "expected_home_goals": 1.01,
       "expected_away_goals": 1.62,
       "modal_score": [
-        0,
+        1,
         1
       ],
-      "modal_score_pct": 0.1238
+      "modal_score_pct": 0.1182
     },
     {
       "match_date": "2026-06-27",
@@ -1198,16 +1198,16 @@
       "neutral": true,
       "city": "Kansas City",
       "country": "United States",
-      "p_home_win": 0.449,
-      "p_draw": 0.2702,
-      "p_away_win": 0.2808,
+      "p_home_win": 0.4612,
+      "p_draw": 0.2614,
+      "p_away_win": 0.2774,
       "expected_home_goals": 1.44,
-      "expected_away_goals": 1.05,
+      "expected_away_goals": 1.04,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.127
+      "modal_score_pct": 0.1238
     },
     {
       "match_date": "2026-06-27",
@@ -1216,16 +1216,16 @@
       "neutral": true,
       "city": "Miami Gardens",
       "country": "United States",
-      "p_home_win": 0.3832,
-      "p_draw": 0.2672,
-      "p_away_win": 0.3496,
+      "p_home_win": 0.3792,
+      "p_draw": 0.2766,
+      "p_away_win": 0.3442,
       "expected_home_goals": 1.29,
       "expected_away_goals": 1.2,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1308
+      "modal_score_pct": 0.132
     },
     {
       "match_date": "2026-06-27",
@@ -1234,16 +1234,16 @@
       "neutral": true,
       "city": "Philadelphia",
       "country": "United States",
-      "p_home_win": 0.697,
-      "p_draw": 0.1926,
+      "p_home_win": 0.6922,
+      "p_draw": 0.1974,
       "p_away_win": 0.1104,
-      "expected_home_goals": 2.06,
-      "expected_away_goals": 0.67,
+      "expected_home_goals": 2.03,
+      "expected_away_goals": 0.68,
       "modal_score": [
-        2,
+        1,
         0
       ],
-      "modal_score_pct": 0.1374
+      "modal_score_pct": 0.1378
     },
     {
       "match_date": "2026-06-27",
@@ -1252,16 +1252,16 @@
       "neutral": true,
       "city": "Atlanta",
       "country": "United States",
-      "p_home_win": 0.4612,
-      "p_draw": 0.2618,
-      "p_away_win": 0.277,
-      "expected_home_goals": 1.45,
-      "expected_away_goals": 1.03,
+      "p_home_win": 0.4686,
+      "p_draw": 0.2658,
+      "p_away_win": 0.2656,
+      "expected_home_goals": 1.47,
+      "expected_away_goals": 1.02,
       "modal_score": [
         1,
-        0
+        1
       ],
-      "modal_score_pct": 0.1224
+      "modal_score_pct": 0.1292
     },
     {
       "match_date": "2026-06-27",
@@ -1270,16 +1270,16 @@
       "neutral": true,
       "city": "Arlington",
       "country": "United States",
-      "p_home_win": 0.1106,
-      "p_draw": 0.1796,
-      "p_away_win": 0.7098,
+      "p_home_win": 0.115,
+      "p_draw": 0.1692,
+      "p_away_win": 0.7158,
       "expected_home_goals": 0.77,
       "expected_away_goals": 2.29,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.1206
+      "modal_score_pct": 0.1292
     },
     {
       "match_date": "2026-06-27",
@@ -1288,19 +1288,19 @@
       "neutral": true,
       "city": "East Rutherford",
       "country": "United States",
-      "p_home_win": 0.204,
-      "p_draw": 0.2362,
-      "p_away_win": 0.5598,
+      "p_home_win": 0.1994,
+      "p_draw": 0.2434,
+      "p_away_win": 0.5572,
       "expected_home_goals": 0.94,
-      "expected_away_goals": 1.79,
+      "expected_away_goals": 1.77,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1196
+      "modal_score_pct": 0.1216
     }
   ],
-  "generated_at": "2026-05-10T15:32:39Z",
+  "generated_at": "2026-05-10T15:45:54Z",
   "n_simulations": 10000,
   "calibration": {
     "lambda_home_at_parity": 1.41,
@@ -1362,454 +1362,487 @@
   "team_stats": [
     {
       "team": "Spain",
-      "rating": 2026,
+      "rating": 2023,
       "raw_rating": 2068,
-      "p_champion": 17.29,
-      "p_final": 24.46,
-      "p_semis": 41.44,
-      "p_quarters": 51.01,
-      "p_round_of_16": 76.35,
-      "p_advance_from_groups": 99.34
+      "p_champion": 17.21,
+      "p_final": 24.950000000000003,
+      "p_semis": 41.61,
+      "p_quarters": 51.019999999999996,
+      "p_round_of_16": 76.32,
+      "p_advance_from_groups": 99.16
     },
     {
       "team": "France",
       "rating": 2010,
       "raw_rating": 2009,
-      "p_champion": 15.37,
-      "p_final": 23.68,
-      "p_semis": 34.21,
-      "p_quarters": 45.57,
-      "p_round_of_16": 74.06,
-      "p_advance_from_groups": 96.27
+      "p_champion": 16.15,
+      "p_final": 24.28,
+      "p_semis": 35.45,
+      "p_quarters": 47.0,
+      "p_round_of_16": 74.42,
+      "p_advance_from_groups": 96.58
     },
     {
       "team": "Argentina",
       "rating": 1982,
       "raw_rating": 2056,
-      "p_champion": 10.15,
-      "p_final": 19.310000000000002,
-      "p_semis": 35.900000000000006,
-      "p_quarters": 49.10000000000001,
-      "p_round_of_16": 64.2,
-      "p_advance_from_groups": 97.26
+      "p_champion": 9.41,
+      "p_final": 19.35,
+      "p_semis": 36.33,
+      "p_quarters": 50.21,
+      "p_round_of_16": 66.0,
+      "p_advance_from_groups": 97.12
     },
     {
       "team": "Portugal",
-      "rating": 1957,
+      "rating": 1960,
       "raw_rating": 1933,
-      "p_champion": 6.34,
-      "p_final": 12.54,
-      "p_semis": 25.57,
-      "p_quarters": 45.21,
-      "p_round_of_16": 73.48,
-      "p_advance_from_groups": 93.33
+      "p_champion": 6.67,
+      "p_final": 12.91,
+      "p_semis": 26.05,
+      "p_quarters": 46.06,
+      "p_round_of_16": 73.85,
+      "p_advance_from_groups": 93.06
     },
     {
       "team": "Brazil",
       "rating": 1934,
       "raw_rating": 1932,
-      "p_champion": 6.08,
-      "p_final": 13.29,
-      "p_semis": 22.689999999999998,
-      "p_quarters": 37.599999999999994,
-      "p_round_of_16": 58.58999999999999,
-      "p_advance_from_groups": 95.12
+      "p_champion": 5.88,
+      "p_final": 13.21,
+      "p_semis": 22.3,
+      "p_quarters": 36.72,
+      "p_round_of_16": 58.379999999999995,
+      "p_advance_from_groups": 95.08
     },
     {
       "team": "Ecuador",
-      "rating": 1917,
+      "rating": 1919,
       "raw_rating": 1912,
-      "p_champion": 4.91,
-      "p_final": 10.46,
-      "p_semis": 18.97,
-      "p_quarters": 31.439999999999998,
-      "p_round_of_16": 59.72,
-      "p_advance_from_groups": 94.25
-    },
-    {
-      "team": "England",
-      "rating": 1932,
-      "raw_rating": 1928,
-      "p_champion": 3.98,
-      "p_final": 8.8,
-      "p_semis": 16.78,
-      "p_quarters": 34.25,
-      "p_round_of_16": 60.760000000000005,
-      "p_advance_from_groups": 94.88
+      "p_champion": 5.46,
+      "p_final": 11.059999999999999,
+      "p_semis": 19.39,
+      "p_quarters": 31.57,
+      "p_round_of_16": 59.47,
+      "p_advance_from_groups": 94.17
     },
     {
       "team": "Netherlands",
-      "rating": 1910,
+      "rating": 1909,
       "raw_rating": 1912,
-      "p_champion": 3.83,
-      "p_final": 8.190000000000001,
-      "p_semis": 14.75,
-      "p_quarters": 29.96,
-      "p_round_of_16": 50.68,
-      "p_advance_from_groups": 90.56
-    },
-    {
-      "team": "Colombia",
-      "rating": 1914,
-      "raw_rating": 1925,
-      "p_champion": 3.82,
-      "p_final": 7.98,
-      "p_semis": 18.42,
-      "p_quarters": 34.99,
-      "p_round_of_16": 63.980000000000004,
-      "p_advance_from_groups": 87.66
+      "p_champion": 3.79,
+      "p_final": 7.41,
+      "p_semis": 13.4,
+      "p_quarters": 29.0,
+      "p_round_of_16": 49.879999999999995,
+      "p_advance_from_groups": 90.03999999999999
     },
     {
       "team": "Japan",
-      "rating": 1910,
+      "rating": 1913,
       "raw_rating": 1909,
-      "p_champion": 3.72,
-      "p_final": 7.630000000000001,
-      "p_semis": 13.81,
-      "p_quarters": 27.72,
-      "p_round_of_16": 47.68,
-      "p_advance_from_groups": 87.32
+      "p_champion": 3.78,
+      "p_final": 8.09,
+      "p_semis": 14.309999999999999,
+      "p_quarters": 27.65,
+      "p_round_of_16": 47.849999999999994,
+      "p_advance_from_groups": 87.41
+    },
+    {
+      "team": "England",
+      "rating": 1929,
+      "raw_rating": 1928,
+      "p_champion": 3.76,
+      "p_final": 8.75,
+      "p_semis": 16.240000000000002,
+      "p_quarters": 32.72,
+      "p_round_of_16": 59.239999999999995,
+      "p_advance_from_groups": 94.62
+    },
+    {
+      "team": "Colombia",
+      "rating": 1915,
+      "raw_rating": 1925,
+      "p_champion": 3.48,
+      "p_final": 7.970000000000001,
+      "p_semis": 18.32,
+      "p_quarters": 35.230000000000004,
+      "p_round_of_16": 63.440000000000005,
+      "p_advance_from_groups": 87.64
     },
     {
       "team": "Germany",
-      "rating": 1894,
+      "rating": 1891,
       "raw_rating": 1909,
-      "p_champion": 3.66,
-      "p_final": 8.030000000000001,
-      "p_semis": 14.82,
-      "p_quarters": 25.939999999999998,
-      "p_round_of_16": 53.9,
-      "p_advance_from_groups": 92.29
+      "p_champion": 3.23,
+      "p_final": 7.8100000000000005,
+      "p_semis": 14.66,
+      "p_quarters": 26.28,
+      "p_round_of_16": 53.730000000000004,
+      "p_advance_from_groups": 91.82
     },
     {
       "team": "Turkey",
-      "rating": 1901,
+      "rating": 1905,
       "raw_rating": 1866,
-      "p_champion": 2.91,
-      "p_final": 6.25,
-      "p_semis": 13.99,
-      "p_quarters": 30.810000000000002,
-      "p_round_of_16": 55.540000000000006,
-      "p_advance_from_groups": 79.62
+      "p_champion": 2.93,
+      "p_final": 6.04,
+      "p_semis": 14.57,
+      "p_quarters": 31.8,
+      "p_round_of_16": 56.75,
+      "p_advance_from_groups": 80.4
     },
     {
       "team": "Switzerland",
       "rating": 1885,
       "raw_rating": 1840,
-      "p_champion": 2.52,
-      "p_final": 5.83,
-      "p_semis": 13.629999999999999,
-      "p_quarters": 35.86,
-      "p_round_of_16": 63.57,
-      "p_advance_from_groups": 95.12
+      "p_champion": 2.85,
+      "p_final": 6.07,
+      "p_semis": 14.14,
+      "p_quarters": 36.49,
+      "p_round_of_16": 64.03,
+      "p_advance_from_groups": 95.33
     },
     {
       "team": "Morocco",
-      "rating": 1884,
+      "rating": 1881,
       "raw_rating": 1913,
-      "p_champion": 2.29,
-      "p_final": 5.77,
-      "p_semis": 11.149999999999999,
-      "p_quarters": 21.729999999999997,
-      "p_round_of_16": 40.67999999999999,
-      "p_advance_from_groups": 86.82
-    },
-    {
-      "team": "Senegal",
-      "rating": 1887,
-      "raw_rating": 1862,
-      "p_champion": 1.96,
-      "p_final": 5.12,
-      "p_semis": 10.17,
-      "p_quarters": 19.58,
-      "p_round_of_16": 41.28,
-      "p_advance_from_groups": 77.05
+      "p_champion": 2.17,
+      "p_final": 5.13,
+      "p_semis": 10.280000000000001,
+      "p_quarters": 21.32,
+      "p_round_of_16": 40.41,
+      "p_advance_from_groups": 85.91
     },
     {
       "team": "Norway",
-      "rating": 1876,
+      "rating": 1879,
       "raw_rating": 1830,
-      "p_champion": 1.94,
-      "p_final": 5.01,
-      "p_semis": 9.43,
-      "p_quarters": 18.310000000000002,
-      "p_round_of_16": 41.67,
-      "p_advance_from_groups": 79.53
+      "p_champion": 2.16,
+      "p_final": 5.08,
+      "p_semis": 9.719999999999999,
+      "p_quarters": 18.53,
+      "p_round_of_16": 42.620000000000005,
+      "p_advance_from_groups": 79.89
     },
     {
-      "team": "Belgium",
-      "rating": 1866,
-      "raw_rating": 1828,
-      "p_champion": 1.52,
-      "p_final": 3.54,
-      "p_semis": 9.370000000000001,
-      "p_quarters": 27.810000000000002,
-      "p_round_of_16": 61.6,
-      "p_advance_from_groups": 94.12
+      "team": "Senegal",
+      "rating": 1889,
+      "raw_rating": 1862,
+      "p_champion": 1.97,
+      "p_final": 4.99,
+      "p_semis": 9.47,
+      "p_quarters": 19.09,
+      "p_round_of_16": 40.29,
+      "p_advance_from_groups": 77.24
     },
     {
       "team": "Uruguay",
-      "rating": 1862,
+      "rating": 1861,
       "raw_rating": 1868,
-      "p_champion": 1.51,
-      "p_final": 4.07,
-      "p_semis": 11.22,
-      "p_quarters": 19.44,
-      "p_round_of_16": 37.08,
-      "p_advance_from_groups": 89.31
+      "p_champion": 1.45,
+      "p_final": 3.67,
+      "p_semis": 10.4,
+      "p_quarters": 18.8,
+      "p_round_of_16": 36.510000000000005,
+      "p_advance_from_groups": 88.82
+    },
+    {
+      "team": "Belgium",
+      "rating": 1868,
+      "raw_rating": 1828,
+      "p_champion": 1.42,
+      "p_final": 3.34,
+      "p_semis": 10.1,
+      "p_quarters": 28.810000000000002,
+      "p_round_of_16": 62.32,
+      "p_advance_from_groups": 94.1
     },
     {
       "team": "Croatia",
-      "rating": 1864,
+      "rating": 1862,
       "raw_rating": 1889,
-      "p_champion": 1.42,
-      "p_final": 3.37,
-      "p_semis": 8.2,
-      "p_quarters": 18.16,
-      "p_round_of_16": 40.35,
-      "p_advance_from_groups": 84.24
+      "p_champion": 1.23,
+      "p_final": 3.1399999999999997,
+      "p_semis": 8.07,
+      "p_quarters": 18.0,
+      "p_round_of_16": 39.25,
+      "p_advance_from_groups": 83.39
     },
     {
       "team": "Paraguay",
-      "rating": 1836,
+      "rating": 1840,
       "raw_rating": 1824,
-      "p_champion": 0.75,
-      "p_final": 2.13,
-      "p_semis": 6.0,
-      "p_quarters": 16.35,
-      "p_round_of_16": 37.63,
-      "p_advance_from_groups": 65.72
+      "p_champion": 0.84,
+      "p_final": 2.23,
+      "p_semis": 6.32,
+      "p_quarters": 16.86,
+      "p_round_of_16": 37.129999999999995,
+      "p_advance_from_groups": 65.4
     },
     {
       "team": "South Korea",
-      "rating": 1812,
+      "rating": 1814,
       "raw_rating": 1811,
-      "p_champion": 0.75,
-      "p_final": 2.2199999999999998,
-      "p_semis": 5.18,
-      "p_quarters": 19.21,
-      "p_round_of_16": 42.25,
-      "p_advance_from_groups": 82.72
+      "p_champion": 0.7,
+      "p_final": 2.0300000000000002,
+      "p_semis": 5.32,
+      "p_quarters": 19.240000000000002,
+      "p_round_of_16": 42.34,
+      "p_advance_from_groups": 83.3
     },
     {
       "team": "Ivory Coast",
-      "rating": 1818,
+      "rating": 1822,
       "raw_rating": 1749,
-      "p_champion": 0.65,
-      "p_final": 2.0100000000000002,
-      "p_semis": 5.12,
-      "p_quarters": 11.86,
-      "p_round_of_16": 31.4,
-      "p_advance_from_groups": 73.0
+      "p_champion": 0.68,
+      "p_final": 2.07,
+      "p_semis": 5.0600000000000005,
+      "p_quarters": 12.43,
+      "p_round_of_16": 32.8,
+      "p_advance_from_groups": 73.3
     },
     {
       "team": "Mexico",
-      "rating": 1810,
+      "rating": 1807,
       "raw_rating": 1869,
-      "p_champion": 0.61,
-      "p_final": 2.02,
-      "p_semis": 5.67,
-      "p_quarters": 21.5,
-      "p_round_of_16": 47.42,
-      "p_advance_from_groups": 95.3
+      "p_champion": 0.58,
+      "p_final": 2.18,
+      "p_semis": 5.87,
+      "p_quarters": 21.31,
+      "p_round_of_16": 47.68,
+      "p_advance_from_groups": 95.08
     },
     {
       "team": "Canada",
-      "rating": 1794,
+      "rating": 1793,
       "raw_rating": 1814,
-      "p_champion": 0.4,
-      "p_final": 1.7600000000000002,
-      "p_semis": 6.18,
-      "p_quarters": 23.21,
-      "p_round_of_16": 53.480000000000004,
-      "p_advance_from_groups": 95.86
+      "p_champion": 0.46,
+      "p_final": 1.76,
+      "p_semis": 5.67,
+      "p_quarters": 21.869999999999997,
+      "p_round_of_16": 52.5,
+      "p_advance_from_groups": 95.96
     },
     {
       "team": "United States",
-      "rating": 1789,
+      "rating": 1787,
       "raw_rating": 1776,
-      "p_champion": 0.3,
-      "p_final": 1.15,
-      "p_semis": 4.97,
-      "p_quarters": 17.47,
-      "p_round_of_16": 43.879999999999995,
-      "p_advance_from_groups": 79.51
-    },
-    {
-      "team": "Austria",
-      "rating": 1793,
-      "raw_rating": 1804,
-      "p_champion": 0.29,
-      "p_final": 0.8200000000000001,
-      "p_semis": 2.74,
-      "p_quarters": 7.49,
-      "p_round_of_16": 18.1,
-      "p_advance_from_groups": 64.0
-    },
-    {
-      "team": "Algeria",
-      "rating": 1802,
-      "raw_rating": 1805,
-      "p_champion": 0.27,
-      "p_final": 1.07,
-      "p_semis": 3.46,
-      "p_quarters": 8.469999999999999,
-      "p_round_of_16": 19.53,
-      "p_advance_from_groups": 65.94
+      "p_champion": 0.33,
+      "p_final": 1.23,
+      "p_semis": 4.59,
+      "p_quarters": 16.65,
+      "p_round_of_16": 43.29,
+      "p_advance_from_groups": 77.88
     },
     {
       "team": "Australia",
-      "rating": 1792,
+      "rating": 1794,
       "raw_rating": 1825,
-      "p_champion": 0.21,
-      "p_final": 0.73,
-      "p_semis": 2.71,
-      "p_quarters": 8.530000000000001,
-      "p_round_of_16": 24.78,
-      "p_advance_from_groups": 49.14
+      "p_champion": 0.27,
+      "p_final": 0.8200000000000001,
+      "p_semis": 3.0700000000000003,
+      "p_quarters": 8.72,
+      "p_round_of_16": 25.560000000000002,
+      "p_advance_from_groups": 49.89
     },
     {
-      "team": "Sweden",
-      "rating": 1759,
-      "raw_rating": 1732,
-      "p_champion": 0.13,
-      "p_final": 0.4,
-      "p_semis": 1.4,
-      "p_quarters": 4.97,
-      "p_round_of_16": 13.899999999999999,
-      "p_advance_from_groups": 50.22
+      "team": "Algeria",
+      "rating": 1800,
+      "raw_rating": 1805,
+      "p_champion": 0.24,
+      "p_final": 0.6,
+      "p_semis": 2.9,
+      "p_quarters": 8.06,
+      "p_round_of_16": 18.71,
+      "p_advance_from_groups": 66.50999999999999
+    },
+    {
+      "team": "DR Congo",
+      "rating": 1773,
+      "raw_rating": 1711,
+      "p_champion": 0.2,
+      "p_final": 0.45,
+      "p_semis": 2.0700000000000003,
+      "p_quarters": 6.44,
+      "p_round_of_16": 19.05,
+      "p_advance_from_groups": 46.68
+    },
+    {
+      "team": "Austria",
+      "rating": 1790,
+      "raw_rating": 1804,
+      "p_champion": 0.17,
+      "p_final": 0.7200000000000001,
+      "p_semis": 2.47,
+      "p_quarters": 7.27,
+      "p_round_of_16": 17.72,
+      "p_advance_from_groups": 63.85
     },
     {
       "team": "Scotland",
       "rating": 1757,
       "raw_rating": 1730,
-      "p_champion": 0.12,
-      "p_final": 0.51,
-      "p_semis": 1.6300000000000001,
-      "p_quarters": 5.91,
-      "p_round_of_16": 16.59,
-      "p_advance_from_groups": 60.72
+      "p_champion": 0.15,
+      "p_final": 0.52,
+      "p_semis": 1.66,
+      "p_quarters": 5.76,
+      "p_round_of_16": 16.71,
+      "p_advance_from_groups": 61.42
     },
     {
       "team": "Egypt",
-      "rating": 1738,
+      "rating": 1735,
       "raw_rating": 1757,
-      "p_champion": 0.07,
-      "p_final": 0.23,
-      "p_semis": 1.52,
-      "p_quarters": 5.84,
-      "p_round_of_16": 23.31,
-      "p_advance_from_groups": 67.69
+      "p_champion": 0.09,
+      "p_final": 0.33999999999999997,
+      "p_semis": 1.44,
+      "p_quarters": 5.949999999999999,
+      "p_round_of_16": 23.71,
+      "p_advance_from_groups": 67.17
+    },
+    {
+      "team": "Sweden",
+      "rating": 1757,
+      "raw_rating": 1732,
+      "p_champion": 0.08,
+      "p_final": 0.43,
+      "p_semis": 1.36,
+      "p_quarters": 5.46,
+      "p_round_of_16": 14.14,
+      "p_advance_from_groups": 49.56
     },
     {
       "team": "Uzbekistan",
       "rating": 1753,
       "raw_rating": 1782,
-      "p_champion": 0.07,
-      "p_final": 0.29000000000000004,
-      "p_semis": 1.44,
-      "p_quarters": 4.83,
-      "p_round_of_16": 14.98,
-      "p_advance_from_groups": 38.74
+      "p_champion": 0.05,
+      "p_final": 0.27,
+      "p_semis": 1.42,
+      "p_quarters": 4.449999999999999,
+      "p_round_of_16": 14.83,
+      "p_advance_from_groups": 38.55
     },
     {
       "team": "Czech Republic",
-      "rating": 1713,
+      "rating": 1709,
       "raw_rating": 1720,
       "p_champion": 0.04,
-      "p_final": 0.24000000000000002,
-      "p_semis": 0.98,
-      "p_quarters": 6.65,
-      "p_round_of_16": 21.37,
-      "p_advance_from_groups": 59.51
-    },
-    {
-      "team": "DR Congo",
-      "rating": 1768,
-      "raw_rating": 1711,
-      "p_champion": 0.04,
-      "p_final": 0.37,
-      "p_semis": 1.88,
-      "p_quarters": 5.859999999999999,
-      "p_round_of_16": 17.45,
-      "p_advance_from_groups": 45.39
+      "p_final": 0.17,
+      "p_semis": 0.7000000000000001,
+      "p_quarters": 5.53,
+      "p_round_of_16": 20.31,
+      "p_advance_from_groups": 59.23
     },
     {
       "team": "Panama",
       "rating": 1731,
       "raw_rating": 1771,
-      "p_champion": 0.03,
-      "p_final": 0.16,
-      "p_semis": 0.88,
-      "p_quarters": 3.6599999999999997,
-      "p_round_of_16": 13.870000000000001,
-      "p_advance_from_groups": 53.49
+      "p_champion": 0.04,
+      "p_final": 0.24000000000000002,
+      "p_semis": 1.01,
+      "p_quarters": 4.05,
+      "p_round_of_16": 13.95,
+      "p_advance_from_groups": 53.12
     },
     {
       "team": "Bosnia and Herzegovina",
       "rating": 1699,
       "raw_rating": 1612,
-      "p_champion": 0.02,
-      "p_final": 0.15,
-      "p_semis": 0.6900000000000001,
-      "p_quarters": 5.680000000000001,
-      "p_round_of_16": 16.87,
-      "p_advance_from_groups": 62.24
+      "p_champion": 0.03,
+      "p_final": 0.1,
+      "p_semis": 0.85,
+      "p_quarters": 5.31,
+      "p_round_of_16": 16.849999999999998,
+      "p_advance_from_groups": 61.84
     },
     {
-      "team": "Iran",
-      "rating": 1716,
-      "raw_rating": 1816,
+      "team": "Tunisia",
+      "rating": 1714,
+      "raw_rating": 1697,
       "p_champion": 0.02,
-      "p_final": 0.11,
-      "p_semis": 0.9,
-      "p_quarters": 4.68,
-      "p_round_of_16": 18.369999999999997,
-      "p_advance_from_groups": 60.92
+      "p_final": 0.13999999999999999,
+      "p_semis": 0.62,
+      "p_quarters": 3.12,
+      "p_round_of_16": 9.600000000000001,
+      "p_advance_from_groups": 40.67
     },
     {
       "team": "Cape Verde",
-      "rating": 1670,
+      "rating": 1673,
       "raw_rating": 1636,
       "p_champion": 0.01,
+      "p_final": 0.060000000000000005,
+      "p_semis": 0.3,
+      "p_quarters": 1.54,
+      "p_round_of_16": 6.35,
+      "p_advance_from_groups": 37.16
+    },
+    {
+      "team": "Jordan",
+      "rating": 1684,
+      "raw_rating": 1717,
+      "p_champion": 0.01,
+      "p_final": 0.02,
+      "p_semis": 0.39,
+      "p_quarters": 1.8199999999999998,
+      "p_round_of_16": 6.390000000000001,
+      "p_advance_from_groups": 36.53
+    },
+    {
+      "team": "Saudi Arabia",
+      "rating": 1647,
+      "raw_rating": 1656,
+      "p_champion": 0.01,
       "p_final": 0.03,
-      "p_semis": 0.26,
-      "p_quarters": 1.39,
-      "p_round_of_16": 6.489999999999999,
-      "p_advance_from_groups": 35.43000000000001
+      "p_semis": 0.21,
+      "p_quarters": 0.97,
+      "p_round_of_16": 3.76,
+      "p_advance_from_groups": 26.549999999999997
     },
     {
       "team": "Cura\u00e7ao",
-      "rating": 1602,
+      "rating": 1607,
       "raw_rating": 1549,
       "p_champion": 0.0,
-      "p_final": 0.01,
-      "p_semis": 0.06999999999999999,
-      "p_quarters": 0.34,
-      "p_round_of_16": 2.18,
-      "p_advance_from_groups": 13.420000000000002
+      "p_final": 0.0,
+      "p_semis": 0.05,
+      "p_quarters": 0.28,
+      "p_round_of_16": 1.82,
+      "p_advance_from_groups": 13.799999999999997
     },
     {
       "team": "Ghana",
-      "rating": 1678,
+      "rating": 1683,
       "raw_rating": 1572,
       "p_champion": 0.0,
-      "p_final": 0.05,
-      "p_semis": 0.29,
-      "p_quarters": 1.28,
-      "p_round_of_16": 5.83,
-      "p_advance_from_groups": 32.06999999999999
+      "p_final": 0.06,
+      "p_semis": 0.25,
+      "p_quarters": 1.4,
+      "p_round_of_16": 5.869999999999999,
+      "p_advance_from_groups": 34.17
     },
     {
       "team": "Haiti",
       "rating": 1654,
       "raw_rating": 1632,
       "p_champion": 0.0,
-      "p_final": 0.01,
-      "p_semis": 0.060000000000000005,
-      "p_quarters": 0.63,
-      "p_round_of_16": 3.27,
-      "p_advance_from_groups": 24.799999999999997
+      "p_final": 0.05,
+      "p_semis": 0.12000000000000001,
+      "p_quarters": 0.87,
+      "p_round_of_16": 3.62,
+      "p_advance_from_groups": 25.299999999999997
+    },
+    {
+      "team": "Iran",
+      "rating": 1712,
+      "raw_rating": 1816,
+      "p_champion": 0.0,
+      "p_final": 0.15,
+      "p_semis": 0.97,
+      "p_quarters": 4.47,
+      "p_round_of_16": 19.16,
+      "p_advance_from_groups": 60.08
     },
     {
       "team": "Iraq",
@@ -1817,32 +1850,21 @@
       "raw_rating": 1715,
       "p_champion": 0.0,
       "p_final": 0.02,
-      "p_semis": 0.13,
-      "p_quarters": 0.93,
-      "p_round_of_16": 3.73,
-      "p_advance_from_groups": 17.349999999999994
-    },
-    {
-      "team": "Jordan",
-      "rating": 1683,
-      "raw_rating": 1717,
-      "p_champion": 0.0,
-      "p_final": 0.05,
-      "p_semis": 0.39,
-      "p_quarters": 1.73,
-      "p_round_of_16": 6.369999999999999,
-      "p_advance_from_groups": 36.07
+      "p_semis": 0.11,
+      "p_quarters": 0.77,
+      "p_round_of_16": 3.3,
+      "p_advance_from_groups": 16.28
     },
     {
       "team": "New Zealand",
       "rating": 1646,
       "raw_rating": 1661,
       "p_champion": 0.0,
-      "p_final": 0.01,
-      "p_semis": 0.26,
-      "p_quarters": 1.7,
-      "p_round_of_16": 10.33,
-      "p_advance_from_groups": 46.48
+      "p_final": 0.04,
+      "p_semis": 0.3,
+      "p_quarters": 1.6,
+      "p_round_of_16": 10.31,
+      "p_advance_from_groups": 46.57
     },
     {
       "team": "Qatar",
@@ -1850,43 +1872,21 @@
       "raw_rating": 1576,
       "p_champion": 0.0,
       "p_final": 0.0,
-      "p_semis": 0.0,
-      "p_quarters": 0.19,
-      "p_round_of_16": 1.29,
-      "p_advance_from_groups": 12.560000000000002
-    },
-    {
-      "team": "Saudi Arabia",
-      "rating": 1647,
-      "raw_rating": 1656,
-      "p_champion": 0.0,
-      "p_final": 0.03,
-      "p_semis": 0.12,
-      "p_quarters": 0.93,
-      "p_round_of_16": 4.02,
-      "p_advance_from_groups": 26.989999999999995
+      "p_semis": 0.01,
+      "p_quarters": 0.18000000000000002,
+      "p_round_of_16": 1.3,
+      "p_advance_from_groups": 13.14
     },
     {
       "team": "South Africa",
-      "rating": 1624,
+      "rating": 1623,
       "raw_rating": 1622,
       "p_champion": 0.0,
-      "p_final": 0.0,
-      "p_semis": 0.07,
-      "p_quarters": 1.1600000000000001,
-      "p_round_of_16": 6.43,
-      "p_advance_from_groups": 29.75
-    },
-    {
-      "team": "Tunisia",
-      "rating": 1712,
-      "raw_rating": 1697,
-      "p_champion": 0.0,
-      "p_final": 0.09,
-      "p_semis": 0.48,
-      "p_quarters": 3.06,
-      "p_round_of_16": 9.71,
-      "p_advance_from_groups": 40.88
+      "p_final": 0.02,
+      "p_semis": 0.08,
+      "p_quarters": 1.32,
+      "p_round_of_16": 6.48,
+      "p_advance_from_groups": 29.230000000000004
     }
   ]
 }
