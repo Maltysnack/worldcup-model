@@ -91,6 +91,84 @@ TEAM_TROPHY_SCORE: dict[str, float] = {
 TROPHY_DEFAULT = 3.0
 
 
+# ─────────────────────────────────────────────────────────────────────
+# National-team trophies layer
+# ─────────────────────────────────────────────────────────────────────
+# Recent finishes at major international tournaments. Verified from
+# our matches table (no guesses). Each entry: (tournament, year,
+# placement). Only champion and runner-up are recorded here, per the
+# project decision to keep this layer focused.
+
+NT_FINISHES: dict[str, list[tuple[str, int, str]]] = {
+    "Argentina": [
+        ("WC", 2022, "champion"),
+        ("Copa", 2024, "champion"),
+        ("Copa", 2021, "champion"),
+    ],
+    "Spain":         [("EURO", 2024, "champion")],
+    "France":        [("WC", 2022, "runner_up")],
+    "England": [
+        ("EURO", 2024, "runner_up"),
+        ("EURO", 2020, "runner_up"),
+    ],
+    "Brazil":        [("Copa", 2021, "runner_up")],
+    "Colombia":      [("Copa", 2024, "runner_up")],
+    "Morocco":       [("AFCON", 2026, "champion")],
+    "Senegal":       [("AFCON", 2026, "runner_up")],
+    "Ivory Coast":   [("AFCON", 2024, "champion")],
+    "Qatar":         [("Asian", 2024, "champion")],
+    "Jordan":        [("Asian", 2024, "runner_up")],
+    "Mexico": [
+        ("Gold Cup", 2025, "champion"),
+        ("Gold Cup", 2023, "champion"),
+    ],
+    "United States": [
+        ("Gold Cup", 2021, "champion"),
+        ("Gold Cup", 2025, "runner_up"),
+    ],
+    "Panama":        [("Gold Cup", 2023, "runner_up")],
+}
+
+NT_BONUS = {
+    "champion": 30.0,
+    "runner_up": 12.0,
+}
+NT_HALFLIFE_YEARS = 4.0  # decay: each 4 years halves the bonus
+NT_REFERENCE_YEAR = 2026
+
+
+def nt_trophy_bonus(team: str) -> float:
+    """Total Elo bonus for `team` from recent NT trophy finishes,
+    time-decayed at NT_HALFLIFE_YEARS."""
+    finishes = NT_FINISHES.get(team, [])
+    total = 0.0
+    for _tournament, year, place in finishes:
+        years_ago = max(0, NT_REFERENCE_YEAR - year)
+        decay = 0.5 ** (years_ago / NT_HALFLIFE_YEARS)
+        total += NT_BONUS.get(place, 0.0) * decay
+    return total
+
+
+def apply_nt_bonus(ratings: dict[str, float]) -> dict[str, float]:
+    """Add the NT trophy bonus to each rating. Teams not in NT_FINISHES
+    are unchanged."""
+    return {t: r + nt_trophy_bonus(t) for t, r in ratings.items()}
+
+
+def nt_bonus_table(teams: list[str] | None = None) -> list[dict]:
+    """Diagnostic: per-team NT bonus breakdown."""
+    universe = teams or list(NT_FINISHES.keys())
+    rows = []
+    for t in universe:
+        finishes = NT_FINISHES.get(t, [])
+        bonus = nt_trophy_bonus(t)
+        labels = "; ".join(
+            f"{tournament} {year} {place}" for tournament, year, place in finishes
+        ) or "(none)"
+        rows.append({"team": t, "bonus": round(bonus, 1), "finishes": labels})
+    return sorted(rows, key=lambda r: -r["bonus"])
+
+
 def trophy_z_scores(team_universe: list[str]) -> dict[str, float]:
     """Return team -> z-score of log(trophy score) across the WC field."""
     vals = np.array([TEAM_TROPHY_SCORE.get(t, TROPHY_DEFAULT) for t in team_universe])

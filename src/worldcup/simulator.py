@@ -55,6 +55,7 @@ from worldcup.profiles import current_profile, file_suffix, table_suffix
 from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
+from worldcup.trophies import apply_nt_bonus
 
 _PROFILE = current_profile()
 OUTPUT_PATH = PROJECT_ROOT / "data" / f"simulation{file_suffix(_PROFILE)}.json"
@@ -251,7 +252,7 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
     # Keep the raw Elo for export (used by the website to rank teams
     # for dark-horse selection without double-counting the blend
     # corrections we already apply).
-    ratings = apply_form(blended_ratings(raw_ratings))
+    ratings = apply_nt_bonus(apply_form(blended_ratings(raw_ratings)))
     derived = derive_groups_from_fixtures(fixtures)
     groups_by_letter = label_groups_by_fifa(derived)
 

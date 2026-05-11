@@ -33,6 +33,7 @@ from worldcup.profiles import current_profile, file_suffix, table_suffix
 from worldcup.form import apply_form
 from worldcup.goals import sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
+from worldcup.trophies import apply_nt_bonus
 
 # Number of group sims when computing predicted standings. The bracket
 # is a single deterministic prediction, but the group standings driving
@@ -317,7 +318,7 @@ def main() -> None:
     model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}+form"
     print(f"Generating bracket using official FIFA 2026 structure (model: {model_id})")
     raw_ratings, fixtures = load_data()
-    ratings = apply_form(blended_ratings(raw_ratings))
+    ratings = apply_nt_bonus(apply_form(blended_ratings(raw_ratings)))
     print(f"  loaded {len(ratings)} team ratings, {len(fixtures)} group fixtures")
 
     derived = derive_groups_from_fixtures(fixtures)
