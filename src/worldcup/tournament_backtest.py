@@ -305,18 +305,18 @@ def main() -> None:
     if missing:
         print(f"WARNING: missing pre-WC rating for: {missing}")
 
-    # Apply form + NT trophy bonus as-of the WC kickoff date so the
-    # backtest reflects what our current model would have predicted given
-    # only data available at that time.
+    # Apply form + NT trophy bonus + host bonus as-of the WC kickoff date
     from datetime import date
     from worldcup.form import compute_form_bumps
+    from worldcup.host import host_bonus
     from worldcup.trophies import nt_trophy_bonus
 
-    # WC kickoff date approximation: matches usually start mid-June
     wc_kickoff = date(year, 6, 1)
     form_bumps = compute_form_bumps(as_of_date=wc_kickoff)
     ratings = {
-        t: r + form_bumps.get(t, 0.0) + nt_trophy_bonus(t, as_of_year=year)
+        t: (r + form_bumps.get(t, 0.0)
+            + nt_trophy_bonus(t, as_of_year=year)
+            + host_bonus(t, "FIFA World Cup", year))
         for t, r in raw_ratings.items()
     }
 

@@ -23,6 +23,7 @@ worldcup-backtest = "worldcup.backtest:main"
 worldcup-backtest-tournament = "worldcup.tournament_backtest:main"
 worldcup-compare-profiles = "worldcup.compare_profiles:main"
 worldcup-iterate-profiles = "worldcup.iterate_profiles:main"
+worldcup-continental-backtest = "worldcup.continental_backtest:main"
 
 [build-system]
 requires = ["uv_build>=0.11.11,<0.12.0"]
