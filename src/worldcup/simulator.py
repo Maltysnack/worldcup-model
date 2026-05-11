@@ -208,6 +208,86 @@ def simulate_one(
     return team_round, match_winner
 
 
+def predict_recent_played_matches(*, days_back: int = 90, max_matches: int = 12):
+    """Pull recently-played matches between WC 2026 teams and reconstruct
+    what our model would have predicted for each (using the rating_pre
+    values from the predictions table that captured the team strength
+    immediately before the match)."""
+    from worldcup.bracket import FIFA_GROUPS
+    from worldcup.calibration import (
+        LAMBDA_AWAY_AT_PARITY,
+        LAMBDA_HOME_AT_PARITY,
+        SLOPE_AWAY,
+        SLOPE_HOME,
+    )
+    from worldcup.db import connect
+    from worldcup.elo import HOME_ADVANTAGE
+    from worldcup.goals import wld_probs
+
+    wc_teams = {t for teams in FIFA_GROUPS.values() for t in teams}
+
+    with connect(read_only=True) as con:
+        df = con.execute(
+            f"""
+            SELECT match_date, home_team, away_team, neutral, tournament,
+                   rating_home_pre, rating_away_pre,
+                   actual_home_goals, actual_away_goals
+            FROM predictions
+            WHERE actual_home_goals IS NOT NULL
+              AND match_date >= CURRENT_DATE - INTERVAL {int(days_back)} DAY
+            ORDER BY match_date DESC
+            """
+        ).fetchdf()
+
+    out = []
+    for row in df.itertuples(index=False):
+        if row.home_team not in wc_teams or row.away_team not in wc_teams:
+            continue
+        eff_h = row.rating_home_pre + (0.0 if row.neutral else HOME_ADVANTAGE)
+        eff_a = row.rating_away_pre
+        gap = eff_h - eff_a
+        lh = float(LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap))
+        la = float(LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap))
+        p_home, p_draw, p_away = wld_probs(lh, la)
+        # Modal-ish score: round expected goals to nearest int
+        modal_h = max(0, round(lh))
+        modal_a = max(0, round(la))
+        actual_h = int(row.actual_home_goals)
+        actual_a = int(row.actual_away_goals)
+        if actual_h > actual_a:
+            actual_winner = "home"
+        elif actual_h < actual_a:
+            actual_winner = "away"
+        else:
+            actual_winner = "draw"
+        # Did our top pick match the actual outcome?
+        top_pick = max(
+            [("home", p_home), ("draw", p_draw), ("away", p_away)],
+            key=lambda kv: kv[1],
+        )[0]
+        out.append({
+            "match_date": row.match_date.strftime("%Y-%m-%d") if hasattr(row.match_date, "strftime") else str(row.match_date),
+            "home_team": row.home_team,
+            "away_team": row.away_team,
+            "tournament": row.tournament,
+            "neutral": bool(row.neutral),
+            "p_home_win": round(p_home, 4),
+            "p_draw": round(p_draw, 4),
+            "p_away_win": round(p_away, 4),
+            "expected_home_goals": round(lh, 2),
+            "expected_away_goals": round(la, 2),
+            "modal_score": [modal_h, modal_a],
+            "actual_home_goals": actual_h,
+            "actual_away_goals": actual_a,
+            "actual_winner": actual_winner,
+            "top_pick": top_pick,
+            "top_pick_correct": top_pick == actual_winner,
+        })
+        if len(out) >= max_matches:
+            break
+    return out
+
+
 def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: int = 7):
     """For each unplayed WC fixture compute W/D/L probabilities, expected
     goals, and the most-common (modal) scoreline by Monte Carlo sampling
@@ -316,11 +396,16 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
     match_predictions = predict_upcoming_matches(ratings, fixtures)
     print(f"  produced {len(match_predictions)} match predictions")
 
+    print("\nReconstructing predictions for recent WC-team matches")
+    recent_matches = predict_recent_played_matches()
+    print(f"  produced {len(recent_matches)} recent matches")
+
     output = {
         "model_version": model_id,
         "elo_version": MODEL_VERSION,
         "elo_weight": ELO_WEIGHT,
         "match_predictions": match_predictions,
+        "recent_matches": recent_matches,
         "generated_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
         "n_simulations": n_sims,
         "calibration": {

@@ -1,0 +1,68 @@
+name: Refresh predictions
+
+# Daily refresh: re-ingest match data, rebuild Elo, regenerate the
+# bracket + simulation JSONs, and commit them to the maltysnack site
+# repo so the public page picks up new results automatically.
+#
+# Schedule: every day at 06:00 UTC (after most evening matches finish).
+# Also runnable on demand via the workflow_dispatch button.
+#
+# Required secrets (configure once in repo settings):
+#   MALTYSNACK_PUSH_TOKEN  - personal access token with `repo` scope
+#                            for the Maltysnack/Maltysnack.github.io repo
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout worldcup
+        uses: actions/checkout@v4
+
+      - name: Checkout maltysnack site
+        uses: actions/checkout@v4
+        with:
+          repository: Maltysnack/Maltysnack.github.io
+          path: site
+          token: ${{ secrets.MALTYSNACK_PUSH_TOKEN }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Pull fresh match data
+        run: |
+          rm -f data/raw/*.csv
+          uv run worldcup-ingest
+
+      - name: Rebuild Elo + bracket + simulation
+        run: |
+          uv run worldcup-elo
+          uv run worldcup-bracket
+          uv run worldcup-simulate
+
+      - name: Copy JSONs into site repo
+        run: |
+          cp data/bracket.json     site/projects/worldcup-bracket.json
+          cp data/simulation.json  site/projects/worldcup-simulation.json
+
+      - name: Commit + push site updates (if changed)
+        working-directory: site
+        run: |
+          git config user.name  "worldcup-bot"
+          git config user.email "bot@maltysnack.local"
+          if git diff --quiet projects/worldcup-bracket.json projects/worldcup-simulation.json; then
+            echo "No changes to publish."
+          else
+            git add projects/worldcup-bracket.json projects/worldcup-simulation.json
+            git commit -m "worldcup: nightly auto-refresh"
+            git push
+          fi
