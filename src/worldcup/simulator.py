@@ -90,8 +90,7 @@ def simulate_one(
         for row in fixtures_by_group[letter]:
             h, a = row["home_team"], row["away_team"]
             sa, sb, win = sim_match(
-                ratings[h], ratings[a], neutral=row["neutral"], ko=False, rng=rng,
-                team_a=h, team_b=a,
+                ratings[h], ratings[a], neutral=row["neutral"], ko=False, rng=rng
             )
             if win == 0:
                 pts[h] += 3
@@ -167,8 +166,7 @@ def simulate_one(
         ta = resolve(a_spec, i)
         tb = resolve(b_spec, i)
         _, _, win = sim_match(
-            ratings[ta], ratings[tb], neutral=True, ko=True, rng=rng,
-            team_a=ta, team_b=tb,
+            ratings[ta], ratings[tb], neutral=True, ko=True, rng=rng
         )
         winner = ta if win == 0 else tb
         loser = tb if win == 0 else ta
@@ -181,8 +179,7 @@ def simulate_one(
             ta = match_winner[fa]
             tb = match_winner[fb]
             _, _, win = sim_match(
-                ratings[ta], ratings[tb], neutral=True, ko=True, rng=rng,
-                team_a=ta, team_b=tb,
+                ratings[ta], ratings[tb], neutral=True, ko=True, rng=rng
             )
             winner = ta if win == 0 else tb
             loser = tb if win == 0 else ta
@@ -198,8 +195,7 @@ def simulate_one(
     ta = match_winner[ffa]
     tb = match_winner[ffb]
     _, _, win = sim_match(
-        ratings[ta], ratings[tb], neutral=True, ko=True, rng=rng,
-        team_a=ta, team_b=tb,
+        ratings[ta], ratings[tb], neutral=True, ko=True, rng=rng
     )
     champion = ta if win == 0 else tb
     runner_up = tb if win == 0 else ta
@@ -221,7 +217,7 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
         h, a = row.home_team, row.away_team
         eff_h = ratings[h] + (0.0 if row.neutral else HOME_ADVANTAGE)
         eff_a = ratings[a]
-        lh, la = expected_goals(eff_h - eff_a, team_home=h, team_away=a)
+        lh, la = expected_goals(eff_h - eff_a)
         h_samples = rng.poisson(lh, size=n_samples)
         a_samples = rng.poisson(la, size=n_samples)
         n_home = int((h_samples > a_samples).sum())
