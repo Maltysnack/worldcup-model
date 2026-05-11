@@ -100,59 +100,171 @@ TROPHY_DEFAULT = 3.0
 # project decision to keep this layer focused.
 
 NT_FINISHES: dict[str, list[tuple[str, int, str]]] = {
+    # ─── Argentina (most decorated recent NT in our window) ───
     "Argentina": [
         ("WC", 2022, "champion"),
         ("Copa", 2024, "champion"),
         ("Copa", 2021, "champion"),
+        ("Copa", 2016, "runner_up"),
+        ("Copa", 2015, "runner_up"),
+        ("WC", 2014, "runner_up"),
+        ("Copa", 2007, "runner_up"),
+        ("Copa", 2004, "runner_up"),
     ],
-    "Spain":         [("EURO", 2024, "champion")],
-    "France":        [("WC", 2022, "runner_up")],
+    # ─── European powers ───
+    "Spain": [
+        ("EURO", 2024, "champion"),
+        ("WC", 2010, "champion"),
+        ("EURO", 2012, "champion"),
+        ("EURO", 2008, "champion"),
+    ],
+    "France": [
+        ("WC", 2022, "runner_up"),
+        ("WC", 2018, "champion"),
+        ("EURO", 2016, "runner_up"),
+        ("EURO", 2000, "champion"),
+    ],
     "England": [
         ("EURO", 2024, "runner_up"),
         ("EURO", 2020, "runner_up"),
     ],
-    "Brazil":        [("Copa", 2021, "runner_up")],
-    "Colombia":      [("Copa", 2024, "runner_up")],
-    "Morocco":       [("AFCON", 2026, "champion")],
-    "Senegal":       [("AFCON", 2026, "runner_up")],
-    "Ivory Coast":   [("AFCON", 2024, "champion")],
-    "Qatar":         [("Asian", 2024, "champion")],
+    "Italy": [  # not in 2026 WC, but still gives historical context
+        ("EURO", 2020, "champion"),
+        ("EURO", 2012, "runner_up"),
+        ("WC", 2006, "champion"),
+    ],
+    "Germany": [
+        ("WC", 2014, "champion"),
+        ("EURO", 2008, "runner_up"),
+        ("WC", 2002, "runner_up"),
+    ],
+    "Croatia": [
+        ("WC", 2018, "runner_up"),
+    ],
+    "Netherlands": [
+        ("WC", 2010, "runner_up"),
+    ],
+    "Portugal": [
+        ("EURO", 2016, "champion"),
+        ("EURO", 2004, "runner_up"),
+    ],
+    "Greece": [  # historical context only
+        ("EURO", 2004, "champion"),
+    ],
+    # ─── South America ───
+    "Brazil": [
+        ("WC", 2002, "champion"),
+        ("Copa", 2019, "champion"),
+        ("Copa", 2007, "champion"),
+        ("Copa", 2004, "champion"),
+        ("Copa", 2021, "runner_up"),
+    ],
+    "Colombia": [
+        ("Copa", 2024, "runner_up"),
+        ("Copa", 2001, "champion"),
+    ],
+    "Uruguay": [
+        ("Copa", 2011, "champion"),
+    ],
+    "Paraguay": [
+        ("Copa", 2011, "runner_up"),
+    ],
+    "Chile": [  # not in 2026 WC, historical context
+        ("Copa", 2016, "champion"),
+        ("Copa", 2015, "champion"),
+    ],
+    "Peru": [
+        ("Copa", 2019, "runner_up"),
+    ],
+    # ─── Africa ───
+    "Morocco":       [("AFCON", 2026, "champion"),  ("AFCON", 2004, "runner_up")],
+    "Senegal":       [("AFCON", 2026, "runner_up"), ("AFCON", 2022, "champion"),
+                      ("AFCON", 2019, "runner_up"), ("AFCON", 2002, "runner_up")],
+    "Ivory Coast":   [("AFCON", 2024, "champion"),  ("AFCON", 2015, "champion"),
+                      ("AFCON", 2012, "runner_up"), ("AFCON", 2006, "runner_up")],
+    "Egypt":         [("AFCON", 2022, "runner_up"), ("AFCON", 2017, "runner_up"),
+                      ("AFCON", 2010, "champion"),  ("AFCON", 2008, "champion"),
+                      ("AFCON", 2006, "champion")],
+    "Cameroon":      [("AFCON", 2017, "champion"),  ("AFCON", 2008, "runner_up"),
+                      ("AFCON", 2002, "champion"),  ("AFCON", 2000, "champion")],
+    "Algeria":       [("AFCON", 2019, "champion")],
+    "Ghana":         [("AFCON", 2015, "runner_up"), ("AFCON", 2010, "runner_up")],
+    "Tunisia":       [("AFCON", 2004, "champion")],
+    # Zambia, Burkina Faso, Nigeria 2013 etc not in 2026 WC: skip
+    # ─── Asia / Oceania ───
+    "Qatar":         [("Asian", 2024, "champion"),  ("Asian", 2019, "champion")],
     "Jordan":        [("Asian", 2024, "runner_up")],
+    "Australia":     [("Asian", 2015, "champion"),  ("Asian", 2011, "runner_up")],
+    "South Korea":   [("Asian", 2015, "runner_up")],
+    "Japan":         [("Asian", 2019, "runner_up"), ("Asian", 2011, "champion"),
+                      ("Asian", 2004, "champion"),  ("Asian", 2000, "champion")],
+    "Saudi Arabia":  [("Asian", 2007, "runner_up"), ("Asian", 2000, "runner_up")],
+    "Iraq":          [("Asian", 2007, "champion")],
+    # ─── CONCACAF / Gold Cup ───
     "Mexico": [
-        ("Gold Cup", 2025, "champion"),
-        ("Gold Cup", 2023, "champion"),
+        ("Gold Cup", 2025, "champion"), ("Gold Cup", 2023, "champion"),
+        ("Gold Cup", 2019, "champion"), ("Gold Cup", 2015, "champion"),
+        ("Gold Cup", 2011, "champion"), ("Gold Cup", 2009, "champion"),
+        ("Gold Cup", 2003, "champion"), ("Gold Cup", 2021, "runner_up"),
+        ("Gold Cup", 2017, "runner_up"), ("Gold Cup", 2007, "runner_up"),
     ],
     "United States": [
-        ("Gold Cup", 2021, "champion"),
-        ("Gold Cup", 2025, "runner_up"),
+        ("Gold Cup", 2021, "champion"), ("Gold Cup", 2017, "champion"),
+        ("Gold Cup", 2013, "champion"), ("Gold Cup", 2007, "champion"),
+        ("Gold Cup", 2025, "runner_up"), ("Gold Cup", 2019, "runner_up"),
+        ("Gold Cup", 2011, "runner_up"), ("Gold Cup", 2009, "runner_up"),
+        ("Gold Cup", 2003, "runner_up"),
     ],
-    "Panama":        [("Gold Cup", 2023, "runner_up")],
+    "Canada":        [("Gold Cup", 2000, "champion")],
+    "Panama":        [("Gold Cup", 2023, "runner_up"), ("Gold Cup", 2013, "runner_up")],
 }
 
-NT_BONUS = {
-    "champion": 30.0,
-    "runner_up": 12.0,
+# Continental tournaments happen every 2-4 years and recent winners tend
+# to be in current form. The World Cup is on a 4-year cycle and history
+# shows defending champions frequently decline (France 2002, Italy 2010,
+# Spain 2014, Germany 2018 all went out in groups). So we treat WC
+# bonuses as roughly half-weight vs continentals, AND use a fast 2-year
+# half-life so older results fade quickly.
+NT_TOURNAMENT_TYPE = {
+    "EURO": "CONTINENTAL",
+    "Copa": "CONTINENTAL",
+    "AFCON": "CONTINENTAL",
+    "Asian": "CONTINENTAL",
+    "Gold Cup": "CONTINENTAL",
+    "WC": "WC",
 }
-NT_HALFLIFE_YEARS = 4.0  # decay: each 4 years halves the bonus
+NT_BONUS_BY_TYPE = {
+    "CONTINENTAL": {"champion": 30.0, "runner_up": 12.0},
+    "WC":          {"champion": 15.0, "runner_up":  6.0},
+}
+NT_HALFLIFE_YEARS = 2.0  # 2y old = 50%, 4y old = 25%, 6y old = 12.5%
 NT_REFERENCE_YEAR = 2026
 
 
-def nt_trophy_bonus(team: str) -> float:
-    """Total Elo bonus for `team` from recent NT trophy finishes,
-    time-decayed at NT_HALFLIFE_YEARS."""
+def nt_trophy_bonus(team: str, as_of_year: int | None = None) -> float:
+    """Total Elo bonus for `team` from NT trophy finishes earlier than
+    `as_of_year`. Continental and WC results use different base bonuses
+    (continental winners weighted higher; WC winners get half because
+    they're 4 years old by definition AND defending champs historically
+    decline). Time-decayed at NT_HALFLIFE_YEARS."""
+    ref_year = NT_REFERENCE_YEAR if as_of_year is None else as_of_year
     finishes = NT_FINISHES.get(team, [])
     total = 0.0
-    for _tournament, year, place in finishes:
-        years_ago = max(0, NT_REFERENCE_YEAR - year)
+    for tournament, year, place in finishes:
+        if year > ref_year:
+            continue  # future tournament; hadn't happened yet
+        type_ = NT_TOURNAMENT_TYPE.get(tournament, "CONTINENTAL")
+        base = NT_BONUS_BY_TYPE[type_].get(place, 0.0)
+        years_ago = max(0, ref_year - year)
         decay = 0.5 ** (years_ago / NT_HALFLIFE_YEARS)
-        total += NT_BONUS.get(place, 0.0) * decay
+        total += base * decay
     return total
 
 
-def apply_nt_bonus(ratings: dict[str, float]) -> dict[str, float]:
+def apply_nt_bonus(ratings: dict[str, float], as_of_year: int | None = None) -> dict[str, float]:
     """Add the NT trophy bonus to each rating. Teams not in NT_FINISHES
-    are unchanged."""
-    return {t: r + nt_trophy_bonus(t) for t, r in ratings.items()}
+    are unchanged. Pass as_of_year for historical backtests."""
+    return {t: r + nt_trophy_bonus(t, as_of_year=as_of_year) for t, r in ratings.items()}
 
 
 def nt_bonus_table(teams: list[str] | None = None) -> list[dict]:

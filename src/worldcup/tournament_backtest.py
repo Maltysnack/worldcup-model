@@ -300,14 +300,29 @@ def main() -> None:
         sys.exit(1)
 
     teams = [t for g in groups.values() for t in g]
-    ratings = fetch_pre_wc_ratings(year, teams)
-    missing = [t for t in teams if t not in ratings]
+    raw_ratings = fetch_pre_wc_ratings(year, teams)
+    missing = [t for t in teams if t not in raw_ratings]
     if missing:
         print(f"WARNING: missing pre-WC rating for: {missing}")
 
+    # Apply form + NT trophy bonus as-of the WC kickoff date so the
+    # backtest reflects what our current model would have predicted given
+    # only data available at that time.
+    from datetime import date
+    from worldcup.form import compute_form_bumps
+    from worldcup.trophies import nt_trophy_bonus
+
+    # WC kickoff date approximation: matches usually start mid-June
+    wc_kickoff = date(year, 6, 1)
+    form_bumps = compute_form_bumps(as_of_date=wc_kickoff)
+    ratings = {
+        t: r + form_bumps.get(t, 0.0) + nt_trophy_bonus(t, as_of_year=year)
+        for t, r in raw_ratings.items()
+    }
+
     actual = fetch_actual_results(year)
 
-    print(f"Tournament-level backtest: WC {year}")
+    print(f"Tournament-level backtest: WC {year}  (Elo + form + NT bonus)")
     print(f"  Teams: {len(teams)}, Groups: {len(groups)}")
     print(f"  Actual: {actual['champion']} won, {actual['runner_up']} runner-up")
     print(f"  Actual semifinalists: {sorted(actual['semifinalists'])}")
