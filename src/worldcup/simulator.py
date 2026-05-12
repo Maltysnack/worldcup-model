@@ -221,7 +221,7 @@ def predict_recent_played_matches(*, days_back: int = 90, max_matches: int = 12)
         SLOPE_HOME,
     )
     from worldcup.db import connect
-    from worldcup.elo import HOME_ADVANTAGE
+    from worldcup.elo import HOME_ADVANTAGE, actual_score, expected_score, k_for
     from worldcup.goals import wld_probs
 
     wc_teams = {t for teams in FIFA_GROUPS.values() for t in teams}
@@ -265,6 +265,15 @@ def predict_recent_played_matches(*, days_back: int = 90, max_matches: int = 12)
             [("home", p_home), ("draw", p_draw), ("away", p_away)],
             key=lambda kv: kv[1],
         )[0]
+        # Elo delta: how much the result moved each team's rating.
+        # Same formula the chronological walk uses, so the numbers match
+        # what's stored in the db post-update. Sign convention: positive
+        # = team gained Elo, negative = team lost Elo.
+        exp_home = expected_score(eff_h, eff_a)
+        sh, sa = actual_score(actual_h, actual_a)
+        k = k_for(row.tournament)
+        delta_home = k * (sh - exp_home)
+        delta_away = k * (sa - (1.0 - exp_home))
         out.append({
             "match_date": row.match_date.strftime("%Y-%m-%d") if hasattr(row.match_date, "strftime") else str(row.match_date),
             "home_team": row.home_team,
@@ -282,6 +291,8 @@ def predict_recent_played_matches(*, days_back: int = 90, max_matches: int = 12)
             "actual_winner": actual_winner,
             "top_pick": top_pick,
             "top_pick_correct": top_pick == actual_winner,
+            "elo_delta_home": round(float(delta_home), 1),
+            "elo_delta_away": round(float(delta_away), 1),
         })
         if len(out) >= max_matches:
             break
