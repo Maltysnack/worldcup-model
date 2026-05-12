@@ -281,9 +281,76 @@ def nt_bonus_table(teams: list[str] | None = None) -> list[dict]:
     return sorted(rows, key=lambda r: -r["bonus"])
 
 
+COMPUTED_COVERAGE_THRESHOLD = 0.5  # require ≥50% of WC teams before switching
+
+
+def team_trophy_score(team: str) -> float:
+    """Return the best-available trophy score for a team.
+
+    Preference order:
+      1. Computed score from real Wikipedia rosters + 2025-26 club
+         trophy data, BUT only if coverage is broad enough that
+         comparing computed-vs-handcoded across teams would be unfair.
+      2. Hand-coded TEAM_TROPHY_SCORE dict (the legacy fallback).
+      3. TROPHY_DEFAULT.
+
+    Why the threshold: the computed scale and the hand-coded scale are
+    not directly comparable. If we use computed for Argentina (squad
+    published) while France/Brazil still get hand-coded numbers, we
+    inadvertently penalise early-publishers. So we wait until enough
+    teams have rosters that the field is broadly on the new scale.
+    """
+    computed = _load_computed_scores()
+    if not _computed_coverage_sufficient(computed):
+        # Not enough teams yet for the computed values to be fair.
+        return TEAM_TROPHY_SCORE.get(team, TROPHY_DEFAULT)
+    if team in computed:
+        return computed[team]
+    return TEAM_TROPHY_SCORE.get(team, TROPHY_DEFAULT)
+
+
+def _computed_coverage_sufficient(computed: dict[str, float]) -> bool:
+    """True once a critical mass of WC teams have computed scores.
+    Uses the hand-coded TEAM_TROPHY_SCORE keyset as a proxy for the WC
+    field (48 teams)."""
+    if not computed:
+        return False
+    field = set(TEAM_TROPHY_SCORE)
+    covered = sum(1 for t in computed if t in field)
+    return covered / max(len(field), 1) >= COMPUTED_COVERAGE_THRESHOLD
+
+
+_COMPUTED_CACHE: dict[str, float] | None = None
+
+
+def _load_computed_scores() -> dict[str, float]:
+    """Memoised lookup of the computed scores JSON. Returns empty dict
+    if the file doesn't exist yet (e.g. fresh checkout before the
+    scrapers have run)."""
+    global _COMPUTED_CACHE
+    if _COMPUTED_CACHE is not None:
+        return _COMPUTED_CACHE
+    import json
+    from worldcup.db import PROJECT_ROOT
+    path = PROJECT_ROOT / "data" / "raw" / "wc2026_trophy_scores.json"
+    if not path.exists():
+        _COMPUTED_CACHE = {}
+        return _COMPUTED_CACHE
+    data = json.loads(path.read_text())
+    _COMPUTED_CACHE = {
+        team: info["computed_score"]
+        for team, info in data.get("teams", {}).items()
+    }
+    return _COMPUTED_CACHE
+
+
 def trophy_z_scores(team_universe: list[str]) -> dict[str, float]:
-    """Return team -> z-score of log(trophy score) across the WC field."""
-    vals = np.array([TEAM_TROPHY_SCORE.get(t, TROPHY_DEFAULT) for t in team_universe])
+    """Return team -> z-score of log(trophy score) across the WC field.
+
+    Uses computed-when-available scores and falls back to hand-coded
+    values for teams whose squads haven't been published yet.
+    """
+    vals = np.array([team_trophy_score(t) for t in team_universe])
     log_vals = np.log(vals + 1.0)  # +1 so the zeros don't blow up
     mean = log_vals.mean()
     std = log_vals.std() or 1.0
@@ -291,11 +358,17 @@ def trophy_z_scores(team_universe: list[str]) -> dict[str, float]:
 
 
 def adjustment_table(elo: dict[str, float]) -> list[dict]:
-    """Diagnostic: per-team trophy score, z-score, and notes."""
-    teams = sorted(TEAM_TROPHY_SCORE)
+    """Diagnostic: per-team trophy score, z-score, and source."""
+    teams = sorted(set(TEAM_TROPHY_SCORE) | set(_load_computed_scores()))
     z = trophy_z_scores(teams)
-    rows = [
-        {"team": t, "trophy_score": TEAM_TROPHY_SCORE[t], "z": round(z[t], 2)}
-        for t in teams
-    ]
+    computed = _load_computed_scores()
+    rows = []
+    for t in teams:
+        score = team_trophy_score(t)
+        rows.append({
+            "team": t,
+            "trophy_score": round(score, 2),
+            "z": round(z[t], 2),
+            "source": "computed" if t in computed else "hand-coded",
+        })
     return sorted(rows, key=lambda r: -r["trophy_score"])

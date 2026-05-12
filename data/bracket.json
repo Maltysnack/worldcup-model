@@ -2,7 +2,7 @@
   "model_version": "elo-v4a-flat-mild+squad35+form",
   "elo_version": "elo-v4a-flat-mild",
   "elo_weight": 0.65,
-  "generated_at": "2026-05-11T14:00:12Z",
+  "generated_at": "2026-05-12T14:05:46Z",
   "bracket_format": "fifa-2026",
   "flags": {
     "Algeria": "dz",
@@ -62,34 +62,34 @@
           "team": "Mexico",
           "rating": 1868,
           "predicted_points": 6.8,
-          "predicted_goal_diff": 4.34,
-          "predicted_goals_for": 6.36,
+          "predicted_goal_diff": 4.33,
+          "predicted_goals_for": 6.35,
           "position": 1,
           "qualifies_as": "winner"
         },
         {
           "team": "South Korea",
-          "rating": 1831,
+          "rating": 1837,
           "predicted_points": 4.9,
-          "predicted_goal_diff": 1.04,
-          "predicted_goals_for": 4.43,
+          "predicted_goal_diff": 1.14,
+          "predicted_goals_for": 4.49,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Czech Republic",
-          "rating": 1708,
-          "predicted_points": 3.2,
-          "predicted_goal_diff": -1.7,
-          "predicted_goals_for": 3.1,
+          "rating": 1706,
+          "predicted_points": 3.1,
+          "predicted_goal_diff": -1.77,
+          "predicted_goals_for": 3.07,
           "position": 3,
           "qualifies_as": "eliminated"
         },
         {
           "team": "South Africa",
-          "rating": 1624,
+          "rating": 1623,
           "predicted_points": 1.9,
-          "predicted_goal_diff": -3.68,
+          "predicted_goal_diff": -3.71,
           "predicted_goals_for": 2.26,
           "position": 4,
           "qualifies_as": "eliminated"
@@ -101,9 +101,9 @@
       "standings": [
         {
           "team": "Canada",
-          "rating": 1823,
+          "rating": 1824,
           "predicted_points": 6.4,
-          "predicted_goal_diff": 3.77,
+          "predicted_goal_diff": 3.78,
           "predicted_goals_for": 6.05,
           "position": 1,
           "qualifies_as": "winner"
@@ -112,25 +112,25 @@
           "team": "Switzerland",
           "rating": 1887,
           "predicted_points": 5.8,
-          "predicted_goal_diff": 2.78,
+          "predicted_goal_diff": 2.77,
           "predicted_goals_for": 5.57,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Bosnia and Herzegovina",
-          "rating": 1700,
+          "rating": 1697,
           "predicted_points": 3.2,
-          "predicted_goal_diff": -1.64,
-          "predicted_goals_for": 3.19,
+          "predicted_goal_diff": -1.68,
+          "predicted_goals_for": 3.18,
           "position": 3,
           "qualifies_as": "best_third"
         },
         {
           "team": "Qatar",
-          "rating": 1567,
+          "rating": 1570,
           "predicted_points": 1.4,
-          "predicted_goal_diff": -4.91,
+          "predicted_goal_diff": -4.86,
           "predicted_goals_for": 2.0,
           "position": 4,
           "qualifies_as": "eliminated"
@@ -142,10 +142,10 @@
       "standings": [
         {
           "team": "Brazil",
-          "rating": 1946,
+          "rating": 1948,
           "predicted_points": 6.3,
-          "predicted_goal_diff": 3.44,
-          "predicted_goals_for": 5.83,
+          "predicted_goal_diff": 3.52,
+          "predicted_goals_for": 5.88,
           "position": 1,
           "qualifies_as": "winner"
         },
@@ -153,26 +153,26 @@
           "team": "Morocco",
           "rating": 1911,
           "predicted_points": 5.3,
-          "predicted_goal_diff": 1.9,
-          "predicted_goals_for": 5.01,
+          "predicted_goal_diff": 1.94,
+          "predicted_goals_for": 5.05,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Scotland",
-          "rating": 1758,
+          "rating": 1757,
           "predicted_points": 3.4,
-          "predicted_goal_diff": -1.0,
-          "predicted_goals_for": 3.44,
+          "predicted_goal_diff": -1.01,
+          "predicted_goals_for": 3.45,
           "position": 3,
           "qualifies_as": "best_third"
         },
         {
           "team": "Haiti",
-          "rating": 1645,
-          "predicted_points": 1.8,
-          "predicted_goal_diff": -4.34,
-          "predicted_goals_for": 2.16,
+          "rating": 1640,
+          "predicted_points": 1.7,
+          "predicted_goal_diff": -4.45,
+          "predicted_goals_for": 2.13,
           "position": 4,
           "qualifies_as": "eliminated"
         }
@@ -183,37 +183,37 @@
       "standings": [
         {
           "team": "United States",
-          "rating": 1849,
-          "predicted_points": 5.6,
-          "predicted_goal_diff": 2.05,
-          "predicted_goals_for": 4.85,
+          "rating": 1846,
+          "predicted_points": 5.5,
+          "predicted_goal_diff": 2.02,
+          "predicted_goals_for": 4.83,
           "position": 1,
           "qualifies_as": "winner"
         },
         {
           "team": "Turkey",
-          "rating": 1904,
+          "rating": 1903,
           "predicted_points": 4.6,
-          "predicted_goal_diff": 0.76,
-          "predicted_goals_for": 4.16,
+          "predicted_goal_diff": 0.79,
+          "predicted_goals_for": 4.17,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Paraguay",
-          "rating": 1825,
-          "predicted_points": 3.5,
-          "predicted_goal_diff": -0.96,
-          "predicted_goals_for": 3.28,
+          "rating": 1821,
+          "predicted_points": 3.4,
+          "predicted_goal_diff": -1.01,
+          "predicted_goals_for": 3.26,
           "position": 3,
           "qualifies_as": "best_third"
         },
         {
           "team": "Australia",
-          "rating": 1788,
+          "rating": 1789,
           "predicted_points": 2.9,
-          "predicted_goal_diff": -1.85,
-          "predicted_goals_for": 2.91,
+          "predicted_goal_diff": -1.8,
+          "predicted_goals_for": 2.92,
           "position": 4,
           "qualifies_as": "eliminated"
         }
@@ -224,36 +224,36 @@
       "standings": [
         {
           "team": "Germany",
-          "rating": 1901,
+          "rating": 1904,
           "predicted_points": 5.6,
-          "predicted_goal_diff": 2.46,
-          "predicted_goals_for": 5.26,
+          "predicted_goal_diff": 2.58,
+          "predicted_goals_for": 5.34,
           "position": 1,
           "qualifies_as": "winner"
         },
         {
           "team": "Ecuador",
-          "rating": 1895,
+          "rating": 1887,
           "predicted_points": 5.5,
-          "predicted_goal_diff": 2.31,
-          "predicted_goals_for": 5.14,
+          "predicted_goal_diff": 2.16,
+          "predicted_goals_for": 5.05,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Ivory Coast",
-          "rating": 1835,
+          "rating": 1832,
           "predicted_points": 4.3,
-          "predicted_goal_diff": 0.3,
-          "predicted_goals_for": 4.03,
+          "predicted_goal_diff": 0.31,
+          "predicted_goals_for": 4.04,
           "position": 3,
           "qualifies_as": "best_third"
         },
         {
           "team": "Cura\u00e7ao",
-          "rating": 1607,
+          "rating": 1606,
           "predicted_points": 1.3,
-          "predicted_goal_diff": -5.07,
+          "predicted_goal_diff": -5.04,
           "predicted_goals_for": 1.93,
           "position": 4,
           "qualifies_as": "eliminated"
@@ -265,7 +265,7 @@
       "standings": [
         {
           "team": "Netherlands",
-          "rating": 1914,
+          "rating": 1915,
           "predicted_points": 5.7,
           "predicted_goal_diff": 2.38,
           "predicted_goals_for": 5.13,
@@ -274,28 +274,28 @@
         },
         {
           "team": "Japan",
-          "rating": 1909,
+          "rating": 1908,
           "predicted_points": 5.2,
-          "predicted_goal_diff": 1.62,
-          "predicted_goals_for": 4.72,
+          "predicted_goal_diff": 1.6,
+          "predicted_goals_for": 4.71,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Sweden",
-          "rating": 1761,
+          "rating": 1760,
           "predicted_points": 3.0,
-          "predicted_goal_diff": -1.86,
-          "predicted_goals_for": 2.99,
+          "predicted_goal_diff": -1.89,
+          "predicted_goals_for": 2.98,
           "position": 3,
           "qualifies_as": "eliminated"
         },
         {
           "team": "Tunisia",
-          "rating": 1719,
+          "rating": 1721,
           "predicted_points": 2.7,
-          "predicted_goal_diff": -2.14,
-          "predicted_goals_for": 2.88,
+          "predicted_goal_diff": -2.09,
+          "predicted_goals_for": 2.9,
           "position": 4,
           "qualifies_as": "eliminated"
         }
@@ -307,35 +307,35 @@
         {
           "team": "Belgium",
           "rating": 1870,
-          "predicted_points": 6.3,
-          "predicted_goal_diff": 3.19,
-          "predicted_goals_for": 5.58,
+          "predicted_points": 6.2,
+          "predicted_goal_diff": 3.12,
+          "predicted_goals_for": 5.54,
           "position": 1,
           "qualifies_as": "winner"
         },
         {
           "team": "Egypt",
-          "rating": 1749,
+          "rating": 1753,
           "predicted_points": 4.0,
-          "predicted_goal_diff": -0.25,
-          "predicted_goals_for": 3.67,
+          "predicted_goal_diff": -0.21,
+          "predicted_goals_for": 3.69,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Iran",
-          "rating": 1715,
+          "rating": 1719,
           "predicted_points": 3.4,
-          "predicted_goal_diff": -1.09,
-          "predicted_goals_for": 3.3,
+          "predicted_goal_diff": -1.05,
+          "predicted_goals_for": 3.31,
           "position": 3,
           "qualifies_as": "best_third"
         },
         {
           "team": "New Zealand",
-          "rating": 1651,
+          "rating": 1653,
           "predicted_points": 2.9,
-          "predicted_goal_diff": -1.85,
+          "predicted_goal_diff": -1.86,
           "predicted_goals_for": 3.01,
           "position": 4,
           "qualifies_as": "eliminated"
@@ -347,16 +347,16 @@
       "standings": [
         {
           "team": "Spain",
-          "rating": 2039,
-          "predicted_points": 7.3,
-          "predicted_goal_diff": 5.97,
-          "predicted_goals_for": 7.77,
+          "rating": 2041,
+          "predicted_points": 7.4,
+          "predicted_goal_diff": 6.0,
+          "predicted_goals_for": 7.78,
           "position": 1,
           "qualifies_as": "winner"
         },
         {
           "team": "Uruguay",
-          "rating": 1866,
+          "rating": 1867,
           "predicted_points": 5.2,
           "predicted_goal_diff": 1.65,
           "predicted_goals_for": 4.88,
@@ -367,17 +367,17 @@
           "team": "Cape Verde",
           "rating": 1672,
           "predicted_points": 2.4,
-          "predicted_goal_diff": -3.56,
-          "predicted_goals_for": 2.53,
+          "predicted_goal_diff": -3.61,
+          "predicted_goals_for": 2.51,
           "position": 3,
           "qualifies_as": "eliminated"
         },
         {
           "team": "Saudi Arabia",
-          "rating": 1656,
-          "predicted_points": 1.9,
-          "predicted_goal_diff": -4.05,
-          "predicted_goals_for": 2.31,
+          "rating": 1659,
+          "predicted_points": 2.0,
+          "predicted_goal_diff": -4.03,
+          "predicted_goals_for": 2.3,
           "position": 4,
           "qualifies_as": "eliminated"
         }
@@ -388,37 +388,37 @@
       "standings": [
         {
           "team": "France",
-          "rating": 2019,
-          "predicted_points": 6.3,
-          "predicted_goal_diff": 3.72,
-          "predicted_goals_for": 6.06,
+          "rating": 2021,
+          "predicted_points": 6.4,
+          "predicted_goal_diff": 3.75,
+          "predicted_goals_for": 6.08,
           "position": 1,
           "qualifies_as": "winner"
         },
         {
           "team": "Norway",
-          "rating": 1885,
+          "rating": 1886,
           "predicted_points": 4.6,
-          "predicted_goal_diff": 0.74,
-          "predicted_goals_for": 4.29,
+          "predicted_goal_diff": 0.71,
+          "predicted_goals_for": 4.27,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Senegal",
-          "rating": 1908,
+          "rating": 1907,
           "predicted_points": 4.4,
-          "predicted_goal_diff": 0.51,
-          "predicted_goals_for": 4.22,
+          "predicted_goal_diff": 0.47,
+          "predicted_goals_for": 4.18,
           "position": 3,
           "qualifies_as": "best_third"
         },
         {
           "team": "Iraq",
-          "rating": 1676,
+          "rating": 1680,
           "predicted_points": 1.4,
-          "predicted_goal_diff": -4.97,
-          "predicted_goals_for": 1.95,
+          "predicted_goal_diff": -4.93,
+          "predicted_goals_for": 1.94,
           "position": 4,
           "qualifies_as": "eliminated"
         }
@@ -431,35 +431,35 @@
           "team": "Argentina",
           "rating": 2002,
           "predicted_points": 7.1,
-          "predicted_goal_diff": 4.63,
-          "predicted_goals_for": 6.65,
+          "predicted_goal_diff": 4.64,
+          "predicted_goals_for": 6.64,
           "position": 1,
           "qualifies_as": "winner"
         },
         {
           "team": "Algeria",
-          "rating": 1799,
+          "rating": 1797,
           "predicted_points": 3.7,
-          "predicted_goal_diff": -0.8,
-          "predicted_goals_for": 3.46,
+          "predicted_goal_diff": -0.87,
+          "predicted_goals_for": 3.42,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Austria",
-          "rating": 1787,
-          "predicted_points": 3.5,
-          "predicted_goal_diff": -1.11,
-          "predicted_goals_for": 3.37,
+          "rating": 1785,
+          "predicted_points": 3.4,
+          "predicted_goal_diff": -1.18,
+          "predicted_goals_for": 3.33,
           "position": 3,
           "qualifies_as": "best_third"
         },
         {
           "team": "Jordan",
-          "rating": 1695,
+          "rating": 1699,
           "predicted_points": 2.5,
-          "predicted_goal_diff": -2.71,
-          "predicted_goals_for": 2.73,
+          "predicted_goal_diff": -2.59,
+          "predicted_goals_for": 2.77,
           "position": 4,
           "qualifies_as": "eliminated"
         }
@@ -470,37 +470,37 @@
       "standings": [
         {
           "team": "Portugal",
-          "rating": 1964,
+          "rating": 1965,
           "predicted_points": 6.1,
-          "predicted_goal_diff": 3.03,
-          "predicted_goals_for": 5.55,
+          "predicted_goal_diff": 3.09,
+          "predicted_goals_for": 5.59,
           "position": 1,
           "qualifies_as": "winner"
         },
         {
           "team": "Colombia",
-          "rating": 1913,
+          "rating": 1912,
           "predicted_points": 5.4,
-          "predicted_goal_diff": 1.87,
-          "predicted_goals_for": 4.85,
+          "predicted_goal_diff": 1.89,
+          "predicted_goals_for": 4.86,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "DR Congo",
-          "rating": 1762,
+          "rating": 1757,
           "predicted_points": 2.8,
-          "predicted_goal_diff": -2.13,
-          "predicted_goals_for": 2.91,
+          "predicted_goal_diff": -2.2,
+          "predicted_goals_for": 2.89,
           "position": 3,
           "qualifies_as": "eliminated"
         },
         {
           "team": "Uzbekistan",
-          "rating": 1741,
+          "rating": 1738,
           "predicted_points": 2.4,
-          "predicted_goal_diff": -2.77,
-          "predicted_goals_for": 2.63,
+          "predicted_goal_diff": -2.79,
+          "predicted_goals_for": 2.61,
           "position": 4,
           "qualifies_as": "eliminated"
         }
@@ -513,35 +513,35 @@
           "team": "England",
           "rating": 1940,
           "predicted_points": 6.3,
-          "predicted_goal_diff": 3.42,
+          "predicted_goal_diff": 3.41,
           "predicted_goals_for": 5.83,
           "position": 1,
           "qualifies_as": "winner"
         },
         {
           "team": "Croatia",
-          "rating": 1865,
+          "rating": 1866,
           "predicted_points": 4.8,
-          "predicted_goal_diff": 1.02,
-          "predicted_goals_for": 4.39,
+          "predicted_goal_diff": 1.04,
+          "predicted_goals_for": 4.4,
           "position": 2,
           "qualifies_as": "runner_up"
         },
         {
           "team": "Panama",
-          "rating": 1731,
-          "predicted_points": 3.2,
-          "predicted_goal_diff": -1.34,
+          "rating": 1732,
+          "predicted_points": 3.3,
+          "predicted_goal_diff": -1.31,
           "predicted_goals_for": 3.2,
           "position": 3,
           "qualifies_as": "best_third"
         },
         {
           "team": "Ghana",
-          "rating": 1684,
+          "rating": 1680,
           "predicted_points": 2.3,
-          "predicted_goal_diff": -3.1,
-          "predicted_goals_for": 2.5,
+          "predicted_goal_diff": -3.14,
+          "predicted_goals_for": 2.49,
           "position": 4,
           "qualifies_as": "eliminated"
         }
@@ -552,114 +552,114 @@
     "round_of_32": [
       {
         "team_a": "Germany",
-        "team_b": "Paraguay",
-        "rating_a": 1901,
-        "rating_b": 1825,
+        "team_b": "Scotland",
+        "rating_a": 1904,
+        "rating_b": 1757,
         "winner": "Germany"
       },
       {
         "team_a": "France",
-        "team_b": "Scotland",
-        "rating_a": 2019,
-        "rating_b": 1758,
+        "team_b": "Paraguay",
+        "rating_a": 2021,
+        "rating_b": 1821,
         "winner": "France"
       },
       {
         "team_a": "South Korea",
         "team_b": "Switzerland",
-        "rating_a": 1831,
+        "rating_a": 1837,
         "rating_b": 1887,
         "winner": "Switzerland"
       },
       {
         "team_a": "Netherlands",
         "team_b": "Morocco",
-        "rating_a": 1914,
+        "rating_a": 1915,
         "rating_b": 1911,
         "winner": "Netherlands"
       },
       {
         "team_a": "Colombia",
         "team_b": "Croatia",
-        "rating_a": 1913,
-        "rating_b": 1865,
+        "rating_a": 1912,
+        "rating_b": 1866,
         "winner": "Colombia"
       },
       {
         "team_a": "Spain",
         "team_b": "Algeria",
-        "rating_a": 2039,
-        "rating_b": 1799,
+        "rating_a": 2041,
+        "rating_b": 1797,
         "winner": "Spain"
       },
       {
         "team_a": "United States",
         "team_b": "Austria",
-        "rating_a": 1849,
-        "rating_b": 1787,
+        "rating_a": 1846,
+        "rating_b": 1785,
         "winner": "United States"
       },
       {
         "team_a": "Belgium",
         "team_b": "Iran",
         "rating_a": 1870,
-        "rating_b": 1715,
+        "rating_b": 1719,
         "winner": "Belgium"
       },
       {
         "team_a": "Brazil",
         "team_b": "Japan",
-        "rating_a": 1946,
-        "rating_b": 1909,
+        "rating_a": 1948,
+        "rating_b": 1908,
         "winner": "Brazil"
       },
       {
         "team_a": "Ecuador",
         "team_b": "Norway",
-        "rating_a": 1895,
-        "rating_b": 1885,
+        "rating_a": 1887,
+        "rating_b": 1886,
         "winner": "Ecuador"
       },
       {
         "team_a": "Mexico",
         "team_b": "Senegal",
         "rating_a": 1868,
-        "rating_b": 1908,
+        "rating_b": 1907,
         "winner": "Senegal"
       },
       {
         "team_a": "England",
         "team_b": "Ivory Coast",
         "rating_a": 1940,
-        "rating_b": 1835,
+        "rating_b": 1832,
         "winner": "England"
       },
       {
         "team_a": "Argentina",
         "team_b": "Uruguay",
         "rating_a": 2002,
-        "rating_b": 1866,
+        "rating_b": 1867,
         "winner": "Argentina"
       },
       {
         "team_a": "Turkey",
         "team_b": "Egypt",
-        "rating_a": 1904,
-        "rating_b": 1749,
+        "rating_a": 1903,
+        "rating_b": 1753,
         "winner": "Turkey"
       },
       {
         "team_a": "Canada",
         "team_b": "Panama",
-        "rating_a": 1823,
-        "rating_b": 1731,
+        "rating_a": 1824,
+        "rating_b": 1732,
         "winner": "Canada"
       },
       {
         "team_a": "Portugal",
         "team_b": "Bosnia and Herzegovina",
-        "rating_a": 1964,
-        "rating_b": 1700,
+        "rating_a": 1965,
+        "rating_b": 1697,
         "winner": "Portugal"
       }
     ],
@@ -667,42 +667,42 @@
       {
         "team_a": "Germany",
         "team_b": "France",
-        "rating_a": 1901,
-        "rating_b": 2019,
+        "rating_a": 1904,
+        "rating_b": 2021,
         "winner": "France"
       },
       {
         "team_a": "Switzerland",
         "team_b": "Netherlands",
         "rating_a": 1887,
-        "rating_b": 1914,
+        "rating_b": 1915,
         "winner": "Netherlands"
       },
       {
         "team_a": "Colombia",
         "team_b": "Spain",
-        "rating_a": 1913,
-        "rating_b": 2039,
+        "rating_a": 1912,
+        "rating_b": 2041,
         "winner": "Spain"
       },
       {
         "team_a": "United States",
         "team_b": "Belgium",
-        "rating_a": 1849,
+        "rating_a": 1846,
         "rating_b": 1870,
         "winner": "Belgium"
       },
       {
         "team_a": "Brazil",
         "team_b": "Ecuador",
-        "rating_a": 1946,
-        "rating_b": 1895,
+        "rating_a": 1948,
+        "rating_b": 1887,
         "winner": "Brazil"
       },
       {
         "team_a": "Senegal",
         "team_b": "England",
-        "rating_a": 1908,
+        "rating_a": 1907,
         "rating_b": 1940,
         "winner": "England"
       },
@@ -710,14 +710,14 @@
         "team_a": "Argentina",
         "team_b": "Turkey",
         "rating_a": 2002,
-        "rating_b": 1904,
+        "rating_b": 1903,
         "winner": "Argentina"
       },
       {
         "team_a": "Canada",
         "team_b": "Portugal",
-        "rating_a": 1823,
-        "rating_b": 1964,
+        "rating_a": 1824,
+        "rating_b": 1965,
         "winner": "Portugal"
       }
     ],
@@ -725,21 +725,21 @@
       {
         "team_a": "France",
         "team_b": "Netherlands",
-        "rating_a": 2019,
-        "rating_b": 1914,
+        "rating_a": 2021,
+        "rating_b": 1915,
         "winner": "France"
       },
       {
         "team_a": "Spain",
         "team_b": "Belgium",
-        "rating_a": 2039,
+        "rating_a": 2041,
         "rating_b": 1870,
         "winner": "Spain"
       },
       {
         "team_a": "Brazil",
         "team_b": "England",
-        "rating_a": 1946,
+        "rating_a": 1948,
         "rating_b": 1940,
         "winner": "Brazil"
       },
@@ -747,7 +747,7 @@
         "team_a": "Argentina",
         "team_b": "Portugal",
         "rating_a": 2002,
-        "rating_b": 1964,
+        "rating_b": 1965,
         "winner": "Argentina"
       }
     ],
@@ -755,14 +755,14 @@
       {
         "team_a": "France",
         "team_b": "Spain",
-        "rating_a": 2019,
-        "rating_b": 2039,
+        "rating_a": 2021,
+        "rating_b": 2041,
         "winner": "Spain"
       },
       {
         "team_a": "Brazil",
         "team_b": "Argentina",
-        "rating_a": 1946,
+        "rating_a": 1948,
         "rating_b": 2002,
         "winner": "Argentina"
       }
@@ -771,7 +771,7 @@
       {
         "team_a": "Spain",
         "team_b": "Argentina",
-        "rating_a": 2039,
+        "rating_a": 2041,
         "rating_b": 2002,
         "winner": "Spain"
       }

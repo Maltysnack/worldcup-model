@@ -43,6 +43,15 @@ jobs:
           rm -f data/raw/*.csv
           uv run worldcup-ingest
 
+      - name: Refresh WC 2026 squad rosters from Wikipedia
+        # Squads are announced rolling through May / early June. Re-fetch
+        # daily so new announcements feed the trophy aggregation. Continues
+        # on failure so a Wikipedia hiccup doesn't break the whole refresh.
+        continue-on-error: true
+        run: |
+          uv run worldcup-fetch-rosters --refresh
+          uv run worldcup-compute-trophies
+
       - name: Rebuild Elo + bracket + simulation
         run: |
           uv run worldcup-elo

@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "beautifulsoup4>=4.14.3",
     "duckdb>=1.5.2",
     "pandas>=3.0.2",
     "pyarrow>=24.0.0",
@@ -25,6 +26,8 @@ worldcup-compare-profiles = "worldcup.compare_profiles:main"
 worldcup-iterate-profiles = "worldcup.iterate_profiles:main"
 worldcup-continental-backtest = "worldcup.continental_backtest:main"
 worldcup-freeze-prediction = "worldcup.freeze_prediction:main"
+worldcup-fetch-rosters = "worldcup.wiki_rosters:main"
+worldcup-compute-trophies = "worldcup.compute_trophies:main"
 
 [build-system]
 requires = ["uv_build>=0.11.11,<0.12.0"]
