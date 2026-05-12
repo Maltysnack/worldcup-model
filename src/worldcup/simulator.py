@@ -27,7 +27,7 @@ from __future__ import annotations
 import json
 import sys
 from collections import Counter, defaultdict
-from datetime import datetime
+from datetime import date, datetime
 
 import numpy as np
 
@@ -289,15 +289,54 @@ def predict_recent_played_matches(*, days_back: int = 90, max_matches: int = 12)
 
 
 def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: int = 7):
-    """For each unplayed WC fixture compute W/D/L probabilities, expected
-    goals, and the most-common (modal) scoreline by Monte Carlo sampling
-    with the same Poisson model. Also includes venue (city, country)
-    so the website can display it."""
+    """For each unplayed WC fixture (and any pre-WC friendlies between
+    qualified teams) compute W/D/L probabilities, expected goals, and
+    the most-common (modal) scoreline by Monte Carlo sampling with the
+    same Poisson model. Includes venue + tournament-type tag."""
+    from worldcup.upcoming_friendlies import UPCOMING_FRIENDLIES
+
     rng = np.random.default_rng(seed)
     out = []
+
+    # Build a unified list of fixtures. Friendlies first, then WC, sorted by date.
+    # Normalise everything to YYYY-MM-DD strings so date types don't collide.
+    import pandas as pd
+    rows = []
+    today = date.today()
+    for f in UPCOMING_FRIENDLIES:
+        if f["date"] < today:
+            continue
+        if f["home_team"] not in ratings or f["away_team"] not in ratings:
+            continue
+        rows.append({
+            "date": f["date"].strftime("%Y-%m-%d"),
+            "home_team": f["home_team"],
+            "away_team": f["away_team"],
+            "neutral": bool(f["neutral"]),
+            "city": f.get("city"),
+            "country": f.get("country"),
+            "tournament": "Friendly",
+        })
     for row in fixtures.itertuples(index=False):
-        h, a = row.home_team, row.away_team
-        eff_h = ratings[h] + (0.0 if row.neutral else HOME_ADVANTAGE)
+        d = row.date
+        if hasattr(d, "strftime"):
+            d_str = d.strftime("%Y-%m-%d")
+        else:
+            d_str = str(d)
+        rows.append({
+            "date": d_str,
+            "home_team": row.home_team,
+            "away_team": row.away_team,
+            "neutral": bool(row.neutral),
+            "city": row.city if hasattr(row, "city") else None,
+            "country": row.country if hasattr(row, "country") else None,
+            "tournament": "FIFA World Cup",
+        })
+    rows.sort(key=lambda r: r["date"])
+
+    for row in rows:
+        h, a = row["home_team"], row["away_team"]
+        eff_h = ratings[h] + (0.0 if row["neutral"] else HOME_ADVANTAGE)
         eff_a = ratings[a]
         lh, la = expected_goals(eff_h - eff_a)
         h_samples = rng.poisson(lh, size=n_samples)
@@ -308,12 +347,13 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
         score_counts: Counter = Counter(zip(h_samples.tolist(), a_samples.tolist()))
         (modal_h, modal_a), modal_count = score_counts.most_common(1)[0]
         out.append({
-            "match_date": row.date.strftime("%Y-%m-%d") if hasattr(row.date, "strftime") else str(row.date),
+            "match_date": row["date"],
             "home_team": h,
             "away_team": a,
-            "neutral": bool(row.neutral),
-            "city": row.city if hasattr(row, "city") else None,
-            "country": row.country if hasattr(row, "country") else None,
+            "neutral": bool(row["neutral"]),
+            "city": row.get("city"),
+            "country": row.get("country"),
+            "tournament": row.get("tournament", "FIFA World Cup"),
             "p_home_win": round(n_home / n_samples, 4),
             "p_draw": round(n_draw / n_samples, 4),
             "p_away_win": round(n_away / n_samples, 4),
