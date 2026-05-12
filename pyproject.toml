@@ -28,6 +28,8 @@ worldcup-continental-backtest = "worldcup.continental_backtest:main"
 worldcup-freeze-prediction = "worldcup.freeze_prediction:main"
 worldcup-fetch-rosters = "worldcup.wiki_rosters:main"
 worldcup-compute-trophies = "worldcup.compute_trophies:main"
+worldcup-fetch-club-stats = "worldcup.club_season_stats:main"
+worldcup-predict-top-scorer = "worldcup.top_scorer:main"
 
 [build-system]
 requires = ["uv_build>=0.11.11,<0.12.0"]
