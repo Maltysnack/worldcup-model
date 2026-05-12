@@ -77,6 +77,7 @@ class ClubSeason:
 # generic pattern. Keys are normalised club names (as they appear in
 # WC squad rosters from Wikipedia).
 URL_OVERRIDES: dict[str, str] = {
+    # ── European clubs (2025-26 split season) ─────────────────────────
     "Manchester City": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Manchester_City_F.C._season",
     "Manchester United": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Manchester_United_F.C._season",
     "Arsenal": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Arsenal_F.C._season",
@@ -102,6 +103,32 @@ URL_OVERRIDES: dict[str, str] = {
     "Sporting CP": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Sporting_CP_season",
     "Benfica": "https://en.wikipedia.org/wiki/2025%E2%80%9326_S.L._Benfica_season",
     "Porto": "https://en.wikipedia.org/wiki/2025%E2%80%9326_FC_Porto_season",
+    # ── MLS (calendar year, just-completed 2025) ──────────────────────
+    "Inter Miami": "https://en.wikipedia.org/wiki/2025_Inter_Miami_CF_season",
+    "Inter Miami CF": "https://en.wikipedia.org/wiki/2025_Inter_Miami_CF_season",
+    "LA Galaxy": "https://en.wikipedia.org/wiki/2025_LA_Galaxy_season",
+    "LAFC": "https://en.wikipedia.org/wiki/2025_Los_Angeles_FC_season",
+    "Los Angeles FC": "https://en.wikipedia.org/wiki/2025_Los_Angeles_FC_season",
+    "Atlanta United": "https://en.wikipedia.org/wiki/2025_Atlanta_United_FC_season",
+    "Seattle Sounders": "https://en.wikipedia.org/wiki/2025_Seattle_Sounders_FC_season",
+    "Toronto FC": "https://en.wikipedia.org/wiki/2025_Toronto_FC_season",
+    # ── Brazilian Serie A (calendar year) ─────────────────────────────
+    "Palmeiras": "https://en.wikipedia.org/wiki/2025_Sociedade_Esportiva_Palmeiras_season",
+    "Flamengo": "https://en.wikipedia.org/wiki/2025_Clube_de_Regatas_do_Flamengo_season",
+    "Corinthians": "https://en.wikipedia.org/wiki/2025_Sport_Club_Corinthians_Paulista_season",
+    "São Paulo": "https://en.wikipedia.org/wiki/2025_S%C3%A3o_Paulo_FC_season",
+    "Santos": "https://en.wikipedia.org/wiki/2025_Santos_FC_season",
+    "Botafogo": "https://en.wikipedia.org/wiki/2025_Botafogo_de_Futebol_e_Regatas_season",
+    "Fluminense": "https://en.wikipedia.org/wiki/2025_Fluminense_FC_season",
+    # ── Argentine Primera (calendar year) ─────────────────────────────
+    "River Plate": "https://en.wikipedia.org/wiki/2025_Club_Atl%C3%A9tico_River_Plate_season",
+    "Boca Juniors": "https://en.wikipedia.org/wiki/2025_Boca_Juniors_season",
+    "Racing": "https://en.wikipedia.org/wiki/2025_Racing_Club_de_Avellaneda_season",
+    # ── Saudi Pro League (split 2025-26) ──────────────────────────────
+    "Al-Nassr": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Al-Nassr_FC_season",
+    "Al-Hilal": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Al-Hilal_SFC_season",
+    "Al-Ittihad": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Al-Ittihad_Club_season",
+    "Al Ittihad": "https://en.wikipedia.org/wiki/2025%E2%80%9326_Al-Ittihad_Club_season",
 }
 
 
@@ -112,15 +139,28 @@ def slugify(club: str) -> str:
 
 
 def _candidate_urls(club: str) -> list[str]:
-    """Generate plausible Wikipedia URL patterns for a club season."""
-    # Title-case + space-to-underscore + en-dash year range
+    """Generate plausible Wikipedia URL patterns for a club season.
+
+    Tries split-season (2025-26) patterns first since most European top
+    leagues use that, then calendar-year patterns (MLS, Brazilian Serie
+    A, Argentine Primera, etc.) — for those, prefer the just-completed
+    2025 season since it has full data, then 2026 as fallback.
+    """
     encoded = club.replace(" ", "_")
-    season_prefix = "2025%E2%80%9326_"  # 2025–26 (en-dash)
+    split = "2025%E2%80%9326_"  # 2025–26 (en-dash)
     return [
-        f"https://en.wikipedia.org/wiki/{season_prefix}{encoded}_season",
-        f"https://en.wikipedia.org/wiki/{season_prefix}{encoded}_F.C._season",
-        f"https://en.wikipedia.org/wiki/{season_prefix}{encoded}_FC_season",
-        f"https://en.wikipedia.org/wiki/{season_prefix}FC_{encoded}_season",
+        # Split season variants
+        f"https://en.wikipedia.org/wiki/{split}{encoded}_season",
+        f"https://en.wikipedia.org/wiki/{split}{encoded}_F.C._season",
+        f"https://en.wikipedia.org/wiki/{split}{encoded}_FC_season",
+        f"https://en.wikipedia.org/wiki/{split}FC_{encoded}_season",
+        # Calendar-year variants (just-completed)
+        f"https://en.wikipedia.org/wiki/2025_{encoded}_season",
+        f"https://en.wikipedia.org/wiki/2025_{encoded}_F.C._season",
+        f"https://en.wikipedia.org/wiki/2025_{encoded}_FC_season",
+        f"https://en.wikipedia.org/wiki/2025_{encoded}_CF_season",
+        # In-progress 2026 season
+        f"https://en.wikipedia.org/wiki/2026_{encoded}_season",
     ]
 
 
@@ -167,20 +207,23 @@ def _clean(s: str) -> str:
 
 
 def _is_player_stat_table(headers: list[str]) -> bool:
-    """Tables we care about: include Player + Total + at least 2 competition columns."""
-    h_low = [h.lower() for h in headers]
+    """Tables we care about: include Player + Total + at least 2
+    intermediate columns that aren't structural (rank, no, pos, nat).
+
+    Used to be keyword-based ('league'/'cup'/'champions'/...) but that
+    excluded MLS-style headers (MLS, PO, CCC, CWC, LC), Saudi PL (SPL),
+    Liga MX (Apertura/Clausura), etc. Generic intermediate-column count
+    is more inclusive and still rejects unrelated tables (transfers,
+    fixtures, standings) because those don't have Player + Total."""
+    h_low = [h.lower().strip() for h in headers]
     if not any("player" in h for h in h_low):
         return False
-    if not any(h.lower() == "total" for h in headers):
+    if not any(h == "total" for h in h_low):
         return False
-    competition_likes = sum(
-        1 for h in headers
-        if any(kw in h.lower() for kw in [
-            "league", "cup", "champions", "europa", "conference", "bundesliga",
-            "serie", "ligue", "liga", "primeira", "eredivisie", "süper",
-        ])
-    )
-    return competition_likes >= 2
+    structural = {"rank", "no.", "no", "pos.", "pos", "nat.", "nat",
+                  "nationality", "player", "total", "discipline", "cards", ""}
+    intermediates = sum(1 for h in h_low if h not in structural)
+    return intermediates >= 2
 
 
 def _try_int(s: str) -> int:
