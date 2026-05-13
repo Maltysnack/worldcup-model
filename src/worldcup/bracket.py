@@ -21,7 +21,6 @@ Run: `uv run worldcup-bracket`
 from __future__ import annotations
 
 import json
-import math
 import sys
 from collections import defaultdict
 from datetime import datetime
@@ -307,25 +306,24 @@ def resolve_slot(spec, group_winners, group_runners, third_assignments, match_no
 
 
 def build_match(team_a, team_b, ratings):
-    """Deterministic knockout match prediction with a bolder scoreline.
+    """Deterministic knockout match prediction.
 
-    Higher-Elo team wins (winner_of). The score uses an asymmetric
-    rounding of expected goals that scales boldness with the Elo gap:
+    Higher-Elo team wins (winner_of). Predicted scoreline = the SINGLE
+    most likely exact result from the Dixon-Coles joint PMF (argmax of
+    the (home_goals, away_goals) probability matrix), with the higher-
+    Elo team in the home position so it gets the larger lambda.
 
-      - Favourite: ceil(lambda_winner - 0.2). Lifts 1.4 -> 2, 2.4 -> 3.
-        A team expected to score 1.5+ goals predicts at least 2.
-      - Underdog:  floor(lambda_loser). Drops 1.07 -> 1, 0.7 -> 0.
-        An opponent expected to score under 1 predicts a clean sheet.
+    If the modal cell sits on the diagonal (a draw), we mark pens=True
+    and the higher-Elo team progresses, matching the simulator's tiny-
+    Elo-edge shootout behaviour.
 
-    Result: close matches stay at 1-1 (pens), modest favourites go 2-0
-    or 2-1, strong favourites go 3-0, blowouts go 4-0. Reads as the
-    model's actual confidence rather than the timid "everything's a
-    1-0" you get from picking the joint-PMF mode (which we tried and
-    converged to 1-0 across 75% of ties).
-
-    If the chosen scores match (genuine parity in the lambdas) we
-    mark pens=True and the higher-Elo team progresses, matching the
-    simulator's tiny-Elo-edge shootout.
+    Across today's 31 KO matches this produces a distribution along
+    the lines of: ~23 x 1-0, ~5 x 1-1 (pens), ~3 x 2-0. Variety + 1-0s
+    + occasional pens. We tried two alternatives first and dropped them:
+      - Plain round() both          -> mostly 2-1 (compressed)
+      - Asymmetric ceil/floor       -> mostly 2-0 (no 1-0 ever, weird)
+    The joint-PMF mode is the most honest: it's the model literally
+    saying "this is the most likely exact scoreline."
     """
     ra = ratings.get(team_a, 1500)
     rb = ratings.get(team_b, 1500)
@@ -335,15 +333,10 @@ def build_match(team_a, team_b, ratings):
     rl = ratings.get(loser, 1500)
 
     lh, la = expected_goals(rw - rl)
-    # Asymmetric rounding: round winner up, loser down.
-    score_w = max(1, math.ceil(float(lh) - 0.2))
-    score_l = max(0, math.floor(float(la)))
-    pens = False
-    if score_w == score_l:
-        pens = True  # parity tie: shootout, higher Elo wins
-    elif score_w < score_l:
-        # Should not happen with positive Elo gap; guard regardless.
-        score_w = score_l + 1
+    j = dc_joint_pmf(float(lh), float(la))
+    flat_idx = int(j.argmax())
+    score_w, score_l = divmod(flat_idx, j.shape[1])
+    pens = score_w == score_l
 
     if winner == team_a:
         score_a, score_b = score_w, score_l
