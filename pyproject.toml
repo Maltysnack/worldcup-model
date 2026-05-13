@@ -32,6 +32,8 @@ worldcup-fetch-club-stats = "worldcup.club_season_stats:main"
 worldcup-predict-top-scorer = "worldcup.top_scorer:main"
 worldcup-fetch-club-badges = "worldcup.club_badges:main"
 worldcup-build-historical-corpus = "worldcup.historical_corpus:main"
+worldcup-friendly-diagnostic = "worldcup.friendly_diagnostic:main"
+worldcup-fit-friendly-calibration = "worldcup.friendly_calibration:main"
 
 [build-system]
 requires = ["uv_build>=0.11.11,<0.12.0"]

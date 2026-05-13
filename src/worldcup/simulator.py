@@ -222,6 +222,7 @@ def predict_recent_played_matches(*, days_back: int = 90, max_matches: int = 12)
     )
     from worldcup.db import connect
     from worldcup.elo import HOME_ADVANTAGE, actual_score, expected_score, k_for
+    from worldcup.friendly_calibration import calibrate_friendly_probs
     from worldcup.goals import wld_probs
 
     wc_teams = {t for teams in FIFA_GROUPS.values() for t in teams}
@@ -249,6 +250,13 @@ def predict_recent_played_matches(*, days_back: int = 90, max_matches: int = 12)
         lh = float(LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap))
         la = float(LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap))
         p_home, p_draw, p_away = wld_probs(lh, la)
+        # Friendly probabilities are systematically overconfident
+        # (audit found ECE 0.04 vs 0.01 for majors). Apply a Platt
+        # scaling fitted on past friendlies before displaying.
+        if row.tournament == "Friendly":
+            p_home, p_draw, p_away = calibrate_friendly_probs(
+                p_home, p_draw, p_away,
+            )
         # Modal-ish score: round expected goals to nearest int
         modal_h = max(0, round(lh))
         modal_a = max(0, round(la))
@@ -304,6 +312,7 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
     qualified teams) compute W/D/L probabilities, expected goals, and
     the most-common (modal) scoreline by Monte Carlo sampling with the
     same Poisson model. Includes venue + tournament-type tag."""
+    from worldcup.friendly_calibration import calibrate_friendly_probs
     from worldcup.upcoming_friendlies import UPCOMING_FRIENDLIES
 
     rng = np.random.default_rng(seed)
@@ -357,6 +366,14 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
         n_draw = n_samples - n_home - n_away
         score_counts: Counter = Counter(zip(h_samples.tolist(), a_samples.tolist()))
         (modal_h, modal_a), modal_count = score_counts.most_common(1)[0]
+        # W/D/L probabilities. For friendlies the raw Monte Carlo
+        # probabilities inherit the model's known overconfidence in
+        # that tier (audit ECE 0.04); apply the Platt calibration.
+        p_h = n_home / n_samples
+        p_d = n_draw / n_samples
+        p_a = n_away / n_samples
+        if row.get("tournament") == "Friendly":
+            p_h, p_d, p_a = calibrate_friendly_probs(p_h, p_d, p_a)
         out.append({
             "match_date": row["date"],
             "home_team": h,
@@ -365,9 +382,9 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
             "city": row.get("city"),
             "country": row.get("country"),
             "tournament": row.get("tournament", "FIFA World Cup"),
-            "p_home_win": round(n_home / n_samples, 4),
-            "p_draw": round(n_draw / n_samples, 4),
-            "p_away_win": round(n_away / n_samples, 4),
+            "p_home_win": round(p_h, 4),
+            "p_draw": round(p_d, 4),
+            "p_away_win": round(p_a, 4),
             "expected_home_goals": round(float(lh), 2),
             "expected_away_goals": round(float(la), 2),
             "modal_score": [int(modal_h), int(modal_a)],

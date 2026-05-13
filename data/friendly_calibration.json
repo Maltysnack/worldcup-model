@@ -1,0 +1,21 @@
+{
+  "fitted_at": "2026-05-13T12:47:43+00:00",
+  "tournament_tier": "Friendly",
+  "n_train": 8558,
+  "n_test": 2140,
+  "split_seed": 42,
+  "intercept": -0.13552221169780335,
+  "slope": 0.7849661035332877,
+  "metrics_before": {
+    "train_log_loss": 0.9817643128891821,
+    "test_log_loss": 1.0012908023407117,
+    "train_ece": 0.0381112135765158,
+    "test_ece": 0.042929531506325384
+  },
+  "metrics_after": {
+    "train_log_loss": 0.9757044132040792,
+    "test_log_loss": 0.9920811480949626,
+    "train_ece": 0.013610905667800868,
+    "test_ece": 0.018602607185571645
+  }
+}
