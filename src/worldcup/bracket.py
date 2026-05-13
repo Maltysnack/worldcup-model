@@ -20,6 +20,7 @@ Run: `uv run worldcup-bracket`
 
 from __future__ import annotations
 
+import hashlib
 import json
 import sys
 from collections import defaultdict
@@ -31,7 +32,7 @@ from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import MODEL_VERSION
 from worldcup.profiles import current_profile, file_suffix, table_suffix
 from worldcup.form import apply_form
-from worldcup.goals import dc_joint_pmf, expected_goals, sim_match
+from worldcup.goals import expected_goals, sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.host import apply_host_bonus
 from worldcup.trophies import apply_nt_bonus
@@ -305,38 +306,70 @@ def resolve_slot(spec, group_winners, group_runners, third_assignments, match_no
     raise ValueError(f"Unknown slot spec: {spec}")
 
 
+def _stable_match_seed(team_a: str, team_b: str) -> int:
+    """Deterministic seed from a sorted team-pair so the predicted
+    scoreline is stable across pipeline runs (same teams -> same draw)."""
+    key = "|".join(sorted([team_a, team_b]))
+    return int(hashlib.md5(key.encode()).hexdigest()[:8], 16)
+
+
+def _sample_scoreline(rw: float, rl: float, seed: int) -> tuple[int, int, bool]:
+    """Draw a single Poisson-sampled scoreline for the higher-Elo team
+    vs underdog, with a few honest clamps. Returns (winner_score,
+    loser_score, pens_flag). Higher-Elo team is always in the 'home'
+    position so they get the larger lambda.
+
+    Clamps:
+      - Reject extreme tails (>4 either side) so outputs stay realistic
+      - Reject 0-0 (visually unrepresentative for a 'predicted' result)
+      - Strong favourites (lh >= 2.0) must score at least 1
+      - Favourite must win or draw; resample if the underdog won the
+        sample (deterministic bracket = higher Elo always advances)
+      - Up to 30 resamples; fallback to 1-0 favourite if nothing fits
+    """
+    rng = np.random.default_rng(seed)
+    lh, _ = expected_goals(rw - rl)
+    fav_min_goals = 1 if lh >= 2.0 else 0
+    for _ in range(30):
+        sw, sl, _ = sim_match(rw, rl, neutral=True, ko=True, rng=rng)
+        if sw > 4 or sl > 4:
+            continue
+        if sw == 0 and sl == 0:
+            continue
+        if sw < fav_min_goals:
+            continue
+        if sw < sl:
+            continue  # underdog won; resample
+        return int(sw), int(sl), bool(sw == sl)
+    return 1, 0, False  # safe fallback
+
+
 def build_match(team_a, team_b, ratings):
     """Deterministic knockout match prediction.
 
-    Higher-Elo team wins (winner_of). Predicted scoreline = the SINGLE
-    most likely exact result from the Dixon-Coles joint PMF (argmax of
-    the (home_goals, away_goals) probability matrix), with the higher-
-    Elo team in the home position so it gets the larger lambda.
+    Higher-Elo team wins (winner_of). Predicted scoreline is a Poisson-
+    sampled draw from the model's expected goals, with a stable per-
+    match seed so the same fixture always produces the same scoreline
+    across pipeline runs.
 
-    If the modal cell sits on the diagonal (a draw), we mark pens=True
-    and the higher-Elo team progresses, matching the simulator's tiny-
-    Elo-edge shootout behaviour.
-
-    Across today's 31 KO matches this produces a distribution along
-    the lines of: ~23 x 1-0, ~5 x 1-1 (pens), ~3 x 2-0. Variety + 1-0s
-    + occasional pens. We tried two alternatives first and dropped them:
-      - Plain round() both          -> mostly 2-1 (compressed)
-      - Asymmetric ceil/floor       -> mostly 2-0 (no 1-0 ever, weird)
-    The joint-PMF mode is the most honest: it's the model literally
-    saying "this is the most likely exact scoreline."
+    Why not the modal cell of the joint PMF: that gives ~75% of matches
+    as 1-0 because for typical knockout lambdas (favourite ~1.7,
+    underdog ~0.8) the single most-likely exact cell sits at (1, 0).
+    Real WC knockouts have much more variety - 1-0, 2-0, 2-1, 3-1, the
+    occasional 4-3 thriller, plus shootouts. Sampling captures that
+    naturally because it draws from the actual goal distribution rather
+    than its pinpoint mode. The stable seed makes the prediction
+    deterministic; the clamps in _sample_scoreline keep it sane.
     """
     ra = ratings.get(team_a, 1500)
     rb = ratings.get(team_b, 1500)
     winner = winner_of(team_a, team_b, ratings)
-    loser = team_b if winner == team_a else team_a
     rw = ratings.get(winner, 1500)
-    rl = ratings.get(loser, 1500)
+    rl = ratings.get(team_b if winner == team_a else team_a, 1500)
 
-    lh, la = expected_goals(rw - rl)
-    j = dc_joint_pmf(float(lh), float(la))
-    flat_idx = int(j.argmax())
-    score_w, score_l = divmod(flat_idx, j.shape[1])
-    pens = score_w == score_l
+    score_w, score_l, pens = _sample_scoreline(
+        rw, rl, _stable_match_seed(team_a, team_b)
+    )
 
     if winner == team_a:
         score_a, score_b = score_w, score_l
