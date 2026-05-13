@@ -37,21 +37,34 @@ from worldcup.wiki_rosters import fetch_and_parse
 OUTPUT_PATH = PROJECT_ROOT / "data" / "raw" / "wc2026_trophy_scores.json"
 
 
-def normalise_score(raw: float, players_in_squad: int) -> float:
-    """Scale the raw sum to a comparable range against the legacy
-    hand-coded TEAM_TROPHY_SCORE values (which were on a 2-38 scale,
-    median ~10). A 26-player WC squad with a few players at a major-
-    league champion typically lands 10-25; UCL-finalist-heavy squads
-    push toward 35+.
+# Baseline trophy contribution given to every WC qualifier, on top of
+# their actual trophy-weight aggregation. Rationale: WC qualification
+# itself is a competence signal — a squad of professional internationals
+# who beat their continent's qualifying field. Pure "0 trophy weight"
+# would mean we treat a team like Bosnia (no big-club players, but
+# clearly elite within their region) as having zero squad strength via
+# this layer, which is too punitive. Setting BASELINE to the value our
+# hand-coded scheme gave to the smallest WC teams (Haiti, Cape Verde,
+# Curaçao, Saudi Arabia were all 2-3 hand-coded) is the principled
+# floor.
+TROPHY_BASELINE = 3.0
 
-    The 0.85 multiplier was chosen so France/Spain/Brazil land near
-    their old hand-coded values (~30-38) so the blend doesn't dramati-
-    cally swing relative to the v1 model on day-1, only correct the
-    underlying composition. Will be re-tuned post-FBref minutes data.
+
+def normalise_score(raw: float, players_in_squad: int) -> float:
+    """Scale the raw sum + add the WC-qualification baseline.
+
+    Without the baseline a team whose published squad happens to lack
+    any 2025-26 trophy-winning-club players (e.g. Bosnia, May 2026)
+    scores 0, which produces a 50+ Elo drop relative to hand-coded —
+    far too sensitive to one signal layer.
+
+    The 0.85 multiplier on raw is calibrated so France/Spain/Brazil
+    land near their old hand-coded values (~30-38) once their squads
+    are scraped. Will be re-tuned post-FBref minutes data.
     """
     if players_in_squad == 0:
-        return 0.0
-    return raw * 0.85
+        return TROPHY_BASELINE
+    return TROPHY_BASELINE + raw * 0.85
 
 
 def compute() -> dict:
