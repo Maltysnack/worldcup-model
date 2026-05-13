@@ -59,6 +59,10 @@ jobs:
         continue-on-error: true
         run: uv run worldcup-fetch-club-stats
 
+      - name: Refresh club crests/badges from Wikipedia
+        continue-on-error: true
+        run: uv run worldcup-fetch-club-badges
+
       - name: Rebuild Elo + bracket + simulation
         run: |
           uv run worldcup-elo
