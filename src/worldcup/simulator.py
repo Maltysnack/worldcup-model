@@ -433,6 +433,13 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
         for team, rnd in team_round.items():
             round_counts[team][rnd] += 1
 
+    # Market-implied champion probabilities (Polymarket, de-vigged).
+    # Loaded from the cached JSON; absent if worldcup-fetch-market-odds
+    # hasn't run yet. Stored alongside our model probability so the
+    # site can render a "Market %" column and a model-minus-market delta.
+    from worldcup.market_odds import load_cached as load_market_odds
+    market_probs = load_market_odds()
+
     # Per-team stats
     teams_all = sorted(round_counts.keys())
     team_stats = []
@@ -441,11 +448,13 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
         n_team_total = sum(c.values())
         # Probability of "reaching at least round X"
         pct = lambda key: round(100 * c[key] / n_team_total, 2)
+        p_champ = pct("champion")
+        market_p = market_probs.get(t)
         team_stats.append({
             "team": t,
             "rating": round(ratings[t]),
             "raw_rating": round(raw_ratings.get(t, 1500)),
-            "p_champion": pct("champion"),
+            "p_champion": p_champ,
             "p_final": pct("champion") + pct("runner_up"),
             "p_semis": (
                 pct("champion") + pct("runner_up") + pct("semi_finals")
@@ -457,6 +466,15 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
                 pct("champion") + pct("runner_up") + pct("semi_finals") + pct("quarter_finals") + pct("round_of_16")
             ),
             "p_advance_from_groups": 100.0 - pct("group_stage"),
+            # Market column. None when we lack a market price (e.g. the
+            # fetcher hasn't been pointed at a roster name we know).
+            "market_p_champion": (
+                round(market_p * 100, 2) if market_p is not None else None
+            ),
+            "model_minus_market": (
+                round(p_champ - market_p * 100, 2)
+                if market_p is not None else None
+            ),
         })
     team_stats.sort(key=lambda x: x["p_champion"], reverse=True)
 

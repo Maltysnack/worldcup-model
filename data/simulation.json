@@ -1764,7 +1764,7 @@
       "elo_delta_away": 11.8
     }
   ],
-  "generated_at": "2026-05-13T12:50:08Z",
+  "generated_at": "2026-05-13T13:13:25Z",
   "n_simulations": 10000,
   "calibration": {
     "lambda_home_at_parity": 1.41,
@@ -1833,7 +1833,9 @@
       "p_semis": 44.14,
       "p_quarters": 53.2,
       "p_round_of_16": 77.86,
-      "p_advance_from_groups": 99.27
+      "p_advance_from_groups": 99.27,
+      "market_p_champion": 15.76,
+      "model_minus_market": 2.97
     },
     {
       "team": "France",
@@ -1844,7 +1846,9 @@
       "p_semis": 36.1,
       "p_quarters": 47.900000000000006,
       "p_round_of_16": 75.54,
-      "p_advance_from_groups": 96.65
+      "p_advance_from_groups": 96.65,
+      "market_p_champion": 17.19,
+      "model_minus_market": -0.98
     },
     {
       "team": "Argentina",
@@ -1855,7 +1859,9 @@
       "p_semis": 39.3,
       "p_quarters": 52.919999999999995,
       "p_round_of_16": 67.94,
-      "p_advance_from_groups": 97.82
+      "p_advance_from_groups": 97.82,
+      "market_p_champion": 8.29,
+      "model_minus_market": 2.73
     },
     {
       "team": "Brazil",
@@ -1866,7 +1872,9 @@
       "p_semis": 23.78,
       "p_quarters": 38.69,
       "p_round_of_16": 60.78,
-      "p_advance_from_groups": 95.61
+      "p_advance_from_groups": 95.61,
+      "market_p_champion": 8.76,
+      "model_minus_market": -2.25
     },
     {
       "team": "Portugal",
@@ -1877,7 +1885,9 @@
       "p_semis": 25.29,
       "p_quarters": 45.95,
       "p_round_of_16": 75.85,
-      "p_advance_from_groups": 94.57
+      "p_advance_from_groups": 94.57,
+      "market_p_champion": 7.52,
+      "model_minus_market": -1.09
     },
     {
       "team": "England",
@@ -1888,7 +1898,9 @@
       "p_semis": 16.82,
       "p_quarters": 32.6,
       "p_round_of_16": 61.370000000000005,
-      "p_advance_from_groups": 95.14
+      "p_advance_from_groups": 95.14,
+      "market_p_champion": 10.97,
+      "model_minus_market": -6.9
     },
     {
       "team": "Germany",
@@ -1899,7 +1911,9 @@
       "p_semis": 14.83,
       "p_quarters": 26.03,
       "p_round_of_16": 53.64,
-      "p_advance_from_groups": 93.24
+      "p_advance_from_groups": 93.24,
+      "market_p_champion": 4.93,
+      "model_minus_market": -1.27
     },
     {
       "team": "Colombia",
@@ -1910,7 +1924,9 @@
       "p_semis": 16.85,
       "p_quarters": 32.6,
       "p_round_of_16": 63.870000000000005,
-      "p_advance_from_groups": 88.9
+      "p_advance_from_groups": 88.9,
+      "market_p_champion": 1.58,
+      "model_minus_market": 1.7
     },
     {
       "team": "Netherlands",
@@ -1921,7 +1937,9 @@
       "p_semis": 12.54,
       "p_quarters": 26.6,
       "p_round_of_16": 47.72,
-      "p_advance_from_groups": 90.18
+      "p_advance_from_groups": 90.18,
+      "market_p_champion": 3.3,
+      "model_minus_market": -0.11
     },
     {
       "team": "Morocco",
@@ -1932,7 +1950,9 @@
       "p_semis": 13.41,
       "p_quarters": 26.77,
       "p_round_of_16": 48.18,
-      "p_advance_from_groups": 90.05
+      "p_advance_from_groups": 90.05,
+      "market_p_champion": 1.48,
+      "model_minus_market": 1.67
     },
     {
       "team": "Ecuador",
@@ -1943,7 +1963,9 @@
       "p_semis": 12.629999999999999,
       "p_quarters": 23.049999999999997,
       "p_round_of_16": 49.42999999999999,
-      "p_advance_from_groups": 90.73
+      "p_advance_from_groups": 90.73,
+      "market_p_champion": 0.72,
+      "model_minus_market": 1.92
     },
     {
       "team": "Japan",
@@ -1954,7 +1976,9 @@
       "p_semis": 12.1,
       "p_quarters": 24.310000000000002,
       "p_round_of_16": 43.75,
-      "p_advance_from_groups": 86.76
+      "p_advance_from_groups": 86.76,
+      "market_p_champion": 1.96,
+      "model_minus_market": 0.67
     },
     {
       "team": "Senegal",
@@ -1965,7 +1989,9 @@
       "p_semis": 11.06,
       "p_quarters": 21.09,
       "p_round_of_16": 43.66,
-      "p_advance_from_groups": 79.89
+      "p_advance_from_groups": 79.89,
+      "market_p_champion": 0.72,
+      "model_minus_market": 1.65
     },
     {
       "team": "Turkey",
@@ -1976,7 +2002,9 @@
       "p_semis": 12.7,
       "p_quarters": 28.4,
       "p_round_of_16": 54.76,
-      "p_advance_from_groups": 78.76
+      "p_advance_from_groups": 78.76,
+      "market_p_champion": 0.62,
+      "model_minus_market": 1.75
     },
     {
       "team": "Switzerland",
@@ -1987,7 +2015,9 @@
       "p_semis": 12.09,
       "p_quarters": 34.019999999999996,
       "p_round_of_16": 60.16,
-      "p_advance_from_groups": 93.94
+      "p_advance_from_groups": 93.94,
+      "market_p_champion": 1.1,
+      "model_minus_market": 0.77
     },
     {
       "team": "Norway",
@@ -1998,7 +2028,9 @@
       "p_semis": 9.73,
       "p_quarters": 18.53,
       "p_round_of_16": 41.480000000000004,
-      "p_advance_from_groups": 79.21000000000001
+      "p_advance_from_groups": 79.21000000000001,
+      "market_p_champion": 2.16,
+      "model_minus_market": -0.38
     },
     {
       "team": "Mexico",
@@ -2009,7 +2041,9 @@
       "p_semis": 10.16,
       "p_quarters": 29.22,
       "p_round_of_16": 55.57,
-      "p_advance_from_groups": 97.81
+      "p_advance_from_groups": 97.81,
+      "market_p_champion": 1.01,
+      "model_minus_market": 0.58
     },
     {
       "team": "Belgium",
@@ -2020,7 +2054,9 @@
       "p_semis": 8.81,
       "p_quarters": 26.89,
       "p_round_of_16": 61.05,
-      "p_advance_from_groups": 94.04
+      "p_advance_from_groups": 94.04,
+      "market_p_champion": 1.87,
+      "model_minus_market": -0.4
     },
     {
       "team": "Uruguay",
@@ -2031,7 +2067,9 @@
       "p_semis": 10.11,
       "p_quarters": 18.31,
       "p_round_of_16": 35.099999999999994,
-      "p_advance_from_groups": 88.74
+      "p_advance_from_groups": 88.74,
+      "market_p_champion": 1.01,
+      "model_minus_market": 0.23
     },
     {
       "team": "United States",
@@ -2042,7 +2080,9 @@
       "p_semis": 8.559999999999999,
       "p_quarters": 27.48,
       "p_round_of_16": 56.620000000000005,
-      "p_advance_from_groups": 88.01
+      "p_advance_from_groups": 88.01,
+      "market_p_champion": 1.48,
+      "model_minus_market": -0.3
     },
     {
       "team": "Croatia",
@@ -2053,7 +2093,9 @@
       "p_semis": 7.82,
       "p_quarters": 17.09,
       "p_round_of_16": 39.7,
-      "p_advance_from_groups": 83.84
+      "p_advance_from_groups": 83.84,
+      "market_p_champion": 1.01,
+      "model_minus_market": 0.13
     },
     {
       "team": "South Korea",
@@ -2064,7 +2106,9 @@
       "p_semis": 6.1,
       "p_quarters": 21.61,
       "p_round_of_16": 46.3,
-      "p_advance_from_groups": 85.48
+      "p_advance_from_groups": 85.48,
+      "market_p_champion": 0.34,
+      "model_minus_market": 0.62
     },
     {
       "team": "Canada",
@@ -2075,7 +2119,9 @@
       "p_semis": 6.869999999999999,
       "p_quarters": 26.689999999999998,
       "p_round_of_16": 57.92999999999999,
-      "p_advance_from_groups": 96.82
+      "p_advance_from_groups": 96.82,
+      "market_p_champion": 0.43,
+      "model_minus_market": 0.18
     },
     {
       "team": "Ivory Coast",
@@ -2086,7 +2132,9 @@
       "p_semis": 5.300000000000001,
       "p_quarters": 12.93,
       "p_round_of_16": 33.129999999999995,
-      "p_advance_from_groups": 76.8
+      "p_advance_from_groups": 76.8,
+      "market_p_champion": 0.34,
+      "model_minus_market": 0.26
     },
     {
       "team": "Paraguay",
@@ -2097,7 +2145,9 @@
       "p_semis": 3.91,
       "p_quarters": 11.64,
       "p_round_of_16": 30.97,
-      "p_advance_from_groups": 58.58
+      "p_advance_from_groups": 58.58,
+      "market_p_champion": 0.34,
+      "model_minus_market": -0.01
     },
     {
       "team": "Algeria",
@@ -2108,7 +2158,9 @@
       "p_semis": 2.64,
       "p_quarters": 6.91,
       "p_round_of_16": 16.83,
-      "p_advance_from_groups": 64.0
+      "p_advance_from_groups": 64.0,
+      "market_p_champion": 0.24,
+      "model_minus_market": -0.02
     },
     {
       "team": "Australia",
@@ -2119,7 +2171,9 @@
       "p_semis": 2.31,
       "p_quarters": 7.4,
       "p_round_of_16": 22.41,
-      "p_advance_from_groups": 47.0
+      "p_advance_from_groups": 47.0,
+      "market_p_champion": 0.24,
+      "model_minus_market": -0.12
     },
     {
       "team": "Austria",
@@ -2130,7 +2184,9 @@
       "p_semis": 2.1799999999999997,
       "p_quarters": 5.959999999999999,
       "p_round_of_16": 15.87,
-      "p_advance_from_groups": 61.33
+      "p_advance_from_groups": 61.33,
+      "market_p_champion": 0.53,
+      "model_minus_market": -0.43
     },
     {
       "team": "DR Congo",
@@ -2141,7 +2197,9 @@
       "p_semis": 1.3900000000000001,
       "p_quarters": 4.73,
       "p_round_of_16": 16.37,
-      "p_advance_from_groups": 44.39
+      "p_advance_from_groups": 44.39,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.05
     },
     {
       "team": "Czech Republic",
@@ -2152,7 +2210,9 @@
       "p_semis": 0.8799999999999999,
       "p_quarters": 5.14,
       "p_round_of_16": 17.669999999999998,
-      "p_advance_from_groups": 55.03
+      "p_advance_from_groups": 55.03,
+      "market_p_champion": 0.34,
+      "model_minus_market": -0.27
     },
     {
       "team": "Egypt",
@@ -2163,7 +2223,9 @@
       "p_semis": 1.5,
       "p_quarters": 6.83,
       "p_round_of_16": 24.950000000000003,
-      "p_advance_from_groups": 69.6
+      "p_advance_from_groups": 69.6,
+      "market_p_champion": 0.34,
+      "model_minus_market": -0.28
     },
     {
       "team": "Scotland",
@@ -2174,7 +2236,9 @@
       "p_semis": 1.38,
       "p_quarters": 5.16,
       "p_round_of_16": 15.99,
-      "p_advance_from_groups": 60.55
+      "p_advance_from_groups": 60.55,
+      "market_p_champion": 0.34,
+      "model_minus_market": -0.28
     },
     {
       "team": "Sweden",
@@ -2185,7 +2249,9 @@
       "p_semis": 1.1600000000000001,
       "p_quarters": 4.62,
       "p_round_of_16": 12.739999999999998,
-      "p_advance_from_groups": 49.53
+      "p_advance_from_groups": 49.53,
+      "market_p_champion": 0.53,
+      "model_minus_market": -0.47
     },
     {
       "team": "Tunisia",
@@ -2196,7 +2262,9 @@
       "p_semis": 0.64,
       "p_quarters": 3.2600000000000002,
       "p_round_of_16": 9.61,
-      "p_advance_from_groups": 42.32
+      "p_advance_from_groups": 42.32,
+      "market_p_champion": 0.24,
+      "model_minus_market": -0.2
     },
     {
       "team": "Uzbekistan",
@@ -2207,7 +2275,9 @@
       "p_semis": 1.08,
       "p_quarters": 3.5500000000000003,
       "p_round_of_16": 12.42,
-      "p_advance_from_groups": 36.83
+      "p_advance_from_groups": 36.83,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.1
     },
     {
       "team": "Jordan",
@@ -2218,7 +2288,9 @@
       "p_semis": 0.48,
       "p_quarters": 1.8599999999999999,
       "p_round_of_16": 6.869999999999999,
-      "p_advance_from_groups": 39.18
+      "p_advance_from_groups": 39.18,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.11
     },
     {
       "team": "Bosnia and Herzegovina",
@@ -2229,7 +2301,9 @@
       "p_semis": 0.49,
       "p_quarters": 4.5200000000000005,
       "p_round_of_16": 14.14,
-      "p_advance_from_groups": 58.52
+      "p_advance_from_groups": 58.52,
+      "market_p_champion": 0.24,
+      "model_minus_market": -0.22
     },
     {
       "team": "Iran",
@@ -2240,7 +2314,9 @@
       "p_semis": 0.75,
       "p_quarters": 3.91,
       "p_round_of_16": 17.12,
-      "p_advance_from_groups": 60.72
+      "p_advance_from_groups": 60.72,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.12
     },
     {
       "team": "Cape Verde",
@@ -2251,7 +2327,9 @@
       "p_semis": 0.27,
       "p_quarters": 1.52,
       "p_round_of_16": 5.859999999999999,
-      "p_advance_from_groups": 34.67
+      "p_advance_from_groups": 34.67,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.13
     },
     {
       "team": "Ghana",
@@ -2262,7 +2340,9 @@
       "p_semis": 0.26,
       "p_quarters": 1.33,
       "p_round_of_16": 5.76,
-      "p_advance_from_groups": 33.39
+      "p_advance_from_groups": 33.39,
+      "market_p_champion": 0.24,
+      "model_minus_market": -0.23
     },
     {
       "team": "New Zealand",
@@ -2273,7 +2353,9 @@
       "p_semis": 0.23,
       "p_quarters": 1.88,
       "p_round_of_16": 10.120000000000001,
-      "p_advance_from_groups": 45.75
+      "p_advance_from_groups": 45.75,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.13
     },
     {
       "team": "South Africa",
@@ -2284,7 +2366,9 @@
       "p_semis": 0.07,
       "p_quarters": 1.01,
       "p_round_of_16": 5.17,
-      "p_advance_from_groups": 26.230000000000004
+      "p_advance_from_groups": 26.230000000000004,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.13
     },
     {
       "team": "Cura\u00e7ao",
@@ -2295,7 +2379,9 @@
       "p_semis": 0.01,
       "p_quarters": 0.25,
       "p_round_of_16": 2.13,
-      "p_advance_from_groups": 13.840000000000003
+      "p_advance_from_groups": 13.840000000000003,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.14
     },
     {
       "team": "Haiti",
@@ -2306,7 +2392,9 @@
       "p_semis": 0.05,
       "p_quarters": 0.47,
       "p_round_of_16": 2.7199999999999998,
-      "p_advance_from_groups": 21.67
+      "p_advance_from_groups": 21.67,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.14
     },
     {
       "team": "Iraq",
@@ -2317,7 +2405,9 @@
       "p_semis": 0.13,
       "p_quarters": 0.63,
       "p_round_of_16": 3.13,
-      "p_advance_from_groups": 15.900000000000006
+      "p_advance_from_groups": 15.900000000000006,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.14
     },
     {
       "team": "Panama",
@@ -2328,7 +2418,9 @@
       "p_semis": 0.9400000000000001,
       "p_quarters": 3.42,
       "p_round_of_16": 13.78,
-      "p_advance_from_groups": 53.66
+      "p_advance_from_groups": 53.66,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.14
     },
     {
       "team": "Qatar",
@@ -2339,7 +2431,9 @@
       "p_semis": 0.03,
       "p_quarters": 0.21,
       "p_round_of_16": 1.81,
-      "p_advance_from_groups": 16.099999999999994
+      "p_advance_from_groups": 16.099999999999994,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.14
     },
     {
       "team": "Saudi Arabia",
@@ -2350,7 +2444,9 @@
       "p_semis": 0.12,
       "p_quarters": 0.91,
       "p_round_of_16": 4.17,
-      "p_advance_from_groups": 28.950000000000003
+      "p_advance_from_groups": 28.950000000000003,
+      "market_p_champion": 0.14,
+      "model_minus_market": -0.14
     }
   ]
 }

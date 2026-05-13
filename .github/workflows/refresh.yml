@@ -63,6 +63,10 @@ jobs:
         continue-on-error: true
         run: uv run worldcup-fetch-club-badges
 
+      - name: Fetch WC 2026 outright market odds from Polymarket
+        continue-on-error: true
+        run: uv run worldcup-fetch-market-odds --refresh
+
       - name: Rebuild Elo + bracket + simulation
         run: |
           uv run worldcup-elo
