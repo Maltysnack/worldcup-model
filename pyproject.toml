@@ -37,6 +37,8 @@ worldcup-fit-friendly-calibration = "worldcup.friendly_calibration:main"
 worldcup-fetch-market-odds = "worldcup.market_odds:main"
 worldcup-build-live-tournament = "worldcup.live_tournament:main"
 worldcup-roster-flip-dryrun = "worldcup.roster_flip_dryrun:main"
+worldcup-chaos-investigation = "worldcup.chaos_investigation:main"
+worldcup-wc2022-evaluation = "worldcup.wc2022_evaluation:main"
 
 [build-system]
 requires = ["uv_build>=0.11.11,<0.12.0"]
