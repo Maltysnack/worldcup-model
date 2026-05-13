@@ -31,7 +31,7 @@ from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import MODEL_VERSION
 from worldcup.profiles import current_profile, file_suffix, table_suffix
 from worldcup.form import apply_form
-from worldcup.goals import sim_match
+from worldcup.goals import expected_goals, sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.host import apply_host_bonus
 from worldcup.trophies import apply_nt_bonus
@@ -306,12 +306,51 @@ def resolve_slot(spec, group_winners, group_runners, third_assignments, match_no
 
 
 def build_match(team_a, team_b, ratings):
+    """Deterministic knockout match prediction with a rounded scoreline.
+
+    Higher-Elo team wins (winner_of). Predicted scoreline is the
+    expected-goals tuple from the Poisson model, rounded to whole
+    integers. If both teams round to the same number we mark `pens =
+    True` and the higher-Elo team takes it (penalty shootout in the
+    sim is essentially a coin flip with a tiny Elo edge).
+
+    expected_goals expects a (home_eff - away_eff) gap with the home
+    team gaining lambda. Knockouts are at neutral venue so we frame
+    the higher-Elo team as the "home" side, giving them the higher
+    expected lambda. If the rounded result somehow inverts (very
+    rare, only at extreme parity), we force winner >= loser by 1.
+    """
+    ra = ratings.get(team_a, 1500)
+    rb = ratings.get(team_b, 1500)
+    winner = winner_of(team_a, team_b, ratings)
+    loser = team_b if winner == team_a else team_a
+    rw = ratings.get(winner, 1500)
+    rl = ratings.get(loser, 1500)
+
+    lh, la = expected_goals(rw - rl)
+    score_w = max(0, round(float(lh)))
+    score_l = max(0, round(float(la)))
+    pens = False
+    if score_w == score_l:
+        pens = True  # winner already chosen (higher Elo); model takes it on pens
+    elif score_w < score_l:
+        # Shouldn't happen for positive Elo gap but guard against rounding edge cases.
+        score_w = score_l + 1
+
+    if winner == team_a:
+        score_a, score_b = score_w, score_l
+    else:
+        score_a, score_b = score_l, score_w
+
     return {
         "team_a": team_a,
         "team_b": team_b,
-        "rating_a": round(ratings.get(team_a, 1500)),
-        "rating_b": round(ratings.get(team_b, 1500)),
-        "winner": winner_of(team_a, team_b, ratings),
+        "rating_a": round(ra),
+        "rating_b": round(rb),
+        "winner": winner,
+        "score_a": score_a,
+        "score_b": score_b,
+        "pens": pens,
     }
 
 

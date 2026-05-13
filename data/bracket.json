@@ -2,7 +2,7 @@
   "model_version": "elo-v4a-flat-mild+squad35+form",
   "elo_version": "elo-v4a-flat-mild",
   "elo_weight": 0.65,
-  "generated_at": "2026-05-13T00:02:51Z",
+  "generated_at": "2026-05-13T02:24:36Z",
   "bracket_format": "fifa-2026",
   "flags": {
     "Algeria": "dz",
@@ -555,112 +555,160 @@
         "team_b": "Scotland",
         "rating_a": 1904,
         "rating_b": 1757,
-        "winner": "Germany"
+        "winner": "Germany",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "France",
         "team_b": "Paraguay",
         "rating_a": 2021,
         "rating_b": 1821,
-        "winner": "France"
+        "winner": "France",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "South Korea",
         "team_b": "Switzerland",
         "rating_a": 1837,
         "rating_b": 1887,
-        "winner": "Switzerland"
+        "winner": "Switzerland",
+        "score_a": 1,
+        "score_b": 2,
+        "pens": false
       },
       {
         "team_a": "Netherlands",
         "team_b": "Morocco",
         "rating_a": 1915,
         "rating_b": 1911,
-        "winner": "Netherlands"
+        "winner": "Netherlands",
+        "score_a": 1,
+        "score_b": 1,
+        "pens": true
       },
       {
         "team_a": "Colombia",
         "team_b": "Croatia",
         "rating_a": 1912,
         "rating_b": 1866,
-        "winner": "Colombia"
+        "winner": "Colombia",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Spain",
         "team_b": "Algeria",
         "rating_a": 2041,
         "rating_b": 1797,
-        "winner": "Spain"
+        "winner": "Spain",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "United States",
         "team_b": "Austria",
         "rating_a": 1846,
         "rating_b": 1785,
-        "winner": "United States"
+        "winner": "United States",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Belgium",
         "team_b": "Iran",
         "rating_a": 1870,
         "rating_b": 1719,
-        "winner": "Belgium"
+        "winner": "Belgium",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Brazil",
         "team_b": "Japan",
         "rating_a": 1948,
         "rating_b": 1908,
-        "winner": "Brazil"
+        "winner": "Brazil",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Ecuador",
         "team_b": "Norway",
         "rating_a": 1887,
         "rating_b": 1886,
-        "winner": "Ecuador"
+        "winner": "Ecuador",
+        "score_a": 1,
+        "score_b": 1,
+        "pens": true
       },
       {
         "team_a": "Mexico",
         "team_b": "Senegal",
         "rating_a": 1868,
         "rating_b": 1907,
-        "winner": "Senegal"
+        "winner": "Senegal",
+        "score_a": 1,
+        "score_b": 2,
+        "pens": false
       },
       {
         "team_a": "England",
         "team_b": "Ivory Coast",
         "rating_a": 1940,
         "rating_b": 1832,
-        "winner": "England"
+        "winner": "England",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Argentina",
         "team_b": "Uruguay",
         "rating_a": 2002,
         "rating_b": 1867,
-        "winner": "Argentina"
+        "winner": "Argentina",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Turkey",
         "team_b": "Egypt",
         "rating_a": 1903,
         "rating_b": 1753,
-        "winner": "Turkey"
+        "winner": "Turkey",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Canada",
         "team_b": "Panama",
         "rating_a": 1824,
         "rating_b": 1732,
-        "winner": "Canada"
+        "winner": "Canada",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Portugal",
         "team_b": "Bosnia and Herzegovina",
         "rating_a": 1965,
         "rating_b": 1697,
-        "winner": "Portugal"
+        "winner": "Portugal",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       }
     ],
     "round_of_16": [
@@ -669,56 +717,80 @@
         "team_b": "France",
         "rating_a": 1904,
         "rating_b": 2021,
-        "winner": "France"
+        "winner": "France",
+        "score_a": 1,
+        "score_b": 2,
+        "pens": false
       },
       {
         "team_a": "Switzerland",
         "team_b": "Netherlands",
         "rating_a": 1887,
         "rating_b": 1915,
-        "winner": "Netherlands"
+        "winner": "Netherlands",
+        "score_a": 1,
+        "score_b": 1,
+        "pens": true
       },
       {
         "team_a": "Colombia",
         "team_b": "Spain",
         "rating_a": 1912,
         "rating_b": 2041,
-        "winner": "Spain"
+        "winner": "Spain",
+        "score_a": 1,
+        "score_b": 2,
+        "pens": false
       },
       {
         "team_a": "United States",
         "team_b": "Belgium",
         "rating_a": 1846,
         "rating_b": 1870,
-        "winner": "Belgium"
+        "winner": "Belgium",
+        "score_a": 1,
+        "score_b": 1,
+        "pens": true
       },
       {
         "team_a": "Brazil",
         "team_b": "Ecuador",
         "rating_a": 1948,
         "rating_b": 1887,
-        "winner": "Brazil"
+        "winner": "Brazil",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Senegal",
         "team_b": "England",
         "rating_a": 1907,
         "rating_b": 1940,
-        "winner": "England"
+        "winner": "England",
+        "score_a": 1,
+        "score_b": 2,
+        "pens": false
       },
       {
         "team_a": "Argentina",
         "team_b": "Turkey",
         "rating_a": 2002,
         "rating_b": 1903,
-        "winner": "Argentina"
+        "winner": "Argentina",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Canada",
         "team_b": "Portugal",
         "rating_a": 1824,
         "rating_b": 1965,
-        "winner": "Portugal"
+        "winner": "Portugal",
+        "score_a": 1,
+        "score_b": 2,
+        "pens": false
       }
     ],
     "quarter_finals": [
@@ -727,28 +799,40 @@
         "team_b": "Netherlands",
         "rating_a": 2021,
         "rating_b": 1915,
-        "winner": "France"
+        "winner": "France",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Spain",
         "team_b": "Belgium",
         "rating_a": 2041,
         "rating_b": 1870,
-        "winner": "Spain"
+        "winner": "Spain",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       },
       {
         "team_a": "Brazil",
         "team_b": "England",
         "rating_a": 1948,
         "rating_b": 1940,
-        "winner": "Brazil"
+        "winner": "Brazil",
+        "score_a": 1,
+        "score_b": 1,
+        "pens": true
       },
       {
         "team_a": "Argentina",
         "team_b": "Portugal",
         "rating_a": 2002,
         "rating_b": 1965,
-        "winner": "Argentina"
+        "winner": "Argentina",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       }
     ],
     "semi_finals": [
@@ -757,14 +841,20 @@
         "team_b": "Spain",
         "rating_a": 2021,
         "rating_b": 2041,
-        "winner": "Spain"
+        "winner": "Spain",
+        "score_a": 1,
+        "score_b": 1,
+        "pens": true
       },
       {
         "team_a": "Brazil",
         "team_b": "Argentina",
         "rating_a": 1948,
         "rating_b": 2002,
-        "winner": "Argentina"
+        "winner": "Argentina",
+        "score_a": 1,
+        "score_b": 2,
+        "pens": false
       }
     ],
     "final": [
@@ -773,7 +863,10 @@
         "team_b": "Argentina",
         "rating_a": 2041,
         "rating_b": 2002,
-        "winner": "Spain"
+        "winner": "Spain",
+        "score_a": 2,
+        "score_b": 1,
+        "pens": false
       }
     ],
     "champion": "Spain"
