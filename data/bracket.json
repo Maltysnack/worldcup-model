@@ -2,7 +2,7 @@
   "model_version": "elo-v4a-flat-mild+squad35+form",
   "elo_version": "elo-v4a-flat-mild",
   "elo_weight": 0.65,
-  "generated_at": "2026-05-13T02:24:36Z",
+  "generated_at": "2026-05-13T04:17:43Z",
   "bracket_format": "fifa-2026",
   "flags": {
     "Algeria": "dz",
@@ -557,7 +557,7 @@
         "rating_b": 1757,
         "winner": "Germany",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -567,7 +567,7 @@
         "rating_b": 1821,
         "winner": "France",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -576,7 +576,7 @@
         "rating_a": 1837,
         "rating_b": 1887,
         "winner": "Switzerland",
-        "score_a": 1,
+        "score_a": 0,
         "score_b": 2,
         "pens": false
       },
@@ -586,9 +586,9 @@
         "rating_a": 1915,
         "rating_b": 1911,
         "winner": "Netherlands",
-        "score_a": 1,
+        "score_a": 2,
         "score_b": 1,
-        "pens": true
+        "pens": false
       },
       {
         "team_a": "Colombia",
@@ -597,7 +597,7 @@
         "rating_b": 1866,
         "winner": "Colombia",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -606,8 +606,8 @@
         "rating_a": 2041,
         "rating_b": 1797,
         "winner": "Spain",
-        "score_a": 2,
-        "score_b": 1,
+        "score_a": 3,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -617,7 +617,7 @@
         "rating_b": 1785,
         "winner": "United States",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -627,7 +627,7 @@
         "rating_b": 1719,
         "winner": "Belgium",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -637,7 +637,7 @@
         "rating_b": 1908,
         "winner": "Brazil",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -646,9 +646,9 @@
         "rating_a": 1887,
         "rating_b": 1886,
         "winner": "Ecuador",
-        "score_a": 1,
+        "score_a": 2,
         "score_b": 1,
-        "pens": true
+        "pens": false
       },
       {
         "team_a": "Mexico",
@@ -656,7 +656,7 @@
         "rating_a": 1868,
         "rating_b": 1907,
         "winner": "Senegal",
-        "score_a": 1,
+        "score_a": 0,
         "score_b": 2,
         "pens": false
       },
@@ -667,7 +667,7 @@
         "rating_b": 1832,
         "winner": "England",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -677,7 +677,7 @@
         "rating_b": 1867,
         "winner": "Argentina",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -687,7 +687,7 @@
         "rating_b": 1753,
         "winner": "Turkey",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -697,7 +697,7 @@
         "rating_b": 1732,
         "winner": "Canada",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -706,8 +706,8 @@
         "rating_a": 1965,
         "rating_b": 1697,
         "winner": "Portugal",
-        "score_a": 2,
-        "score_b": 1,
+        "score_a": 3,
+        "score_b": 0,
         "pens": false
       }
     ],
@@ -718,7 +718,7 @@
         "rating_a": 1904,
         "rating_b": 2021,
         "winner": "France",
-        "score_a": 1,
+        "score_a": 0,
         "score_b": 2,
         "pens": false
       },
@@ -728,9 +728,9 @@
         "rating_a": 1887,
         "rating_b": 1915,
         "winner": "Netherlands",
-        "score_a": 1,
-        "score_b": 1,
-        "pens": true
+        "score_a": 0,
+        "score_b": 2,
+        "pens": false
       },
       {
         "team_a": "Colombia",
@@ -738,7 +738,7 @@
         "rating_a": 1912,
         "rating_b": 2041,
         "winner": "Spain",
-        "score_a": 1,
+        "score_a": 0,
         "score_b": 2,
         "pens": false
       },
@@ -749,8 +749,8 @@
         "rating_b": 1870,
         "winner": "Belgium",
         "score_a": 1,
-        "score_b": 1,
-        "pens": true
+        "score_b": 2,
+        "pens": false
       },
       {
         "team_a": "Brazil",
@@ -759,7 +759,7 @@
         "rating_b": 1887,
         "winner": "Brazil",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -768,7 +768,7 @@
         "rating_a": 1907,
         "rating_b": 1940,
         "winner": "England",
-        "score_a": 1,
+        "score_a": 0,
         "score_b": 2,
         "pens": false
       },
@@ -779,7 +779,7 @@
         "rating_b": 1903,
         "winner": "Argentina",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -788,7 +788,7 @@
         "rating_a": 1824,
         "rating_b": 1965,
         "winner": "Portugal",
-        "score_a": 1,
+        "score_a": 0,
         "score_b": 2,
         "pens": false
       }
@@ -801,7 +801,7 @@
         "rating_b": 1915,
         "winner": "France",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -811,7 +811,7 @@
         "rating_b": 1870,
         "winner": "Spain",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
@@ -820,9 +820,9 @@
         "rating_a": 1948,
         "rating_b": 1940,
         "winner": "Brazil",
-        "score_a": 1,
+        "score_a": 2,
         "score_b": 1,
-        "pens": true
+        "pens": false
       },
       {
         "team_a": "Argentina",
@@ -831,7 +831,7 @@
         "rating_b": 1965,
         "winner": "Argentina",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       }
     ],
@@ -843,8 +843,8 @@
         "rating_b": 2041,
         "winner": "Spain",
         "score_a": 1,
-        "score_b": 1,
-        "pens": true
+        "score_b": 2,
+        "pens": false
       },
       {
         "team_a": "Brazil",
@@ -852,7 +852,7 @@
         "rating_a": 1948,
         "rating_b": 2002,
         "winner": "Argentina",
-        "score_a": 1,
+        "score_a": 0,
         "score_b": 2,
         "pens": false
       }
@@ -865,7 +865,7 @@
         "rating_b": 2002,
         "winner": "Spain",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       }
     ],

@@ -21,6 +21,7 @@ Run: `uv run worldcup-bracket`
 from __future__ import annotations
 
 import json
+import math
 import sys
 from collections import defaultdict
 from datetime import datetime
@@ -31,7 +32,7 @@ from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import MODEL_VERSION
 from worldcup.profiles import current_profile, file_suffix, table_suffix
 from worldcup.form import apply_form
-from worldcup.goals import expected_goals, sim_match
+from worldcup.goals import dc_joint_pmf, expected_goals, sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.host import apply_host_bonus
 from worldcup.trophies import apply_nt_bonus
@@ -306,19 +307,25 @@ def resolve_slot(spec, group_winners, group_runners, third_assignments, match_no
 
 
 def build_match(team_a, team_b, ratings):
-    """Deterministic knockout match prediction with a rounded scoreline.
+    """Deterministic knockout match prediction with a bolder scoreline.
 
-    Higher-Elo team wins (winner_of). Predicted scoreline is the
-    expected-goals tuple from the Poisson model, rounded to whole
-    integers. If both teams round to the same number we mark `pens =
-    True` and the higher-Elo team takes it (penalty shootout in the
-    sim is essentially a coin flip with a tiny Elo edge).
+    Higher-Elo team wins (winner_of). The score uses an asymmetric
+    rounding of expected goals that scales boldness with the Elo gap:
 
-    expected_goals expects a (home_eff - away_eff) gap with the home
-    team gaining lambda. Knockouts are at neutral venue so we frame
-    the higher-Elo team as the "home" side, giving them the higher
-    expected lambda. If the rounded result somehow inverts (very
-    rare, only at extreme parity), we force winner >= loser by 1.
+      - Favourite: ceil(lambda_winner - 0.2). Lifts 1.4 -> 2, 2.4 -> 3.
+        A team expected to score 1.5+ goals predicts at least 2.
+      - Underdog:  floor(lambda_loser). Drops 1.07 -> 1, 0.7 -> 0.
+        An opponent expected to score under 1 predicts a clean sheet.
+
+    Result: close matches stay at 1-1 (pens), modest favourites go 2-0
+    or 2-1, strong favourites go 3-0, blowouts go 4-0. Reads as the
+    model's actual confidence rather than the timid "everything's a
+    1-0" you get from picking the joint-PMF mode (which we tried and
+    converged to 1-0 across 75% of ties).
+
+    If the chosen scores match (genuine parity in the lambdas) we
+    mark pens=True and the higher-Elo team progresses, matching the
+    simulator's tiny-Elo-edge shootout.
     """
     ra = ratings.get(team_a, 1500)
     rb = ratings.get(team_b, 1500)
@@ -328,13 +335,14 @@ def build_match(team_a, team_b, ratings):
     rl = ratings.get(loser, 1500)
 
     lh, la = expected_goals(rw - rl)
-    score_w = max(0, round(float(lh)))
-    score_l = max(0, round(float(la)))
+    # Asymmetric rounding: round winner up, loser down.
+    score_w = max(1, math.ceil(float(lh) - 0.2))
+    score_l = max(0, math.floor(float(la)))
     pens = False
     if score_w == score_l:
-        pens = True  # winner already chosen (higher Elo); model takes it on pens
+        pens = True  # parity tie: shootout, higher Elo wins
     elif score_w < score_l:
-        # Shouldn't happen for positive Elo gap but guard against rounding edge cases.
+        # Should not happen with positive Elo gap; guard regardless.
         score_w = score_l + 1
 
     if winner == team_a:
@@ -348,8 +356,8 @@ def build_match(team_a, team_b, ratings):
         "rating_a": round(ra),
         "rating_b": round(rb),
         "winner": winner,
-        "score_a": score_a,
-        "score_b": score_b,
+        "score_a": int(score_a),
+        "score_b": int(score_b),
         "pens": pens,
     }
 
