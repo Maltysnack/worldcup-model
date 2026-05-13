@@ -261,6 +261,61 @@ def main() -> None:
             "matches": matches,
         })
 
+    # Bucket the knockout matches into rounds using chronological order.
+    # WC 2026 schedule (48-team): 16 R32 → 8 R16 → 4 QF → 2 SF → 1 (3rd
+    # place, ignored) → 1 Final. We sort by date and slice. As real KO
+    # matches get scheduled and played they fall into the right bucket
+    # without us needing to hard-code team-pair lookups.
+    knockout_matches_sorted = sorted(knockout_matches, key=lambda m: m["date"])
+
+    def _as_bracket_match(m: dict) -> dict:
+        """Reshape a live match dict to match the bracket.json match
+        shape so the site's existing renderBracketInto can render it."""
+        winner = None
+        pens = False
+        if m.get("played"):
+            sa = m.get("home_score") or 0
+            sb = m.get("away_score") or 0
+            if sa > sb:
+                winner = m["home_team"]
+            elif sb > sa:
+                winner = m["away_team"]
+            else:
+                # Drawn after 90/ET → penalty shootout. We don't yet have
+                # explicit pen-winner data in our matches table, so we
+                # mark pens=True and leave winner null until the next
+                # match's winner reveals who advanced.
+                pens = True
+        return {
+            "team_a": m["home_team"],
+            "team_b": m["away_team"],
+            "rating_a": None,
+            "rating_b": None,
+            "winner": winner,
+            "score_a": m.get("home_score"),
+            "score_b": m.get("away_score"),
+            "pens": pens,
+            "played": bool(m.get("played")),
+            "date": m["date"],
+        }
+
+    ko_shaped = [_as_bracket_match(m) for m in knockout_matches_sorted]
+    knockout_bucketed = {
+        "round_of_32": ko_shaped[0:16],
+        "round_of_16": ko_shaped[16:24],
+        "quarter_finals": ko_shaped[24:28],
+        "semi_finals": ko_shaped[28:30],
+        # ko_shaped[30] = 3rd-place playoff if scheduled; we ignore it
+        # for the bracket. The final is the LAST chronological KO match.
+        "final": ko_shaped[-1:] if len(ko_shaped) >= 31 else [],
+        "champion": None,
+    }
+    # Champion: winner of the final match if it has been played
+    if knockout_bucketed["final"]:
+        f = knockout_bucketed["final"][0]
+        if f.get("winner"):
+            knockout_bucketed["champion"] = f["winner"]
+
     # Tournament status
     def _played(r) -> bool:
         return not (r.home_score is None or pd.isna(r.home_score))
@@ -309,7 +364,12 @@ def main() -> None:
         "n_group_matches_total": N_GROUP_MATCHES,
         "next_match": next_match,
         "groups": groups_out,
-        "knockout_matches": knockout_matches,  # populates as KO games happen
+        # Pre-bucketed knockout phase for the bracket renderer. Same
+        # shape as bracket.json's `knockout` so the existing JS bracket
+        # renderer can consume it directly.
+        "knockout": knockout_bucketed,
+        # Backwards-compat raw list (deprecated; remove when site no longer reads).
+        "knockout_matches": knockout_matches,
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)

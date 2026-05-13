@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-13T13:47:57+00:00",
+  "generated_at": "2026-05-13T16:26:37+00:00",
   "kickoff": "2026-06-11",
-  "today": "2026-05-13",
-  "days_to_kickoff": 29,
+  "today": "2026-05-14",
+  "days_to_kickoff": 28,
   "tournament_status": "pre",
   "n_played": 0,
   "n_total": 72,
@@ -2331,5 +2331,13 @@
       ]
     }
   ],
+  "knockout": {
+    "round_of_32": [],
+    "round_of_16": [],
+    "quarter_finals": [],
+    "semi_finals": [],
+    "final": [],
+    "champion": null
+  },
   "knockout_matches": []
 }
