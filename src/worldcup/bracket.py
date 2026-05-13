@@ -23,7 +23,7 @@ from __future__ import annotations
 import hashlib
 import json
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime
 
 import numpy as np
@@ -344,48 +344,120 @@ def _sample_scoreline(rw: float, rl: float, seed: int) -> tuple[int, int, bool]:
     return 1, 0, False  # safe fallback
 
 
-def build_match(team_a, team_b, ratings):
-    """Deterministic knockout match prediction.
-
-    Higher-Elo team wins (winner_of). Predicted scoreline is a Poisson-
-    sampled draw from the model's expected goals, with a stable per-
-    match seed so the same fixture always produces the same scoreline
-    across pipeline runs.
-
-    Why not the modal cell of the joint PMF: that gives ~75% of matches
-    as 1-0 because for typical knockout lambdas (favourite ~1.7,
-    underdog ~0.8) the single most-likely exact cell sits at (1, 0).
-    Real WC knockouts have much more variety - 1-0, 2-0, 2-1, 3-1, the
-    occasional 4-3 thriller, plus shootouts. Sampling captures that
-    naturally because it draws from the actual goal distribution rather
-    than its pinpoint mode. The stable seed makes the prediction
-    deterministic; the clamps in _sample_scoreline keep it sane.
-    """
+def _build_match_from_sample(team_a, team_b, sa, sb, ratings):
+    """Package a knockout match (with a sampled scoreline already in
+    hand) into the dict shape the bracket JSON expects."""
     ra = ratings.get(team_a, 1500)
     rb = ratings.get(team_b, 1500)
-    winner = winner_of(team_a, team_b, ratings)
-    rw = ratings.get(winner, 1500)
-    rl = ratings.get(team_b if winner == team_a else team_a, 1500)
-
-    score_w, score_l, pens = _sample_scoreline(
-        rw, rl, _stable_match_seed(team_a, team_b)
-    )
-
-    if winner == team_a:
-        score_a, score_b = score_w, score_l
-    else:
-        score_a, score_b = score_l, score_w
-
+    winner = team_a if sa > sb else (team_b if sb > sa else (
+        team_a if ra >= rb else team_b
+    ))
     return {
         "team_a": team_a,
         "team_b": team_b,
         "rating_a": round(ra),
         "rating_b": round(rb),
         "winner": winner,
-        "score_a": int(score_a),
-        "score_b": int(score_b),
-        "pens": pens,
+        "score_a": int(sa),
+        "score_b": int(sb),
+        "pens": bool(sa == sb),
     }
+
+
+def simulate_knockout_run(group_winners, group_runners, third_assignments,
+                          ratings, rng):
+    """Run one full knockout phase from the determined R32 fixtures and
+    return a {match_no: match_dict} of how this specific tournament
+    unfolded — winners AND scorelines for every match.
+
+    Each match scoreline is one Poisson sample from the goals model.
+    No clamps, no resamples — this is one honest draw from the
+    distribution. Caller filters for plausibility across many runs.
+    """
+    matches: dict[int, dict] = {}
+
+    # R32
+    for i, (a_spec, b_spec) in enumerate(R32_PAIRINGS, start=73):
+        ta = resolve_slot(a_spec, group_winners, group_runners, third_assignments, i)
+        tb = resolve_slot(b_spec, group_winners, group_runners, third_assignments, i)
+        sa, sb, _ = sim_match(ratings[ta], ratings[tb],
+                              neutral=True, ko=True, rng=rng)
+        matches[i] = _build_match_from_sample(ta, tb, sa, sb, ratings)
+
+    # Subsequent rounds
+    def play_round(feeds):
+        for match_no, fa, fb in feeds:
+            ta = matches[fa]["winner"]
+            tb = matches[fb]["winner"]
+            sa, sb, _ = sim_match(ratings[ta], ratings[tb],
+                                  neutral=True, ko=True, rng=rng)
+            matches[match_no] = _build_match_from_sample(
+                ta, tb, sa, sb, ratings,
+            )
+
+    play_round(R16_FEEDS)
+    play_round(QF_FEEDS)
+    play_round(SF_FEEDS)
+    fno, ffa, ffb = FINAL_FEED
+    ta = matches[ffa]["winner"]
+    tb = matches[ffb]["winner"]
+    sa, sb, _ = sim_match(ratings[ta], ratings[tb],
+                          neutral=True, ko=True, rng=rng)
+    matches[fno] = _build_match_from_sample(ta, tb, sa, sb, ratings)
+    return matches
+
+
+# Exemplar search constants
+EXEMPLAR_TRIALS = 2000   # how many full knockout sims to consider
+EXEMPLAR_MAX_GOALS = 5    # reject sims with any single match scoring > this
+
+
+def find_exemplar_bracket(group_winners, group_runners, third_assignments,
+                          ratings):
+    """Run many trial knockout phases, identify the modal champion, and
+    pick a single representative sim where that champion won. The picked
+    sim's match-by-match scorelines become the deterministic bracket
+    prediction.
+
+    This is the user-facing answer to "what tournament does the model
+    expect?" — one coherent narrative end-to-end (one specific path the
+    modal champion took, with all the upsets and blowouts that
+    happened along the way) rather than 31 independently-sampled
+    scorelines that don't form a story.
+
+    Pick is stable across runs: trial seeds are deterministic, and the
+    chosen sim is selected by `hash(modal_champion) % len(matching)` so
+    the prediction only changes if the modal champion changes.
+    """
+    sims = []
+    for trial in range(EXEMPLAR_TRIALS):
+        rng = np.random.default_rng(trial * 9973 + 17)  # stable seeds
+        sim = simulate_knockout_run(
+            group_winners, group_runners, third_assignments, ratings, rng,
+        )
+        sims.append(sim)
+
+    final_no = FINAL_FEED[0]
+    champ_counts = Counter(s[final_no]["winner"] for s in sims)
+    modal_champion, modal_n = champ_counts.most_common(1)[0]
+
+    # Filter to sims where modal champion won AND no match was a
+    # tail-extreme blowout (5+ goals from any one team)
+    matching = [
+        s for s in sims
+        if s[final_no]["winner"] == modal_champion
+        and all(max(m["score_a"], m["score_b"]) <= EXEMPLAR_MAX_GOALS
+                for m in s.values())
+    ]
+    if not matching:
+        # Fallback: any sim where modal champion wins
+        matching = [s for s in sims if s[final_no]["winner"] == modal_champion]
+
+    pick_idx = abs(hash(modal_champion)) % len(matching)
+    exemplar = matching[pick_idx]
+    return exemplar, modal_champion, modal_n, len(sims)
+
+
 
 
 def main() -> None:
@@ -450,24 +522,15 @@ def main() -> None:
             else:
                 s["qualifies_as"] = "eliminated"
 
-    # Build R32 matches
-    matches: dict[int, dict] = {}
-    for i, (a, b) in enumerate(R32_PAIRINGS, start=73):
-        team_a = resolve_slot(a, group_winners, group_runners, third_assignments, i)
-        team_b = resolve_slot(b, group_winners, group_runners, third_assignments, i)
-        matches[i] = build_match(team_a, team_b, ratings)
-
-    # Walk forward through the bracket
-    for feeds in (R16_FEEDS, QF_FEEDS, SF_FEEDS):
-        for match_no, fa, fb in feeds:
-            matches[match_no] = build_match(
-                matches[fa]["winner"], matches[fb]["winner"], ratings
-            )
-
-    fno, ffa, ffb = FINAL_FEED
-    matches[fno] = build_match(
-        matches[ffa]["winner"], matches[ffb]["winner"], ratings
+    # Pick a representative knockout bracket. Run many trial sims,
+    # find the modal champion, pick one specific sim where they won.
+    # All scorelines come from that single coherent tournament.
+    print(f"  searching for exemplar bracket across {EXEMPLAR_TRIALS} trial sims...")
+    matches, modal_champion, modal_n, n_total = find_exemplar_bracket(
+        group_winners, group_runners, third_assignments, ratings,
     )
+    print(f"  modal champion: {modal_champion} ({modal_n}/{n_total} = "
+          f"{100*modal_n/n_total:.1f}% of trial sims)")
 
     knockout = {
         "round_of_32": [matches[i] for i in R32_VISUAL_ORDER],
