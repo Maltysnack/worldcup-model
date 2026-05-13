@@ -408,30 +408,35 @@ def simulate_knockout_run(group_winners, group_runners, third_assignments,
 
 
 # Exemplar search constants
-EXEMPLAR_TRIALS = 2000   # how many full knockout sims to consider
-EXEMPLAR_MAX_GOALS = 5    # reject sims with any single match scoring > this
+EXEMPLAR_TRIALS = 3000          # full knockout sims to consider
+EXEMPLAR_MAX_GOALS = 5           # reject sims with any single match scoring > this
+EXEMPLAR_TOP_N = 8               # define "top N teams" by rating
+EXEMPLAR_MIN_TOP_N_IN_QF = 6     # require at least this many top-N teams in QF
 
 
 def find_exemplar_bracket(group_winners, group_runners, third_assignments,
                           ratings):
     """Run many trial knockout phases, identify the modal champion, and
-    pick a single representative sim where that champion won. The picked
-    sim's match-by-match scorelines become the deterministic bracket
-    prediction.
+    pick a representative sim that satisfies a realism filter.
 
-    This is the user-facing answer to "what tournament does the model
-    expect?" — one coherent narrative end-to-end (one specific path the
-    modal champion took, with all the upsets and blowouts that
-    happened along the way) rather than 31 independently-sampled
-    scorelines that don't form a story.
+    Realism filter:
+      1. The modal champion must win this sim.
+      2. No single match scored more than EXEMPLAR_MAX_GOALS goals from
+         either team (rejects tail-extreme blowouts).
+      3. At least EXEMPLAR_MIN_TOP_N_IN_QF (default 6) of the top
+         EXEMPLAR_TOP_N (default 8) rated teams must reach the QF.
+         Stops the picker landing on a chaos bracket where everything
+         went sideways. Allows 1-2 upsets but not "Mexico, Australia,
+         Saudi Arabia in the QF" type weirdness.
 
-    Pick is stable across runs: trial seeds are deterministic, and the
-    chosen sim is selected by `hash(modal_champion) % len(matching)` so
-    the prediction only changes if the modal champion changes.
+    Pick is stable: trial seeds are deterministic, and we take the
+    *first* sim (lowest trial index) that satisfies all filters. If no
+    sim satisfies the strictest filter we relax MIN_TOP_N_IN_QF down
+    in steps until something matches.
     """
     sims = []
     for trial in range(EXEMPLAR_TRIALS):
-        rng = np.random.default_rng(trial * 9973 + 17)  # stable seeds
+        rng = np.random.default_rng(trial * 9973 + 17)  # stable seed
         sim = simulate_knockout_run(
             group_winners, group_runners, third_assignments, ratings, rng,
         )
@@ -441,21 +446,56 @@ def find_exemplar_bracket(group_winners, group_runners, third_assignments,
     champ_counts = Counter(s[final_no]["winner"] for s in sims)
     modal_champion, modal_n = champ_counts.most_common(1)[0]
 
-    # Filter to sims where modal champion won AND no match was a
-    # tail-extreme blowout (5+ goals from any one team)
-    matching = [
-        s for s in sims
-        if s[final_no]["winner"] == modal_champion
-        and all(max(m["score_a"], m["score_b"]) <= EXEMPLAR_MAX_GOALS
-                for m in s.values())
-    ]
-    if not matching:
-        # Fallback: any sim where modal champion wins
-        matching = [s for s in sims if s[final_no]["winner"] == modal_champion]
+    # Top-N teams by rating across the determined R32 field
+    r32_teams = set()
+    for i, (a_spec, b_spec) in enumerate(R32_PAIRINGS, start=73):
+        for spec in (a_spec, b_spec):
+            r32_teams.add(resolve_slot(
+                spec, group_winners, group_runners, third_assignments, i,
+            ))
+    top_n = set(sorted(r32_teams, key=lambda t: -ratings.get(t, 1500))
+                [:EXEMPLAR_TOP_N])
 
-    pick_idx = abs(hash(modal_champion)) % len(matching)
-    exemplar = matching[pick_idx]
-    return exemplar, modal_champion, modal_n, len(sims)
+    qf_match_nos = [matchno for matchno, _, _ in QF_FEEDS]
+
+    def top_n_in_qf(sim) -> int:
+        qf_teams = set()
+        for m_no in qf_match_nos:
+            qf_teams.add(sim[m_no]["team_a"])
+            qf_teams.add(sim[m_no]["team_b"])
+        return len(top_n & qf_teams)
+
+    def passes_basics(s) -> bool:
+        return (
+            s[final_no]["winner"] == modal_champion
+            and all(max(m["score_a"], m["score_b"]) <= EXEMPLAR_MAX_GOALS
+                    for m in s.values())
+        )
+
+    # Try the strictest filter first; relax only if nothing matches
+    chosen = None
+    chosen_top_n_count = 0
+    for required in range(EXEMPLAR_MIN_TOP_N_IN_QF, -1, -1):
+        for s in sims:
+            if not passes_basics(s):
+                continue
+            cnt = top_n_in_qf(s)
+            if cnt >= required:
+                chosen = s
+                chosen_top_n_count = cnt
+                break
+        if chosen is not None:
+            break
+
+    if chosen is None:
+        # Absolute fallback: any sim where modal champion wins
+        chosen = next(
+            (s for s in sims if s[final_no]["winner"] == modal_champion),
+            sims[0],
+        )
+        chosen_top_n_count = top_n_in_qf(chosen)
+
+    return chosen, modal_champion, modal_n, len(sims), chosen_top_n_count, top_n
 
 
 
@@ -523,14 +563,20 @@ def main() -> None:
                 s["qualifies_as"] = "eliminated"
 
     # Pick a representative knockout bracket. Run many trial sims,
-    # find the modal champion, pick one specific sim where they won.
-    # All scorelines come from that single coherent tournament.
+    # find the modal champion, pick the first sim that satisfies our
+    # realism filter (modal champion wins + at least 6/8 top-rated teams
+    # in the QF + no extreme blowouts).
     print(f"  searching for exemplar bracket across {EXEMPLAR_TRIALS} trial sims...")
-    matches, modal_champion, modal_n, n_total = find_exemplar_bracket(
-        group_winners, group_runners, third_assignments, ratings,
+    matches, modal_champion, modal_n, n_total, top_in_qf, top_n_set = (
+        find_exemplar_bracket(
+            group_winners, group_runners, third_assignments, ratings,
+        )
     )
     print(f"  modal champion: {modal_champion} ({modal_n}/{n_total} = "
           f"{100*modal_n/n_total:.1f}% of trial sims)")
+    print(f"  top {EXEMPLAR_TOP_N} by rating: "
+          f"{', '.join(sorted(top_n_set, key=lambda t: -ratings.get(t, 1500)))}")
+    print(f"  exemplar has {top_in_qf} of those {EXEMPLAR_TOP_N} in the QF")
 
     knockout = {
         "round_of_32": [matches[i] for i in R32_VISUAL_ORDER],
