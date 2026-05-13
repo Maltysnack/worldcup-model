@@ -5,15 +5,39 @@ Premier League and UEFA Champions League still being contested at
 time of writing; placeholders flagged so they can be refreshed.
 
 Each entry: club -> list of (trophy_id, weight) tuples.
-Weights are calibrated against the scheme described in the trophies.py
-module docstring:
-  +5 per player at a UCL champion
-  +3 per player at a UCL runner-up or top-5 league champion
-  +2 per player at a UCL semi-finalist
-  +1 per player at a UCL quarter-finalist
-  +1 per player at a top-5 league runner-up
-  +2 per player at a domestic cup winner
-  +0.5 per player at any other meaningful trophy
+
+Weight scheme (in approximate "per-player" units of how much a squad
+member at that club should contribute to their national team's trophy
+aggregate):
+
+  Tier 1 (top-tier elite):
+    +5  UCL champion (per player on the WC squad at that club)
+    +3  UCL runner-up or top-5 European league champion
+    +2  UCL semi-finalist (also gets league credit if top-5)
+    +1  UCL quarter-finalist
+    +1  Top-5 European league runner-up
+    +2  Major domestic cup winner (FA Cup, Copa del Rey, DFB Pokal etc)
+
+  Tier 2 (strong but discounted):
+    +1.5  Eredivisie / Primeira Liga champion (Dutch / Portuguese)
+    +1.5  Brazilian Serie A (Brasileirão) champion (very strong league)
+
+  Tier 3 (meaningful but heavily discounted):
+    +0.8  MLS Cup winner (regular-season league = playoff knockout, hybrid)
+    +0.8  Argentine Primera champion
+    +0.5  Saudi Pro League champion
+    +0.5  Liga MX (Apertura or Clausura) champion
+    +0.4  MLS Supporters' Shield winner (regular season equivalent)
+
+  Tier 4 (small leagues):
+    +0.4  Belgian Pro League / Scottish Premiership / Turkish Süper Lig
+    +0.3  Czech / Greek / other top-division champion
+
+The discount on non-big-5 leagues reflects honest gap in quality of
+opposition: an MLS championship is not the same signal as a Premier
+League title. We still credit non-zero (a player who carried Inter
+Miami to the title is a stronger WC contributor than a fringe player
+at any club) but at a fraction of the weight.
 
 Club names must match exactly what the Wikipedia squad scraper produces
 (see wiki_rosters.py output). Add aliases as needed.
@@ -66,6 +90,33 @@ for c in _UCL_SEMIFINAL_LOSERS:
 for c in _UCL_QUARTERFINAL_LOSERS:
     CLUB_TROPHIES_2025_26.setdefault(c, []).append(("ucl_quarterfinal_loser", 1.0))
 
+
+# ── Tier 2: Strong-but-discounted European leagues ────────────────────
+# Verified Wikipedia search 2026-05-13.
+#   Eredivisie 2025-26: PSV Eindhoven (27th title, 5 April 2026)
+#   Primeira Liga 2025-26: FC Porto
+CLUB_TROPHIES_2025_26.setdefault("PSV Eindhoven", []).append(("eredivisie_champion", 1.5))
+CLUB_TROPHIES_2025_26.setdefault("Porto", []).append(("primeira_liga_champion", 1.5))
+
+# Brazilian Serie A 2025: Flamengo (9th title, 3 December 2025)
+CLUB_TROPHIES_2025_26.setdefault("Flamengo", []).append(("brasileirao_champion", 1.5))
+
+# ── Tier 3: Meaningful-but-heavily-discounted leagues ─────────────────
+# MLS Cup 2025: Inter Miami beat Vancouver Whitecaps 3-1
+CLUB_TROPHIES_2025_26.setdefault("Inter Miami", []).append(("mls_cup_champion", 0.8))
+CLUB_TROPHIES_2025_26.setdefault("Vancouver Whitecaps", []).append(("mls_cup_runner_up", 0.3))
+# MLS Supporters' Shield 2025 (regular-season equivalent): Philadelphia Union
+CLUB_TROPHIES_2025_26.setdefault("Philadelphia Union", []).append(("mls_shield_winner", 0.4))
+
+# Liga MX 2025: Toluca won both Apertura and Clausura back-to-back
+CLUB_TROPHIES_2025_26.setdefault("Toluca", []).append(("liga_mx_champion", 0.5))
+CLUB_TROPHIES_2025_26.setdefault("Toluca", []).append(("liga_mx_apertura", 0.3))
+
+# Saudi Pro League 2025-26: still being contested as of 2026-05-13.
+# Will be refreshed once the season concludes.
+
+# Argentine Primera 2025-26 / 2026 — TBD; currently no champion to credit.
+
 # Club name aliases: Wikipedia squad pages often abbreviate or vary.
 # Map common variants to the canonical name used in CLUB_TROPHIES_2025_26.
 CLUB_ALIASES = {
@@ -100,4 +151,8 @@ def total_weight_for_club(club: str) -> float:
 
 # Reference date for "as of" reporting
 LAST_UPDATED = "2026-05-13"
-PENDING = ["Premier League final standings (24 May)", "UCL final (30 May)"]
+PENDING = [
+    "Premier League final standings (24 May)",
+    "UCL final (30 May)",
+    "Saudi Pro League final standings",
+]
