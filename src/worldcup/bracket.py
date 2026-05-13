@@ -408,62 +408,92 @@ def simulate_knockout_run(group_winners, group_runners, third_assignments,
 
 
 # Exemplar search constants
-EXEMPLAR_TRIALS = 3000          # full knockout sims to consider
-EXEMPLAR_MAX_GOALS = 5           # reject sims with any single match scoring > this
-EXEMPLAR_TOP_N = 8               # define "top N teams" by rating
-EXEMPLAR_MIN_TOP_N_IN_QF = 6     # require at least this many top-N teams in QF
+EXEMPLAR_TRIALS = 3000     # full knockout sims to consider
+EXEMPLAR_MAX_GOALS = 5      # reject sims with any single match scoring > this
+
+
+def _build_round_of_match_map() -> dict[int, int]:
+    """Map each match number to the ordinal of the round it belongs to,
+    matching the ordinals used by historical_corpus."""
+    from worldcup.historical_corpus import (
+        ROUND_R32, ROUND_R16, ROUND_QF, ROUND_SF, ROUND_FINAL,
+    )
+    rom = {}
+    for i in range(73, 89):
+        rom[i] = ROUND_R32
+    for i in range(89, 97):
+        rom[i] = ROUND_R16
+    for i in range(97, 101):
+        rom[i] = ROUND_QF
+    for i in range(101, 103):
+        rom[i] = ROUND_SF
+    rom[FINAL_FEED[0]] = ROUND_FINAL
+    return rom
+
+
+def _sim_upset_score(sim, all_wc_teams, expected_rounds, round_of_match):
+    """Compute per-team-average deviation between actual and expected
+    rounds for one simulated knockout. Same definition as the historical
+    corpus, so the two are directly comparable.
+    """
+    from worldcup.historical_corpus import ROUND_GROUPS, ROUND_CHAMPION
+    final_no = FINAL_FEED[0]
+    actual = {t: ROUND_GROUPS for t in all_wc_teams}
+    for mn, m in sim.items():
+        loser = m["team_b"] if m["winner"] == m["team_a"] else m["team_a"]
+        actual[loser] = round_of_match[mn]
+        if mn == final_no:
+            actual[m["winner"]] = ROUND_CHAMPION
+    raw = sum(
+        abs(actual[t] - expected_rounds.get(t, ROUND_GROUPS))
+        for t in all_wc_teams
+    )
+    return raw / max(1, len(all_wc_teams))
 
 
 def find_exemplar_bracket(group_winners, group_runners, third_assignments,
-                          ratings):
+                          ratings, all_wc_teams):
     """Run many trial knockout phases, identify the modal champion, and
-    pick a representative sim that satisfies a realism filter.
+    pick the representative sim that's closest to the **median chaos
+    level** of the modal-champion-wins subset.
 
-    Realism filter:
-      1. The modal champion must win this sim.
-      2. No single match scored more than EXEMPLAR_MAX_GOALS goals from
-         either team (rejects tail-extreme blowouts).
-      3. At least EXEMPLAR_MIN_TOP_N_IN_QF (default 6) of the top
-         EXEMPLAR_TOP_N (default 8) rated teams must reach the QF.
-         Stops the picker landing on a chaos bracket where everything
-         went sideways. Allows 1-2 upsets but not "Mexico, Australia,
-         Saudi Arabia in the QF" type weirdness.
+    Why this rule: the historical corpus told us that real WCs have a
+    median upset score around 1.19, but our model's sim distribution
+    only stretches to ~1.13 at its very tail. Rather than trying to
+    match an unreachable historical median, we anchor on the median of
+    the model's *own* modal-champion-wins distribution. That gives a
+    bracket that's representative of "a typical tournament where the
+    modal champion wins" rather than the cleanest possible such
+    tournament (which is what an arbitrary "6/8 favourites in QF" rule
+    happens to land on).
 
-    Pick is stable: trial seeds are deterministic, and we take the
-    *first* sim (lowest trial index) that satisfies all filters. If no
-    sim satisfies the strictest filter we relax MIN_TOP_N_IN_QF down
-    in steps until something matches.
+    Filter:
+      1. Modal champion wins this sim
+      2. No single match scored more than EXEMPLAR_MAX_GOALS
+
+    Among those, pick the sim whose upset score is closest to the
+    subset median. Stable tiebreak by trial index (lowest first).
     """
+    from worldcup.historical_corpus import expected_rounds_from_elo
+
     sims = []
     for trial in range(EXEMPLAR_TRIALS):
         rng = np.random.default_rng(trial * 9973 + 17)  # stable seed
         sim = simulate_knockout_run(
             group_winners, group_runners, third_assignments, ratings, rng,
         )
-        sims.append(sim)
+        sims.append((trial, sim))
 
     final_no = FINAL_FEED[0]
-    champ_counts = Counter(s[final_no]["winner"] for s in sims)
+    champ_counts = Counter(s[final_no]["winner"] for _, s in sims)
     modal_champion, modal_n = champ_counts.most_common(1)[0]
 
-    # Top-N teams by rating across the determined R32 field
-    r32_teams = set()
-    for i, (a_spec, b_spec) in enumerate(R32_PAIRINGS, start=73):
-        for spec in (a_spec, b_spec):
-            r32_teams.add(resolve_slot(
-                spec, group_winners, group_runners, third_assignments, i,
-            ))
-    top_n = set(sorted(r32_teams, key=lambda t: -ratings.get(t, 1500))
-                [:EXEMPLAR_TOP_N])
-
-    qf_match_nos = [matchno for matchno, _, _ in QF_FEEDS]
-
-    def top_n_in_qf(sim) -> int:
-        qf_teams = set()
-        for m_no in qf_match_nos:
-            qf_teams.add(sim[m_no]["team_a"])
-            qf_teams.add(sim[m_no]["team_b"])
-        return len(top_n & qf_teams)
+    # Pre-compute expected-round per team using their Elo across the
+    # full WC field (slot counts must match actual occupancy — see the
+    # historical_corpus docstring for the slot scheme).
+    elo_for_field = {t: ratings.get(t, 1500) for t in all_wc_teams}
+    expected = expected_rounds_from_elo(elo_for_field, len(all_wc_teams), 5)
+    round_of_match = _build_round_of_match_map()
 
     def passes_basics(s) -> bool:
         return (
@@ -472,30 +502,30 @@ def find_exemplar_bracket(group_winners, group_runners, third_assignments,
                     for m in s.values())
         )
 
-    # Try the strictest filter first; relax only if nothing matches
-    chosen = None
-    chosen_top_n_count = 0
-    for required in range(EXEMPLAR_MIN_TOP_N_IN_QF, -1, -1):
-        for s in sims:
-            if not passes_basics(s):
-                continue
-            cnt = top_n_in_qf(s)
-            if cnt >= required:
-                chosen = s
-                chosen_top_n_count = cnt
-                break
-        if chosen is not None:
-            break
+    eligible = [
+        (t, s, _sim_upset_score(s, all_wc_teams, expected, round_of_match))
+        for t, s in sims if passes_basics(s)
+    ]
+    if not eligible:
+        # Fall back to any modal-champion sim
+        eligible = [
+            (t, s, _sim_upset_score(s, all_wc_teams, expected, round_of_match))
+            for t, s in sims if s[final_no]["winner"] == modal_champion
+        ]
+    if not eligible:
+        # Absolute last resort
+        eligible = [
+            (t, s, _sim_upset_score(s, all_wc_teams, expected, round_of_match))
+            for t, s in sims
+        ]
 
-    if chosen is None:
-        # Absolute fallback: any sim where modal champion wins
-        chosen = next(
-            (s for s in sims if s[final_no]["winner"] == modal_champion),
-            sims[0],
-        )
-        chosen_top_n_count = top_n_in_qf(chosen)
+    scores = np.array([sc for _, _, sc in eligible])
+    median = float(np.median(scores))
+    # Pick closest to median; tiebreak on trial index (smallest first)
+    eligible.sort(key=lambda x: (abs(x[2] - median), x[0]))
+    pick_trial, exemplar, pick_score = eligible[0]
 
-    return chosen, modal_champion, modal_n, len(sims), chosen_top_n_count, top_n
+    return exemplar, modal_champion, modal_n, len(sims), pick_score, median, pick_trial
 
 
 
@@ -563,20 +593,23 @@ def main() -> None:
                 s["qualifies_as"] = "eliminated"
 
     # Pick a representative knockout bracket. Run many trial sims,
-    # find the modal champion, pick the first sim that satisfies our
-    # realism filter (modal champion wins + at least 6/8 top-rated teams
-    # in the QF + no extreme blowouts).
+    # find the modal champion, pick the sim closest to the *median*
+    # chaos level of the modal-champion-wins subset. See find_exemplar_bracket
+    # docstring for the rationale (we anchor on the model's own median
+    # rather than the historical WC median, because the model's
+    # distribution doesn't reach historical chaos levels).
+    all_wc_teams_set = {t for teams in groups_by_letter.values() for t in teams}
     print(f"  searching for exemplar bracket across {EXEMPLAR_TRIALS} trial sims...")
-    matches, modal_champion, modal_n, n_total, top_in_qf, top_n_set = (
+    matches, modal_champion, modal_n, n_total, pick_score, median_score, pick_trial = (
         find_exemplar_bracket(
-            group_winners, group_runners, third_assignments, ratings,
+            group_winners, group_runners, third_assignments,
+            ratings, all_wc_teams_set,
         )
     )
     print(f"  modal champion: {modal_champion} ({modal_n}/{n_total} = "
           f"{100*modal_n/n_total:.1f}% of trial sims)")
-    print(f"  top {EXEMPLAR_TOP_N} by rating: "
-          f"{', '.join(sorted(top_n_set, key=lambda t: -ratings.get(t, 1500)))}")
-    print(f"  exemplar has {top_in_qf} of those {EXEMPLAR_TOP_N} in the QF")
+    print(f"  picked trial {pick_trial}: upset_score={pick_score:.3f} "
+          f"(subset median={median_score:.3f})")
 
     knockout = {
         "round_of_32": [matches[i] for i in R32_VISUAL_ORDER],
