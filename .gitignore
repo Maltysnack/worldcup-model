@@ -15,9 +15,12 @@ wheels/
 data/raw/*
 !data/raw/fbref
 data/raw/fbref/*
-!data/raw/fbref/*.html
+!data/raw/fbref/players.csv
 !data/raw/historical_wc_top_scorers.csv
 !data/raw/historical_wc_top_scorers_seed.csv
+# FBref HTML lives under data/raw/fbref/source/ locally; not committed
+# (~17 MB of page chrome). Refresh by re-saving + running
+# `worldcup-extract-fbref-csv`.
 data/*.duckdb
 data/*.duckdb.wal
 
