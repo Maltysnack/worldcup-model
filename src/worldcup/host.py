@@ -19,13 +19,14 @@ USA a larger bonus than the co-hosts.
 
 from __future__ import annotations
 
-# Bonus magnitudes:
-#   solo host of continental tournament: +60 Elo
-#   primary host of multi-host event: +50
-#   secondary host: +30
-HOST_BONUS_SOLO = 60.0
-HOST_BONUS_PRIMARY = 50.0
-HOST_BONUS_SECONDARY = 30.0
+# Bonus magnitudes (halved from hand-set +60/+50/+30 after the issue #5
+# empirical sweep — scripts/sweep_host_bonus.py — found scale 0.5
+# minimises pooled log-loss and Brier across the 16-tournament audit set.
+# The previous +60 was slightly over-aggressive given the calibration
+# regime introduced in issues #3/#10 (T=1.31 + neutral lambdas).
+HOST_BONUS_SOLO = 30.0
+HOST_BONUS_PRIMARY = 25.0
+HOST_BONUS_SECONDARY = 15.0
 
 # Tournament -> year -> {team: bonus}
 TOURNAMENT_HOSTS: dict[tuple[str, int], dict[str, float]] = {
