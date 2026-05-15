@@ -52,12 +52,12 @@ jobs:
           uv run worldcup-fetch-rosters --refresh
           uv run worldcup-compute-trophies
 
-      - name: Refresh club season stats (new clubs only)
-        # Pulls per-player 2025-26 goals + appearances for every club
-        # in the WC rosters. Uses the cache to skip clubs already
-        # fetched, so this is fast on re-runs.
-        continue-on-error: true
-        run: uv run worldcup-fetch-club-stats
+      - name: Rebuild club season stats from FBref HTML
+        # Reads the committed data/raw/fbref/*.html files (saved
+        # manually from FBref) and rebuilds the per-club JSON cache.
+        # No network calls — refresh the HTML files in-repo when the
+        # season ends or club stats need updating.
+        run: uv run worldcup-build-fbref-stats
 
       - name: Refresh club crests/badges from Wikipedia
         continue-on-error: true
