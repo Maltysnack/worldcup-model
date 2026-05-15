@@ -41,7 +41,7 @@ from worldcup.calibration import (
 )
 from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import HOME_ADVANTAGE
-from worldcup.goals import wld_probs
+from worldcup.goals import expected_goals, wld_probs
 
 KICKOFF = date(2026, 6, 11)
 OUTPUT_PATH = PROJECT_ROOT / "data" / "live_tournament.json"
@@ -106,8 +106,7 @@ def load_wc_matches():
 def compute_prediction(rating_h: float, rating_a: float, neutral: bool) -> dict:
     eff_h = float(rating_h) + (0.0 if neutral else HOME_ADVANTAGE)
     gap = eff_h - float(rating_a)
-    lh = LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap)
-    la = LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap)
+    lh, la = expected_goals(gap, neutral=neutral)
     p_h, p_d, p_a = wld_probs(float(lh), float(la))
     return {
         "p_home_win": round(float(p_h), 4),

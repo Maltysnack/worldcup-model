@@ -11,15 +11,12 @@ import time
 
 import numpy as np
 
-from worldcup.calibration import (
-    LAMBDA_AWAY_AT_PARITY, LAMBDA_HOME_AT_PARITY, SLOPE_AWAY, SLOPE_HOME,
-)
 from worldcup.comprehensive_validation import (
     TOURNAMENTS, apply_layers, get_pre_tournament_ratings, actual_outcome,
 )
 from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import HOME_ADVANTAGE
-from worldcup.goals import wld_probs
+from worldcup.goals import expected_goals, wld_probs
 
 PROFILE = "v4a-flat-mild"
 LAYERS = dict(form=True, nt=True, host=True)  # "full"
@@ -53,8 +50,7 @@ def collect():
                 continue
             eff_h = rh + (0.0 if r.neutral else HOME_ADVANTAGE)
             gap = eff_h - ra
-            lh = LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap)
-            la = LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap)
+            lh, la = expected_goals(gap, neutral=bool(r.neutral))
             p_h, p_d, p_a = wld_probs(float(lh), float(la))
             rows.append({
                 "tournament": tournament,

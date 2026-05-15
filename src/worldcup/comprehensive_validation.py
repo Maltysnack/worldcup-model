@@ -37,7 +37,7 @@ from worldcup.calibration import (
 from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import HOME_ADVANTAGE, run as elo_run
 from worldcup.form import compute_form_bumps
-from worldcup.goals import sim_match, wld_probs
+from worldcup.goals import expected_goals, sim_match, wld_probs
 from worldcup.host import host_bonus
 from worldcup.profiles import PROFILES, resolve_min_date
 from worldcup.trophies import nt_trophy_bonus
@@ -191,8 +191,7 @@ def per_match_metrics(tournament: str, year: int, ratings: dict[str, float]) -> 
             continue
         eff_h = rh + (0.0 if r.neutral else HOME_ADVANTAGE)
         gap = eff_h - ra
-        lh = LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap)
-        la = LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap)
+        lh, la = expected_goals(gap, neutral=bool(r.neutral))
         p_h, p_d, p_a = wld_probs(float(lh), float(la))
         probs_list.append((p_h, p_d, p_a))
         actuals_list.append(actual_outcome(int(r.home_score), int(r.away_score)))

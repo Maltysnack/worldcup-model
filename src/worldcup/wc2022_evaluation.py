@@ -52,7 +52,7 @@ from worldcup.calibration import (
 from worldcup.db import connect
 from worldcup.elo import HOME_ADVANTAGE, run as elo_run
 from worldcup.form import compute_form_bumps
-from worldcup.goals import wld_probs
+from worldcup.goals import expected_goals, wld_probs
 from worldcup.host import host_bonus
 from worldcup.profiles import V4A_FLAT_MILD
 from worldcup.tournament_backtest import (
@@ -128,8 +128,7 @@ def evaluate_per_match(matches, boosted_ratings):
             continue
         eff_h = rh + (0.0 if m.neutral else HOME_ADVANTAGE)
         gap = eff_h - ra
-        lh = LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap)
-        la = LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap)
+        lh, la = expected_goals(gap, neutral=bool(m.neutral))
         p_h, p_d, p_a = wld_probs(float(lh), float(la))
         actual = actual_outcome(int(m.home_score), int(m.away_score))
         rows.append({

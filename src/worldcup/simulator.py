@@ -247,8 +247,8 @@ def predict_recent_played_matches(*, days_back: int = 90, max_matches: int = 12)
         eff_h = row.rating_home_pre + (0.0 if row.neutral else HOME_ADVANTAGE)
         eff_a = row.rating_away_pre
         gap = eff_h - eff_a
-        lh = float(LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap))
-        la = float(LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap))
+        _lh, _la = expected_goals(gap, neutral=bool(row.neutral))
+        lh = float(_lh); la = float(_la)
         p_home, p_draw, p_away = wld_probs(lh, la)
         # Friendly probabilities are systematically overconfident
         # (audit found ECE 0.04 vs 0.01 for majors). Apply a Platt
@@ -358,7 +358,7 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
         h, a = row["home_team"], row["away_team"]
         eff_h = ratings[h] + (0.0 if row["neutral"] else HOME_ADVANTAGE)
         eff_a = ratings[a]
-        lh, la = expected_goals(eff_h - eff_a)
+        lh, la = expected_goals(eff_h - eff_a, neutral=row["neutral"])
         h_samples = rng.poisson(lh, size=n_samples)
         a_samples = rng.poisson(la, size=n_samples)
         n_home = int((h_samples > a_samples).sum())

@@ -25,14 +25,9 @@ from datetime import timedelta
 
 import numpy as np
 
-from worldcup.calibration import (
-    LAMBDA_AWAY_AT_PARITY,
-    LAMBDA_HOME_AT_PARITY,
-    SLOPE_AWAY,
-    SLOPE_HOME,
-)
 from worldcup.db import connect
 from worldcup.elo import HOME_ADVANTAGE
+from worldcup.goals import expected_goals
 from worldcup.profiles import current_profile, table_suffix
 
 _PRED_TABLE = f"predictions{table_suffix(current_profile())}"
@@ -99,8 +94,7 @@ def _form_bumps_goals(df, *, filter_lopsided: bool = False) -> dict[str, float]:
     )
     eff_a = df["rating_away_pre"].to_numpy()
     gap = eff_h - eff_a
-    lh = LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap)
-    la = LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap)
+    lh, la = expected_goals(gap, neutral=df["neutral"].to_numpy())
 
     actual_diff = (
         df["actual_home_goals"].to_numpy() - df["actual_away_goals"].to_numpy()
@@ -147,8 +141,7 @@ def _form_bumps_points(df) -> dict[str, float]:
     )
     eff_a = df["rating_away_pre"].to_numpy()
     gap = eff_h - eff_a
-    lh = LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * gap)
-    la = LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * gap)
+    lh, la = expected_goals(gap, neutral=df["neutral"].to_numpy())
 
     h_goals = df["actual_home_goals"].to_numpy()
     a_goals = df["actual_away_goals"].to_numpy()

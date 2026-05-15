@@ -21,9 +21,11 @@ from worldcup.calibration import (
     DIXON_COLES_RHO,
     LAMBDA_AWAY_AT_PARITY,
     LAMBDA_HOME_AT_PARITY,
+    LAMBDA_NEUTRAL_AT_PARITY,
     MAX_GOALS,
     SLOPE_AWAY,
     SLOPE_HOME,
+    SLOPE_NEUTRAL,
     TEMPERATURE,
 )
 from worldcup.elo import HOME_ADVANTAGE
@@ -58,11 +60,26 @@ def apply_temperature(p_h: float, p_d: float, p_a: float, T: float | None = None
     return float(e[0]), float(e[1]), float(e[2])
 
 
-def expected_goals(eff_gap: float) -> tuple[float, float]:
-    return (
-        LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * eff_gap),
-        LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * eff_gap),
-    )
+def expected_goals(eff_gap, neutral=False):
+    """Per-side expected goals from the effective Elo gap.
+
+    When ``neutral`` is True, uses a symmetric lambda/slope so the first-listed
+    team has no built-in home advantage. Otherwise uses the asymmetric
+    home/away constants. Both ``eff_gap`` and ``neutral`` may be scalar or
+    numpy array (broadcast together).
+    """
+    lh_home = LAMBDA_HOME_AT_PARITY * np.exp(SLOPE_HOME * eff_gap)
+    la_home = LAMBDA_AWAY_AT_PARITY * np.exp(SLOPE_AWAY * eff_gap)
+    if np.isscalar(neutral):
+        if neutral:
+            return (
+                LAMBDA_NEUTRAL_AT_PARITY * np.exp(SLOPE_NEUTRAL * eff_gap),
+                LAMBDA_NEUTRAL_AT_PARITY * np.exp(-SLOPE_NEUTRAL * eff_gap),
+            )
+        return lh_home, la_home
+    lh_neut = LAMBDA_NEUTRAL_AT_PARITY * np.exp(SLOPE_NEUTRAL * eff_gap)
+    la_neut = LAMBDA_NEUTRAL_AT_PARITY * np.exp(-SLOPE_NEUTRAL * eff_gap)
+    return np.where(neutral, lh_neut, lh_home), np.where(neutral, la_neut, la_home)
 
 
 def _poisson_pmf(lam: float, max_k: int) -> np.ndarray:
@@ -109,7 +126,7 @@ def sim_match(rating_a, rating_b, *, neutral: bool, ko: bool, rng: np.random.Gen
     """
     eff_a = rating_a + (0.0 if neutral else HOME_ADVANTAGE)
     eff_b = rating_b
-    lh, la = expected_goals(eff_a - eff_b)
+    lh, la = expected_goals(eff_a - eff_b, neutral=neutral)
     joint = dc_joint_pmf(lh, la)
     flat = joint.ravel()
     idx = rng.choice(flat.size, p=flat)

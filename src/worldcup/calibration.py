@@ -17,6 +17,13 @@ LAMBDA_HOME_AT_PARITY = 1.41
 LAMBDA_AWAY_AT_PARITY = 1.07
 SLOPE_HOME = 0.00204
 SLOPE_AWAY = -0.00255
+
+# Neutral-venue constants. The home/away lambdas above bake in real home
+# advantage; applying them to neutral matches biases the first-listed team
+# by ~9pp (see audit, issue #10). For neutral matches use the average of
+# the two: same expected total goals, no first-listed bias.
+LAMBDA_NEUTRAL_AT_PARITY = (LAMBDA_HOME_AT_PARITY + LAMBDA_AWAY_AT_PARITY) / 2
+SLOPE_NEUTRAL = (abs(SLOPE_HOME) + abs(SLOPE_AWAY)) / 2
 # Dixon-Coles rho: -0.10 is the literature value for English club football,
 # but a backtest sweep across WC 2010 / 2014 / 2018 found rho ~= 0 was best
 # on our international-tournament data (years split between slightly negative
