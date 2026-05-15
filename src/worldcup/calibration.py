@@ -24,3 +24,11 @@ SLOPE_AWAY = -0.00255
 # currently zeroed out so we get pure independent-Poisson behaviour.
 DIXON_COLES_RHO = 0.0
 MAX_GOALS = 10
+
+# Post-hoc temperature scaling on W/D/L probabilities. Fitted on 762
+# matches across 16 tournaments (4-fold CV by tournament), best T = 1.31
+# minimises pooled log-loss and ECE. Compresses the model's tail
+# confidence: an 80% prediction becomes ~70%, matching observed win rate.
+# Applied inside wld_probs(); the simulator's joint-PMF sampler is
+# untouched. Disable with WC_TEMPERATURE=0.
+TEMPERATURE = 1.31

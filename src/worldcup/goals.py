@@ -15,6 +15,8 @@ from __future__ import annotations
 
 import numpy as np
 
+import os
+
 from worldcup.calibration import (
     DIXON_COLES_RHO,
     LAMBDA_AWAY_AT_PARITY,
@@ -22,11 +24,38 @@ from worldcup.calibration import (
     MAX_GOALS,
     SLOPE_AWAY,
     SLOPE_HOME,
+    TEMPERATURE,
 )
 from worldcup.elo import HOME_ADVANTAGE
 
 # Penalty shootout: nearly a coin flip with a tiny Elo edge.
 PEN_ELO_DIVISOR = 600.0
+
+
+def _resolve_temperature() -> float:
+    raw = os.environ.get("WC_TEMPERATURE")
+    if raw is None:
+        return TEMPERATURE
+    try:
+        v = float(raw)
+    except ValueError:
+        return TEMPERATURE
+    return v if v > 0 else 1.0
+
+
+def apply_temperature(p_h: float, p_d: float, p_a: float, T: float | None = None) -> tuple[float, float, float]:
+    """Flatten (T>1) or sharpen (T<1) a W/D/L probability triple."""
+    if T is None:
+        T = _resolve_temperature()
+    if T == 1.0:
+        return p_h, p_d, p_a
+    eps = 1e-12
+    arr = np.array([max(p_h, eps), max(p_d, eps), max(p_a, eps)])
+    L = np.log(arr) / T
+    L -= L.max()
+    e = np.exp(L)
+    e /= e.sum()
+    return float(e[0]), float(e[1]), float(e[2])
 
 
 def expected_goals(eff_gap: float) -> tuple[float, float]:
@@ -62,12 +91,13 @@ def dc_joint_pmf(lh: float, la: float, rho: float = DIXON_COLES_RHO) -> np.ndarr
 
 
 def wld_probs(lh: float, la: float, rho: float = DIXON_COLES_RHO) -> tuple[float, float, float]:
-    """Analytic W/D/L probabilities under Dixon-Coles."""
+    """Analytic W/D/L probabilities under Dixon-Coles, with post-hoc
+    temperature scaling (see calibration.TEMPERATURE)."""
     j = dc_joint_pmf(lh, la, rho)
-    p_home = float(np.tril(j, -1).sum())  # rows below diag (h>a)
-    p_away = float(np.triu(j, 1).sum())   # cols above diag (a>h)
+    p_home = float(np.tril(j, -1).sum())
+    p_away = float(np.triu(j, 1).sum())
     p_draw = float(np.trace(j))
-    return p_home, p_draw, p_away
+    return apply_temperature(p_home, p_draw, p_away)
 
 
 def sim_match(rating_a, rating_b, *, neutral: bool, ko: bool, rng: np.random.Generator):
