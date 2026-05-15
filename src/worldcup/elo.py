@@ -24,7 +24,7 @@ from datetime import date
 import pandas as pd
 
 from worldcup.db import connect
-from worldcup.profiles import current_profile, table_suffix
+from worldcup.profiles import current_profile, resolve_min_date, table_suffix
 
 # Resolve which profile we're running under (set via WC_PROFILE env var,
 # defaults to v1). All K-factors come from the profile so a single
@@ -162,7 +162,12 @@ def run(
 
 def main() -> None:
     print(f"Building Elo ratings (model: {MODEL_VERSION})")
-    final_df, preds_df = run()
+    # Profile-aware min_date: v5x recent-only profiles need a sliding window
+    # anchored on today; everything else falls back to the static MIN_DATE
+    # constant. Without this the v5x profiles silently behave like v1 because
+    # run() can't read the profile's offset attribute on its own.
+    min_d = resolve_min_date(_PROFILE)
+    final_df, preds_df = run(min_date=min_d) if min_d else run()
 
     suffix = table_suffix(_PROFILE)
     elo_table = f"elo_current{suffix}"

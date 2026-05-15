@@ -52,14 +52,20 @@ from worldcup.calibration import (
 from worldcup.db import PROJECT_ROOT
 from worldcup.elo import HOME_ADVANTAGE, MODEL_VERSION
 from worldcup.profiles import current_profile, file_suffix, table_suffix
-from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
+from worldcup.layers import (
+    apply_layers,
+    current_layer_set,
+    file_suffix as layers_file_suffix,
+)
 from worldcup.squad import ELO_WEIGHT, blended_ratings
-from worldcup.host import apply_host_bonus
-from worldcup.trophies import apply_nt_bonus
 
 _PROFILE = current_profile()
-OUTPUT_PATH = PROJECT_ROOT / "data" / f"simulation{file_suffix(_PROFILE)}.json"
+_LAYERS = current_layer_set()
+OUTPUT_PATH = (
+    PROJECT_ROOT / "data"
+    / f"simulation{file_suffix(_PROFILE)}{layers_file_suffix(_LAYERS)}.json"
+)
 N_SIMS = 10_000
 
 ROUND_LABELS = [
@@ -394,16 +400,23 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
 
 
 def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
-    model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}+form"
+    model_id = (
+        f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}"
+        f"+layers={_LAYERS.name}"
+    )
     print(f"Monte Carlo simulator (model: {model_id}, n={n_sims:,})")
 
     raw_ratings, fixtures = load_data()
     # Keep the raw Elo for export (used by the website to rank teams
     # for dark-horse selection without double-counting the blend
-    # corrections we already apply).
-    ratings = apply_host_bonus(
-        apply_nt_bonus(apply_form(blended_ratings(raw_ratings))),
-        "FIFA World Cup", 2026,
+    # corrections we already apply). Layer set ("full" or "calibration")
+    # controls whether the host bonus is applied — "calibration" drops it
+    # for honest per-match probabilities; "full" keeps it for picking the
+    # champion.
+    ratings = apply_layers(
+        blended_ratings(raw_ratings),
+        tournament="FIFA World Cup", year=2026,
+        layer_set=_LAYERS,
     )
     derived = derive_groups_from_fixtures(fixtures)
     groups_by_letter = label_groups_by_fifa(derived)

@@ -218,6 +218,23 @@ PROFILES: dict[str, Profile] = {p.name: p for p in [
 DEFAULT_PROFILE_NAME = "v4a-flat-mild"
 
 
+def resolve_min_date(profile: Profile, anchor=None):
+    """Return the min_date that elo.run() should use for this profile.
+
+    Profiles with ``min_date_offset_days`` set (the v5 "recent only" family)
+    need to walk only the most recent N days of history. The anchor is the
+    date the prediction is being made for: today for forward predictions,
+    the tournament kickoff for backtests/validation. Returns ``None`` when
+    the profile uses the static historical cutoff (caller should let
+    ``elo.run`` default to its built-in ``MIN_DATE`` constant).
+    """
+    if profile.min_date_offset_days is None:
+        return None
+    from datetime import date as _date, timedelta
+    anchor = anchor or _date.today()
+    return anchor - timedelta(days=profile.min_date_offset_days)
+
+
 def current_profile() -> Profile:
     """Resolve the active profile from WC_PROFILE env var (default = v4a-flat-mild)."""
     name = environ.get("WC_PROFILE", DEFAULT_PROFILE_NAME)

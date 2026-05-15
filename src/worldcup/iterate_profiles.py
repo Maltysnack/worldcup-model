@@ -32,7 +32,7 @@ from worldcup.calibration import (
 )
 from worldcup.elo import HOME_ADVANTAGE, run as elo_run
 from worldcup.goals import wld_probs
-from worldcup.profiles import PROFILES, Profile, V1_BASELINE
+from worldcup.profiles import PROFILES, Profile, V1_BASELINE, resolve_min_date
 
 TARGET_TOURNAMENTS = [
     "FIFA World Cup",
@@ -64,8 +64,11 @@ def actual_outcome(home_g: int, away_g: int) -> int:
 
 
 def score_profile(profile: Profile) -> tuple[float, float, int]:
+    # Honour profile.min_date_offset_days so v5-style recent-only profiles
+    # actually use a sliding window instead of silently behaving like v1.
+    min_d = resolve_min_date(profile, anchor=TODAY) or date(1990, 1, 1)
     _, preds = elo_run(
-        min_date=date(1990, 1, 1),
+        min_date=min_d,
         max_date=TODAY,
         k_factors=profile.k_factors,
         default_k=profile.default_k,

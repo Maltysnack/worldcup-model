@@ -1,5 +1,5 @@
 {
-  "model_version": "elo-v4a-flat-mild+squad35+form",
+  "model_version": "elo-v4a-flat-mild+squad35+layers=full",
   "elo_version": "elo-v4a-flat-mild",
   "elo_weight": 0.65,
   "match_predictions": [
@@ -1764,7 +1764,7 @@
       "elo_delta_away": 11.8
     }
   ],
-  "generated_at": "2026-05-13T13:13:25Z",
+  "generated_at": "2026-05-15T08:04:30Z",
   "n_simulations": 10000,
   "calibration": {
     "lambda_home_at_parity": 1.41,
