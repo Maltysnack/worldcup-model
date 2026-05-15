@@ -52,20 +52,14 @@ from worldcup.calibration import (
 from worldcup.db import PROJECT_ROOT
 from worldcup.elo import HOME_ADVANTAGE, MODEL_VERSION
 from worldcup.profiles import current_profile, file_suffix, table_suffix
+from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
-from worldcup.layers import (
-    apply_layers,
-    current_layer_set,
-    file_suffix as layers_file_suffix,
-)
 from worldcup.squad import ELO_WEIGHT, blended_ratings
+from worldcup.host import apply_host_bonus
+from worldcup.trophies import apply_nt_bonus
 
 _PROFILE = current_profile()
-_LAYERS = current_layer_set()
-OUTPUT_PATH = (
-    PROJECT_ROOT / "data"
-    / f"simulation{file_suffix(_PROFILE)}{layers_file_suffix(_LAYERS)}.json"
-)
+OUTPUT_PATH = PROJECT_ROOT / "data" / f"simulation{file_suffix(_PROFILE)}.json"
 N_SIMS = 10_000
 
 ROUND_LABELS = [
@@ -400,23 +394,16 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
 
 
 def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
-    model_id = (
-        f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}"
-        f"+layers={_LAYERS.name}"
-    )
+    model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}+form"
     print(f"Monte Carlo simulator (model: {model_id}, n={n_sims:,})")
 
     raw_ratings, fixtures = load_data()
     # Keep the raw Elo for export (used by the website to rank teams
     # for dark-horse selection without double-counting the blend
-    # corrections we already apply). Layer set ("full" or "calibration")
-    # controls whether the host bonus is applied — "calibration" drops it
-    # for honest per-match probabilities; "full" keeps it for picking the
-    # champion.
-    ratings = apply_layers(
-        blended_ratings(raw_ratings),
-        tournament="FIFA World Cup", year=2026,
-        layer_set=_LAYERS,
+    # corrections we already apply).
+    ratings = apply_host_bonus(
+        apply_nt_bonus(apply_form(blended_ratings(raw_ratings))),
+        "FIFA World Cup", 2026,
     )
     derived = derive_groups_from_fixtures(fixtures)
     groups_by_letter = label_groups_by_fifa(derived)
@@ -446,13 +433,6 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
         for team, rnd in team_round.items():
             round_counts[team][rnd] += 1
 
-    # Market-implied champion probabilities (Polymarket, de-vigged).
-    # Loaded from the cached JSON; absent if worldcup-fetch-market-odds
-    # hasn't run yet. Stored alongside our model probability so the
-    # site can render a "Market %" column and a model-minus-market delta.
-    from worldcup.market_odds import load_cached as load_market_odds
-    market_probs = load_market_odds()
-
     # Per-team stats
     teams_all = sorted(round_counts.keys())
     team_stats = []
@@ -461,13 +441,11 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
         n_team_total = sum(c.values())
         # Probability of "reaching at least round X"
         pct = lambda key: round(100 * c[key] / n_team_total, 2)
-        p_champ = pct("champion")
-        market_p = market_probs.get(t)
         team_stats.append({
             "team": t,
             "rating": round(ratings[t]),
             "raw_rating": round(raw_ratings.get(t, 1500)),
-            "p_champion": p_champ,
+            "p_champion": pct("champion"),
             "p_final": pct("champion") + pct("runner_up"),
             "p_semis": (
                 pct("champion") + pct("runner_up") + pct("semi_finals")
@@ -479,15 +457,6 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
                 pct("champion") + pct("runner_up") + pct("semi_finals") + pct("quarter_finals") + pct("round_of_16")
             ),
             "p_advance_from_groups": 100.0 - pct("group_stage"),
-            # Market column. None when we lack a market price (e.g. the
-            # fetcher hasn't been pointed at a roster name we know).
-            "market_p_champion": (
-                round(market_p * 100, 2) if market_p is not None else None
-            ),
-            "model_minus_market": (
-                round(p_champ - market_p * 100, 2)
-                if market_p is not None else None
-            ),
         })
     team_stats.sort(key=lambda x: x["p_champion"], reverse=True)
 

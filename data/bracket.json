@@ -1,8 +1,8 @@
 {
-  "model_version": "elo-v4a-flat-mild+squad35+layers=full",
+  "model_version": "elo-v4a-flat-mild+squad35+form",
   "elo_version": "elo-v4a-flat-mild",
   "elo_weight": 0.65,
-  "generated_at": "2026-05-15T08:04:15Z",
+  "generated_at": "2026-05-15T08:38:24Z",
   "bracket_format": "fifa-2026",
   "flags": {
     "Algeria": "dz",

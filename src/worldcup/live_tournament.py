@@ -86,13 +86,10 @@ def load_wc_matches():
             """
         ).fetchdf()
 
-    # Pull current-rating-based predictions from the simulation output.
-    # Per-match probabilities should come from the calibration variant
-    # (no host bonus → honest probabilities, validated to ECE 0.091 vs
-    # 0.093 for full). Fall back to the default simulation.json so a
-    # fresh checkout that hasn't run the dual build still works.
-    cal_path = PROJECT_ROOT / "data" / "simulation-calibration.json"
-    sim_path = cal_path if cal_path.exists() else PROJECT_ROOT / "data" / "simulation.json"
+    # Pull current-rating-based predictions from simulation.json (these
+    # cover every unplayed WC fixture). simulation.json may not exist
+    # on a fresh checkout; treat that case gracefully.
+    sim_path = PROJECT_ROOT / "data" / "simulation.json"
     sim_preds: list[dict] = []
     if sim_path.exists():
         try:

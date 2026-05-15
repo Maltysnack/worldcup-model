@@ -31,13 +31,11 @@ import numpy as np
 from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import MODEL_VERSION
 from worldcup.profiles import current_profile, file_suffix, table_suffix
+from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
-from worldcup.layers import (
-    apply_layers,
-    current_layer_set,
-    file_suffix as layers_file_suffix,
-)
 from worldcup.squad import ELO_WEIGHT, blended_ratings
+from worldcup.host import apply_host_bonus
+from worldcup.trophies import apply_nt_bonus
 
 # Number of group sims when computing predicted standings. The bracket
 # is a single deterministic prediction, but the group standings driving
@@ -47,11 +45,7 @@ from worldcup.squad import ELO_WEIGHT, blended_ratings
 GROUP_SIM_N = 4000
 
 _PROFILE = current_profile()
-_LAYERS = current_layer_set()
-OUTPUT_PATH = (
-    PROJECT_ROOT / "data"
-    / f"bracket{file_suffix(_PROFILE)}{layers_file_suffix(_LAYERS)}.json"
-)
+OUTPUT_PATH = PROJECT_ROOT / "data" / f"bracket{file_suffix(_PROFILE)}.json"
 _ELO_TABLE = f"elo_current{table_suffix(_PROFILE)}"
 
 # ISO 3166-1 alpha-2 codes (with subdivision codes for England/Scotland)
@@ -537,20 +531,12 @@ def find_exemplar_bracket(group_winners, group_runners, third_assignments,
 
 
 def main() -> None:
-    model_id = (
-        f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}"
-        f"+layers={_LAYERS.name}"
-    )
+    model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}+form"
     print(f"Generating bracket using official FIFA 2026 structure (model: {model_id})")
     raw_ratings, fixtures = load_data()
-    # Layer set ("full" or "calibration") controls whether the host bonus
-    # is applied. "full" is the headline champion-finder config; the
-    # calibration variant drops host for honest per-match probabilities
-    # (used by the live tab and any market-overlay views).
-    ratings = apply_layers(
-        blended_ratings(raw_ratings),
-        tournament="FIFA World Cup", year=2026,
-        layer_set=_LAYERS,
+    ratings = apply_host_bonus(
+        apply_nt_bonus(apply_form(blended_ratings(raw_ratings))),
+        "FIFA World Cup", 2026,
     )
     print(f"  loaded {len(ratings)} team ratings, {len(fixtures)} group fixtures")
 

@@ -63,14 +63,11 @@ jobs:
         continue-on-error: true
         run: uv run worldcup-fetch-club-badges
 
-      - name: Fetch WC 2026 outright market odds from Polymarket
-        continue-on-error: true
-        run: uv run worldcup-fetch-market-odds --refresh
-
-      - name: Rebuild Elo + bracket + simulation (full + calibration variants)
+      - name: Rebuild Elo + bracket + simulation
         run: |
           uv run worldcup-elo
-          uv run worldcup-build-dual
+          uv run worldcup-bracket
+          uv run worldcup-simulate
 
       - name: Predict top scorer
         continue-on-error: true
@@ -82,19 +79,8 @@ jobs:
 
       - name: Copy JSONs into site repo
         run: |
-          # Champion-finder variant (host bonus on) — headline bracket / pick.
           cp data/bracket.json     site/projects/worldcup-bracket.json
           cp data/simulation.json  site/projects/worldcup-simulation.json
-          # Calibration variant (host bonus off) — honest per-match probabilities
-          # for the live tab and any market-overlay views. Already consumed by
-          # build-live-tournament above when it exists; copy through so the site
-          # has it available for direct use too.
-          if [ -f data/bracket-calibration.json ]; then
-            cp data/bracket-calibration.json    site/projects/worldcup-bracket-calibration.json
-          fi
-          if [ -f data/simulation-calibration.json ]; then
-            cp data/simulation-calibration.json site/projects/worldcup-simulation-calibration.json
-          fi
           if [ -f data/top_scorers.json ]; then
             cp data/top_scorers.json site/projects/worldcup-top-scorers.json
           fi
@@ -108,7 +94,7 @@ jobs:
           git config user.name  "worldcup-bot"
           git config user.email "bot@maltysnack.local"
           # Stage any of these that exist; commit only if there are changes
-          for f in projects/worldcup-bracket.json projects/worldcup-simulation.json projects/worldcup-bracket-calibration.json projects/worldcup-simulation-calibration.json projects/worldcup-top-scorers.json projects/worldcup-live.json; do
+          for f in projects/worldcup-bracket.json projects/worldcup-simulation.json projects/worldcup-top-scorers.json projects/worldcup-live.json; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if git diff --cached --quiet; then
