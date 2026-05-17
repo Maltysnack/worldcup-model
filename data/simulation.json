@@ -11,16 +11,16 @@
       "city": "Puebla",
       "country": "Mexico",
       "tournament": "Friendly",
-      "p_home_win": 0.6585,
-      "p_draw": 0.2155,
-      "p_away_win": 0.126,
-      "expected_home_goals": 2.17,
-      "expected_away_goals": 0.62,
+      "p_home_win": 0.7135,
+      "p_draw": 0.1796,
+      "p_away_win": 0.107,
+      "expected_home_goals": 2.41,
+      "expected_away_goals": 0.55,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1434
+      "modal_score_pct": 0.1476
     },
     {
       "match_date": "2026-05-30",
@@ -30,16 +30,16 @@
       "city": "Pasadena",
       "country": "United States",
       "tournament": "Friendly",
-      "p_home_win": 0.4494,
-      "p_draw": 0.2758,
-      "p_away_win": 0.2747,
-      "expected_home_goals": 1.46,
-      "expected_away_goals": 1.05,
+      "p_home_win": 0.5001,
+      "p_draw": 0.2679,
+      "p_away_win": 0.232,
+      "expected_home_goals": 1.64,
+      "expected_away_goals": 0.94,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.1244
+      "modal_score_pct": 0.1238
     },
     {
       "match_date": "2026-05-31",
@@ -49,9 +49,9 @@
       "city": "Charlotte",
       "country": "United States",
       "tournament": "Friendly",
-      "p_home_win": 0.3701,
-      "p_draw": 0.2839,
-      "p_away_win": 0.346,
+      "p_home_win": 0.3649,
+      "p_draw": 0.2847,
+      "p_away_win": 0.3504,
       "expected_home_goals": 1.26,
       "expected_away_goals": 1.23,
       "modal_score": [
@@ -68,16 +68,16 @@
       "city": "Chicago",
       "country": "United States",
       "tournament": "Friendly",
-      "p_home_win": 0.3692,
-      "p_draw": 0.2762,
-      "p_away_win": 0.3545,
+      "p_home_win": 0.3688,
+      "p_draw": 0.2761,
+      "p_away_win": 0.3551,
       "expected_home_goals": 1.27,
       "expected_away_goals": 1.22,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.121
+      "modal_score_pct": 0.1216
     },
     {
       "match_date": "2026-06-06",
@@ -87,16 +87,16 @@
       "city": "Miami",
       "country": "United States",
       "tournament": "Friendly",
-      "p_home_win": 0.7087,
-      "p_draw": 0.1883,
-      "p_away_win": 0.103,
+      "p_home_win": 0.7023,
+      "p_draw": 0.1853,
+      "p_away_win": 0.1124,
       "expected_home_goals": 2.43,
       "expected_away_goals": 0.63,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1364
+      "modal_score_pct": 0.139
     },
     {
       "match_date": "2026-06-06",
@@ -106,9 +106,9 @@
       "city": null,
       "country": null,
       "tournament": "Friendly",
-      "p_home_win": 0.5983,
-      "p_draw": 0.2247,
-      "p_away_win": 0.1771,
+      "p_home_win": 0.5962,
+      "p_draw": 0.228,
+      "p_away_win": 0.1758,
       "expected_home_goals": 1.98,
       "expected_away_goals": 0.78,
       "modal_score": [
@@ -125,16 +125,16 @@
       "city": "Mexico City",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7882,
-      "p_draw": 0.1426,
-      "p_away_win": 0.0692,
-      "expected_home_goals": 2.38,
-      "expected_away_goals": 0.56,
+      "p_home_win": 0.8374,
+      "p_draw": 0.1182,
+      "p_away_win": 0.0444,
+      "expected_home_goals": 2.64,
+      "expected_away_goals": 0.49,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.151
+      "modal_score_pct": 0.155
     },
     {
       "match_date": "2026-06-11",
@@ -144,16 +144,16 @@
       "city": "Zapopan",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5272,
-      "p_draw": 0.2516,
-      "p_away_win": 0.2212,
+      "p_home_win": 0.523,
+      "p_draw": 0.2534,
+      "p_away_win": 0.2236,
       "expected_home_goals": 1.65,
       "expected_away_goals": 0.93,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1178
+      "modal_score_pct": 0.119
     },
     {
       "match_date": "2026-06-12",
@@ -163,16 +163,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6648,
-      "p_draw": 0.201,
-      "p_away_win": 0.1342,
+      "p_home_win": 0.6588,
+      "p_draw": 0.204,
+      "p_away_win": 0.1372,
       "expected_home_goals": 1.89,
       "expected_away_goals": 0.74,
       "modal_score": [
-        1,
+        2,
         0
       ],
-      "modal_score_pct": 0.14
+      "modal_score_pct": 0.1426
     },
     {
       "match_date": "2026-06-12",
@@ -182,16 +182,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.491,
-      "p_draw": 0.2672,
-      "p_away_win": 0.2418,
+      "p_home_win": 0.4946,
+      "p_draw": 0.2604,
+      "p_away_win": 0.245,
       "expected_home_goals": 1.53,
       "expected_away_goals": 0.96,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.129
+      "modal_score_pct": 0.1236
     },
     {
       "match_date": "2026-06-13",
@@ -201,16 +201,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.224,
-      "p_draw": 0.2442,
-      "p_away_win": 0.5318,
+      "p_home_win": 0.2286,
+      "p_draw": 0.2496,
+      "p_away_win": 0.5218,
       "expected_home_goals": 0.96,
       "expected_away_goals": 1.6,
       "modal_score": [
-        0,
+        1,
         1
       ],
-      "modal_score_pct": 0.1206
+      "modal_score_pct": 0.1214
     },
     {
       "match_date": "2026-06-13",
@@ -220,16 +220,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4156,
-      "p_draw": 0.2648,
-      "p_away_win": 0.3196,
+      "p_home_win": 0.4072,
+      "p_draw": 0.2746,
+      "p_away_win": 0.3182,
       "expected_home_goals": 1.35,
       "expected_away_goals": 1.14,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1284
+      "modal_score_pct": 0.1308
     },
     {
       "match_date": "2026-06-13",
@@ -239,16 +239,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2348,
-      "p_draw": 0.2578,
-      "p_away_win": 0.5074,
+      "p_home_win": 0.2404,
+      "p_draw": 0.2546,
+      "p_away_win": 0.505,
       "expected_home_goals": 0.98,
       "expected_away_goals": 1.57,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.127
+      "modal_score_pct": 0.1224
     },
     {
       "match_date": "2026-06-13",
@@ -258,16 +258,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.066,
-      "p_draw": 0.1428,
-      "p_away_win": 0.7912,
+      "p_home_win": 0.0694,
+      "p_draw": 0.143,
+      "p_away_win": 0.7876,
       "expected_home_goals": 0.6,
       "expected_away_goals": 2.57,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.1366
+      "modal_score_pct": 0.1266
     },
     {
       "match_date": "2026-06-14",
@@ -277,16 +277,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7736,
-      "p_draw": 0.1516,
-      "p_away_win": 0.0748,
+      "p_home_win": 0.7712,
+      "p_draw": 0.1548,
+      "p_away_win": 0.074,
       "expected_home_goals": 2.46,
       "expected_away_goals": 0.62,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.142
+      "modal_score_pct": 0.1404
     },
     {
       "match_date": "2026-06-14",
@@ -296,16 +296,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3048,
-      "p_draw": 0.2638,
-      "p_away_win": 0.4314,
+      "p_home_win": 0.3068,
+      "p_draw": 0.2592,
+      "p_away_win": 0.434,
       "expected_home_goals": 1.11,
       "expected_away_goals": 1.38,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1182
+      "modal_score_pct": 0.1206
     },
     {
       "match_date": "2026-06-14",
@@ -315,16 +315,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3834,
-      "p_draw": 0.2748,
-      "p_away_win": 0.3418,
+      "p_home_win": 0.3766,
+      "p_draw": 0.266,
+      "p_away_win": 0.3574,
       "expected_home_goals": 1.27,
       "expected_away_goals": 1.21,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.133
+      "modal_score_pct": 0.1274
     },
     {
       "match_date": "2026-06-14",
@@ -334,16 +334,16 @@
       "city": "Guadalupe",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4222,
-      "p_draw": 0.2782,
-      "p_away_win": 0.2996,
+      "p_home_win": 0.4204,
+      "p_draw": 0.2804,
+      "p_away_win": 0.2992,
       "expected_home_goals": 1.38,
       "expected_away_goals": 1.12,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.134
+      "modal_score_pct": 0.1312
     },
     {
       "match_date": "2026-06-15",
@@ -353,16 +353,16 @@
       "city": "Seattle",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5196,
-      "p_draw": 0.2536,
-      "p_away_win": 0.2268,
+      "p_home_win": 0.5204,
+      "p_draw": 0.2514,
+      "p_away_win": 0.2282,
       "expected_home_goals": 1.6,
       "expected_away_goals": 0.96,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.1192
+      "modal_score_pct": 0.1204
     },
     {
       "match_date": "2026-06-15",
@@ -372,16 +372,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4692,
-      "p_draw": 0.26,
-      "p_away_win": 0.2708,
+      "p_home_win": 0.4756,
+      "p_draw": 0.2674,
+      "p_away_win": 0.257,
       "expected_home_goals": 1.49,
       "expected_away_goals": 1.03,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1312
+      "modal_score_pct": 0.1322
     },
     {
       "match_date": "2026-06-15",
@@ -391,16 +391,16 @@
       "city": "Miami Gardens",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1426,
-      "p_draw": 0.1972,
-      "p_away_win": 0.6602,
+      "p_home_win": 0.1398,
+      "p_draw": 0.2044,
+      "p_away_win": 0.6558,
       "expected_home_goals": 0.78,
       "expected_away_goals": 1.97,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1292
+      "modal_score_pct": 0.1246
     },
     {
       "match_date": "2026-06-15",
@@ -410,16 +410,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.8494,
-      "p_draw": 0.1076,
-      "p_away_win": 0.043,
+      "p_home_win": 0.8544,
+      "p_draw": 0.1066,
+      "p_away_win": 0.039,
       "expected_home_goals": 2.91,
       "expected_away_goals": 0.53,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1394
+      "modal_score_pct": 0.1404
     },
     {
       "match_date": "2026-06-16",
@@ -429,16 +429,16 @@
       "city": "Kansas City",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6568,
-      "p_draw": 0.1968,
-      "p_away_win": 0.1464,
+      "p_home_win": 0.6552,
+      "p_draw": 0.2024,
+      "p_away_win": 0.1424,
       "expected_home_goals": 1.95,
       "expected_away_goals": 0.79,
       "modal_score": [
-        2,
+        1,
         0
       ],
-      "modal_score_pct": 0.1326
+      "modal_score_pct": 0.1322
     },
     {
       "match_date": "2026-06-16",
@@ -448,16 +448,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4976,
-      "p_draw": 0.2514,
-      "p_away_win": 0.251,
+      "p_home_win": 0.494,
+      "p_draw": 0.2628,
+      "p_away_win": 0.2432,
       "expected_home_goals": 1.52,
       "expected_away_goals": 1.01,
       "modal_score": [
         1,
-        0
+        1
       ],
-      "modal_score_pct": 0.1266
+      "modal_score_pct": 0.1228
     },
     {
       "match_date": "2026-06-16",
@@ -467,16 +467,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.511,
-      "p_draw": 0.2534,
+      "p_home_win": 0.5182,
+      "p_draw": 0.2462,
       "p_away_win": 0.2356,
       "expected_home_goals": 1.57,
       "expected_away_goals": 0.98,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.1202
+      "modal_score_pct": 0.1232
     },
     {
       "match_date": "2026-06-16",
@@ -486,16 +486,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1312,
-      "p_draw": 0.2044,
-      "p_away_win": 0.6644,
+      "p_home_win": 0.1372,
+      "p_draw": 0.202,
+      "p_away_win": 0.6608,
       "expected_home_goals": 0.77,
       "expected_away_goals": 2.0,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1318
+      "modal_score_pct": 0.1288
     },
     {
       "match_date": "2026-06-17",
@@ -505,16 +505,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4758,
-      "p_draw": 0.2548,
-      "p_away_win": 0.2694,
+      "p_home_win": 0.4772,
+      "p_draw": 0.2648,
+      "p_away_win": 0.258,
       "expected_home_goals": 1.48,
       "expected_away_goals": 1.04,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.117
+      "modal_score_pct": 0.1246
     },
     {
       "match_date": "2026-06-17",
@@ -524,16 +524,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3014,
-      "p_draw": 0.2618,
-      "p_away_win": 0.4368,
+      "p_home_win": 0.2948,
+      "p_draw": 0.269,
+      "p_away_win": 0.4362,
       "expected_home_goals": 1.09,
       "expected_away_goals": 1.41,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1242
+      "modal_score_pct": 0.1282
     },
     {
       "match_date": "2026-06-17",
@@ -543,16 +543,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6666,
-      "p_draw": 0.1986,
-      "p_away_win": 0.1348,
+      "p_home_win": 0.6694,
+      "p_draw": 0.2048,
+      "p_away_win": 0.1258,
       "expected_home_goals": 2.0,
       "expected_away_goals": 0.77,
       "modal_score": [
-        1,
+        2,
         0
       ],
-      "modal_score_pct": 0.1306
+      "modal_score_pct": 0.1302
     },
     {
       "match_date": "2026-06-17",
@@ -562,16 +562,16 @@
       "city": "Mexico City",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1734,
-      "p_draw": 0.2234,
-      "p_away_win": 0.6032,
+      "p_home_win": 0.1762,
+      "p_draw": 0.2276,
+      "p_away_win": 0.5962,
       "expected_home_goals": 0.84,
       "expected_away_goals": 1.83,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1336
+      "modal_score_pct": 0.1248
     },
     {
       "match_date": "2026-06-18",
@@ -581,16 +581,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.8112,
-      "p_draw": 0.1302,
-      "p_away_win": 0.0586,
+      "p_home_win": 0.8052,
+      "p_draw": 0.1346,
+      "p_away_win": 0.0602,
       "expected_home_goals": 2.45,
       "expected_away_goals": 0.54,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1596
+      "modal_score_pct": 0.1594
     },
     {
       "match_date": "2026-06-18",
@@ -600,16 +600,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.476,
-      "p_draw": 0.2718,
-      "p_away_win": 0.2522,
+      "p_home_win": 0.479,
+      "p_draw": 0.2574,
+      "p_away_win": 0.2636,
       "expected_home_goals": 1.5,
       "expected_away_goals": 1.03,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.1278
+      "modal_score_pct": 0.1184
     },
     {
       "match_date": "2026-06-18",
@@ -619,16 +619,16 @@
       "city": "Zapopan",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5202,
-      "p_draw": 0.2526,
-      "p_away_win": 0.2272,
-      "expected_home_goals": 1.56,
-      "expected_away_goals": 0.94,
+      "p_home_win": 0.5832,
+      "p_draw": 0.236,
+      "p_away_win": 0.1808,
+      "expected_home_goals": 1.73,
+      "expected_away_goals": 0.83,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1324
+      "modal_score_pct": 0.1404
     },
     {
       "match_date": "2026-06-18",
@@ -638,16 +638,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6322,
-      "p_draw": 0.2234,
-      "p_away_win": 0.1444,
+      "p_home_win": 0.637,
+      "p_draw": 0.2148,
+      "p_away_win": 0.1482,
       "expected_home_goals": 1.92,
       "expected_away_goals": 0.8,
       "modal_score": [
-        1,
+        2,
         0
       ],
-      "modal_score_pct": 0.128
+      "modal_score_pct": 0.1278
     },
     {
       "match_date": "2026-06-19",
@@ -657,16 +657,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7922,
-      "p_draw": 0.1378,
-      "p_away_win": 0.07,
+      "p_home_win": 0.7886,
+      "p_draw": 0.1406,
+      "p_away_win": 0.0708,
       "expected_home_goals": 2.52,
       "expected_away_goals": 0.61,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1378
+      "modal_score_pct": 0.1374
     },
     {
       "match_date": "2026-06-19",
@@ -676,16 +676,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.171,
-      "p_draw": 0.221,
-      "p_away_win": 0.608,
+      "p_home_win": 0.1596,
+      "p_draw": 0.2332,
+      "p_away_win": 0.6072,
       "expected_home_goals": 0.84,
       "expected_away_goals": 1.83,
       "modal_score": [
         0,
-        2
+        1
       ],
-      "modal_score_pct": 0.1228
+      "modal_score_pct": 0.1232
     },
     {
       "match_date": "2026-06-19",
@@ -695,16 +695,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4924,
-      "p_draw": 0.2508,
-      "p_away_win": 0.2568,
+      "p_home_win": 0.4862,
+      "p_draw": 0.263,
+      "p_away_win": 0.2508,
       "expected_home_goals": 1.52,
       "expected_away_goals": 1.01,
       "modal_score": [
         1,
-        0
+        1
       ],
-      "modal_score_pct": 0.1258
+      "modal_score_pct": 0.124
     },
     {
       "match_date": "2026-06-19",
@@ -714,16 +714,16 @@
       "city": "Seattle",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5298,
-      "p_draw": 0.2492,
-      "p_away_win": 0.221,
+      "p_home_win": 0.5316,
+      "p_draw": 0.2534,
+      "p_away_win": 0.215,
       "expected_home_goals": 1.6,
       "expected_away_goals": 0.91,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1306
+      "modal_score_pct": 0.133
     },
     {
       "match_date": "2026-06-20",
@@ -733,16 +733,16 @@
       "city": "Kansas City",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7524,
-      "p_draw": 0.157,
-      "p_away_win": 0.0906,
+      "p_home_win": 0.747,
+      "p_draw": 0.169,
+      "p_away_win": 0.084,
       "expected_home_goals": 2.34,
       "expected_away_goals": 0.66,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.139
+      "modal_score_pct": 0.1344
     },
     {
       "match_date": "2026-06-20",
@@ -752,16 +752,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.463,
-      "p_draw": 0.2668,
-      "p_away_win": 0.2702,
+      "p_home_win": 0.4522,
+      "p_draw": 0.27,
+      "p_away_win": 0.2778,
       "expected_home_goals": 1.46,
       "expected_away_goals": 1.06,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1328
+      "modal_score_pct": 0.1334
     },
     {
       "match_date": "2026-06-20",
@@ -771,16 +771,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5822,
-      "p_draw": 0.2318,
-      "p_away_win": 0.186,
+      "p_home_win": 0.5834,
+      "p_draw": 0.2338,
+      "p_away_win": 0.1828,
       "expected_home_goals": 1.77,
       "expected_away_goals": 0.87,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1246
+      "modal_score_pct": 0.123
     },
     {
       "match_date": "2026-06-20",
@@ -790,16 +790,16 @@
       "city": "Guadalupe",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.15,
-      "p_draw": 0.2092,
-      "p_away_win": 0.6408,
+      "p_home_win": 0.1546,
+      "p_draw": 0.212,
+      "p_away_win": 0.6334,
       "expected_home_goals": 0.8,
       "expected_away_goals": 1.92,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.1234
+      "modal_score_pct": 0.1204
     },
     {
       "match_date": "2026-06-21",
@@ -809,16 +809,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5678,
-      "p_draw": 0.2358,
-      "p_away_win": 0.1964,
+      "p_home_win": 0.5648,
+      "p_draw": 0.2324,
+      "p_away_win": 0.2028,
       "expected_home_goals": 1.71,
       "expected_away_goals": 0.9,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1218
+      "modal_score_pct": 0.1214
     },
     {
       "match_date": "2026-06-21",
@@ -828,16 +828,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2274,
-      "p_draw": 0.2458,
-      "p_away_win": 0.5268,
+      "p_home_win": 0.2288,
+      "p_draw": 0.2492,
+      "p_away_win": 0.522,
       "expected_home_goals": 0.97,
       "expected_away_goals": 1.59,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1254
+      "modal_score_pct": 0.1222
     },
     {
       "match_date": "2026-06-21",
@@ -847,16 +847,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.8658,
-      "p_draw": 0.0956,
-      "p_away_win": 0.0386,
+      "p_home_win": 0.8624,
+      "p_draw": 0.1014,
+      "p_away_win": 0.0362,
       "expected_home_goals": 2.98,
       "expected_away_goals": 0.52,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.132
+      "modal_score_pct": 0.133
     },
     {
       "match_date": "2026-06-21",
@@ -866,16 +866,16 @@
       "city": "Miami Gardens",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6398,
-      "p_draw": 0.2154,
-      "p_away_win": 0.1448,
+      "p_home_win": 0.637,
+      "p_draw": 0.2136,
+      "p_away_win": 0.1494,
       "expected_home_goals": 1.93,
       "expected_away_goals": 0.8,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1254
+      "modal_score_pct": 0.127
     },
     {
       "match_date": "2026-06-22",
@@ -885,16 +885,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6838,
-      "p_draw": 0.1948,
-      "p_away_win": 0.1214,
+      "p_home_win": 0.673,
+      "p_draw": 0.1964,
+      "p_away_win": 0.1306,
       "expected_home_goals": 2.03,
       "expected_away_goals": 0.76,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.135
+      "modal_score_pct": 0.1272
     },
     {
       "match_date": "2026-06-22",
@@ -904,16 +904,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.8156,
-      "p_draw": 0.1308,
-      "p_away_win": 0.0536,
+      "p_home_win": 0.8172,
+      "p_draw": 0.1298,
+      "p_away_win": 0.053,
       "expected_home_goals": 2.65,
       "expected_away_goals": 0.58,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.145
+      "modal_score_pct": 0.1484
     },
     {
       "match_date": "2026-06-22",
@@ -923,16 +923,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2314,
-      "p_draw": 0.2448,
-      "p_away_win": 0.5238,
+      "p_home_win": 0.2322,
+      "p_draw": 0.2508,
+      "p_away_win": 0.517,
       "expected_home_goals": 0.97,
       "expected_away_goals": 1.58,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1254
+      "modal_score_pct": 0.125
     },
     {
       "match_date": "2026-06-22",
@@ -942,16 +942,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3272,
-      "p_draw": 0.2828,
-      "p_away_win": 0.39,
+      "p_home_win": 0.3366,
+      "p_draw": 0.264,
+      "p_away_win": 0.3994,
       "expected_home_goals": 1.18,
       "expected_away_goals": 1.3,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1324
+      "modal_score_pct": 0.1226
     },
     {
       "match_date": "2026-06-23",
@@ -961,16 +961,16 @@
       "city": "Zapopan",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.591,
-      "p_draw": 0.2334,
-      "p_away_win": 0.1756,
+      "p_home_win": 0.5906,
+      "p_draw": 0.2376,
+      "p_away_win": 0.1718,
       "expected_home_goals": 1.81,
       "expected_away_goals": 0.85,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1316
+      "modal_score_pct": 0.134
     },
     {
       "match_date": "2026-06-23",
@@ -980,16 +980,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7382,
-      "p_draw": 0.1672,
-      "p_away_win": 0.0946,
+      "p_home_win": 0.7372,
+      "p_draw": 0.1734,
+      "p_away_win": 0.0894,
       "expected_home_goals": 2.28,
       "expected_away_goals": 0.67,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1344
+      "modal_score_pct": 0.1336
     },
     {
       "match_date": "2026-06-23",
@@ -999,16 +999,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1976,
-      "p_draw": 0.2488,
-      "p_away_win": 0.5536,
+      "p_home_win": 0.2024,
+      "p_draw": 0.2424,
+      "p_away_win": 0.5552,
       "expected_home_goals": 0.92,
       "expected_away_goals": 1.68,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1332
+      "modal_score_pct": 0.121
     },
     {
       "match_date": "2026-06-23",
@@ -1018,16 +1018,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6732,
-      "p_draw": 0.2014,
-      "p_away_win": 0.1254,
+      "p_home_win": 0.6736,
+      "p_draw": 0.1982,
+      "p_away_win": 0.1282,
       "expected_home_goals": 2.03,
       "expected_away_goals": 0.76,
       "modal_score": [
-        1,
+        2,
         0
       ],
-      "modal_score_pct": 0.133
+      "modal_score_pct": 0.1318
     },
     {
       "match_date": "2026-06-24",
@@ -1037,16 +1037,16 @@
       "city": "Seattle",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5422,
-      "p_draw": 0.2492,
-      "p_away_win": 0.2086,
+      "p_home_win": 0.5458,
+      "p_draw": 0.2388,
+      "p_away_win": 0.2154,
       "expected_home_goals": 1.66,
       "expected_away_goals": 0.93,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1232
+      "modal_score_pct": 0.1252
     },
     {
       "match_date": "2026-06-24",
@@ -1056,16 +1056,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3928,
-      "p_draw": 0.2776,
-      "p_away_win": 0.3296,
+      "p_home_win": 0.3872,
+      "p_draw": 0.2746,
+      "p_away_win": 0.3382,
       "expected_home_goals": 1.29,
       "expected_away_goals": 1.2,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1266
+      "modal_score_pct": 0.1338
     },
     {
       "match_date": "2026-06-24",
@@ -1075,16 +1075,16 @@
       "city": "Mexico City",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6964,
-      "p_draw": 0.1864,
-      "p_away_win": 0.1172,
-      "expected_home_goals": 2.02,
-      "expected_away_goals": 0.68,
+      "p_home_win": 0.742,
+      "p_draw": 0.1698,
+      "p_away_win": 0.0882,
+      "expected_home_goals": 2.23,
+      "expected_away_goals": 0.6,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.139
+      "modal_score_pct": 0.1424
     },
     {
       "match_date": "2026-06-24",
@@ -1094,16 +1094,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7438,
-      "p_draw": 0.1768,
-      "p_away_win": 0.0794,
+      "p_home_win": 0.7422,
+      "p_draw": 0.1678,
+      "p_away_win": 0.09,
       "expected_home_goals": 2.31,
       "expected_away_goals": 0.66,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1346
+      "modal_score_pct": 0.1324
     },
     {
       "match_date": "2026-06-24",
@@ -1113,16 +1113,16 @@
       "city": "Miami Gardens",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1342,
-      "p_draw": 0.2068,
-      "p_away_win": 0.659,
+      "p_home_win": 0.1272,
+      "p_draw": 0.2014,
+      "p_away_win": 0.6714,
       "expected_home_goals": 0.77,
       "expected_away_goals": 1.99,
       "modal_score": [
         0,
-        2
+        1
       ],
-      "modal_score_pct": 0.1322
+      "modal_score_pct": 0.1268
     },
     {
       "match_date": "2026-06-24",
@@ -1132,9 +1132,9 @@
       "city": "Guadalupe",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1326,
-      "p_draw": 0.2032,
-      "p_away_win": 0.6642,
+      "p_home_win": 0.1386,
+      "p_draw": 0.2076,
+      "p_away_win": 0.6538,
       "expected_home_goals": 0.77,
       "expected_away_goals": 1.99,
       "modal_score": [
@@ -1151,16 +1151,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1196,
-      "p_draw": 0.187,
-      "p_away_win": 0.6934,
+      "p_home_win": 0.123,
+      "p_draw": 0.1942,
+      "p_away_win": 0.6828,
       "expected_home_goals": 0.73,
       "expected_away_goals": 2.09,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.132
+      "modal_score_pct": 0.1304
     },
     {
       "match_date": "2026-06-25",
@@ -1170,16 +1170,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3404,
-      "p_draw": 0.261,
-      "p_away_win": 0.3986,
+      "p_home_win": 0.3204,
+      "p_draw": 0.2664,
+      "p_away_win": 0.4132,
       "expected_home_goals": 1.18,
       "expected_away_goals": 1.31,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1246
+      "modal_score_pct": 0.1268
     },
     {
       "match_date": "2026-06-25",
@@ -1189,16 +1189,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5774,
-      "p_draw": 0.236,
-      "p_away_win": 0.1866,
+      "p_home_win": 0.5806,
+      "p_draw": 0.224,
+      "p_away_win": 0.1954,
       "expected_home_goals": 1.73,
       "expected_away_goals": 0.89,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1212
+      "modal_score_pct": 0.1236
     },
     {
       "match_date": "2026-06-25",
@@ -1208,16 +1208,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3918,
-      "p_draw": 0.2728,
-      "p_away_win": 0.3354,
+      "p_home_win": 0.403,
+      "p_draw": 0.264,
+      "p_away_win": 0.333,
       "expected_home_goals": 1.3,
       "expected_away_goals": 1.18,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1276
+      "modal_score_pct": 0.1166
     },
     {
       "match_date": "2026-06-25",
@@ -1227,16 +1227,16 @@
       "city": "Kansas City",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1432,
-      "p_draw": 0.2018,
-      "p_away_win": 0.655,
+      "p_home_win": 0.1418,
+      "p_draw": 0.2084,
+      "p_away_win": 0.6498,
       "expected_home_goals": 0.78,
       "expected_away_goals": 1.97,
       "modal_score": [
         0,
-        1
+        2
       ],
-      "modal_score_pct": 0.1282
+      "modal_score_pct": 0.1294
     },
     {
       "match_date": "2026-06-25",
@@ -1246,16 +1246,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3754,
-      "p_draw": 0.2662,
-      "p_away_win": 0.3584,
+      "p_home_win": 0.3716,
+      "p_draw": 0.2788,
+      "p_away_win": 0.3496,
       "expected_home_goals": 1.28,
       "expected_away_goals": 1.21,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1304
+      "modal_score_pct": 0.136
     },
     {
       "match_date": "2026-06-26",
@@ -1265,16 +1265,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3872,
+      "p_home_win": 0.3802,
       "p_draw": 0.2628,
-      "p_away_win": 0.35,
+      "p_away_win": 0.357,
       "expected_home_goals": 1.27,
       "expected_away_goals": 1.21,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1276
+      "modal_score_pct": 0.1284
     },
     {
       "match_date": "2026-06-26",
@@ -1284,16 +1284,16 @@
       "city": "Seattle",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3972,
-      "p_draw": 0.2652,
-      "p_away_win": 0.3376,
+      "p_home_win": 0.3918,
+      "p_draw": 0.2698,
+      "p_away_win": 0.3384,
       "expected_home_goals": 1.32,
       "expected_away_goals": 1.16,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1316
+      "modal_score_pct": 0.138
     },
     {
       "match_date": "2026-06-26",
@@ -1303,16 +1303,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1212,
-      "p_draw": 0.2016,
-      "p_away_win": 0.6772,
+      "p_home_win": 0.1264,
+      "p_draw": 0.1946,
+      "p_away_win": 0.679,
       "expected_home_goals": 0.75,
       "expected_away_goals": 2.05,
       "modal_score": [
         0,
-        2
+        1
       ],
-      "modal_score_pct": 0.1332
+      "modal_score_pct": 0.1292
     },
     {
       "match_date": "2026-06-26",
@@ -1322,16 +1322,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2226,
-      "p_draw": 0.2446,
-      "p_away_win": 0.5328,
+      "p_home_win": 0.2242,
+      "p_draw": 0.249,
+      "p_away_win": 0.5268,
       "expected_home_goals": 0.94,
       "expected_away_goals": 1.64,
       "modal_score": [
-        0,
+        1,
         1
       ],
-      "modal_score_pct": 0.1286
+      "modal_score_pct": 0.1196
     },
     {
       "match_date": "2026-06-26",
@@ -1341,16 +1341,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6796,
-      "p_draw": 0.1998,
-      "p_away_win": 0.1206,
+      "p_home_win": 0.6878,
+      "p_draw": 0.1912,
+      "p_away_win": 0.121,
       "expected_home_goals": 2.1,
       "expected_away_goals": 0.73,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.134
+      "modal_score_pct": 0.1336
     },
     {
       "match_date": "2026-06-26",
@@ -1360,16 +1360,16 @@
       "city": "Zapopan",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1708,
-      "p_draw": 0.2192,
-      "p_away_win": 0.61,
+      "p_home_win": 0.1674,
+      "p_draw": 0.2184,
+      "p_away_win": 0.6142,
       "expected_home_goals": 0.82,
       "expected_away_goals": 1.88,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.127
+      "modal_score_pct": 0.1298
     },
     {
       "match_date": "2026-06-27",
@@ -1379,16 +1379,16 @@
       "city": "Kansas City",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3862,
-      "p_draw": 0.2692,
-      "p_away_win": 0.3446,
+      "p_home_win": 0.3844,
+      "p_draw": 0.2658,
+      "p_away_win": 0.3498,
       "expected_home_goals": 1.29,
       "expected_away_goals": 1.19,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1274
+      "modal_score_pct": 0.1242
     },
     {
       "match_date": "2026-06-27",
@@ -1398,16 +1398,16 @@
       "city": "Miami Gardens",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3098,
-      "p_draw": 0.2642,
-      "p_away_win": 0.426,
+      "p_home_win": 0.3032,
+      "p_draw": 0.275,
+      "p_away_win": 0.4218,
       "expected_home_goals": 1.12,
       "expected_away_goals": 1.38,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1254
+      "modal_score_pct": 0.131
     },
     {
       "match_date": "2026-06-27",
@@ -1417,16 +1417,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.64,
-      "p_draw": 0.2148,
-      "p_away_win": 0.1452,
+      "p_home_win": 0.6336,
+      "p_draw": 0.2132,
+      "p_away_win": 0.1532,
       "expected_home_goals": 1.9,
       "expected_away_goals": 0.81,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.125
+      "modal_score_pct": 0.127
     },
     {
       "match_date": "2026-06-27",
@@ -1436,16 +1436,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3642,
-      "p_draw": 0.282,
-      "p_away_win": 0.3538,
+      "p_home_win": 0.3696,
+      "p_draw": 0.269,
+      "p_away_win": 0.3614,
       "expected_home_goals": 1.26,
       "expected_away_goals": 1.22,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1358
+      "modal_score_pct": 0.124
     },
     {
       "match_date": "2026-06-27",
@@ -1455,16 +1455,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.0706,
-      "p_draw": 0.1418,
-      "p_away_win": 0.7876,
+      "p_home_win": 0.0694,
+      "p_draw": 0.1472,
+      "p_away_win": 0.7834,
       "expected_home_goals": 0.62,
       "expected_away_goals": 2.48,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.1326
+      "modal_score_pct": 0.1352
     },
     {
       "match_date": "2026-06-27",
@@ -1474,16 +1474,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.133,
-      "p_draw": 0.1994,
-      "p_away_win": 0.6676,
+      "p_home_win": 0.1308,
+      "p_draw": 0.19,
+      "p_away_win": 0.6792,
       "expected_home_goals": 0.77,
       "expected_away_goals": 2.01,
       "modal_score": [
         0,
-        2
+        1
       ],
-      "modal_score_pct": 0.1296
+      "modal_score_pct": 0.133
     }
   ],
   "recent_matches": [
@@ -1764,7 +1764,7 @@
       "elo_delta_away": 10.8
     }
   ],
-  "generated_at": "2026-05-17T15:51:47Z",
+  "generated_at": "2026-05-17T16:44:02Z",
   "n_simulations": 10000,
   "calibration": {
     "lambda_home_at_parity": 1.41,
@@ -1828,496 +1828,507 @@
       "team": "Spain",
       "rating": 2042,
       "raw_rating": 2068,
-      "p_champion": 16.28,
-      "p_final": 24.700000000000003,
-      "p_semis": 37.31,
-      "p_quarters": 49.78,
-      "p_round_of_16": 70.1,
-      "p_advance_from_groups": 97.6
+      "p_champion": 16.13,
+      "p_final": 24.68,
+      "p_semis": 37.47,
+      "p_quarters": 50.05,
+      "p_round_of_16": 70.17,
+      "p_advance_from_groups": 97.4
     },
     {
       "team": "France",
       "rating": 2011,
       "raw_rating": 2009,
-      "p_champion": 11.12,
-      "p_final": 18.03,
-      "p_semis": 28.9,
-      "p_quarters": 43.519999999999996,
-      "p_round_of_16": 67.02,
-      "p_advance_from_groups": 92.59
+      "p_champion": 10.71,
+      "p_final": 17.1,
+      "p_semis": 27.94,
+      "p_quarters": 42.38,
+      "p_round_of_16": 65.63,
+      "p_advance_from_groups": 91.65
     },
     {
       "team": "Argentina",
       "rating": 2002,
       "raw_rating": 2056,
-      "p_champion": 10.18,
-      "p_final": 17.56,
-      "p_semis": 28.68,
-      "p_quarters": 43.68,
-      "p_round_of_16": 61.230000000000004,
-      "p_advance_from_groups": 94.12
+      "p_champion": 10.19,
+      "p_final": 17.78,
+      "p_semis": 29.5,
+      "p_quarters": 43.06,
+      "p_round_of_16": 61.05,
+      "p_advance_from_groups": 93.96
     },
     {
       "team": "Portugal",
       "rating": 1963,
       "raw_rating": 1933,
-      "p_champion": 7.25,
-      "p_final": 13.39,
-      "p_semis": 24.03,
-      "p_quarters": 39.92,
-      "p_round_of_16": 64.62,
-      "p_advance_from_groups": 88.51
+      "p_champion": 7.38,
+      "p_final": 13.42,
+      "p_semis": 24.02,
+      "p_quarters": 40.41,
+      "p_round_of_16": 64.47999999999999,
+      "p_advance_from_groups": 88.72
     },
     {
       "team": "Brazil",
       "rating": 1957,
       "raw_rating": 1932,
-      "p_champion": 5.37,
-      "p_final": 10.370000000000001,
-      "p_semis": 19.41,
-      "p_quarters": 33.75,
-      "p_round_of_16": 56.41,
-      "p_advance_from_groups": 91.33
+      "p_champion": 5.97,
+      "p_final": 11.09,
+      "p_semis": 19.439999999999998,
+      "p_quarters": 34.019999999999996,
+      "p_round_of_16": 56.459999999999994,
+      "p_advance_from_groups": 91.75
     },
     {
       "team": "England",
       "rating": 1941,
       "raw_rating": 1928,
-      "p_champion": 4.69,
-      "p_final": 9.16,
-      "p_semis": 17.16,
-      "p_quarters": 31.21,
-      "p_round_of_16": 55.54,
-      "p_advance_from_groups": 91.12
+      "p_champion": 4.33,
+      "p_final": 8.93,
+      "p_semis": 16.38,
+      "p_quarters": 29.4,
+      "p_round_of_16": 55.16,
+      "p_advance_from_groups": 90.46000000000001
     },
     {
       "team": "Colombia",
       "rating": 1918,
       "raw_rating": 1925,
-      "p_champion": 4.26,
-      "p_final": 8.61,
-      "p_semis": 16.95,
-      "p_quarters": 30.35,
-      "p_round_of_16": 54.71,
-      "p_advance_from_groups": 82.83
+      "p_champion": 4.24,
+      "p_final": 8.46,
+      "p_semis": 16.75,
+      "p_quarters": 30.8,
+      "p_round_of_16": 55.19,
+      "p_advance_from_groups": 82.74
+    },
+    {
+      "team": "Mexico",
+      "rating": 1913,
+      "raw_rating": 1869,
+      "p_champion": 3.34,
+      "p_final": 7.13,
+      "p_semis": 14.36,
+      "p_quarters": 28.81,
+      "p_round_of_16": 54.09,
+      "p_advance_from_groups": 96.13
     },
     {
       "team": "Morocco",
       "rating": 1920,
       "raw_rating": 1913,
-      "p_champion": 3.34,
-      "p_final": 7.3999999999999995,
-      "p_semis": 14.739999999999998,
-      "p_quarters": 27.81,
-      "p_round_of_16": 49.94,
-      "p_advance_from_groups": 87.95
+      "p_champion": 3.33,
+      "p_final": 7.45,
+      "p_semis": 14.77,
+      "p_quarters": 27.68,
+      "p_round_of_16": 50.06,
+      "p_advance_from_groups": 87.88
     },
     {
       "team": "Netherlands",
       "rating": 1917,
       "raw_rating": 1912,
-      "p_champion": 3.34,
-      "p_final": 6.67,
-      "p_semis": 13.059999999999999,
-      "p_quarters": 25.78,
-      "p_round_of_16": 45.13,
-      "p_advance_from_groups": 84.74
+      "p_champion": 3.15,
+      "p_final": 6.529999999999999,
+      "p_semis": 13.04,
+      "p_quarters": 25.77,
+      "p_round_of_16": 45.71,
+      "p_advance_from_groups": 85.48
     },
     {
       "team": "Switzerland",
       "rating": 1887,
       "raw_rating": 1840,
-      "p_champion": 3.01,
-      "p_final": 6.27,
-      "p_semis": 14.19,
-      "p_quarters": 29.91,
-      "p_round_of_16": 57.81,
-      "p_advance_from_groups": 90.37
-    },
-    {
-      "team": "Turkey",
-      "rating": 1901,
-      "raw_rating": 1866,
-      "p_champion": 3.01,
-      "p_final": 6.84,
-      "p_semis": 13.75,
-      "p_quarters": 27.619999999999997,
-      "p_round_of_16": 49.36,
-      "p_advance_from_groups": 77.32
-    },
-    {
-      "team": "Japan",
-      "rating": 1907,
-      "raw_rating": 1909,
-      "p_champion": 2.9,
-      "p_final": 6.18,
-      "p_semis": 12.58,
-      "p_quarters": 25.18,
-      "p_round_of_16": 44.730000000000004,
-      "p_advance_from_groups": 84.21000000000001
+      "p_champion": 3.15,
+      "p_final": 6.59,
+      "p_semis": 14.34,
+      "p_quarters": 29.98,
+      "p_round_of_16": 57.49,
+      "p_advance_from_groups": 90.26
     },
     {
       "team": "Germany",
       "rating": 1905,
       "raw_rating": 1909,
-      "p_champion": 2.89,
-      "p_final": 6.11,
-      "p_semis": 12.06,
-      "p_quarters": 23.14,
-      "p_round_of_16": 45.91,
-      "p_advance_from_groups": 87.45
+      "p_champion": 2.73,
+      "p_final": 5.88,
+      "p_semis": 11.79,
+      "p_quarters": 23.15,
+      "p_round_of_16": 45.92,
+      "p_advance_from_groups": 87.4
+    },
+    {
+      "team": "Japan",
+      "rating": 1907,
+      "raw_rating": 1909,
+      "p_champion": 2.73,
+      "p_final": 6.26,
+      "p_semis": 12.46,
+      "p_quarters": 24.73,
+      "p_round_of_16": 44.59,
+      "p_advance_from_groups": 84.41
+    },
+    {
+      "team": "Turkey",
+      "rating": 1901,
+      "raw_rating": 1866,
+      "p_champion": 2.71,
+      "p_final": 6.09,
+      "p_semis": 12.969999999999999,
+      "p_quarters": 26.96,
+      "p_round_of_16": 48.56,
+      "p_advance_from_groups": 77.15
     },
     {
       "team": "Senegal",
       "rating": 1909,
       "raw_rating": 1862,
-      "p_champion": 2.66,
-      "p_final": 6.4,
-      "p_semis": 12.54,
-      "p_quarters": 24.2,
-      "p_round_of_16": 46.629999999999995,
-      "p_advance_from_groups": 78.61
-    },
-    {
-      "team": "Uruguay",
-      "rating": 1862,
-      "raw_rating": 1868,
-      "p_champion": 2.23,
-      "p_final": 4.71,
-      "p_semis": 10.120000000000001,
-      "p_quarters": 19.950000000000003,
-      "p_round_of_16": 38.1,
-      "p_advance_from_groups": 82.67
-    },
-    {
-      "team": "Belgium",
-      "rating": 1866,
-      "raw_rating": 1828,
-      "p_champion": 2.21,
-      "p_final": 4.88,
-      "p_semis": 11.02,
-      "p_quarters": 26.189999999999998,
-      "p_round_of_16": 51.62,
-      "p_advance_from_groups": 88.46000000000001
+      "p_champion": 2.64,
+      "p_final": 5.99,
+      "p_semis": 11.67,
+      "p_quarters": 23.46,
+      "p_round_of_16": 45.44,
+      "p_advance_from_groups": 78.08
     },
     {
       "team": "Norway",
       "rating": 1888,
       "raw_rating": 1830,
-      "p_champion": 2.0,
-      "p_final": 5.2,
-      "p_semis": 10.969999999999999,
-      "p_quarters": 21.5,
-      "p_round_of_16": 42.34,
-      "p_advance_from_groups": 73.86
-    },
-    {
-      "team": "Mexico",
-      "rating": 1863,
-      "raw_rating": 1869,
-      "p_champion": 1.84,
-      "p_final": 4.33,
-      "p_semis": 10.05,
-      "p_quarters": 23.12,
-      "p_round_of_16": 48.510000000000005,
-      "p_advance_from_groups": 93.43
+      "p_champion": 2.32,
+      "p_final": 4.68,
+      "p_semis": 9.969999999999999,
+      "p_quarters": 20.6,
+      "p_round_of_16": 41.08,
+      "p_advance_from_groups": 74.49
     },
     {
       "team": "Ecuador",
       "rating": 1883,
       "raw_rating": 1912,
-      "p_champion": 1.82,
-      "p_final": 4.49,
-      "p_semis": 9.8,
-      "p_quarters": 20.18,
-      "p_round_of_16": 41.91,
-      "p_advance_from_groups": 85.08
+      "p_champion": 1.94,
+      "p_final": 4.4399999999999995,
+      "p_semis": 9.53,
+      "p_quarters": 19.549999999999997,
+      "p_round_of_16": 41.94,
+      "p_advance_from_groups": 84.75
+    },
+    {
+      "team": "Belgium",
+      "rating": 1866,
+      "raw_rating": 1828,
+      "p_champion": 1.85,
+      "p_final": 4.68,
+      "p_semis": 11.309999999999999,
+      "p_quarters": 27.04,
+      "p_round_of_16": 53.099999999999994,
+      "p_advance_from_groups": 88.65
+    },
+    {
+      "team": "Uruguay",
+      "rating": 1862,
+      "raw_rating": 1868,
+      "p_champion": 1.66,
+      "p_final": 4.1,
+      "p_semis": 9.84,
+      "p_quarters": 19.71,
+      "p_round_of_16": 37.69,
+      "p_advance_from_groups": 82.9
     },
     {
       "team": "Croatia",
       "rating": 1862,
       "raw_rating": 1889,
-      "p_champion": 1.51,
-      "p_final": 3.9400000000000004,
-      "p_semis": 8.93,
-      "p_quarters": 19.259999999999998,
-      "p_round_of_16": 41.8,
-      "p_advance_from_groups": 82.14
-    },
-    {
-      "team": "United States",
-      "rating": 1827,
-      "raw_rating": 1776,
-      "p_champion": 1.15,
-      "p_final": 2.96,
-      "p_semis": 7.96,
-      "p_quarters": 20.1,
-      "p_round_of_16": 43.400000000000006,
-      "p_advance_from_groups": 79.73
-    },
-    {
-      "team": "South Korea",
-      "rating": 1837,
-      "raw_rating": 1811,
-      "p_champion": 1.09,
-      "p_final": 2.99,
-      "p_semis": 7.0,
-      "p_quarters": 17.91,
-      "p_round_of_16": 41.06,
-      "p_advance_from_groups": 81.69
+      "p_champion": 1.32,
+      "p_final": 3.7300000000000004,
+      "p_semis": 8.7,
+      "p_quarters": 18.82,
+      "p_round_of_16": 41.32,
+      "p_advance_from_groups": 81.85
     },
     {
       "team": "Canada",
       "rating": 1817,
       "raw_rating": 1814,
-      "p_champion": 1.05,
+      "p_champion": 1.12,
       "p_final": 3.09,
-      "p_semis": 8.3,
-      "p_quarters": 22.42,
-      "p_round_of_16": 50.81,
-      "p_advance_from_groups": 91.53999999999999
+      "p_semis": 8.45,
+      "p_quarters": 21.82,
+      "p_round_of_16": 49.91,
+      "p_advance_from_groups": 91.17
+    },
+    {
+      "team": "United States",
+      "rating": 1827,
+      "raw_rating": 1776,
+      "p_champion": 1.11,
+      "p_final": 3.1399999999999997,
+      "p_semis": 8.28,
+      "p_quarters": 20.689999999999998,
+      "p_round_of_16": 43.86,
+      "p_advance_from_groups": 79.66
+    },
+    {
+      "team": "South Korea",
+      "rating": 1837,
+      "raw_rating": 1811,
+      "p_champion": 1.0,
+      "p_final": 2.67,
+      "p_semis": 6.88,
+      "p_quarters": 18.02,
+      "p_round_of_16": 40.68,
+      "p_advance_from_groups": 80.64
     },
     {
       "team": "Ivory Coast",
       "rating": 1835,
       "raw_rating": 1749,
-      "p_champion": 0.81,
-      "p_final": 2.18,
-      "p_semis": 5.59,
-      "p_quarters": 13.94,
-      "p_round_of_16": 33.54,
-      "p_advance_from_groups": 77.09
-    },
-    {
-      "team": "Algeria",
-      "rating": 1805,
-      "raw_rating": 1805,
-      "p_champion": 0.69,
-      "p_final": 1.6,
-      "p_semis": 4.9399999999999995,
-      "p_quarters": 11.8,
-      "p_round_of_16": 25.34,
-      "p_advance_from_groups": 67.08
+      "p_champion": 0.89,
+      "p_final": 2.32,
+      "p_semis": 5.88,
+      "p_quarters": 13.77,
+      "p_round_of_16": 32.93,
+      "p_advance_from_groups": 77.12
     },
     {
       "team": "Paraguay",
       "rating": 1812,
       "raw_rating": 1824,
-      "p_champion": 0.55,
-      "p_final": 1.94,
-      "p_semis": 5.15,
-      "p_quarters": 13.04,
-      "p_round_of_16": 30.05,
-      "p_advance_from_groups": 59.68
+      "p_champion": 0.69,
+      "p_final": 1.9,
+      "p_semis": 5.029999999999999,
+      "p_quarters": 12.969999999999999,
+      "p_round_of_16": 29.849999999999998,
+      "p_advance_from_groups": 59.13
     },
     {
-      "team": "Australia",
-      "rating": 1791,
-      "raw_rating": 1825,
-      "p_champion": 0.49,
-      "p_final": 1.3199999999999998,
-      "p_semis": 4.029999999999999,
-      "p_quarters": 10.53,
-      "p_round_of_16": 26.41,
-      "p_advance_from_groups": 54.37
-    },
-    {
-      "team": "Egypt",
-      "rating": 1754,
-      "raw_rating": 1757,
-      "p_champion": 0.38,
-      "p_final": 1.05,
-      "p_semis": 3.3899999999999997,
-      "p_quarters": 10.85,
-      "p_round_of_16": 30.310000000000002,
-      "p_advance_from_groups": 71.16
+      "team": "Algeria",
+      "rating": 1805,
+      "raw_rating": 1805,
+      "p_champion": 0.66,
+      "p_final": 2.0300000000000002,
+      "p_semis": 5.09,
+      "p_quarters": 12.059999999999999,
+      "p_round_of_16": 25.729999999999997,
+      "p_advance_from_groups": 67.31
     },
     {
       "team": "Austria",
       "rating": 1788,
       "raw_rating": 1804,
-      "p_champion": 0.36,
-      "p_final": 1.18,
-      "p_semis": 3.84,
+      "p_champion": 0.51,
+      "p_final": 1.4300000000000002,
+      "p_semis": 3.97,
       "p_quarters": 9.71,
       "p_round_of_16": 22.44,
-      "p_advance_from_groups": 63.02
+      "p_advance_from_groups": 63.21
+    },
+    {
+      "team": "Australia",
+      "rating": 1791,
+      "raw_rating": 1825,
+      "p_champion": 0.42,
+      "p_final": 1.27,
+      "p_semis": 3.86,
+      "p_quarters": 10.8,
+      "p_round_of_16": 26.46,
+      "p_advance_from_groups": 54.88
+    },
+    {
+      "team": "Egypt",
+      "rating": 1754,
+      "raw_rating": 1757,
+      "p_champion": 0.28,
+      "p_final": 0.9400000000000001,
+      "p_semis": 3.44,
+      "p_quarters": 11.01,
+      "p_round_of_16": 30.6,
+      "p_advance_from_groups": 71.24
+    },
+    {
+      "team": "DR Congo",
+      "rating": 1754,
+      "raw_rating": 1711,
+      "p_champion": 0.24,
+      "p_final": 0.84,
+      "p_semis": 2.5,
+      "p_quarters": 7.13,
+      "p_round_of_16": 21.08,
+      "p_advance_from_groups": 48.66
     },
     {
       "team": "Sweden",
       "rating": 1762,
       "raw_rating": 1732,
       "p_champion": 0.24,
-      "p_final": 0.9,
-      "p_semis": 2.68,
-      "p_quarters": 7.58,
-      "p_round_of_16": 19.58,
-      "p_advance_from_groups": 56.0
-    },
-    {
-      "team": "DR Congo",
-      "rating": 1754,
-      "raw_rating": 1711,
-      "p_champion": 0.21,
-      "p_final": 0.7799999999999999,
+      "p_final": 0.72,
       "p_semis": 2.44,
-      "p_quarters": 6.869999999999999,
-      "p_round_of_16": 19.909999999999997,
-      "p_advance_from_groups": 48.58
-    },
-    {
-      "team": "Scotland",
-      "rating": 1751,
-      "raw_rating": 1730,
-      "p_champion": 0.19,
-      "p_final": 0.6699999999999999,
-      "p_semis": 2.29,
-      "p_quarters": 7.38,
-      "p_round_of_16": 18.96,
-      "p_advance_from_groups": 55.61
+      "p_quarters": 7.1899999999999995,
+      "p_round_of_16": 19.4,
+      "p_advance_from_groups": 55.78
     },
     {
       "team": "Uzbekistan",
       "rating": 1747,
       "raw_rating": 1782,
-      "p_champion": 0.17,
-      "p_final": 0.6,
-      "p_semis": 2.13,
-      "p_quarters": 6.41,
-      "p_round_of_16": 18.439999999999998,
-      "p_advance_from_groups": 46.5
-    },
-    {
-      "team": "Iran",
-      "rating": 1727,
-      "raw_rating": 1816,
-      "p_champion": 0.15,
-      "p_final": 0.64,
-      "p_semis": 2.33,
-      "p_quarters": 8.16,
-      "p_round_of_16": 25.38,
-      "p_advance_from_groups": 65.74000000000001
+      "p_champion": 0.19,
+      "p_final": 0.62,
+      "p_semis": 2.15,
+      "p_quarters": 6.24,
+      "p_round_of_16": 18.259999999999998,
+      "p_advance_from_groups": 46.53
     },
     {
       "team": "Panama",
       "rating": 1731,
       "raw_rating": 1771,
+      "p_champion": 0.16,
+      "p_final": 0.52,
+      "p_semis": 1.99,
+      "p_quarters": 5.62,
+      "p_round_of_16": 17.84,
+      "p_advance_from_groups": 54.92
+    },
+    {
+      "team": "Scotland",
+      "rating": 1751,
+      "raw_rating": 1730,
       "p_champion": 0.13,
-      "p_final": 0.5,
-      "p_semis": 1.83,
-      "p_quarters": 5.550000000000001,
-      "p_round_of_16": 18.05,
-      "p_advance_from_groups": 53.62
+      "p_final": 0.62,
+      "p_semis": 2.08,
+      "p_quarters": 7.34,
+      "p_round_of_16": 19.439999999999998,
+      "p_advance_from_groups": 55.58
     },
     {
       "team": "Czech Republic",
       "rating": 1712,
       "raw_rating": 1720,
-      "p_champion": 0.08,
-      "p_final": 0.49,
-      "p_semis": 1.83,
-      "p_quarters": 6.76,
-      "p_round_of_16": 21.04,
-      "p_advance_from_groups": 55.62
+      "p_champion": 0.1,
+      "p_final": 0.39,
+      "p_semis": 1.4700000000000002,
+      "p_quarters": 6.359999999999999,
+      "p_round_of_16": 20.299999999999997,
+      "p_advance_from_groups": 54.15
     },
     {
       "team": "Bosnia and Herzegovina",
       "rating": 1697,
       "raw_rating": 1612,
-      "p_champion": 0.06,
-      "p_final": 0.46,
-      "p_semis": 1.71,
-      "p_quarters": 6.47,
-      "p_round_of_16": 20.47,
-      "p_advance_from_groups": 56.79
+      "p_champion": 0.08,
+      "p_final": 0.45,
+      "p_semis": 1.53,
+      "p_quarters": 6.66,
+      "p_round_of_16": 20.4,
+      "p_advance_from_groups": 57.46
     },
     {
-      "team": "Tunisia",
-      "rating": 1716,
-      "raw_rating": 1697,
-      "p_champion": 0.05,
-      "p_final": 0.3,
-      "p_semis": 1.1199999999999999,
-      "p_quarters": 4.41,
-      "p_round_of_16": 13.620000000000001,
-      "p_advance_from_groups": 43.56
-    },
-    {
-      "team": "Ghana",
-      "rating": 1675,
-      "raw_rating": 1572,
-      "p_champion": 0.04,
-      "p_final": 0.19,
-      "p_semis": 0.8300000000000001,
-      "p_quarters": 3.0,
-      "p_round_of_16": 10.68,
-      "p_advance_from_groups": 39.78
+      "team": "Iran",
+      "rating": 1727,
+      "raw_rating": 1816,
+      "p_champion": 0.08,
+      "p_final": 0.62,
+      "p_semis": 2.41,
+      "p_quarters": 8.23,
+      "p_round_of_16": 25.36,
+      "p_advance_from_groups": 64.72
     },
     {
       "team": "Jordan",
       "rating": 1699,
       "raw_rating": 1717,
-      "p_champion": 0.04,
-      "p_final": 0.22,
-      "p_semis": 0.98,
-      "p_quarters": 3.95,
-      "p_round_of_16": 11.41,
-      "p_advance_from_groups": 40.85
-    },
-    {
-      "team": "New Zealand",
-      "rating": 1647,
-      "raw_rating": 1661,
-      "p_champion": 0.04,
-      "p_final": 0.11000000000000001,
-      "p_semis": 0.52,
-      "p_quarters": 3.15,
-      "p_round_of_16": 13.18,
-      "p_advance_from_groups": 44.5
-    },
-    {
-      "team": "Cape Verde",
-      "rating": 1670,
-      "raw_rating": 1636,
-      "p_champion": 0.03,
-      "p_final": 0.13,
-      "p_semis": 0.62,
-      "p_quarters": 3.24,
-      "p_round_of_16": 9.850000000000001,
-      "p_advance_from_groups": 38.5
-    },
-    {
-      "team": "South Africa",
-      "rating": 1631,
-      "raw_rating": 1622,
-      "p_champion": 0.03,
-      "p_final": 0.12,
-      "p_semis": 0.5,
-      "p_quarters": 2.29,
-      "p_round_of_16": 9.92,
-      "p_advance_from_groups": 35.120000000000005
-    },
-    {
-      "team": "Iraq",
-      "rating": 1679,
-      "raw_rating": 1715,
-      "p_champion": 0.02,
-      "p_final": 0.08,
-      "p_semis": 0.39,
-      "p_quarters": 1.94,
-      "p_round_of_16": 7.17,
-      "p_advance_from_groups": 24.099999999999994
+      "p_champion": 0.06,
+      "p_final": 0.28,
+      "p_semis": 1.02,
+      "p_quarters": 3.77,
+      "p_round_of_16": 10.74,
+      "p_advance_from_groups": 40.43
     },
     {
       "team": "Saudi Arabia",
       "rating": 1659,
       "raw_rating": 1656,
-      "p_champion": 0.02,
+      "p_champion": 0.04,
+      "p_final": 0.13,
+      "p_semis": 0.6,
+      "p_quarters": 2.45,
+      "p_round_of_16": 8.96,
+      "p_advance_from_groups": 36.49
+    },
+    {
+      "team": "Iraq",
+      "rating": 1679,
+      "raw_rating": 1715,
+      "p_champion": 0.03,
+      "p_final": 0.1,
+      "p_semis": 0.44000000000000006,
+      "p_quarters": 2.09,
+      "p_round_of_16": 7.53,
+      "p_advance_from_groups": 24.739999999999995
+    },
+    {
+      "team": "New Zealand",
+      "rating": 1647,
+      "raw_rating": 1661,
+      "p_champion": 0.03,
       "p_final": 0.15,
-      "p_semis": 0.59,
-      "p_quarters": 2.76,
-      "p_round_of_16": 8.95,
-      "p_advance_from_groups": 36.65
+      "p_semis": 0.68,
+      "p_quarters": 3.5700000000000003,
+      "p_round_of_16": 13.92,
+      "p_advance_from_groups": 45.53
+    },
+    {
+      "team": "Tunisia",
+      "rating": 1716,
+      "raw_rating": 1697,
+      "p_champion": 0.03,
+      "p_final": 0.24,
+      "p_semis": 1.1,
+      "p_quarters": 4.54,
+      "p_round_of_16": 13.18,
+      "p_advance_from_groups": 43.34
+    },
+    {
+      "team": "Cape Verde",
+      "rating": 1670,
+      "raw_rating": 1636,
+      "p_champion": 0.02,
+      "p_final": 0.18,
+      "p_semis": 0.75,
+      "p_quarters": 3.04,
+      "p_round_of_16": 10.120000000000001,
+      "p_advance_from_groups": 39.72
+    },
+    {
+      "team": "Ghana",
+      "rating": 1675,
+      "raw_rating": 1572,
+      "p_champion": 0.02,
+      "p_final": 0.18,
+      "p_semis": 0.79,
+      "p_quarters": 2.88,
+      "p_round_of_16": 10.79,
+      "p_advance_from_groups": 39.38
+    },
+    {
+      "team": "Qatar",
+      "rating": 1570,
+      "raw_rating": 1576,
+      "p_champion": 0.02,
+      "p_final": 0.02,
+      "p_semis": 0.13999999999999999,
+      "p_quarters": 0.9400000000000001,
+      "p_round_of_16": 4.83,
+      "p_advance_from_groups": 25.659999999999997
+    },
+    {
+      "team": "South Africa",
+      "rating": 1631,
+      "raw_rating": 1622,
+      "p_champion": 0.02,
+      "p_final": 0.05,
+      "p_semis": 0.36,
+      "p_quarters": 1.8399999999999999,
+      "p_round_of_16": 8.79,
+      "p_advance_from_groups": 32.72
     },
     {
       "team": "Haiti",
@@ -2325,32 +2336,21 @@
       "raw_rating": 1632,
       "p_champion": 0.01,
       "p_final": 0.08,
-      "p_semis": 0.48000000000000004,
-      "p_quarters": 1.79,
-      "p_round_of_16": 6.62,
-      "p_advance_from_groups": 30.540000000000006
-    },
-    {
-      "team": "Qatar",
-      "rating": 1570,
-      "raw_rating": 1576,
-      "p_champion": 0.01,
-      "p_final": 0.01,
-      "p_semis": 0.14,
-      "p_quarters": 0.93,
-      "p_round_of_16": 5.4399999999999995,
-      "p_advance_from_groups": 25.450000000000003
+      "p_semis": 0.34,
+      "p_quarters": 1.9600000000000002,
+      "p_round_of_16": 6.95,
+      "p_advance_from_groups": 30.709999999999994
     },
     {
       "team": "Cura\u00e7ao",
       "rating": 1606,
       "raw_rating": 1549,
       "p_champion": 0.0,
-      "p_final": 0.02,
-      "p_semis": 0.13999999999999999,
-      "p_quarters": 1.01,
-      "p_round_of_16": 4.55,
-      "p_advance_from_groups": 22.739999999999995
+      "p_final": 0.01,
+      "p_semis": 0.08,
+      "p_quarters": 0.9199999999999999,
+      "p_round_of_16": 4.52,
+      "p_advance_from_groups": 23.010000000000005
     }
   ]
 }

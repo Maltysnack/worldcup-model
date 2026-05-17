@@ -56,6 +56,7 @@ from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
 from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.host import apply_host_bonus
+from worldcup.altitude import apply_altitude_bonus
 from worldcup.trophies import apply_nt_bonus
 
 _PROFILE = current_profile()
@@ -401,8 +402,11 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
     # Keep the raw Elo for export (used by the website to rank teams
     # for dark-horse selection without double-counting the blend
     # corrections we already apply).
-    ratings = apply_host_bonus(
-        apply_nt_bonus(apply_form(blended_ratings(raw_ratings))),
+    ratings = apply_altitude_bonus(
+        apply_host_bonus(
+            apply_nt_bonus(apply_form(blended_ratings(raw_ratings))),
+            "FIFA World Cup", 2026,
+        ),
         "FIFA World Cup", 2026,
     )
     derived = derive_groups_from_fixtures(fixtures)
