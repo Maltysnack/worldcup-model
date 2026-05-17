@@ -10,20 +10,21 @@
 set -euo pipefail
 
 DATA_DIR="$(dirname "$0")/../data"
-DEST_DIR="${MALTYSNACK_SITE_DIR:-$HOME/Documents/Maltysnack.github.io}/projects"
+DEST_DIR="${MALTYSNACK_SITE_DIR:-$HOME/Documents/Maltysnack.github.io}/projects/worldcup"
 
 if [[ ! -d "$DEST_DIR" ]]; then
-  echo "ERROR: site projects dir not found: $DEST_DIR" >&2
+  echo "ERROR: site worldcup dir not found: $DEST_DIR" >&2
   echo "Set MALTYSNACK_SITE_DIR=/path/to/Maltysnack.github.io to override." >&2
   exit 1
 fi
 
-# (worldcup source filename, site destination filename)
+# (worldcup source filename, site destination filename) — site uses the
+# project-folder layout under projects/worldcup/ as of site commit e2cae15.
 PAIRS=(
-  "bracket:worldcup-bracket"
-  "simulation:worldcup-simulation"
-  "live_tournament:worldcup-live"
-  "top_scorers:worldcup-top-scorers"
+  "bracket:bracket"
+  "simulation:simulation"
+  "live_tournament:live"
+  "top_scorers:top-scorers"
 )
 
 for pair in "${PAIRS[@]}"; do
