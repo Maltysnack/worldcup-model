@@ -83,10 +83,13 @@ def _clean(text: str) -> str:
 def _parse_player_row(cells: list[Tag]) -> Player | None:
     """Convert a tr's cells into a Player. Wikipedia squad tables use
     a consistent column order: No., Pos., Player, DOB(age), Caps, Goals,
-    Club. Some teams have additional columns (e.g. continent of birth)
-    which we ignore. Position cells often have format "1GK" or "GK"."""
-    if len(cells) < 7:
+    Club. Older pages (pre-2018) omit the Goals column (6 cells); some
+    teams have extra columns (e.g. continent of birth) which we ignore.
+    Position cells often have format "1GK" or "GK"."""
+    if len(cells) < 6:
         return None
+    has_goals = len(cells) >= 7
+    club_idx = 6 if has_goals else 5
 
     def text(c: Tag) -> str:
         return _clean(c.get_text(" "))
@@ -127,8 +130,8 @@ def _parse_player_row(cells: list[Tag]) -> Player | None:
             return None
 
     caps = try_int(text(cells[4]))
-    goals = try_int(text(cells[5]))
-    club = text(cells[6])
+    goals = try_int(text(cells[5])) if has_goals else None
+    club = text(cells[club_idx])
     # Club text may include a country flag word like "Real Madrid" + " Spain"
     # if the flag icon's alt-text got pulled in. Strip trailing country.
     # Heuristic: country names are short, and the actual club is everything
