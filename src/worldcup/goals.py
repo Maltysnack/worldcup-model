@@ -117,6 +117,31 @@ def wld_probs(lh: float, la: float, rho: float = DIXON_COLES_RHO) -> tuple[float
     return apply_temperature(p_home, p_draw, p_away)
 
 
+def _temperature_rescale_joint(joint: np.ndarray) -> np.ndarray:
+    """Reweight a (G+1, G+1) joint PMF so its W/D/L marginals match the
+    T-scaled wld_probs. Within each bucket, cell ratios are preserved.
+    Keeps sim_match and wld_probs in agreement under temperature scaling."""
+    T = _resolve_temperature()
+    if T == 1.0:
+        return joint
+    p_h_raw = float(np.tril(joint, -1).sum())
+    p_a_raw = float(np.triu(joint, 1).sum())
+    p_d_raw = float(np.trace(joint))
+    p_h, p_d, p_a = apply_temperature(p_h_raw, p_d_raw, p_a_raw, T=T)
+    out = joint.copy()
+    G = joint.shape[0]
+    if p_h_raw > 0:
+        out[np.tril_indices(G, -1)] *= p_h / p_h_raw
+    if p_a_raw > 0:
+        out[np.triu_indices(G, 1)] *= p_a / p_a_raw
+    if p_d_raw > 0:
+        out[np.diag_indices(G)] *= p_d / p_d_raw
+    s = out.sum()
+    if s > 0:
+        out /= s
+    return out
+
+
 def sim_match(rating_a, rating_b, *, neutral: bool, ko: bool, rng: np.random.Generator):
     """Sample one match from the Dixon-Coles joint distribution.
 
@@ -127,7 +152,7 @@ def sim_match(rating_a, rating_b, *, neutral: bool, ko: bool, rng: np.random.Gen
     eff_a = rating_a + (0.0 if neutral else HOME_ADVANTAGE)
     eff_b = rating_b
     lh, la = expected_goals(eff_a - eff_b, neutral=neutral)
-    joint = dc_joint_pmf(lh, la)
+    joint = _temperature_rescale_joint(dc_joint_pmf(lh, la))
     flat = joint.ravel()
     idx = rng.choice(flat.size, p=flat)
     sa, sb = divmod(int(idx), MAX_GOALS + 1)
