@@ -33,7 +33,7 @@ from worldcup.profiles import current_profile, resolve_min_date, table_suffix
 _PROFILE = current_profile()
 MODEL_VERSION = f"elo-{_PROFILE.name}"
 DEFAULT_RATING = 1500.0
-HOME_ADVANTAGE = 50.0       # added to home team's effective rating, only if not neutral
+HOME_ADVANTAGE = 25.0       # halved from 50 per sweep (#1); empirical optimum on phase-3 set
 MIN_DATE = date(1990, 1, 1) # ignore older data: too different from modern football
 
 K_FACTORS: dict[str, float] = _PROFILE.k_factors
