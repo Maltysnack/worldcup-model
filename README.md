@@ -2,7 +2,7 @@
 
 A Monte Carlo simulator for the 2026 FIFA World Cup. A learning project, not a betting tool.
 
-Public progress log: [maltysnack.github.io/projects/worldcup.html](https://maltysnack.github.io/projects/worldcup.html)
+Public progress log: [maltysnack.github.io/projects/worldcup/](https://maltysnack.github.io/projects/worldcup/)
 
 ## Status
 
