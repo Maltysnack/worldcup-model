@@ -326,6 +326,8 @@ def assign_best_thirds(
     """
     def rank_key(letter):
         s = third_place_by_group[letter]
+        if "points" in s:
+            return (s["points"], s["goal_diff"], s["goals_for"])
         return (s["predicted_points"], s["predicted_goal_diff"], s["predicted_goals_for"])
 
     third_assignments: dict[int, str] = {}
@@ -621,15 +623,18 @@ def main() -> None:
         group_runners[letter] = standings[1]["team"]
         third_place_by_group[letter] = standings[2]
 
-    # 8 best third-place teams advance, ranked by FIFA criteria:
-    # average points → goal diff → goals for (all from MC).
+    # 8 best third-place teams advance, ranked by FIFA criteria using
+    # the rep-trial integer points/GD/GF — same trial that produced the
+    # displayed group standings. Falls back to averaged predicted_points
+    # for any group whose rep trial search failed (no integer fields).
+    def third_rank(s: dict) -> tuple:
+        if "points" in s:
+            return (s["points"], s["goal_diff"], s["goals_for"])
+        return (s["predicted_points"], s["predicted_goal_diff"], s["predicted_goals_for"])
+
     best_thirds = sorted(
         third_place_by_group.items(),
-        key=lambda kv: (
-            kv[1]["predicted_points"],
-            kv[1]["predicted_goal_diff"],
-            kv[1]["predicted_goals_for"],
-        ),
+        key=lambda kv: third_rank(kv[1]),
         reverse=True,
     )[:8]
     advancing_third_groups = {letter for letter, _ in best_thirds}

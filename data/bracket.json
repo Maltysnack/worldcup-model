@@ -2,7 +2,7 @@
   "model_version": "elo-v4a-flat-mild+squad35+form",
   "elo_version": "elo-v4a-flat-mild",
   "elo_weight": 0.65,
-  "generated_at": "2026-05-18T02:19:36Z",
+  "generated_at": "2026-05-18T02:29:45Z",
   "bracket_format": "fifa-2026",
   "flags": {
     "Algeria": "dz",
@@ -92,7 +92,7 @@
           "predicted_goal_diff": -1.56,
           "predicted_goals_for": 3.09,
           "position": 3,
-          "qualifies_as": "eliminated"
+          "qualifies_as": "best_third"
         },
         {
           "team": "South Africa",
@@ -198,7 +198,7 @@
           "predicted_goal_diff": -1.36,
           "predicted_goals_for": 3.25,
           "position": 3,
-          "qualifies_as": "eliminated"
+          "qualifies_as": "best_third"
         },
         {
           "team": "Haiti",
@@ -304,7 +304,7 @@
           "predicted_goal_diff": 0.58,
           "predicted_goals_for": 4.13,
           "position": 3,
-          "qualifies_as": "best_third"
+          "qualifies_as": "eliminated"
         },
         {
           "team": "Cura\u00e7ao",
@@ -463,7 +463,7 @@
           "predicted_goal_diff": -3.0,
           "predicted_goals_for": 2.74,
           "position": 3,
-          "qualifies_as": "eliminated"
+          "qualifies_as": "best_third"
         },
         {
           "team": "Saudi Arabia",
@@ -569,7 +569,7 @@
           "predicted_goal_diff": -0.72,
           "predicted_goals_for": 3.48,
           "position": 3,
-          "qualifies_as": "best_third"
+          "qualifies_as": "eliminated"
         },
         {
           "team": "Jordan",
@@ -675,7 +675,7 @@
           "predicted_goal_diff": -1.34,
           "predicted_goals_for": 3.2,
           "position": 3,
-          "qualifies_as": "best_third"
+          "qualifies_as": "eliminated"
         },
         {
           "team": "Ghana",
@@ -696,13 +696,13 @@
     "round_of_32": [
       {
         "team_a": "Germany",
-        "team_b": "Paraguay",
+        "team_b": "Bosnia and Herzegovina",
         "rating_a": 1905,
-        "rating_b": 1812,
+        "rating_b": 1697,
         "winner": "Germany",
         "score_a": 2,
-        "score_b": 1,
-        "pens": false
+        "score_b": 2,
+        "pens": true
       },
       {
         "team_a": "France",
@@ -710,9 +710,9 @@
         "rating_a": 2011,
         "rating_b": 1727,
         "winner": "France",
-        "score_a": 1,
-        "score_b": 1,
-        "pens": true
+        "score_a": 5,
+        "score_b": 3,
+        "pens": false
       },
       {
         "team_a": "South Korea",
@@ -730,7 +730,7 @@
         "rating_a": 1917,
         "rating_b": 1920,
         "winner": "Morocco",
-        "score_a": 0,
+        "score_a": 1,
         "score_b": 2,
         "pens": false
       },
@@ -756,20 +756,20 @@
       },
       {
         "team_a": "United States",
-        "team_b": "Austria",
+        "team_b": "Norway",
         "rating_a": 1827,
-        "rating_b": 1788,
-        "winner": "United States",
-        "score_a": 2,
-        "score_b": 0,
+        "rating_b": 1888,
+        "winner": "Norway",
+        "score_a": 1,
+        "score_b": 4,
         "pens": false
       },
       {
         "team_a": "Belgium",
-        "team_b": "Sweden",
+        "team_b": "Czech Republic",
         "rating_a": 1866,
-        "rating_b": 1762,
-        "winner": "Sweden",
+        "rating_b": 1712,
+        "winner": "Czech Republic",
         "score_a": 0,
         "score_b": 1,
         "pens": false
@@ -780,8 +780,8 @@
         "rating_a": 1957,
         "rating_b": 1907,
         "winner": "Japan",
-        "score_a": 1,
-        "score_b": 4,
+        "score_a": 0,
+        "score_b": 3,
         "pens": false
       },
       {
@@ -796,19 +796,19 @@
       },
       {
         "team_a": "Mexico",
-        "team_b": "Ivory Coast",
+        "team_b": "Scotland",
         "rating_a": 1913,
-        "rating_b": 1835,
-        "winner": "Ivory Coast",
+        "rating_b": 1751,
+        "winner": "Scotland",
         "score_a": 0,
-        "score_b": 1,
+        "score_b": 2,
         "pens": false
       },
       {
         "team_a": "England",
-        "team_b": "Norway",
+        "team_b": "Cape Verde",
         "rating_a": 1941,
-        "rating_b": 1888,
+        "rating_b": 1670,
         "winner": "England",
         "score_a": 0,
         "score_b": 0,
@@ -836,22 +836,22 @@
       },
       {
         "team_a": "Canada",
-        "team_b": "Bosnia and Herzegovina",
+        "team_b": "Sweden",
         "rating_a": 1817,
-        "rating_b": 1697,
-        "winner": "Canada",
-        "score_a": 2,
-        "score_b": 0,
+        "rating_b": 1762,
+        "winner": "Sweden",
+        "score_a": 1,
+        "score_b": 4,
         "pens": false
       },
       {
         "team_a": "Portugal",
-        "team_b": "Panama",
+        "team_b": "Paraguay",
         "rating_a": 1963,
-        "rating_b": 1731,
+        "rating_b": 1812,
         "winner": "Portugal",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       }
     ],
@@ -887,13 +887,13 @@
         "pens": false
       },
       {
-        "team_a": "United States",
-        "team_b": "Sweden",
-        "rating_a": 1827,
-        "rating_b": 1762,
-        "winner": "Sweden",
-        "score_a": 2,
-        "score_b": 3,
+        "team_a": "Norway",
+        "team_b": "Czech Republic",
+        "rating_a": 1888,
+        "rating_b": 1712,
+        "winner": "Norway",
+        "score_a": 3,
+        "score_b": 1,
         "pens": false
       },
       {
@@ -907,9 +907,9 @@
         "pens": false
       },
       {
-        "team_a": "Ivory Coast",
+        "team_a": "Scotland",
         "team_b": "England",
-        "rating_a": 1835,
+        "rating_a": 1751,
         "rating_b": 1941,
         "winner": "England",
         "score_a": 1,
@@ -927,13 +927,13 @@
         "pens": false
       },
       {
-        "team_a": "Canada",
+        "team_a": "Sweden",
         "team_b": "Portugal",
-        "rating_a": 1817,
+        "rating_a": 1762,
         "rating_b": 1963,
         "winner": "Portugal",
         "score_a": 2,
-        "score_b": 4,
+        "score_b": 3,
         "pens": false
       }
     ],
@@ -950,12 +950,12 @@
       },
       {
         "team_a": "Spain",
-        "team_b": "Sweden",
+        "team_b": "Norway",
         "rating_a": 2042,
-        "rating_b": 1762,
+        "rating_b": 1888,
         "winner": "Spain",
         "score_a": 2,
-        "score_b": 1,
+        "score_b": 0,
         "pens": false
       },
       {
