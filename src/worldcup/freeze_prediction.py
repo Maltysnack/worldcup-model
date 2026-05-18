@@ -28,13 +28,16 @@ from pathlib import Path
 from worldcup.db import PROJECT_ROOT
 
 SOURCE_PATHS = {
-    "simulation": PROJECT_ROOT / "data" / "simulation.json",
-    "bracket":    PROJECT_ROOT / "data" / "bracket.json",
+    "simulation":  PROJECT_ROOT / "data" / "simulation.json",
+    "bracket":     PROJECT_ROOT / "data" / "bracket.json",
+    "top_scorers": PROJECT_ROOT / "data" / "top_scorers.json",
 }
 TARGET_PATHS = {
-    "simulation": PROJECT_ROOT / "data" / "simulation-prediction.json",
-    "bracket":    PROJECT_ROOT / "data" / "bracket-prediction.json",
+    "simulation":  PROJECT_ROOT / "data" / "simulation-prediction.json",
+    "bracket":     PROJECT_ROOT / "data" / "bracket-prediction.json",
+    "top_scorers": PROJECT_ROOT / "data" / "top_scorers-prediction.json",
 }
+FROZEN_SENTINEL = PROJECT_ROOT / "data" / ".frozen"
 
 
 def main() -> None:
@@ -42,21 +45,29 @@ def main() -> None:
 
     for kind, src in SOURCE_PATHS.items():
         if not src.exists():
-            print(f"  ! {src} missing, run worldcup-{kind.replace('simulation', 'simulate')} first")
+            cmd = {
+                "simulation": "worldcup-simulate",
+                "bracket": "worldcup-bracket",
+                "top_scorers": "worldcup-predict-top-scorer",
+            }[kind]
+            print(f"  ! {src} missing, run `uv run {cmd}` first")
             sys.exit(1)
         data = json.loads(src.read_text())
-        # Stamp the snapshot so the website can detect "this is archived".
         data["frozen_at"] = timestamp
         data["frozen_label"] = "Pre-kickoff archive"
         target = TARGET_PATHS[kind]
         target.write_text(json.dumps(data, indent=2))
-        print(f"  froze {src.name}  ->  {target.name}  (frozen_at = {timestamp})")
+        print(f"  froze {src.name}  ->  {target.name}")
 
-    print("\nDone. Copy these files to the site repo:")
-    for kind, target in TARGET_PATHS.items():
-        print(f"  cp {target} <site-repo>/projects/worldcup-{target.stem.replace('-prediction', '')}-prediction.json")
-    print("\nThen update the Prediction tab fetch in worldcup.html to use the -prediction.json paths,")
-    print("and the nightly cron's Live updates will not overwrite the archive.")
+    FROZEN_SENTINEL.write_text(f"frozen_at: {timestamp}\n")
+    print(f"\nWrote sentinel: {FROZEN_SENTINEL}")
+    print("CI will now skip simulate/bracket/top-scorer steps and publish the")
+    print("frozen archives instead of the live JSONs. To unfreeze (e.g. for a")
+    print("late critical bug), `rm data/.frozen` and commit.")
+    print("\nCommit + push to lock in:")
+    print("  git add data/.frozen data/*-prediction.json")
+    print('  git commit -m "Freeze pre-kickoff prediction"')
+    print("  git push")
 
 
 if __name__ == "__main__":
