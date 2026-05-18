@@ -20,10 +20,10 @@ fi
 
 # (worldcup source filename, site destination filename) — site uses the
 # project-folder layout under projects/worldcup/ as of site commit e2cae15.
+# live_tournament dropped May 2026 when the Live tab was removed.
 PAIRS=(
   "bracket:bracket"
   "simulation:simulation"
-  "live_tournament:live"
   "top_scorers:top-scorers"
 )
 

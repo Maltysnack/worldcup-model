@@ -73,23 +73,16 @@ jobs:
         continue-on-error: true
         run: uv run worldcup-predict-top-scorer
 
-      - name: Build live tournament state (group standings + results so far)
-        continue-on-error: true
-        run: uv run worldcup-build-live-tournament
-
       - name: Copy JSONs into site repo
         # Site reorg (site commit e2cae15) moved worldcup files into
-        # projects/worldcup/ instead of the old flat projects/worldcup-*.json
-        # naming. CI writes to the new paths.
+        # projects/worldcup/. Live tournament JSON dropped May 2026
+        # when the site's Live tab was removed (pre-tournament focus only).
         run: |
           mkdir -p site/projects/worldcup
           cp data/bracket.json     site/projects/worldcup/bracket.json
           cp data/simulation.json  site/projects/worldcup/simulation.json
           if [ -f data/top_scorers.json ]; then
             cp data/top_scorers.json site/projects/worldcup/top-scorers.json
-          fi
-          if [ -f data/live_tournament.json ]; then
-            cp data/live_tournament.json site/projects/worldcup/live.json
           fi
 
       - name: Commit + push site updates (if changed)
@@ -98,7 +91,7 @@ jobs:
           git config user.name  "worldcup-bot"
           git config user.email "bot@maltysnack.local"
           # Stage any of these that exist; commit only if there are changes
-          for f in projects/worldcup/bracket.json projects/worldcup/simulation.json projects/worldcup/top-scorers.json projects/worldcup/live.json; do
+          for f in projects/worldcup/bracket.json projects/worldcup/simulation.json projects/worldcup/top-scorers.json; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if git diff --cached --quiet; then
