@@ -189,12 +189,45 @@ def label_groups_by_fifa(derived: list[list[str]]) -> dict[str, list[str]]:
     return labelled
 
 
+def _play_group_once(fixture_rows, ratings, rng, teams):
+    """One pass over the 6 group fixtures. Returns (pts, gd, gf) dicts."""
+    sim_pts = {t: 0 for t in teams}
+    sim_gd = {t: 0 for t in teams}
+    sim_gf = {t: 0 for t in teams}
+    for row in fixture_rows:
+        h, a = row.home_team, row.away_team
+        sa, sb, win = sim_match(
+            ratings[h], ratings[a],
+            neutral=bool(row.neutral), ko=False, rng=rng,
+        )
+        if win == 0:
+            sim_pts[h] += 3
+        elif win == 1:
+            sim_pts[a] += 3
+        else:
+            sim_pts[h] += 1
+            sim_pts[a] += 1
+        sim_gd[h] += sa - sb
+        sim_gd[a] += sb - sa
+        sim_gf[h] += sa
+        sim_gf[a] += sb
+    return sim_pts, sim_gd, sim_gf
+
+
 def simulate_group_mc(teams, fixtures, ratings, rng):
-    """Monte Carlo group sim. Plays the 6 fixtures GROUP_SIM_N times,
-    averages points/goal-diff/goals-for per team. Uses the same Poisson
-    goals model as the simulator, so the predicted standings reflect
-    real probabilities (draws happen, upsets happen) rather than a
-    naive "higher-Elo-always-wins" rule."""
+    """Monte Carlo group sim. Plays the 6 fixtures GROUP_SIM_N times to
+    compute average points/GD/GF (used to determine the canonical group
+    ordering that the bracket builder will use). Then resamples until it
+    finds a single representative trial whose top-3 standings ordering
+    matches the averaged one — points/GD/GF from that single trial are
+    returned as integers, so the group tab shows a coherent "this is the
+    one tournament path we're predicting" narrative rather than averaged
+    decimals that don't correspond to any real outcome.
+
+    Uses the same Poisson goals model as the simulator, so the predicted
+    standings reflect real probabilities (draws happen, upsets happen)
+    rather than a naive "higher-Elo-always-wins" rule.
+    """
     members = set(teams)
     pts_total = {t: 0.0 for t in teams}
     gd_total = {t: 0.0 for t in teams}
@@ -206,30 +239,11 @@ def simulate_group_mc(teams, fixtures, ratings, rng):
     fixture_rows = list(group_fixtures.itertuples(index=False))
 
     for _ in range(GROUP_SIM_N):
-        sim_pts = {t: 0 for t in teams}
-        sim_gd = {t: 0 for t in teams}
-        sim_gf = {t: 0 for t in teams}
-        for row in fixture_rows:
-            h, a = row.home_team, row.away_team
-            sa, sb, win = sim_match(
-                ratings[h], ratings[a],
-                neutral=bool(row.neutral), ko=False, rng=rng,
-            )
-            if win == 0:
-                sim_pts[h] += 3
-            elif win == 1:
-                sim_pts[a] += 3
-            else:
-                sim_pts[h] += 1
-                sim_pts[a] += 1
-            sim_gd[h] += sa - sb
-            sim_gd[a] += sb - sa
-            sim_gf[h] += sa
-            sim_gf[a] += sb
+        p, d, f = _play_group_once(fixture_rows, ratings, rng, teams)
         for t in teams:
-            pts_total[t] += sim_pts[t]
-            gd_total[t] += sim_gd[t]
-            gf_total[t] += sim_gf[t]
+            pts_total[t] += p[t]
+            gd_total[t] += d[t]
+            gf_total[t] += f[t]
 
     avg_pts = {t: pts_total[t] / GROUP_SIM_N for t in teams}
     avg_gd = {t: gd_total[t] / GROUP_SIM_N for t in teams}
@@ -241,6 +255,47 @@ def simulate_group_mc(teams, fixtures, ratings, rng):
         key=lambda t: (avg_pts[t], avg_gd[t], avg_gf[t]),
         reverse=True,
     )
+
+    # Find a single trial whose ordering matches the averaged standings
+    # (top 3 in order — 4th position is implied). For most groups this is
+    # the modal outcome and lands in a handful of draws. If we don't find
+    # one in REP_MAX_ATTEMPTS, relax to matching top 2 only (4th and 3rd
+    # may swap). If even that fails, fall back to using averaged numbers
+    # rounded, which won't be integer but guarantees output.
+    REP_MAX_ATTEMPTS = 500
+    target_top3 = tuple(standings[:3])
+    target_top2 = tuple(standings[:2])
+    rep_pts = rep_gd = rep_gf = None
+    for _ in range(REP_MAX_ATTEMPTS):
+        p, d, f = _play_group_once(fixture_rows, ratings, rng, teams)
+        trial_order = sorted(teams, key=lambda t: (p[t], d[t], f[t]), reverse=True)
+        if tuple(trial_order[:3]) == target_top3:
+            rep_pts, rep_gd, rep_gf = p, d, f
+            break
+    if rep_pts is None:
+        for _ in range(REP_MAX_ATTEMPTS):
+            p, d, f = _play_group_once(fixture_rows, ratings, rng, teams)
+            trial_order = sorted(teams, key=lambda t: (p[t], d[t], f[t]), reverse=True)
+            if tuple(trial_order[:2]) == target_top2:
+                rep_pts, rep_gd, rep_gf = p, d, f
+                break
+
+    if rep_pts is not None:
+        return [
+            {
+                "team": t,
+                "rating": round(ratings.get(t, 1500.0)),
+                "points": int(rep_pts[t]),
+                "goal_diff": int(rep_gd[t]),
+                "goals_for": int(rep_gf[t]),
+                "predicted_points": round(avg_pts[t], 1),
+                "predicted_goal_diff": round(avg_gd[t], 2),
+                "predicted_goals_for": round(avg_gf[t], 2),
+                "position": i + 1,
+            }
+            for i, t in enumerate(standings)
+        ]
+    # Fallback: averages only, no integer trial found
     return [
         {
             "team": t,
