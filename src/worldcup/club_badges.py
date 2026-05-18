@@ -157,6 +157,12 @@ CLUB_PAGE_NAME: dict[str, str] = {
     "Al-Ittihad": "Al-Ittihad_Club_(Jeddah)",
     "Al Ittihad": "Al-Ittihad_Club_(Jeddah)",
     "Al-Ahli": "Al-Ahli_Saudi_FC",
+    "Al-Qadsiah": "Al-Qadsiah_FC",
+    "Al Qadsiah": "Al-Qadsiah_FC",
+    "Al-Ettifaq": "Ettifaq_FC",
+    "Al-Shabab": "Al-Shabab_FC_(Riyadh)",
+    "Al-Taawoun": "Al-Taawoun_FC",
+    "Al-Fateh": "Al-Fateh_SC",
     # MLS
     "Inter Miami": "Inter_Miami_CF",
     "Inter Miami CF": "Inter_Miami_CF",
