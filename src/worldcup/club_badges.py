@@ -180,6 +180,7 @@ CLUB_PAGE_NAME: dict[str, str] = {
     "New York City FC": "New_York_City_FC",
     "New York Red Bulls": "New_York_Red_Bulls",
     "Orlando City": "Orlando_City_SC",
+    "FC Dallas": "FC_Dallas",
     # Brazilian Serie A
     "Flamengo": "CR_Flamengo",
     "Palmeiras": "Sociedade_Esportiva_Palmeiras",
