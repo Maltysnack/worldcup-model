@@ -237,7 +237,7 @@ def parse_page(html: str) -> list[TeamRoster]:
 def fetch_and_parse(refresh: bool = False) -> list[TeamRoster]:
     if not refresh and OUTPUT_PATH.exists():
         data = json.loads(OUTPUT_PATH.read_text())
-        return [
+        rosters = [
             TeamRoster(
                 team=r["team"], wiki_name=r["wiki_name"],
                 is_provisional=r["is_provisional"],
@@ -245,10 +245,14 @@ def fetch_and_parse(refresh: bool = False) -> list[TeamRoster]:
             )
             for r in data["rosters"]
         ]
+        return [r for r in rosters if not r.is_provisional]
     print(f"  fetching {WIKI_URL}")
     resp = requests.get(WIKI_URL, headers={"User-Agent": USER_AGENT}, timeout=30)
     resp.raise_for_status()
-    rosters = parse_page(resp.text)
+    # Provisional squads (>27 players) are dropped: oversized lists distort
+    # downstream consumers (top scorer, squad strength). They reappear here
+    # automatically once Wikipedia shows the final 26.
+    rosters = [r for r in parse_page(resp.text) if not r.is_provisional]
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps({
         "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
