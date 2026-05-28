@@ -12,7 +12,7 @@ name: Refresh predictions
 #                            for the Maltysnack/Maltysnack.github.io repo
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '7 19 * * *'
   workflow_dispatch:
 
 jobs:

@@ -52,12 +52,7 @@ CLUB_TROPHIES_2025_26: dict[str, list[tuple[str, float]]] = {
     "Bayern Munich":    [("bundesliga_champion", 3.0)],       # confirmed Apr 19
     "Inter Milan":      [("serie_a_champion", 3.0)],          # confirmed May 3
     "Paris Saint-Germain": [("ligue_1_champion", 3.0)],       # confirmed mid-Apr
-
-    # Premier League: not yet decided (Arsenal leads, Man City close).
-    # Both clubs get partial credit until result is final; refresh after
-    # final matchday (~24 May).
-    "Arsenal":          [("premier_league_leader", 2.0)],
-    "Manchester City":  [("premier_league_chasing", 1.5)],
+    "Arsenal":          [("premier_league_champion", 3.0)],   # confirmed May 2026
 
     # UCL: PSG vs Arsenal final May 30. Both get UCL-final credit. Top
     # up after the result is known.
