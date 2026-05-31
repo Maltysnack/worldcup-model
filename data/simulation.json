@@ -4,44 +4,6 @@
   "elo_weight": 0.65,
   "match_predictions": [
     {
-      "match_date": "2026-05-22",
-      "home_team": "Mexico",
-      "away_team": "Ghana",
-      "neutral": false,
-      "city": "Puebla",
-      "country": "Mexico",
-      "tournament": "Friendly",
-      "p_home_win": 0.7135,
-      "p_draw": 0.1796,
-      "p_away_win": 0.107,
-      "expected_home_goals": 2.41,
-      "expected_away_goals": 0.55,
-      "modal_score": [
-        2,
-        0
-      ],
-      "modal_score_pct": 0.1476
-    },
-    {
-      "match_date": "2026-05-30",
-      "home_team": "Mexico",
-      "away_team": "Australia",
-      "neutral": true,
-      "city": "Pasadena",
-      "country": "United States",
-      "tournament": "Friendly",
-      "p_home_win": 0.5001,
-      "p_draw": 0.2679,
-      "p_away_win": 0.232,
-      "expected_home_goals": 1.64,
-      "expected_away_goals": 0.94,
-      "modal_score": [
-        1,
-        0
-      ],
-      "modal_score_pct": 0.1238
-    },
-    {
       "match_date": "2026-05-31",
       "home_team": "United States",
       "away_team": "Senegal",
@@ -49,16 +11,16 @@
       "city": "Charlotte",
       "country": "United States",
       "tournament": "Friendly",
-      "p_home_win": 0.3649,
-      "p_draw": 0.2847,
-      "p_away_win": 0.3504,
+      "p_home_win": 0.3539,
+      "p_draw": 0.2855,
+      "p_away_win": 0.3606,
       "expected_home_goals": 1.26,
       "expected_away_goals": 1.23,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1252
+      "modal_score_pct": 0.1316
     },
     {
       "match_date": "2026-06-06",
@@ -68,16 +30,16 @@
       "city": "Chicago",
       "country": "United States",
       "tournament": "Friendly",
-      "p_home_win": 0.3688,
-      "p_draw": 0.2761,
-      "p_away_win": 0.3551,
+      "p_home_win": 0.3791,
+      "p_draw": 0.279,
+      "p_away_win": 0.3419,
       "expected_home_goals": 1.27,
       "expected_away_goals": 1.22,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1216
+      "modal_score_pct": 0.1238
     },
     {
       "match_date": "2026-06-06",
@@ -87,16 +49,16 @@
       "city": "Miami",
       "country": "United States",
       "tournament": "Friendly",
-      "p_home_win": 0.7023,
-      "p_draw": 0.1853,
-      "p_away_win": 0.1124,
+      "p_home_win": 0.697,
+      "p_draw": 0.1914,
+      "p_away_win": 0.1116,
       "expected_home_goals": 2.43,
       "expected_away_goals": 0.63,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.139
+      "modal_score_pct": 0.1316
     },
     {
       "match_date": "2026-06-06",
@@ -106,16 +68,16 @@
       "city": null,
       "country": null,
       "tournament": "Friendly",
-      "p_home_win": 0.5962,
-      "p_draw": 0.228,
-      "p_away_win": 0.1758,
+      "p_home_win": 0.5869,
+      "p_draw": 0.2339,
+      "p_away_win": 0.1792,
       "expected_home_goals": 1.98,
       "expected_away_goals": 0.78,
       "modal_score": [
-        1,
+        2,
         0
       ],
-      "modal_score_pct": 0.1304
+      "modal_score_pct": 0.126
     },
     {
       "match_date": "2026-06-11",
@@ -125,16 +87,16 @@
       "city": "Mexico City",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.8374,
-      "p_draw": 0.1182,
-      "p_away_win": 0.0444,
+      "p_home_win": 0.8348,
+      "p_draw": 0.1168,
+      "p_away_win": 0.0484,
       "expected_home_goals": 2.64,
       "expected_away_goals": 0.49,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.155
+      "modal_score_pct": 0.1582
     },
     {
       "match_date": "2026-06-11",
@@ -144,16 +106,16 @@
       "city": "Zapopan",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.523,
-      "p_draw": 0.2534,
-      "p_away_win": 0.2236,
+      "p_home_win": 0.5358,
+      "p_draw": 0.2512,
+      "p_away_win": 0.213,
       "expected_home_goals": 1.65,
       "expected_away_goals": 0.93,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.119
+      "modal_score_pct": 0.1278
     },
     {
       "match_date": "2026-06-12",
@@ -163,16 +125,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6588,
-      "p_draw": 0.204,
-      "p_away_win": 0.1372,
+      "p_home_win": 0.6552,
+      "p_draw": 0.2066,
+      "p_away_win": 0.1382,
       "expected_home_goals": 1.89,
       "expected_away_goals": 0.74,
       "modal_score": [
-        2,
+        1,
         0
       ],
-      "modal_score_pct": 0.1426
+      "modal_score_pct": 0.1328
     },
     {
       "match_date": "2026-06-12",
@@ -182,16 +144,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4946,
-      "p_draw": 0.2604,
-      "p_away_win": 0.245,
+      "p_home_win": 0.4986,
+      "p_draw": 0.26,
+      "p_away_win": 0.2414,
       "expected_home_goals": 1.53,
       "expected_away_goals": 0.96,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.1236
+      "modal_score_pct": 0.121
     },
     {
       "match_date": "2026-06-13",
@@ -201,16 +163,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2286,
-      "p_draw": 0.2496,
-      "p_away_win": 0.5218,
+      "p_home_win": 0.2284,
+      "p_draw": 0.2492,
+      "p_away_win": 0.5224,
       "expected_home_goals": 0.96,
       "expected_away_goals": 1.6,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1214
+      "modal_score_pct": 0.1204
     },
     {
       "match_date": "2026-06-13",
@@ -220,16 +182,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4072,
-      "p_draw": 0.2746,
-      "p_away_win": 0.3182,
+      "p_home_win": 0.4002,
+      "p_draw": 0.284,
+      "p_away_win": 0.3158,
       "expected_home_goals": 1.35,
       "expected_away_goals": 1.14,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1308
+      "modal_score_pct": 0.1368
     },
     {
       "match_date": "2026-06-13",
@@ -239,16 +201,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2404,
-      "p_draw": 0.2546,
-      "p_away_win": 0.505,
+      "p_home_win": 0.2274,
+      "p_draw": 0.249,
+      "p_away_win": 0.5236,
       "expected_home_goals": 0.98,
       "expected_away_goals": 1.57,
       "modal_score": [
-        1,
+        0,
         1
       ],
-      "modal_score_pct": 0.1224
+      "modal_score_pct": 0.1276
     },
     {
       "match_date": "2026-06-13",
@@ -258,16 +220,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.0694,
-      "p_draw": 0.143,
-      "p_away_win": 0.7876,
+      "p_home_win": 0.0628,
+      "p_draw": 0.1416,
+      "p_away_win": 0.7956,
       "expected_home_goals": 0.6,
       "expected_away_goals": 2.57,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.1266
+      "modal_score_pct": 0.1332
     },
     {
       "match_date": "2026-06-14",
@@ -277,16 +239,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7712,
-      "p_draw": 0.1548,
-      "p_away_win": 0.074,
+      "p_home_win": 0.7726,
+      "p_draw": 0.152,
+      "p_away_win": 0.0754,
       "expected_home_goals": 2.46,
       "expected_away_goals": 0.62,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1404
+      "modal_score_pct": 0.1324
     },
     {
       "match_date": "2026-06-14",
@@ -296,16 +258,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3068,
-      "p_draw": 0.2592,
-      "p_away_win": 0.434,
+      "p_home_win": 0.3092,
+      "p_draw": 0.263,
+      "p_away_win": 0.4278,
       "expected_home_goals": 1.11,
       "expected_away_goals": 1.38,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1206
+      "modal_score_pct": 0.1272
     },
     {
       "match_date": "2026-06-14",
@@ -315,16 +277,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3766,
-      "p_draw": 0.266,
-      "p_away_win": 0.3574,
+      "p_home_win": 0.3796,
+      "p_draw": 0.2662,
+      "p_away_win": 0.3542,
       "expected_home_goals": 1.27,
       "expected_away_goals": 1.21,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1274
+      "modal_score_pct": 0.1258
     },
     {
       "match_date": "2026-06-14",
@@ -334,16 +296,16 @@
       "city": "Guadalupe",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4204,
-      "p_draw": 0.2804,
-      "p_away_win": 0.2992,
+      "p_home_win": 0.4298,
+      "p_draw": 0.2728,
+      "p_away_win": 0.2974,
       "expected_home_goals": 1.38,
       "expected_away_goals": 1.12,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1312
+      "modal_score_pct": 0.1304
     },
     {
       "match_date": "2026-06-15",
@@ -353,16 +315,16 @@
       "city": "Seattle",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5204,
-      "p_draw": 0.2514,
-      "p_away_win": 0.2282,
+      "p_home_win": 0.5242,
+      "p_draw": 0.2452,
+      "p_away_win": 0.2306,
       "expected_home_goals": 1.6,
       "expected_away_goals": 0.96,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1204
+      "modal_score_pct": 0.114
     },
     {
       "match_date": "2026-06-15",
@@ -372,16 +334,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4756,
-      "p_draw": 0.2674,
-      "p_away_win": 0.257,
+      "p_home_win": 0.482,
+      "p_draw": 0.2588,
+      "p_away_win": 0.2592,
       "expected_home_goals": 1.49,
       "expected_away_goals": 1.03,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1322
+      "modal_score_pct": 0.123
     },
     {
       "match_date": "2026-06-15",
@@ -391,16 +353,16 @@
       "city": "Miami Gardens",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1398,
-      "p_draw": 0.2044,
-      "p_away_win": 0.6558,
+      "p_home_win": 0.1334,
+      "p_draw": 0.208,
+      "p_away_win": 0.6586,
       "expected_home_goals": 0.78,
       "expected_away_goals": 1.97,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1246
+      "modal_score_pct": 0.128
     },
     {
       "match_date": "2026-06-15",
@@ -410,16 +372,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.8544,
-      "p_draw": 0.1066,
-      "p_away_win": 0.039,
+      "p_home_win": 0.853,
+      "p_draw": 0.1034,
+      "p_away_win": 0.0436,
       "expected_home_goals": 2.91,
       "expected_away_goals": 0.53,
       "modal_score": [
-        2,
+        3,
         0
       ],
-      "modal_score_pct": 0.1404
+      "modal_score_pct": 0.1324
     },
     {
       "match_date": "2026-06-16",
@@ -429,16 +391,16 @@
       "city": "Kansas City",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6552,
-      "p_draw": 0.2024,
-      "p_away_win": 0.1424,
+      "p_home_win": 0.642,
+      "p_draw": 0.2138,
+      "p_away_win": 0.1442,
       "expected_home_goals": 1.95,
       "expected_away_goals": 0.79,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1322
+      "modal_score_pct": 0.1256
     },
     {
       "match_date": "2026-06-16",
@@ -448,16 +410,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.494,
-      "p_draw": 0.2628,
-      "p_away_win": 0.2432,
+      "p_home_win": 0.4836,
+      "p_draw": 0.2666,
+      "p_away_win": 0.2498,
       "expected_home_goals": 1.52,
       "expected_away_goals": 1.01,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1228
+      "modal_score_pct": 0.1304
     },
     {
       "match_date": "2026-06-16",
@@ -467,16 +429,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5182,
-      "p_draw": 0.2462,
-      "p_away_win": 0.2356,
+      "p_home_win": 0.5232,
+      "p_draw": 0.2494,
+      "p_away_win": 0.2274,
       "expected_home_goals": 1.57,
       "expected_away_goals": 0.98,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1232
+      "modal_score_pct": 0.1314
     },
     {
       "match_date": "2026-06-16",
@@ -486,16 +448,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1372,
-      "p_draw": 0.202,
-      "p_away_win": 0.6608,
+      "p_home_win": 0.1402,
+      "p_draw": 0.2,
+      "p_away_win": 0.6598,
       "expected_home_goals": 0.77,
       "expected_away_goals": 2.0,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1288
+      "modal_score_pct": 0.1318
     },
     {
       "match_date": "2026-06-17",
@@ -505,16 +467,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4772,
-      "p_draw": 0.2648,
-      "p_away_win": 0.258,
+      "p_home_win": 0.4812,
+      "p_draw": 0.2632,
+      "p_away_win": 0.2556,
       "expected_home_goals": 1.48,
       "expected_away_goals": 1.04,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1246
+      "modal_score_pct": 0.1218
     },
     {
       "match_date": "2026-06-17",
@@ -524,16 +486,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2948,
-      "p_draw": 0.269,
-      "p_away_win": 0.4362,
+      "p_home_win": 0.293,
+      "p_draw": 0.264,
+      "p_away_win": 0.443,
       "expected_home_goals": 1.09,
       "expected_away_goals": 1.41,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1282
+      "modal_score_pct": 0.1238
     },
     {
       "match_date": "2026-06-17",
@@ -543,16 +505,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6694,
-      "p_draw": 0.2048,
-      "p_away_win": 0.1258,
+      "p_home_win": 0.668,
+      "p_draw": 0.2036,
+      "p_away_win": 0.1284,
       "expected_home_goals": 2.0,
       "expected_away_goals": 0.77,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1302
+      "modal_score_pct": 0.129
     },
     {
       "match_date": "2026-06-17",
@@ -562,16 +524,16 @@
       "city": "Mexico City",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1762,
-      "p_draw": 0.2276,
-      "p_away_win": 0.5962,
+      "p_home_win": 0.17,
+      "p_draw": 0.2226,
+      "p_away_win": 0.6074,
       "expected_home_goals": 0.84,
       "expected_away_goals": 1.83,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1248
+      "modal_score_pct": 0.1304
     },
     {
       "match_date": "2026-06-18",
@@ -581,16 +543,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.8052,
-      "p_draw": 0.1346,
-      "p_away_win": 0.0602,
+      "p_home_win": 0.7964,
+      "p_draw": 0.1432,
+      "p_away_win": 0.0604,
       "expected_home_goals": 2.45,
       "expected_away_goals": 0.54,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1594
+      "modal_score_pct": 0.1522
     },
     {
       "match_date": "2026-06-18",
@@ -600,16 +562,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.479,
-      "p_draw": 0.2574,
-      "p_away_win": 0.2636,
+      "p_home_win": 0.4866,
+      "p_draw": 0.2552,
+      "p_away_win": 0.2582,
       "expected_home_goals": 1.5,
       "expected_away_goals": 1.03,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1184
+      "modal_score_pct": 0.1206
     },
     {
       "match_date": "2026-06-18",
@@ -619,16 +581,16 @@
       "city": "Zapopan",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5832,
-      "p_draw": 0.236,
-      "p_away_win": 0.1808,
+      "p_home_win": 0.597,
+      "p_draw": 0.2272,
+      "p_away_win": 0.1758,
       "expected_home_goals": 1.73,
       "expected_away_goals": 0.83,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1404
+      "modal_score_pct": 0.133
     },
     {
       "match_date": "2026-06-18",
@@ -638,16 +600,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.637,
-      "p_draw": 0.2148,
-      "p_away_win": 0.1482,
+      "p_home_win": 0.6338,
+      "p_draw": 0.219,
+      "p_away_win": 0.1472,
       "expected_home_goals": 1.92,
       "expected_away_goals": 0.8,
       "modal_score": [
-        2,
+        1,
         0
       ],
-      "modal_score_pct": 0.1278
+      "modal_score_pct": 0.1304
     },
     {
       "match_date": "2026-06-19",
@@ -657,16 +619,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7886,
-      "p_draw": 0.1406,
-      "p_away_win": 0.0708,
+      "p_home_win": 0.7858,
+      "p_draw": 0.1442,
+      "p_away_win": 0.07,
       "expected_home_goals": 2.52,
       "expected_away_goals": 0.61,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1374
+      "modal_score_pct": 0.1348
     },
     {
       "match_date": "2026-06-19",
@@ -676,16 +638,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1596,
-      "p_draw": 0.2332,
-      "p_away_win": 0.6072,
+      "p_home_win": 0.1698,
+      "p_draw": 0.2272,
+      "p_away_win": 0.603,
       "expected_home_goals": 0.84,
       "expected_away_goals": 1.83,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1232
+      "modal_score_pct": 0.1272
     },
     {
       "match_date": "2026-06-19",
@@ -695,16 +657,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4862,
-      "p_draw": 0.263,
-      "p_away_win": 0.2508,
+      "p_home_win": 0.4898,
+      "p_draw": 0.2632,
+      "p_away_win": 0.247,
       "expected_home_goals": 1.52,
       "expected_away_goals": 1.01,
       "modal_score": [
         1,
-        1
+        0
       ],
-      "modal_score_pct": 0.124
+      "modal_score_pct": 0.1274
     },
     {
       "match_date": "2026-06-19",
@@ -714,16 +676,16 @@
       "city": "Seattle",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5316,
-      "p_draw": 0.2534,
-      "p_away_win": 0.215,
+      "p_home_win": 0.5372,
+      "p_draw": 0.2544,
+      "p_away_win": 0.2084,
       "expected_home_goals": 1.6,
       "expected_away_goals": 0.91,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.133
+      "modal_score_pct": 0.135
     },
     {
       "match_date": "2026-06-20",
@@ -733,16 +695,16 @@
       "city": "Kansas City",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.747,
-      "p_draw": 0.169,
-      "p_away_win": 0.084,
+      "p_home_win": 0.7458,
+      "p_draw": 0.162,
+      "p_away_win": 0.0922,
       "expected_home_goals": 2.34,
       "expected_away_goals": 0.66,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1344
+      "modal_score_pct": 0.149
     },
     {
       "match_date": "2026-06-20",
@@ -752,16 +714,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.4522,
-      "p_draw": 0.27,
-      "p_away_win": 0.2778,
+      "p_home_win": 0.4514,
+      "p_draw": 0.266,
+      "p_away_win": 0.2826,
       "expected_home_goals": 1.46,
       "expected_away_goals": 1.06,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1334
+      "modal_score_pct": 0.1232
     },
     {
       "match_date": "2026-06-20",
@@ -771,16 +733,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5834,
-      "p_draw": 0.2338,
-      "p_away_win": 0.1828,
+      "p_home_win": 0.5846,
+      "p_draw": 0.2242,
+      "p_away_win": 0.1912,
       "expected_home_goals": 1.77,
       "expected_away_goals": 0.87,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.123
+      "modal_score_pct": 0.1282
     },
     {
       "match_date": "2026-06-20",
@@ -790,16 +752,16 @@
       "city": "Guadalupe",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1546,
-      "p_draw": 0.212,
-      "p_away_win": 0.6334,
+      "p_home_win": 0.1488,
+      "p_draw": 0.2252,
+      "p_away_win": 0.626,
       "expected_home_goals": 0.8,
       "expected_away_goals": 1.92,
       "modal_score": [
         0,
-        2
+        1
       ],
-      "modal_score_pct": 0.1204
+      "modal_score_pct": 0.1244
     },
     {
       "match_date": "2026-06-21",
@@ -809,16 +771,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5648,
-      "p_draw": 0.2324,
-      "p_away_win": 0.2028,
+      "p_home_win": 0.5614,
+      "p_draw": 0.2366,
+      "p_away_win": 0.202,
       "expected_home_goals": 1.71,
       "expected_away_goals": 0.9,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1214
+      "modal_score_pct": 0.1202
     },
     {
       "match_date": "2026-06-21",
@@ -828,16 +790,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2288,
-      "p_draw": 0.2492,
-      "p_away_win": 0.522,
+      "p_home_win": 0.235,
+      "p_draw": 0.2458,
+      "p_away_win": 0.5192,
       "expected_home_goals": 0.97,
       "expected_away_goals": 1.59,
       "modal_score": [
-        0,
+        1,
         1
       ],
-      "modal_score_pct": 0.1222
+      "modal_score_pct": 0.1144
     },
     {
       "match_date": "2026-06-21",
@@ -847,16 +809,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.8624,
-      "p_draw": 0.1014,
-      "p_away_win": 0.0362,
+      "p_home_win": 0.858,
+      "p_draw": 0.1018,
+      "p_away_win": 0.0402,
       "expected_home_goals": 2.98,
       "expected_away_goals": 0.52,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.133
+      "modal_score_pct": 0.1296
     },
     {
       "match_date": "2026-06-21",
@@ -866,16 +828,16 @@
       "city": "Miami Gardens",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.637,
-      "p_draw": 0.2136,
-      "p_away_win": 0.1494,
+      "p_home_win": 0.6414,
+      "p_draw": 0.2108,
+      "p_away_win": 0.1478,
       "expected_home_goals": 1.93,
       "expected_away_goals": 0.8,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.127
+      "modal_score_pct": 0.1276
     },
     {
       "match_date": "2026-06-22",
@@ -885,16 +847,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.673,
-      "p_draw": 0.1964,
-      "p_away_win": 0.1306,
+      "p_home_win": 0.6706,
+      "p_draw": 0.1938,
+      "p_away_win": 0.1356,
       "expected_home_goals": 2.03,
       "expected_away_goals": 0.76,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1272
+      "modal_score_pct": 0.1276
     },
     {
       "match_date": "2026-06-22",
@@ -904,16 +866,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.8172,
-      "p_draw": 0.1298,
-      "p_away_win": 0.053,
+      "p_home_win": 0.8148,
+      "p_draw": 0.125,
+      "p_away_win": 0.0602,
       "expected_home_goals": 2.65,
       "expected_away_goals": 0.58,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1484
+      "modal_score_pct": 0.138
     },
     {
       "match_date": "2026-06-22",
@@ -923,16 +885,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2322,
-      "p_draw": 0.2508,
-      "p_away_win": 0.517,
+      "p_home_win": 0.2386,
+      "p_draw": 0.2486,
+      "p_away_win": 0.5128,
       "expected_home_goals": 0.97,
       "expected_away_goals": 1.58,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.125
+      "modal_score_pct": 0.1244
     },
     {
       "match_date": "2026-06-22",
@@ -942,16 +904,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3366,
-      "p_draw": 0.264,
-      "p_away_win": 0.3994,
+      "p_home_win": 0.3406,
+      "p_draw": 0.2562,
+      "p_away_win": 0.4032,
       "expected_home_goals": 1.18,
       "expected_away_goals": 1.3,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1226
+      "modal_score_pct": 0.1254
     },
     {
       "match_date": "2026-06-23",
@@ -961,16 +923,16 @@
       "city": "Zapopan",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5906,
-      "p_draw": 0.2376,
-      "p_away_win": 0.1718,
+      "p_home_win": 0.6046,
+      "p_draw": 0.2242,
+      "p_away_win": 0.1712,
       "expected_home_goals": 1.81,
       "expected_away_goals": 0.85,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.134
+      "modal_score_pct": 0.138
     },
     {
       "match_date": "2026-06-23",
@@ -980,16 +942,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7372,
-      "p_draw": 0.1734,
-      "p_away_win": 0.0894,
+      "p_home_win": 0.7386,
+      "p_draw": 0.1688,
+      "p_away_win": 0.0926,
       "expected_home_goals": 2.28,
       "expected_away_goals": 0.67,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1336
+      "modal_score_pct": 0.1406
     },
     {
       "match_date": "2026-06-23",
@@ -999,16 +961,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2024,
-      "p_draw": 0.2424,
-      "p_away_win": 0.5552,
+      "p_home_win": 0.2004,
+      "p_draw": 0.2386,
+      "p_away_win": 0.561,
       "expected_home_goals": 0.92,
       "expected_away_goals": 1.68,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.121
+      "modal_score_pct": 0.1282
     },
     {
       "match_date": "2026-06-23",
@@ -1018,16 +980,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6736,
-      "p_draw": 0.1982,
-      "p_away_win": 0.1282,
+      "p_home_win": 0.68,
+      "p_draw": 0.1992,
+      "p_away_win": 0.1208,
       "expected_home_goals": 2.03,
       "expected_away_goals": 0.76,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1318
+      "modal_score_pct": 0.1344
     },
     {
       "match_date": "2026-06-24",
@@ -1037,16 +999,16 @@
       "city": "Seattle",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5458,
-      "p_draw": 0.2388,
-      "p_away_win": 0.2154,
+      "p_home_win": 0.5504,
+      "p_draw": 0.2426,
+      "p_away_win": 0.207,
       "expected_home_goals": 1.66,
       "expected_away_goals": 0.93,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1252
+      "modal_score_pct": 0.129
     },
     {
       "match_date": "2026-06-24",
@@ -1056,16 +1018,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3872,
-      "p_draw": 0.2746,
-      "p_away_win": 0.3382,
+      "p_home_win": 0.3812,
+      "p_draw": 0.2748,
+      "p_away_win": 0.344,
       "expected_home_goals": 1.29,
       "expected_away_goals": 1.2,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1338
+      "modal_score_pct": 0.134
     },
     {
       "match_date": "2026-06-24",
@@ -1075,16 +1037,16 @@
       "city": "Mexico City",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.742,
-      "p_draw": 0.1698,
-      "p_away_win": 0.0882,
+      "p_home_win": 0.7376,
+      "p_draw": 0.1784,
+      "p_away_win": 0.084,
       "expected_home_goals": 2.23,
       "expected_away_goals": 0.6,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1424
+      "modal_score_pct": 0.139
     },
     {
       "match_date": "2026-06-24",
@@ -1094,16 +1056,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.7422,
-      "p_draw": 0.1678,
-      "p_away_win": 0.09,
+      "p_home_win": 0.7398,
+      "p_draw": 0.1628,
+      "p_away_win": 0.0974,
       "expected_home_goals": 2.31,
       "expected_away_goals": 0.66,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1324
+      "modal_score_pct": 0.1386
     },
     {
       "match_date": "2026-06-24",
@@ -1113,16 +1075,16 @@
       "city": "Miami Gardens",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1272,
-      "p_draw": 0.2014,
-      "p_away_win": 0.6714,
+      "p_home_win": 0.1324,
+      "p_draw": 0.1976,
+      "p_away_win": 0.67,
       "expected_home_goals": 0.77,
       "expected_away_goals": 1.99,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1268
+      "modal_score_pct": 0.131
     },
     {
       "match_date": "2026-06-24",
@@ -1132,16 +1094,16 @@
       "city": "Guadalupe",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1386,
-      "p_draw": 0.2076,
-      "p_away_win": 0.6538,
+      "p_home_win": 0.1354,
+      "p_draw": 0.2138,
+      "p_away_win": 0.6508,
       "expected_home_goals": 0.77,
       "expected_away_goals": 1.99,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.13
+      "modal_score_pct": 0.121
     },
     {
       "match_date": "2026-06-25",
@@ -1151,16 +1113,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.123,
-      "p_draw": 0.1942,
-      "p_away_win": 0.6828,
+      "p_home_win": 0.1188,
+      "p_draw": 0.1874,
+      "p_away_win": 0.6938,
       "expected_home_goals": 0.73,
       "expected_away_goals": 2.09,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.1304
+      "modal_score_pct": 0.1264
     },
     {
       "match_date": "2026-06-25",
@@ -1170,16 +1132,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3204,
-      "p_draw": 0.2664,
-      "p_away_win": 0.4132,
+      "p_home_win": 0.336,
+      "p_draw": 0.2746,
+      "p_away_win": 0.3894,
       "expected_home_goals": 1.18,
       "expected_away_goals": 1.31,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1268
+      "modal_score_pct": 0.1296
     },
     {
       "match_date": "2026-06-25",
@@ -1189,16 +1151,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.5806,
-      "p_draw": 0.224,
-      "p_away_win": 0.1954,
+      "p_home_win": 0.578,
+      "p_draw": 0.2364,
+      "p_away_win": 0.1856,
       "expected_home_goals": 1.73,
       "expected_away_goals": 0.89,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.1236
+      "modal_score_pct": 0.1322
     },
     {
       "match_date": "2026-06-25",
@@ -1208,16 +1170,16 @@
       "city": "Santa Clara",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.403,
-      "p_draw": 0.264,
-      "p_away_win": 0.333,
+      "p_home_win": 0.3806,
+      "p_draw": 0.2732,
+      "p_away_win": 0.3462,
       "expected_home_goals": 1.3,
       "expected_away_goals": 1.18,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1166
+      "modal_score_pct": 0.128
     },
     {
       "match_date": "2026-06-25",
@@ -1227,16 +1189,16 @@
       "city": "Kansas City",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1418,
-      "p_draw": 0.2084,
-      "p_away_win": 0.6498,
+      "p_home_win": 0.1474,
+      "p_draw": 0.1906,
+      "p_away_win": 0.662,
       "expected_home_goals": 0.78,
       "expected_away_goals": 1.97,
       "modal_score": [
         0,
-        2
+        1
       ],
-      "modal_score_pct": 0.1294
+      "modal_score_pct": 0.1338
     },
     {
       "match_date": "2026-06-25",
@@ -1246,16 +1208,16 @@
       "city": "Inglewood",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3716,
-      "p_draw": 0.2788,
-      "p_away_win": 0.3496,
+      "p_home_win": 0.3818,
+      "p_draw": 0.264,
+      "p_away_win": 0.3542,
       "expected_home_goals": 1.28,
       "expected_away_goals": 1.21,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.136
+      "modal_score_pct": 0.1212
     },
     {
       "match_date": "2026-06-26",
@@ -1265,16 +1227,16 @@
       "city": "Houston",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3802,
-      "p_draw": 0.2628,
-      "p_away_win": 0.357,
+      "p_home_win": 0.3766,
+      "p_draw": 0.2792,
+      "p_away_win": 0.3442,
       "expected_home_goals": 1.27,
       "expected_away_goals": 1.21,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1284
+      "modal_score_pct": 0.1324
     },
     {
       "match_date": "2026-06-26",
@@ -1284,16 +1246,16 @@
       "city": "Seattle",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3918,
-      "p_draw": 0.2698,
-      "p_away_win": 0.3384,
+      "p_home_win": 0.3986,
+      "p_draw": 0.2668,
+      "p_away_win": 0.3346,
       "expected_home_goals": 1.32,
       "expected_away_goals": 1.16,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.138
+      "modal_score_pct": 0.1296
     },
     {
       "match_date": "2026-06-26",
@@ -1303,16 +1265,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1264,
-      "p_draw": 0.1946,
-      "p_away_win": 0.679,
+      "p_home_win": 0.124,
+      "p_draw": 0.1872,
+      "p_away_win": 0.6888,
       "expected_home_goals": 0.75,
       "expected_away_goals": 2.05,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1292
+      "modal_score_pct": 0.1304
     },
     {
       "match_date": "2026-06-26",
@@ -1322,16 +1284,16 @@
       "city": "Foxborough",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.2242,
-      "p_draw": 0.249,
-      "p_away_win": 0.5268,
+      "p_home_win": 0.2142,
+      "p_draw": 0.2406,
+      "p_away_win": 0.5452,
       "expected_home_goals": 0.94,
       "expected_away_goals": 1.64,
       "modal_score": [
-        1,
+        0,
         1
       ],
-      "modal_score_pct": 0.1196
+      "modal_score_pct": 0.1316
     },
     {
       "match_date": "2026-06-26",
@@ -1341,16 +1303,16 @@
       "city": "Toronto",
       "country": "Canada",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6878,
-      "p_draw": 0.1912,
-      "p_away_win": 0.121,
+      "p_home_win": 0.6892,
+      "p_draw": 0.2046,
+      "p_away_win": 0.1062,
       "expected_home_goals": 2.1,
       "expected_away_goals": 0.73,
       "modal_score": [
         2,
         0
       ],
-      "modal_score_pct": 0.1336
+      "modal_score_pct": 0.133
     },
     {
       "match_date": "2026-06-26",
@@ -1360,16 +1322,16 @@
       "city": "Zapopan",
       "country": "Mexico",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1674,
-      "p_draw": 0.2184,
-      "p_away_win": 0.6142,
+      "p_home_win": 0.1604,
+      "p_draw": 0.2256,
+      "p_away_win": 0.614,
       "expected_home_goals": 0.82,
       "expected_away_goals": 1.88,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.1298
+      "modal_score_pct": 0.1246
     },
     {
       "match_date": "2026-06-27",
@@ -1379,16 +1341,16 @@
       "city": "Kansas City",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3844,
-      "p_draw": 0.2658,
-      "p_away_win": 0.3498,
+      "p_home_win": 0.3862,
+      "p_draw": 0.2666,
+      "p_away_win": 0.3472,
       "expected_home_goals": 1.29,
       "expected_away_goals": 1.19,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.1242
+      "modal_score_pct": 0.1284
     },
     {
       "match_date": "2026-06-27",
@@ -1398,16 +1360,16 @@
       "city": "Miami Gardens",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3032,
-      "p_draw": 0.275,
-      "p_away_win": 0.4218,
+      "p_home_win": 0.3046,
+      "p_draw": 0.2632,
+      "p_away_win": 0.4322,
       "expected_home_goals": 1.12,
       "expected_away_goals": 1.38,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.131
+      "modal_score_pct": 0.1218
     },
     {
       "match_date": "2026-06-27",
@@ -1417,16 +1379,16 @@
       "city": "Philadelphia",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.6336,
-      "p_draw": 0.2132,
-      "p_away_win": 0.1532,
+      "p_home_win": 0.629,
+      "p_draw": 0.215,
+      "p_away_win": 0.156,
       "expected_home_goals": 1.9,
       "expected_away_goals": 0.81,
       "modal_score": [
         1,
         0
       ],
-      "modal_score_pct": 0.127
+      "modal_score_pct": 0.1226
     },
     {
       "match_date": "2026-06-27",
@@ -1436,16 +1398,16 @@
       "city": "Atlanta",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.3696,
-      "p_draw": 0.269,
-      "p_away_win": 0.3614,
+      "p_home_win": 0.3644,
+      "p_draw": 0.2828,
+      "p_away_win": 0.3528,
       "expected_home_goals": 1.26,
       "expected_away_goals": 1.22,
       "modal_score": [
         1,
         1
       ],
-      "modal_score_pct": 0.124
+      "modal_score_pct": 0.1338
     },
     {
       "match_date": "2026-06-27",
@@ -1455,16 +1417,16 @@
       "city": "Arlington",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.0694,
-      "p_draw": 0.1472,
-      "p_away_win": 0.7834,
+      "p_home_win": 0.069,
+      "p_draw": 0.1414,
+      "p_away_win": 0.7896,
       "expected_home_goals": 0.62,
       "expected_away_goals": 2.48,
       "modal_score": [
         0,
         2
       ],
-      "modal_score_pct": 0.1352
+      "modal_score_pct": 0.1436
     },
     {
       "match_date": "2026-06-27",
@@ -1474,16 +1436,16 @@
       "city": "East Rutherford",
       "country": "United States",
       "tournament": "FIFA World Cup",
-      "p_home_win": 0.1308,
-      "p_draw": 0.19,
-      "p_away_win": 0.6792,
+      "p_home_win": 0.133,
+      "p_draw": 0.198,
+      "p_away_win": 0.669,
       "expected_home_goals": 0.77,
       "expected_away_goals": 2.01,
       "modal_score": [
         0,
         1
       ],
-      "modal_score_pct": 0.133
+      "modal_score_pct": 0.127
     }
   ],
   "recent_matches": [
@@ -1764,7 +1726,7 @@
       "elo_delta_away": 10.8
     }
   ],
-  "generated_at": "2026-05-18T01:54:52Z",
+  "generated_at": "2026-05-31T07:05:14Z",
   "n_simulations": 10000,
   "calibration": {
     "lambda_home_at_parity": 1.41,

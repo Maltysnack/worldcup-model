@@ -1,8 +1,7 @@
 """Authoritative 2025-26 club trophy results.
 
 Source: Wikipedia search 2026-05-13. Updated as outcomes confirm.
-Premier League and UEFA Champions League still being contested at
-time of writing; placeholders flagged so they can be refreshed.
+UCL final confirmed 2026-05-31: PSG beat Arsenal.
 
 Each entry: club -> list of (trophy_id, weight) tuples.
 
@@ -54,32 +53,26 @@ CLUB_TROPHIES_2025_26: dict[str, list[tuple[str, float]]] = {
     "Paris Saint-Germain": [("ligue_1_champion", 3.0)],       # confirmed mid-Apr
     "Arsenal":          [("premier_league_champion", 3.0)],   # confirmed May 2026
 
-    # UCL: PSG vs Arsenal final May 30. Both get UCL-final credit. Top
-    # up after the result is known.
-    # PSG already credited above via Ligue 1; append the UCL final line.
-    # Arsenal already credited via PL leader; append the UCL final line.
-    # (We do this by extending below.)
-
-    # UCL semi-finalists (Bayern, Inter both eliminated by finalists)
-    # — already credited at the league-champion level; add an extra
-    # +1 for reaching the SF.
-    # Done via the append loop below.
+    # UCL final confirmed 2026-05-31: PSG beat Arsenal.
+    # PSG gets ucl_champion (+5); Arsenal gets ucl_finalist (+3).
+    # Done via the append loops below.
 }
 
 # 2025-26 UCL knockout-stage credit, sourced from
 # https://en.wikipedia.org/wiki/2025%E2%80%9326_UEFA_Champions_League_knockout_phase
-# verified 2026-05-13:
+# verified 2026-05-13; final confirmed 2026-05-31:
 #   QF: PSG, Liverpool, Real Madrid, Bayern, Barcelona, Atletico, Sporting CP, Arsenal
 #   SF: PSG, Bayern, Atletico, Arsenal
-#   Final (30 May, not yet played): PSG vs Arsenal
-_UCL_FINALISTS = ["Paris Saint-Germain", "Arsenal"]
+#   Final (30 May): PSG beat Arsenal
+_UCL_CHAMPION = "Paris Saint-Germain"
+_UCL_RUNNER_UP = "Arsenal"
 _UCL_SEMIFINAL_LOSERS = ["Bayern Munich", "Atlético Madrid"]
 _UCL_QUARTERFINAL_LOSERS = [
     "Liverpool", "Real Madrid", "Barcelona", "Sporting CP",
 ]
 
-for c in _UCL_FINALISTS:
-    CLUB_TROPHIES_2025_26.setdefault(c, []).append(("ucl_finalist", 3.0))
+CLUB_TROPHIES_2025_26.setdefault(_UCL_CHAMPION, []).append(("ucl_champion", 5.0))
+CLUB_TROPHIES_2025_26.setdefault(_UCL_RUNNER_UP, []).append(("ucl_finalist", 3.0))
 for c in _UCL_SEMIFINAL_LOSERS:
     CLUB_TROPHIES_2025_26.setdefault(c, []).append(("ucl_semifinal_loser", 1.5))
 for c in _UCL_QUARTERFINAL_LOSERS:
