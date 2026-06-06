@@ -138,9 +138,5 @@ def total_weight_for_club(club: str) -> float:
 
 
 # Reference date for "as of" reporting
-LAST_UPDATED = "2026-05-13"
-PENDING = [
-    "Premier League final standings (24 May)",
-    "UCL final (30 May)",
-    "Saudi Pro League final standings",
-]
+LAST_UPDATED = "2026-05-31"
+PENDING: list[str] = []
