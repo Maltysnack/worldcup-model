@@ -29,3 +29,5 @@ data/*.duckdb.wal
 
 # OS
 .DS_Store
+.queue.lock
+.env
