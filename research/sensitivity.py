@@ -41,7 +41,7 @@ from worldcup.db import connect
 from worldcup.elo import run as elo_run
 from worldcup.form import apply_form
 from worldcup.host import apply_host_bonus
-from worldcup.iterate_profiles import score_profile
+from iterate_profiles import score_profile
 from worldcup.profiles import PROFILES, Profile, V4A_FLAT_MILD
 from worldcup.simulator import simulate_one
 from worldcup.squad import blended_ratings

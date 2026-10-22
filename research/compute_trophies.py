@@ -24,14 +24,14 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 
-from worldcup.club_trophies import (
+from club_trophies import (
     CLUB_TROPHIES_2025_26,
     LAST_UPDATED,
     PENDING,
     trophies_for_club,
 )
 from worldcup.db import PROJECT_ROOT
-from worldcup.wiki_rosters import fetch_and_parse
+from wiki_rosters import fetch_and_parse
 
 
 OUTPUT_PATH = PROJECT_ROOT / "data" / "raw" / "wc2026_trophy_scores.json"

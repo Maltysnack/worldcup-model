@@ -27,7 +27,7 @@ from datetime import datetime, timezone
 import requests
 
 from worldcup.db import PROJECT_ROOT
-from worldcup.wiki_rosters import fetch_and_parse as fetch_rosters
+from wiki_rosters import fetch_and_parse as fetch_rosters
 
 USER_AGENT = "maltysnack-worldcup-hobby/0.1 (https://github.com/Maltysnack/worldcup)"
 CACHE_PATH = PROJECT_ROOT / "data" / "raw" / "club_badges.json"

@@ -1,18 +1,16 @@
 name: Refresh predictions
 
-# Daily refresh: re-ingest match data, rebuild Elo, regenerate the
+# Manual refresh: re-ingest match data, rebuild Elo, regenerate the
 # bracket + simulation JSONs, and commit them to the maltysnack site
-# repo so the public page picks up new results automatically.
+# repo so the public page picks up new results.
 #
-# Schedule: every day at 06:00 UTC (after most evening matches finish).
-# Also runnable on demand via the workflow_dispatch button.
+# Daily cron disabled 2026-10-23 (post-tournament pivot). Run on demand
+# via the workflow_dispatch button.
 #
 # Required secrets (configure once in repo settings):
 #   MALTYSNACK_PUSH_TOKEN  - personal access token with `repo` scope
 #                            for the Maltysnack/Maltysnack.github.io repo
 on:
-  schedule:
-    - cron: '7 19 * * *'
   workflow_dispatch:
 
 jobs:
@@ -43,30 +41,10 @@ jobs:
           rm -f data/raw/*.csv
           uv run worldcup-ingest
 
-      - name: Refresh WC 2026 squad rosters from Wikipedia
-        # Squads are announced rolling through May / early June. Re-fetch
-        # daily so new announcements feed the trophy aggregation. Continues
-        # on failure so a Wikipedia hiccup doesn't break the whole refresh.
-        continue-on-error: true
-        run: |
-          uv run worldcup-fetch-rosters --refresh
-          uv run worldcup-compute-trophies
-
-      - name: Rebuild club season stats from FBref HTML
-        # Reads the committed data/raw/fbref/*.html files (saved
-        # manually from FBref) and rebuilds the per-club JSON cache.
-        # No network calls — refresh the HTML files in-repo when the
-        # season ends or club stats need updating.
-        run: uv run worldcup-build-fbref-stats
-
-      - name: Refresh club crests/badges from Wikipedia
-        continue-on-error: true
-        run: uv run worldcup-fetch-club-badges
-
       - name: Rebuild Elo (always — keeps DB current for post-tournament analysis)
         run: uv run worldcup-elo
 
-      - name: Rebuild bracket + simulation + top scorer (skipped if frozen)
+      - name: Rebuild bracket + simulation (skipped if frozen)
         # data/.frozen is created by worldcup-freeze-prediction (run by
         # hand the night before kickoff). When present, the public
         # prediction is locked: we keep ingesting match data so the DB
@@ -78,7 +56,6 @@ jobs:
           else
             uv run worldcup-bracket
             uv run worldcup-simulate
-            uv run worldcup-predict-top-scorer || true
           fi
 
       - name: Copy JSONs into site repo

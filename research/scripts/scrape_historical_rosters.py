@@ -19,7 +19,7 @@ from pathlib import Path
 import requests
 
 from worldcup.db import PROJECT_ROOT
-from worldcup.wiki_rosters import USER_AGENT, parse_page
+from wiki_rosters import USER_AGENT, parse_page
 
 OUT_DIR = PROJECT_ROOT / "data" / "raw" / "historical_rosters"
 
