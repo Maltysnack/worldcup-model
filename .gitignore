@@ -32,3 +32,6 @@ data/*.duckdb.wal
 .DS_Store
 .queue.lock
 .env
+
+# Scratch ledger for dry runs
+ledger-dryrun/
