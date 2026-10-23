@@ -30,6 +30,7 @@ worldcup-fit-friendly-calibration = "worldcup.friendly_calibration:main"
 worldcup-comprehensive-validation = "worldcup.comprehensive_validation:main"
 worldcup-betting-backtest = "worldcup.betting.backtest:main"
 worldcup-verify-ledger = "worldcup.betting.ledger:main"
+worldcup-bot = "worldcup.betting.bot:main"
 
 [build-system]
 requires = ["uv_build>=0.11.11,<0.12.0"]

@@ -1,0 +1,92 @@
+name: Betting bot
+
+# Paper-money Sportsbet 1X2 bot (src/worldcup/betting/bot.py). Each run
+# does one task, verifies the hash-chained ledger, and commits ledger/
+# back to this repo.
+#
+# MANUAL ONLY. Schedules are intentionally not enabled; the USER turns
+# them on after locking the staking rule. Intended cadence (UTC):
+#
+#   bet     daily        cron: "0 6 * * *"
+#   close   every 15 min cron: "*/15 * * * *"   (0 credits unless a bet kicks off within 90 min)
+#   settle  weekly       cron: "0 12 * * 1"     (ingest + Elo update + settle)
+#
+# Credit budget (free tier, 500/month). Odds cost 1 credit per call
+# (1 region x 1 market); /sports and /events are free.
+#   bet:    1 credit per active intl key per day. Typically 1 to 4 keys
+#           active, so 30 to 120 a month.
+#   close:  1 credit per sport per kickoff slot with open bets (event ids
+#           batched). An international window has roughly 10 to 25 slots,
+#           so up to ~25 a month, ~75 in a month with a double window.
+#   settle: 0 credits (results come from martj42).
+#   Expected 60 to 200 a month; the bot refuses to pull below 50 remaining.
+#
+# Required secret (USER creates it): ODDS_API_KEY.
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "bet, close or settle"
+        type: choice
+        options: [bet, close, settle]
+        default: bet
+      dry:
+        description: "price and log only, write nothing"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: betting-bot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout worldcup
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Verify ledger before
+        run: uv run worldcup-verify-ledger
+
+      - name: Pull results and rebuild Elo
+        # bet needs current ratings, settle needs results. The DB is
+        # gitignored, so every such run rebuilds it from martj42.
+        if: inputs.task != 'close'
+        run: |
+          rm -f data/raw/matches.csv data/raw/goalscorers.csv data/raw/shootouts.csv
+          uv run worldcup-ingest
+          uv run worldcup-elo
+
+      - name: Run bot
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: uv run worldcup-bot ${{ inputs.task }} ${{ inputs.dry && '--dry' || '' }}
+
+      - name: Verify ledger after
+        run: uv run worldcup-verify-ledger
+
+      - name: Commit ledger (if changed)
+        if: ${{ !inputs.dry }}
+        run: |
+          git config user.name  "worldcup-bot"
+          git config user.email "bot@maltysnack.local"
+          git add ledger
+          if git diff --cached --quiet; then
+            echo "Ledger unchanged."
+          else
+            git commit -m "bot: ${{ inputs.task }} $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi

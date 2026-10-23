@@ -4,6 +4,8 @@ Layout under the ledger root (default `ledger/`):
 
   bets.jsonl         one row per bet placed
   settlements.jsonl  one row per settled bet, referencing the bet's hash
+  closing.jsonl      closing 1X2 prices captured shortly before kickoff
+  passes.jsonl       events the bot priced and chose not to bet (one decision per event)
   snapshots/         raw API responses kept as evidence, named by sha256
 
 Each jsonl file is its own chain. Every row carries `prev_hash` (the
@@ -39,6 +41,8 @@ START_BANKROLL = 1000.0
 GENESIS_HASH = "0" * 64
 BETS_FILE = "bets.jsonl"
 SETTLEMENTS_FILE = "settlements.jsonl"
+CLOSING_FILE = "closing.jsonl"
+PASSES_FILE = "passes.jsonl"
 SNAPSHOT_DIR = "snapshots"
 SELECTIONS = ("home", "draw", "away")
 MONEY_TOL = 0.005
@@ -105,6 +109,14 @@ class Ledger:
         return self.root / SETTLEMENTS_FILE
 
     @property
+    def closing_path(self) -> Path:
+        return self.root / CLOSING_FILE
+
+    @property
+    def passes_path(self) -> Path:
+        return self.root / PASSES_FILE
+
+    @property
     def snapshot_dir(self) -> Path:
         return self.root / SNAPSHOT_DIR
 
@@ -113,6 +125,51 @@ class Ledger:
 
     def settlements(self) -> list[dict]:
         return read_rows(self.settlements_path)
+
+    def closing(self) -> list[dict]:
+        return read_rows(self.closing_path)
+
+    def passes(self) -> list[dict]:
+        return read_rows(self.passes_path)
+
+    def decided_events(self) -> set[str]:
+        """Events already bet or passed on; the bot makes one decision per event."""
+        return {b["event_id"] for b in self.bets()} | {p["event_id"] for p in self.passes()}
+
+    def closing_odds(self, event_id: str) -> dict | None:
+        """Latest closing capture for an event, or None."""
+        rows = [c for c in self.closing() if c["event_id"] == event_id]
+        return rows[-1] if rows else None
+
+    def record_closing(
+        self, *, event_id: str, kickoff: str, odds: Sequence[float],
+        captured_at: str | None = None, snapshot: dict | None = None,
+    ) -> dict:
+        captured_at = captured_at or now_utc()
+        if _parse_ts(captured_at) >= _parse_ts(kickoff):
+            raise ValueError(f"closing captured at/after kickoff: {event_id}")
+        row = {
+            "type": "closing", "captured_at": captured_at, "event_id": event_id,
+            "kickoff": kickoff, "odds_1x2": [float(o) for o in odds],
+        }
+        if snapshot:
+            row["snapshot"] = snapshot
+        return self._append(self.closing_path, row)
+
+    def record_pass(
+        self, *, event_id: str, kickoff: str, home: str, away: str, reason: str,
+        odds: Sequence[float] | None = None, model_p: Sequence[float] | None = None,
+        decided_at: str | None = None, snapshot: dict | None = None,
+    ) -> dict:
+        row = {
+            "type": "pass", "decided_at": decided_at or now_utc(), "event_id": event_id,
+            "kickoff": kickoff, "home": home, "away": away, "reason": reason,
+            "odds_1x2": [float(o) for o in odds] if odds else None,
+            "model_p_1x2": [round(float(p), 6) for p in model_p] if model_p else None,
+        }
+        if snapshot:
+            row["snapshot"] = snapshot
+        return self._append(self.passes_path, row)
 
     def bankroll(self) -> float:
         cash = self.start_bankroll
@@ -285,12 +342,25 @@ def verify(root: str | Path = "ledger", start_bankroll: float = START_BANKROLL) 
     errors = rep.errors
     try:
         bets, sets = led.bets(), led.settlements()
+        closes, passes = led.closing(), led.passes()
     except ValueError as e:
         errors.append(str(e))
         return rep
 
     _check_chain(BETS_FILE, bets, errors)
     _check_chain(SETTLEMENTS_FILE, sets, errors)
+    _check_chain(CLOSING_FILE, closes, errors)
+    _check_chain(PASSES_FILE, passes, errors)
+    bet_events = {b.get("event_id") for b in bets}
+    for i, p in enumerate(passes, 1):
+        if p.get("event_id") in bet_events:
+            errors.append(f"{PASSES_FILE}:{i}: event {p.get('event_id')} both passed and bet")
+    for i, c in enumerate(closes, 1):
+        try:
+            if _parse_ts(c["captured_at"]) >= _parse_ts(c["kickoff"]):
+                errors.append(f"{CLOSING_FILE}:{i}: captured at/after kickoff")
+        except (KeyError, ValueError) as e:
+            errors.append(f"{CLOSING_FILE}:{i}: {e}")
 
     by_hash: dict[str, dict] = {}
     seen_events: set[str] = set()
@@ -345,6 +415,9 @@ def verify(root: str | Path = "ledger", start_bankroll: float = START_BANKROLL) 
         _check_snapshot(led, f"{BETS_FILE}:{i}", row, errors)
     for i, row in enumerate(sets, 1):
         _check_snapshot(led, f"{SETTLEMENTS_FILE}:{i}", row, errors)
+    for name, rows in ((CLOSING_FILE, closes), (PASSES_FILE, passes)):
+        for i, row in enumerate(rows, 1):
+            _check_snapshot(led, f"{name}:{i}", row, errors)
 
     # Replay cash in time order (settlements first on a tie, as the bot settles before betting).
     events = [(b.get("placed_at", ""), 1, i, b) for i, b in enumerate(bets) if b.get("hash") in by_hash]
