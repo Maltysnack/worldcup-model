@@ -109,6 +109,21 @@ class BotTest(unittest.TestCase):
         bot.run_close(self.led, self.client, now=NOW + timedelta(hours=29, minutes=30))
         self.assertEqual(self.api.calls, [], log)
 
+    def test_close_due_gate_matches_run_close(self):
+        # bot.yml skips the close job when scripts/close_due.py says nothing is due.
+        import importlib.util, pathlib
+        p = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "close_due.py"
+        spec = importlib.util.spec_from_file_location("close_due", p)
+        cd = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cd)
+        led_dir = pathlib.Path(self.tmp.name)
+        self.assertFalse(cd.due(led_dir, NOW))  # empty ledger
+        bot.run_bet(self.led, self.client, RATINGS, now=NOW)  # bet "a" kicks off in 30h
+        self.assertFalse(cd.due(led_dir, NOW))
+        self.assertTrue(cd.due(led_dir, NOW + timedelta(hours=29)))
+        bot.run_close(self.led, self.client, now=NOW + timedelta(hours=29))
+        self.assertFalse(cd.due(led_dir, NOW + timedelta(hours=29, minutes=30)))
+
     def test_settle_with_closing_and_reversed_fixture(self):
         bot.run_bet(self.led, self.client, RATINGS, now=NOW)
         bot.run_close(self.led, self.client, now=NOW + timedelta(hours=29))
