@@ -158,13 +158,22 @@ def fetch_actual_results(year: int):
             """,
             [year],
         ).fetchdf()
-    if df.empty:
-        return None
-    final = df.iloc[-1]
+        if df.empty:
+            return None
+        final = df.iloc[-1]
+        # Drawn finals (1994, 2006, 2022) went to penalties.
+        shootout = con.execute(
+            "SELECT winner FROM shootouts WHERE date = ? AND home_team = ? AND away_team = ?",
+            [final.date, final.home_team, final.away_team],
+        ).fetchone()
     third_place = df.iloc[-2]
     # SF losers are the 3rd/4th place participants
     finalist_a, finalist_b = final.home_team, final.away_team
-    if final.home_score > final.away_score:
+    if shootout:
+        a_won = shootout[0] == finalist_a
+    else:
+        a_won = final.home_score > final.away_score
+    if a_won:
         champion, runner_up = finalist_a, finalist_b
     else:
         champion, runner_up = finalist_b, finalist_a
