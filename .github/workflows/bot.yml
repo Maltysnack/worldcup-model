@@ -108,11 +108,11 @@ jobs:
       - name: Publish bankroll to site (if changed)
         if: env.DRY == '' && env.TASK != 'close'
         run: |
-          uv run python scripts/export_site_v2.py site/projects/worldcup/v2
+          uv run python scripts/export_site_v2.py site/projects/worldcup
           cd site
           git config user.name  "worldcup-bot"
           git config user.email "bot@maltysnack.local"
-          git add projects/worldcup/v2/bankroll.json projects/worldcup/v2/capsule.json
+          git add projects/worldcup/bankroll.json projects/worldcup/capsule.json
           # generated_at changes daily; only publish when the numbers do.
           if git diff --cached -U0 | grep '^[+-] ' | grep -vq '"generated_at"'; then
             git commit -m "worldcup: bankroll update ($TASK)"
