@@ -2,14 +2,16 @@
 
 Usage: uv run python scripts/export_site_v2.py OUTDIR
 
-Writes OUTDIR/bankroll.json (from ledger/) and OUTDIR/capsule.json. With no
-bets yet, bankroll.json is an untouched $1,000 with `source: not-started`. The
-synthetic backtest stays internal (`uv run worldcup-betting-backtest`).
+Writes OUTDIR/bankroll.json (from ledger/), OUTDIR/capsule.json and
+OUTDIR/elo.json (from the DuckDB elo_current table; skipped if the DB is
+missing). With no bets yet, bankroll.json is an untouched $1,000 with
+`source: not-started`. The synthetic backtest stays internal
+(`uv run worldcup-betting-backtest`).
 """
 
 import json
 import sys
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from worldcup.betting import engine
@@ -24,7 +26,45 @@ STAGE_SHORT = {"champion": "Won", "final": "Final", "semi_finals": "SF", "quarte
                "round_of_16": "R16", "round_of_32": "R32", "group": "Group"}
 
 
-def bankroll(ledger_dir: Path = ROOT / "ledger") -> dict:
+def _game(row: dict) -> dict:
+    """One priced game, bet or pass: model vs Sportsbet 1X2, all as fractions."""
+    odds, p = row.get("odds_1x2"), row.get("model_p_1x2")
+    g = {"kickoff": row["kickoff"][:10], "home": row["home"], "away": row["away"],
+         "model_p": [round(x, 4) for x in p] if p else None, "odds": odds,
+         "market_p": [round(x, 4) for x in engine.devig_proportional(odds)[0]] if odds else None}
+    if row["type"] == "bet":
+        g.update(decision="bet", pick=row["selection"], reason=None)
+    else:
+        g.update(decision="pass", pick=None, reason=row["reason"])
+    return g
+
+
+def games(led: Ledger, now: datetime) -> dict:
+    """Upcoming = every game the bot has decided on that has not kicked off.
+    The bot only prices games inside 48h, so nothing further out exists."""
+    rows = led.bets() + led.passes()
+    future = sorted((r for r in rows if r["kickoff"] > now.isoformat()), key=lambda r: r["kickoff"])
+    passes = sorted(led.passes(), key=lambda r: r["decided_at"])[-10:][::-1]
+    return {"upcoming": [_game(r) for r in future], "recent_passes": [_game(r) for r in passes]}
+
+
+def elo(n: int = 20, active_years: int = 4) -> dict | None:
+    """Top `n` by current Elo among teams that played in the last `active_years`."""
+    from worldcup.db import DB_PATH, connect
+
+    if not Path(DB_PATH).exists():
+        return None
+    with connect(read_only=True) as con:
+        as_of = con.execute("SELECT max(date) FROM matches").fetchone()[0]
+        top = con.execute(
+            "SELECT team, rating, last_match FROM elo_current WHERE last_match >= ? ORDER BY rating DESC LIMIT ?",
+            [as_of - timedelta(days=365 * active_years), n]).fetchall()
+    return {"generated_at": date.today().isoformat(), "as_of": as_of.isoformat(),
+            "top": [{"rank": i + 1, "team": t, "rating": round(r), "last_match": lm.date().isoformat()}
+                    for i, (t, r, lm) in enumerate(top)]}
+
+
+def bankroll(ledger_dir: Path = ROOT / "ledger", now: datetime | None = None) -> dict:
     """Live numbers from the hash-chained ledger. Until the first bet the page
     shows an untouched $1,000; synthetic backtests never reach the page."""
     led = Ledger(ledger_dir)
@@ -33,6 +73,7 @@ def bankroll(ledger_dir: Path = ROOT / "ledger") -> dict:
         "generated_at": date.today().isoformat(),
         "rule": {"staking": RULE, "stake": engine.FLAT_UNIT, "min_edge": MIN_EDGE, "max_odds": engine.MAX_ODDS},
         "start": start,
+        **games(led, now or datetime.now(timezone.utc)),
     }
     if not bets:
         return {**base, "source": "not-started", "note": "No bets yet.", "first_kickoff": None,
@@ -94,7 +135,10 @@ def capsule() -> dict:
 def main() -> None:
     out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
-    for name, data in (("bankroll", bankroll()), ("capsule", capsule())):
+    for name, data in (("bankroll", bankroll()), ("capsule", capsule()), ("elo", elo())):
+        if data is None:
+            print(f"skip {name}.json (no DB)")
+            continue
         (out / f"{name}.json").write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
         print(f"wrote {out / name}.json")
 

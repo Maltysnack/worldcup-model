@@ -124,6 +124,27 @@ class BotTest(unittest.TestCase):
         bot.run_close(self.led, self.client, now=NOW + timedelta(hours=29))
         self.assertFalse(cd.due(led_dir, NOW + timedelta(hours=29, minutes=30)))
 
+    def test_export_games(self):
+        # scripts/export_site_v2.py: upcoming = decided games not yet kicked off.
+        import importlib.util, pathlib
+        p = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "export_site_v2.py"
+        spec = importlib.util.spec_from_file_location("export_site_v2", p)
+        ex = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(ex)
+        bot.run_bet(self.led, self.client, RATINGS, now=NOW)
+        g = ex.games(self.led, NOW)
+        up = {(x["home"], x["decision"]) for x in g["upcoming"]}
+        self.assertIn(("Spain", "bet"), up)
+        self.assertEqual(len(g["upcoming"]), 3)
+        self.assertEqual(len(g["recent_passes"]), 2)
+        spain = next(x for x in g["upcoming"] if x["decision"] == "bet")
+        self.assertEqual(spain["pick"], "home")
+        self.assertAlmostEqual(sum(spain["market_p"]), 1.0, places=3)
+        self.assertAlmostEqual(sum(spain["model_p"]), 1.0, places=3)
+        unknown = next(x for x in g["recent_passes"] if x["reason"].startswith("unknown"))
+        self.assertIsNone(unknown["model_p"])
+        self.assertEqual(ex.games(self.led, NOW + timedelta(hours=31))["upcoming"], [])
+
     def test_settle_with_closing_and_reversed_fixture(self):
         bot.run_bet(self.led, self.client, RATINGS, now=NOW)
         bot.run_close(self.led, self.client, now=NOW + timedelta(hours=29))
