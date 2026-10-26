@@ -42,6 +42,12 @@ class EdgeAndStakeTest(unittest.TestCase):
         self.assertIsNone(engine.pick_selection(p, [1.9, 3.2, 5.0], 0.03))
         self.assertEqual(engine.pick_selection(p, [1.9, 3.6, 5.0], 0.03), 1)
 
+    def test_pick_skips_longshots(self):
+        # Away at 9.5 has the biggest edge but is over MAX_ODDS; home is next best.
+        self.assertEqual(engine.pick_selection([0.55, 0.24, 0.21], [2.0, 4.0, 9.5], 0.03), 0)
+        # Every price over the cap: no bet.
+        self.assertIsNone(engine.pick_selection([0.4, 0.3, 0.3], [7.0, 8.0, 9.0], 0.03))
+
     def test_flat_never_exceeds_bankroll(self):
         self.assertEqual(engine.stake_flat(1000.0), 10.0)
         self.assertEqual(engine.stake_flat(4.0), 4.0)

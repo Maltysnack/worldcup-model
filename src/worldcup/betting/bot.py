@@ -204,7 +204,7 @@ def _decide(led, e, sport, ratings, rule, min_edge, now, snap, dry) -> str:
     if not dry:
         led.place_bet(**base, selection=sel, odds=odds, stake=stake, model_p=p,
                       placed_at=now.isoformat(timespec="microseconds"), snapshot=snap,
-                      extra={"sport_key": sport, "rule": rule, "min_edge": min_edge,
+                      extra={"sport_key": sport, "rule": rule, "min_edge": min_edge, "max_odds": engine.MAX_ODDS,
                              "feed_home": e["home_team"], "feed_away": e["away_team"]})
     return f"BET {tag}: {['home', 'draw', 'away'][sel]} @ {odds[sel]} ${stake:.2f} edge {engine.edge(p[sel], odds[sel]):+.3f}"
 

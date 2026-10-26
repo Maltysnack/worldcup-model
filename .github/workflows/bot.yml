@@ -1,28 +1,30 @@
 name: Betting bot
 
 # Paper-money Sportsbet 1X2 bot (src/worldcup/betting/bot.py). Each run
-# does one task, verifies the hash-chained ledger, and commits ledger/
-# back to this repo.
+# does one task, verifies the hash-chained ledger, commits ledger/ back to
+# this repo, and (bet, settle) republishes the site's bankroll.json.
 #
-# MANUAL ONLY. Schedules are intentionally not enabled; the USER turns
-# them on after locking the staking rule. Intended cadence (UTC):
+# Schedule (UTC). Locked rules v1 (2026-10-26): flat $10, min edge 3%,
+# no prices above 6.0.
+#   bet     daily 06:00   one decision per event, at the first pull inside 48h
+#   close   hourly :05    0 credits unless an open bet kicks off within 90 min
+#   settle  Mon 12:00     ingest + Elo update + settle
 #
-#   bet     daily        cron: "0 6 * * *"
-#   close   every 15 min cron: "*/15 * * * *"   (0 credits unless a bet kicks off within 90 min)
-#   settle  weekly       cron: "0 12 * * 1"     (ingest + Elo update + settle)
-#
-# Credit budget (free tier, 500/month). Odds cost 1 credit per call
-# (1 region x 1 market); /sports and /events are free.
-#   bet:    1 credit per active intl key per day. Typically 1 to 4 keys
-#           active, so 30 to 120 a month.
-#   close:  1 credit per sport per kickoff slot with open bets (event ids
-#           batched). An international window has roughly 10 to 25 slots,
-#           so up to ~25 a month, ~75 in a month with a double window.
+# Credit budget (free tier, 500/month, SHARED with the FPL project's key).
+# Odds cost 1 credit per call (1 region x 1 market); /sports and /events
+# are free.
+#   bet:    1 credit per active intl key per day, so 30 to 120 a month.
+#   close:  1 credit per sport per kickoff slot with open bets, up to ~25 a
+#           month (~75 with a double window).
 #   settle: 0 credits (results come from martj42).
 #   Expected 60 to 200 a month; the bot refuses to pull below 50 remaining.
 #
-# Required secret (USER creates it): ODDS_API_KEY.
+# Secrets: ODDS_API_KEY (Odds API), MALTYSNACK_PUSH_TOKEN (site push).
 on:
+  schedule:
+    - cron: "0 6 * * *"
+    - cron: "5 * * * *"
+    - cron: "0 12 * * 1"
   workflow_dispatch:
     inputs:
       task:
@@ -45,6 +47,10 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
+    env:
+      # Scheduled runs map their cron to a task; manual runs use the input.
+      TASK: ${{ github.event.schedule == '0 6 * * *' && 'bet' || github.event.schedule == '5 * * * *' && 'close' || github.event.schedule == '0 12 * * 1' && 'settle' || inputs.task }}
+      DRY: ${{ inputs.dry && '--dry' || '' }}
     steps:
       - name: Checkout worldcup
         uses: actions/checkout@v4
@@ -64,7 +70,7 @@ jobs:
       - name: Pull results and rebuild Elo
         # bet needs current ratings, settle needs results. The DB is
         # gitignored, so every such run rebuilds it from martj42.
-        if: inputs.task != 'close'
+        if: env.TASK != 'close'
         run: |
           rm -f data/raw/matches.csv data/raw/goalscorers.csv data/raw/shootouts.csv
           uv run worldcup-ingest
@@ -73,13 +79,13 @@ jobs:
       - name: Run bot
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: uv run worldcup-bot ${{ inputs.task }} ${{ inputs.dry && '--dry' || '' }}
+        run: uv run worldcup-bot "$TASK" $DRY
 
       - name: Verify ledger after
         run: uv run worldcup-verify-ledger
 
       - name: Commit ledger (if changed)
-        if: ${{ !inputs.dry }}
+        if: env.DRY == ''
         run: |
           git config user.name  "worldcup-bot"
           git config user.email "bot@maltysnack.local"
@@ -87,6 +93,30 @@ jobs:
           if git diff --cached --quiet; then
             echo "Ledger unchanged."
           else
-            git commit -m "bot: ${{ inputs.task }} $(date -u +%Y-%m-%dT%H:%MZ)"
+            git commit -m "bot: $TASK $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
+          fi
+
+      - name: Checkout maltysnack site
+        if: env.DRY == '' && env.TASK != 'close'
+        uses: actions/checkout@v4
+        with:
+          repository: Maltysnack/Maltysnack.github.io
+          path: site
+          token: ${{ secrets.MALTYSNACK_PUSH_TOKEN }}
+
+      - name: Publish bankroll to site (if changed)
+        if: env.DRY == '' && env.TASK != 'close'
+        run: |
+          uv run python scripts/export_site_v2.py site/projects/worldcup/v2
+          cd site
+          git config user.name  "worldcup-bot"
+          git config user.email "bot@maltysnack.local"
+          git add projects/worldcup/v2/bankroll.json projects/worldcup/v2/capsule.json
+          # generated_at changes daily; only publish when the numbers do.
+          if git diff --cached -U0 | grep '^[+-] ' | grep -vq '"generated_at"'; then
+            git commit -m "worldcup: bankroll update ($TASK)"
+            git push
+          else
+            echo "No bankroll changes to publish."
           fi

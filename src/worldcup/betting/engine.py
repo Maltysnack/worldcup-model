@@ -3,7 +3,7 @@
 All triples are ordered (home, draw, away). Odds are decimal.
 
   - devig: proportional margin removal (implied 1/odds scaled to sum 1)
-  - edge:  p_model x odds - 1
+  - edge:  p_model x odds - 1 (only on prices up to MAX_ODDS)
   - stake: flat $10, or quarter-Kelly capped at 5% of bankroll
   - CLV:   bet odds against the devigged closing price
 """
@@ -17,6 +17,11 @@ FLAT_UNIT = 10.0
 KELLY_FRACTION = 0.25
 KELLY_CAP = 0.05
 DEFAULT_MIN_EDGE = 0.03
+# No bets above this price. Elo is calibrated on results, but on longshots a
+# small disagreement with the market reads as a huge edge, and bookmakers
+# already overprice longshots (favourite-longshot bias). Dry run 2026-10-26
+# would otherwise have backed Croatia at 14.0 and Serbia at 9.5.
+MAX_ODDS = 6.0
 
 
 def devig_proportional(odds: Sequence[float]) -> tuple[list[float], float]:
@@ -34,13 +39,16 @@ def edge(p_model: float, odds: float) -> float:
 
 
 def pick_selection(
-    p_model: Sequence[float], odds: Sequence[float], min_edge: float = DEFAULT_MIN_EDGE
+    p_model: Sequence[float], odds: Sequence[float], min_edge: float = DEFAULT_MIN_EDGE,
+    max_odds: float = MAX_ODDS,
 ) -> int | None:
-    """Index of the outcome with the largest edge, or None if none clears min_edge.
-    At most one bet per match."""
-    edges = [edge(p, o) for p, o in zip(p_model, odds)]
-    best = max(range(len(edges)), key=edges.__getitem__)
-    return best if edges[best] >= min_edge else None
+    """Index of the outcome with the largest edge among prices up to max_odds,
+    or None if none clears min_edge. At most one bet per match."""
+    eligible = [i for i, o in enumerate(odds) if o <= max_odds]
+    if not eligible:
+        return None
+    best = max(eligible, key=lambda i: edge(p_model[i], odds[i]))
+    return best if edge(p_model[best], odds[best]) >= min_edge else None
 
 
 def stake_flat(bankroll: float, unit: float = FLAT_UNIT) -> float:
