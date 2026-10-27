@@ -9,7 +9,7 @@ name: Betting bot
 #   bet     daily 06:00   one decision per event, at the first pull inside 48h
 #   close   hourly :05    0 credits unless an open bet kicks off within 90 min;
 #                         idle runs stop after checkout (scripts/close_due.py)
-#   settle  Mon 12:00     ingest + Elo update + settle
+#   settle  Mon 12:00     ingest + Elo update + settle + title odds (Euro/Copa 2028, WC 2030)
 #
 # Credit budget (free tier, 500/month, SHARED with the FPL project's key).
 # Odds cost 1 credit per call (1 region x 1 market); /sports and /events
@@ -86,6 +86,10 @@ jobs:
           uv run worldcup-ingest
           uv run worldcup-elo
 
+      - name: Title odds (weekly)
+        if: steps.gate.outputs.go == '1' && env.TASK == 'settle' && env.DRY == ''
+        run: uv run python -m worldcup.title_odds
+
       - name: Run bot
         if: steps.gate.outputs.go == '1'
         env:
@@ -101,7 +105,7 @@ jobs:
         run: |
           git config user.name  "worldcup-bot"
           git config user.email "bot@maltysnack.local"
-          git add ledger
+          git add ledger data/title_odds.json
           if git diff --cached --quiet; then
             echo "Ledger unchanged."
           else
@@ -124,7 +128,7 @@ jobs:
           cd site
           git config user.name  "worldcup-bot"
           git config user.email "bot@maltysnack.local"
-          git add projects/worldcup/bankroll.json projects/worldcup/capsule.json projects/worldcup/elo.json
+          git add projects/worldcup/bankroll.json projects/worldcup/capsule.json projects/worldcup/elo.json projects/worldcup/odds.json
           # generated_at changes daily; only publish when the numbers do.
           if git diff --cached -U0 | grep '^[+-] ' | grep -vq '"generated_at"'; then
             git commit -m "worldcup: bankroll update ($TASK)"

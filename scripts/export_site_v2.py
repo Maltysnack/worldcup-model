@@ -2,9 +2,10 @@
 
 Usage: uv run python scripts/export_site_v2.py OUTDIR
 
-Writes OUTDIR/bankroll.json (from ledger/), OUTDIR/capsule.json and
+Writes OUTDIR/bankroll.json (from ledger/), OUTDIR/capsule.json,
 OUTDIR/elo.json (from the DuckDB elo_current table; skipped if the DB is
-missing). With no bets yet, bankroll.json is an untouched $1,000 with
+missing) and OUTDIR/odds.json (copied from data/title_odds.json, written
+weekly by `python -m worldcup.title_odds`). With no bets yet, bankroll.json is an untouched $1,000 with
 `source: not-started`. The synthetic backtest stays internal
 (`uv run worldcup-betting-backtest`).
 """
@@ -20,6 +21,7 @@ from worldcup.betting.ledger import Ledger
 ROOT = Path(__file__).resolve().parents[1]
 SCORECARD = ROOT / "data" / "capsule" / "scorecard_2026.json"
 FROZEN_SIM = ROOT / "data" / "simulation-prediction.json"
+TITLE_ODDS = ROOT / "data" / "title_odds.json"
 
 RULE, MIN_EDGE = "flat", engine.DEFAULT_MIN_EDGE
 STAGE_SHORT = {"champion": "Won", "final": "Final", "semi_finals": "SF", "quarter_finals": "QF",
@@ -135,9 +137,10 @@ def capsule() -> dict:
 def main() -> None:
     out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
-    for name, data in (("bankroll", bankroll()), ("capsule", capsule()), ("elo", elo())):
+    odds = json.loads(TITLE_ODDS.read_text()) if TITLE_ODDS.exists() else None
+    for name, data in (("bankroll", bankroll()), ("capsule", capsule()), ("elo", elo()), ("odds", odds)):
         if data is None:
-            print(f"skip {name}.json (no DB)")
+            print(f"skip {name}.json (no source data)")
             continue
         (out / f"{name}.json").write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n")
         print(f"wrote {out / name}.json")

@@ -1,0 +1,292 @@
+{
+ "generated_at": "2026-10-27",
+ "as_of": "2026-10-06",
+ "model": "elo-v4a-flat-mild + drift",
+ "tournaments": [
+  {
+   "key": "euro2028",
+   "name": "Euro 2028",
+   "kickoff": "2028-06-09",
+   "years_out": 1.7,
+   "n_teams": 24,
+   "assumptions": "24 teams, 6 groups of 4, top 2 and 4 best thirds to the last 16. Two places for the best UK and Ireland hosts that miss out.",
+   "n_sims": 10000,
+   "top": [
+    {
+     "team": "Spain",
+     "p_champion": 0.3733,
+     "p_final": 0.5122,
+     "p_qualify": 1.0,
+     "rating_now": 2176
+    },
+    {
+     "team": "France",
+     "p_champion": 0.1362,
+     "p_final": 0.2548,
+     "p_qualify": 1.0,
+     "rating_now": 2044
+    },
+    {
+     "team": "England",
+     "p_champion": 0.1275,
+     "p_final": 0.2429,
+     "p_qualify": 1.0,
+     "rating_now": 2032
+    },
+    {
+     "team": "Portugal",
+     "p_champion": 0.1015,
+     "p_final": 0.2079,
+     "p_qualify": 1.0,
+     "rating_now": 2000
+    },
+    {
+     "team": "Netherlands",
+     "p_champion": 0.0463,
+     "p_final": 0.1157,
+     "p_qualify": 1.0,
+     "rating_now": 1939
+    },
+    {
+     "team": "Switzerland",
+     "p_champion": 0.0388,
+     "p_final": 0.1009,
+     "p_qualify": 1.0,
+     "rating_now": 1918
+    },
+    {
+     "team": "Italy",
+     "p_champion": 0.0303,
+     "p_final": 0.0832,
+     "p_qualify": 1.0,
+     "rating_now": 1898
+    },
+    {
+     "team": "Belgium",
+     "p_champion": 0.0292,
+     "p_final": 0.082,
+     "p_qualify": 1.0,
+     "rating_now": 1899
+    },
+    {
+     "team": "Germany",
+     "p_champion": 0.0241,
+     "p_final": 0.0714,
+     "p_qualify": 1.0,
+     "rating_now": 1891
+    },
+    {
+     "team": "Norway",
+     "p_champion": 0.018,
+     "p_final": 0.056,
+     "p_qualify": 0.998,
+     "rating_now": 1854
+    },
+    {
+     "team": "Croatia",
+     "p_champion": 0.0175,
+     "p_final": 0.0482,
+     "p_qualify": 0.995,
+     "rating_now": 1850
+    },
+    {
+     "team": "Denmark",
+     "p_champion": 0.0114,
+     "p_final": 0.0388,
+     "p_qualify": 1.0,
+     "rating_now": 1833
+    }
+   ]
+  },
+  {
+   "key": "copa2028",
+   "name": "Copa America 2028",
+   "kickoff": "2028-06-15",
+   "years_out": 1.7,
+   "n_teams": 16,
+   "assumptions": "Host and format not confirmed. Assumed 16 teams (all 10 CONMEBOL plus 6 CONCACAF), 4 groups of 4, top 2 to the quarter-finals.",
+   "n_sims": 10000,
+   "top": [
+    {
+     "team": "Argentina",
+     "p_champion": 0.4149,
+     "p_final": 0.5642,
+     "p_qualify": 1.0,
+     "rating_now": 2105
+    },
+    {
+     "team": "Brazil",
+     "p_champion": 0.143,
+     "p_final": 0.2897,
+     "p_qualify": 1.0,
+     "rating_now": 1958
+    },
+    {
+     "team": "Colombia",
+     "p_champion": 0.1178,
+     "p_final": 0.2516,
+     "p_qualify": 1.0,
+     "rating_now": 1942
+    },
+    {
+     "team": "Mexico",
+     "p_champion": 0.0645,
+     "p_final": 0.1611,
+     "p_qualify": 1.0,
+     "rating_now": 1879
+    },
+    {
+     "team": "United States",
+     "p_champion": 0.0579,
+     "p_final": 0.1388,
+     "p_qualify": 1.0,
+     "rating_now": 1860
+    },
+    {
+     "team": "Ecuador",
+     "p_champion": 0.0539,
+     "p_final": 0.1355,
+     "p_qualify": 1.0,
+     "rating_now": 1851
+    },
+    {
+     "team": "Paraguay",
+     "p_champion": 0.0447,
+     "p_final": 0.1215,
+     "p_qualify": 1.0,
+     "rating_now": 1849
+    },
+    {
+     "team": "Uruguay",
+     "p_champion": 0.0432,
+     "p_final": 0.1108,
+     "p_qualify": 1.0,
+     "rating_now": 1842
+    },
+    {
+     "team": "Canada",
+     "p_champion": 0.0228,
+     "p_final": 0.071,
+     "p_qualify": 1.0,
+     "rating_now": 1802
+    },
+    {
+     "team": "Venezuela",
+     "p_champion": 0.011,
+     "p_final": 0.0381,
+     "p_qualify": 1.0,
+     "rating_now": 1746
+    },
+    {
+     "team": "Chile",
+     "p_champion": 0.0083,
+     "p_final": 0.0383,
+     "p_qualify": 1.0,
+     "rating_now": 1739
+    },
+    {
+     "team": "Peru",
+     "p_champion": 0.005,
+     "p_final": 0.0199,
+     "p_qualify": 1.0,
+     "rating_now": 1676
+    }
+   ]
+  },
+  {
+   "key": "wc2030",
+   "name": "World Cup 2030",
+   "kickoff": "2030-06-13",
+   "years_out": 3.7,
+   "n_teams": 48,
+   "assumptions": "48 teams, 12 groups of 4, top 2 and 8 best thirds to the last 32. Six hosts qualify automatically inside their confederation's places; 2026 place allocation assumed; 2 play-off places go to the best remaining non-UEFA teams.",
+   "n_sims": 10000,
+   "top": [
+    {
+     "team": "Spain",
+     "p_champion": 0.2739,
+     "p_final": 0.3853,
+     "p_qualify": 1.0,
+     "rating_now": 2176
+    },
+    {
+     "team": "Argentina",
+     "p_champion": 0.1497,
+     "p_final": 0.2487,
+     "p_qualify": 1.0,
+     "rating_now": 2105
+    },
+    {
+     "team": "France",
+     "p_champion": 0.0872,
+     "p_final": 0.1624,
+     "p_qualify": 1.0,
+     "rating_now": 2044
+    },
+    {
+     "team": "England",
+     "p_champion": 0.0819,
+     "p_final": 0.1519,
+     "p_qualify": 1.0,
+     "rating_now": 2032
+    },
+    {
+     "team": "Portugal",
+     "p_champion": 0.0617,
+     "p_final": 0.1197,
+     "p_qualify": 1.0,
+     "rating_now": 2000
+    },
+    {
+     "team": "Brazil",
+     "p_champion": 0.0402,
+     "p_final": 0.0884,
+     "p_qualify": 1.0,
+     "rating_now": 1958
+    },
+    {
+     "team": "Netherlands",
+     "p_champion": 0.031,
+     "p_final": 0.0697,
+     "p_qualify": 0.99,
+     "rating_now": 1939
+    },
+    {
+     "team": "Colombia",
+     "p_champion": 0.0309,
+     "p_final": 0.0685,
+     "p_qualify": 1.0,
+     "rating_now": 1942
+    },
+    {
+     "team": "Morocco",
+     "p_champion": 0.0292,
+     "p_final": 0.0671,
+     "p_qualify": 1.0,
+     "rating_now": 1933
+    },
+    {
+     "team": "Switzerland",
+     "p_champion": 0.0215,
+     "p_final": 0.053,
+     "p_qualify": 0.978,
+     "rating_now": 1918
+    },
+    {
+     "team": "Belgium",
+     "p_champion": 0.0167,
+     "p_final": 0.0448,
+     "p_qualify": 0.958,
+     "rating_now": 1899
+    },
+    {
+     "team": "Japan",
+     "p_champion": 0.0164,
+     "p_final": 0.0449,
+     "p_qualify": 0.998,
+     "rating_now": 1902
+    }
+   ]
+  }
+ ]
+}
