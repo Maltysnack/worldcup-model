@@ -6,7 +6,7 @@ Three tasks, each run by `.github/workflows/bot.yml`:
           kicking off within 48h that has no decision yet, bet (or record a
           pass). One decision per event, made at the first pull inside 48h.
   close   list events via the free events endpoint; for open bets kicking off
-          within 90 min with no closing capture, pull odds for just those
+          within 3 h with no closing capture, pull odds for just those
           event ids and record the closing price. Exits early (0 credits)
           when nothing is due.
   settle  match open bets to results in the DB (run worldcup-ingest and
@@ -48,7 +48,7 @@ BOOKMAKER = "sportsbet"
 REGION = "au"
 MARKET = "h2h"
 BET_WINDOW = timedelta(hours=48)
-CLOSE_WINDOW = timedelta(minutes=90)
+CLOSE_WINDOW = timedelta(hours=3)  # GitHub cron runs late; 3 h catches each kickoff
 SETTLE_AFTER = timedelta(hours=3)
 VOID_AFTER = timedelta(days=14)
 MIN_CREDITS = 50
@@ -215,7 +215,7 @@ def run_close(led: Ledger, client: OddsClient, *, now: datetime | None = None, d
     due = [b for b in led.open_bets()
            if b["event_id"] not in captured and now < _parse_ts(b["kickoff"]) <= now + CLOSE_WINDOW]
     if not due:
-        return ["close: no open bets kicking off within 90 min"]
+        return ["close: no open bets kicking off within 3 h"]
     log = []
     by_sport: dict[str, list[dict]] = {}
     for b in due:

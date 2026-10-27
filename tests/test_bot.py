@@ -105,6 +105,7 @@ class BotTest(unittest.TestCase):
         self.assertEqual([c[0] for c in self.api.calls], [f"/sports/{SPORT}/events", f"/sports/{SPORT}/odds"])
         self.assertEqual(self.api.calls[-1][1]["eventIds"], "a")
         self.assertEqual(self.led.closing_odds("a")["odds_1x2"], [1.6, 4.0, 6.0])
+        self.assertEqual(self.led.closing_odds("a")["minutes_before"], 60)
         self.api.calls.clear()
         bot.run_close(self.led, self.client, now=NOW + timedelta(hours=29, minutes=30))
         self.assertEqual(self.api.calls, [], log)
@@ -120,6 +121,10 @@ class BotTest(unittest.TestCase):
         self.assertFalse(cd.due(led_dir, NOW))  # empty ledger
         bot.run_bet(self.led, self.client, RATINGS, now=NOW)  # bet "a" kicks off in 30h
         self.assertFalse(cd.due(led_dir, NOW))
+        self.assertFalse(cd.due(led_dir, NOW + timedelta(hours=26, minutes=50)))  # 3h10m out
+        self.assertTrue(cd.due(led_dir, NOW + timedelta(hours=27, minutes=5)))  # 2h55m out
+        self.assertEqual(bot.run_close(self.led, self.client, now=NOW + timedelta(hours=26, minutes=50))[0],
+                         "close: no open bets kicking off within 3 h")
         self.assertTrue(cd.due(led_dir, NOW + timedelta(hours=29)))
         bot.run_close(self.led, self.client, now=NOW + timedelta(hours=29))
         self.assertFalse(cd.due(led_dir, NOW + timedelta(hours=29, minutes=30)))

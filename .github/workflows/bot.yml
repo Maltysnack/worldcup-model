@@ -7,7 +7,8 @@ name: Betting bot
 # Schedule (UTC). Locked rules v1 (2026-10-26): flat $10, min edge 3%,
 # no prices above 6.0.
 #   bet     daily 06:00   one decision per event, at the first pull inside 48h
-#   close   hourly :05    0 credits unless an open bet kicks off within 90 min;
+#   close   :17 and :47   0 credits unless an open bet kicks off within 3 h (odd
+#                         minutes: GitHub drops fewer runs than at :00/:05);
 #                         idle runs stop after checkout (scripts/close_due.py)
 #   settle  Mon 12:00     ingest + Elo update + settle + title odds (Euro/Copa 2028, WC 2030)
 #
@@ -24,7 +25,7 @@ name: Betting bot
 on:
   schedule:
     - cron: "0 6 * * *"
-    - cron: "5 * * * *"
+    - cron: "17,47 * * * *"
     - cron: "0 12 * * 1"
   workflow_dispatch:
     inputs:
@@ -50,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Scheduled runs map their cron to a task; manual runs use the input.
-      TASK: ${{ github.event.schedule == '0 6 * * *' && 'bet' || github.event.schedule == '5 * * * *' && 'close' || github.event.schedule == '0 12 * * 1' && 'settle' || inputs.task }}
+      TASK: ${{ github.event.schedule == '0 6 * * *' && 'bet' || github.event.schedule == '17,47 * * * *' && 'close' || github.event.schedule == '0 12 * * 1' && 'settle' || inputs.task }}
       DRY: ${{ inputs.dry && '--dry' || '' }}
     steps:
       - name: Checkout worldcup

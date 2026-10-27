@@ -151,6 +151,8 @@ class Ledger:
         row = {
             "type": "closing", "captured_at": captured_at, "event_id": event_id,
             "kickoff": kickoff, "odds_1x2": [float(o) for o in odds],
+            # Cron runs drift, so say how close to kickoff this "closing" price really was.
+            "minutes_before": round((_parse_ts(kickoff) - _parse_ts(captured_at)).total_seconds() / 60),
         }
         if snapshot:
             row["snapshot"] = snapshot

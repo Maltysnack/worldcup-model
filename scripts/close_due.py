@@ -1,4 +1,4 @@
-"""Print 1 if any open bet without a closing price kicks off within 90 min, else 0.
+"""Print 1 if any open bet without a closing price kicks off within 3 h, else 0.
 
 Stdlib only, so bot.yml can run it before installing anything and skip idle
 hourly close runs. Mirrors the `due` filter in betting/bot.py run_close.
@@ -19,7 +19,7 @@ def due(ledger: Path, now: datetime) -> bool:
     closed = {c["event_id"] for c in rows(ledger / "closing.jsonl")}
     for b in rows(ledger / "bets.jsonl"):
         ko = datetime.fromisoformat(b["kickoff"].replace("Z", "+00:00"))
-        if b["hash"] not in done and b["event_id"] not in closed and now < ko <= now + timedelta(minutes=90):
+        if b["hash"] not in done and b["event_id"] not in closed and now < ko <= now + timedelta(hours=3):
             return True
     return False
 
