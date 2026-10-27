@@ -1,0 +1,35 @@
+name: Weekly update
+
+# Tuesday 00:17 UTC (11:17 AEDT), after Monday's settle run. Posts
+# scripts/weekly_report.py as an issue assigned to Maltysnack (GitHub emails
+# assignees) and closes last week's. No email secrets needed.
+on:
+  schedule:
+    - cron: "17 0 * * 2"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - run: uv python install 3.12 && uv sync
+      - name: Write report
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: |
+          gh run list --workflow bot.yml --limit 200 --json conclusion,createdAt,event,displayTitle,url > runs.json
+          uv run python scripts/weekly_report.py runs.json > body.md
+      - name: Post issue
+        run: |
+          gh label create weekly --color 0e8a16 --force
+          for n in $(gh issue list --label weekly --state open --json number --jq '.[].number'); do gh issue close "$n"; done
+          gh issue create --title "Worldcup weekly: $(date -u +%d-%m-%Y)" --body-file body.md --label weekly --assignee Maltysnack
