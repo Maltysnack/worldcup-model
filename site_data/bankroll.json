@@ -1,0 +1,27 @@
+{
+ "generated_at": "2026-10-28",
+ "rule": {
+  "staking": "flat",
+  "stake": 10.0,
+  "min_edge": 0.03,
+  "max_odds": 6.0
+ },
+ "start": 1000.0,
+ "upcoming": [],
+ "recent_passes": [],
+ "source": "not-started",
+ "note": "No bets yet.",
+ "first_kickoff": null,
+ "n_bets": 0,
+ "n_settled": 0,
+ "n_won": 0,
+ "staked": 0.0,
+ "pnl": 0.0,
+ "roi": null,
+ "mean_clv": null,
+ "curve": [
+  1000.0
+ ],
+ "next_bet": null,
+ "recent": []
+}

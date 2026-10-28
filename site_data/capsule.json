@@ -1,0 +1,57 @@
+{
+ "frozen_at": "2026-06-06",
+ "model_version": "elo-v4a-flat-mild+squad35+form",
+ "champion": {
+  "team": "Spain",
+  "p_champion": 18.27,
+  "rank_by_p_champion": 1,
+  "log_loss": 1.6999
+ },
+ "final": {
+  "home": "Spain",
+  "away": "Argentina",
+  "score": [
+   1,
+   0
+  ]
+ },
+ "n_matches": 104,
+ "log_loss": {
+  "model": 0.851,
+  "plain_elo": 0.861,
+  "uniform": 1.099
+ },
+ "accuracy": 0.625,
+ "top": [
+  {
+   "team": "Spain",
+   "p_champion": 18.27,
+   "stage": "Won"
+  },
+  {
+   "team": "France",
+   "p_champion": 11.53,
+   "stage": "SF"
+  },
+  {
+   "team": "Argentina",
+   "p_champion": 8.52,
+   "stage": "Final"
+  },
+  {
+   "team": "Portugal",
+   "p_champion": 8.32,
+   "stage": "R16"
+  },
+  {
+   "team": "Brazil",
+   "p_champion": 5.53,
+   "stage": "R16"
+  },
+  {
+   "team": "England",
+   "p_champion": 4.55,
+   "stage": "SF"
+  }
+ ]
+}

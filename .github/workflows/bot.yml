@@ -1,8 +1,8 @@
 name: Betting bot
 
 # Paper-money Sportsbet 1X2 bot (src/worldcup/betting/bot.py). Each run
-# does one task, verifies the hash-chained ledger, commits ledger/ back to
-# this repo, and (bet, settle) republishes the site's bankroll.json.
+# does one task, verifies the hash-chained ledger, and commits ledger/ (and,
+# for bet and settle, site_data/) back to this repo.
 #
 # Schedule (UTC). Locked rules v1 (2026-10-26): flat $10, min edge 3%,
 # no prices above 6.0.
@@ -21,7 +21,8 @@ name: Betting bot
 #   settle: 0 credits (results come from martj42).
 #   Expected 60 to 200 a month; the bot refuses to pull below 50 remaining.
 #
-# Secrets: ODDS_API_KEY (Odds API), MALTYSNACK_PUSH_TOKEN (site push).
+# Secrets: ODDS_API_KEY (Odds API). Bet and settle runs export the site data
+# to site_data/ in this repo; the site repo copies it from there (DISPLAY.md).
 on:
   schedule:
     - cron: "0 6 * * *"
@@ -101,39 +102,20 @@ jobs:
         if: steps.gate.outputs.go == '1'
         run: uv run worldcup-verify-ledger
 
-      - name: Commit ledger (if changed)
+      - name: Export site data
+        if: steps.gate.outputs.go == '1' && env.DRY == '' && env.TASK != 'close'
+        run: uv run python scripts/export_site_v2.py site_data
+
+      - name: Commit ledger and site data (if changed)
         if: steps.gate.outputs.go == '1' && env.DRY == ''
         run: |
           git config user.name  "worldcup-bot"
           git config user.email "bot@maltysnack.local"
-          git add ledger data/title_odds.json
-          if git diff --cached --quiet; then
-            echo "Ledger unchanged."
+          git add ledger data/title_odds.json site_data
+          # generated_at changes daily; only commit when something else does.
+          if ! git diff --cached -U0 | grep '^[+-] ' | grep -vq '"generated_at"'; then
+            echo "Nothing changed."
           else
             git commit -m "bot: $TASK $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
-          fi
-
-      - name: Checkout maltysnack site
-        if: env.DRY == '' && env.TASK != 'close'
-        uses: actions/checkout@v4
-        with:
-          repository: Maltysnack/Maltysnack.github.io
-          path: site
-          token: ${{ secrets.MALTYSNACK_PUSH_TOKEN }}
-
-      - name: Publish bankroll to site (if changed)
-        if: env.DRY == '' && env.TASK != 'close'
-        run: |
-          uv run python scripts/export_site_v2.py site/projects/worldcup
-          cd site
-          git config user.name  "worldcup-bot"
-          git config user.email "bot@maltysnack.local"
-          git add projects/worldcup/bankroll.json projects/worldcup/capsule.json projects/worldcup/elo.json projects/worldcup/odds.json
-          # generated_at changes daily; only publish when the numbers do.
-          if git diff --cached -U0 | grep '^[+-] ' | grep -vq '"generated_at"'; then
-            git commit -m "worldcup: bankroll update ($TASK)"
-            git push
-          else
-            echo "No bankroll changes to publish."
           fi
