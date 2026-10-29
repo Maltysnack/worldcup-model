@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SCORECARD = ROOT / "data" / "capsule" / "scorecard_2026.json"
 FROZEN_SIM = ROOT / "data" / "simulation-prediction.json"
 TITLE_ODDS = ROOT / "data" / "title_odds.json"
+FIXTURES = ROOT / "data" / "fixtures.json"
 
 RULE, MIN_EDGE = "flat", engine.DEFAULT_MIN_EDGE
 STAGE_SHORT = {"champion": "Won", "final": "Final", "semi_finals": "SF", "quarter_finals": "QF",
@@ -48,6 +49,27 @@ def games(led: Ledger, now: datetime) -> dict:
     future = sorted((r for r in rows if r["kickoff"] > now.isoformat()), key=lambda r: r["kickoff"])
     passes = sorted(led.passes(), key=lambda r: r["decided_at"])[-10:][::-1]
     return {"upcoming": [_game(r) for r in future], "recent_passes": [_game(r) for r in passes]}
+
+
+def fixtures(led: Ledger, now: datetime, path: Path = FIXTURES) -> dict | None:
+    """Every game the last bet run saw, not yet kicked off, with the bot's decision if it made one.
+    Sportsbet odds appear only once Sportsbet prices the game; model_p is null for unknown teams."""
+    if not path.exists():
+        return None
+    data = json.loads(path.read_text())
+    decided = {r["event_id"]: r for r in led.bets() + led.passes()}
+    games = []
+    for f in data["games"]:
+        if f["kickoff"] <= now.isoformat():
+            continue
+        d = decided.get(f["event_id"])
+        odds, p = f["odds"], f["model_p"]
+        games.append({"kickoff": f["kickoff"][:10], "home": f["home"], "away": f["away"],
+                      "model_p": [round(x, 4) for x in p] if p else None, "odds": odds,
+                      "market_p": [round(x, 4) for x in engine.devig_proportional(odds)[0]] if odds else None,
+                      "decision": d["type"] if d else None,
+                      "pick": d.get("selection") if d and d["type"] == "bet" else None})
+    return {"generated_at": now.date().isoformat(), "fetched_at": data["fetched_at"], "games": games}
 
 
 def elo(n: int = 20, active_years: int = 4) -> dict | None:
@@ -138,7 +160,9 @@ def main() -> None:
     out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
     odds = json.loads(TITLE_ODDS.read_text()) if TITLE_ODDS.exists() else None
-    for name, data in (("bankroll", bankroll()), ("capsule", capsule()), ("elo", elo()), ("odds", odds)):
+    fx = fixtures(Ledger(ROOT / "ledger"), datetime.now(timezone.utc))
+    for name, data in (("bankroll", bankroll()), ("capsule", capsule()), ("elo", elo()), ("odds", odds),
+                       ("fixtures", fx)):
         if data is None:
             print(f"skip {name}.json (no source data)")
             continue

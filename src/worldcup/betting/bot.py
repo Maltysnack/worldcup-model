@@ -160,12 +160,14 @@ def active_keys(client: OddsClient) -> list[str]:
 def run_bet(
     led: Ledger, client: OddsClient, ratings: dict[str, float], *, rule: str = "flat",
     min_edge: float = engine.DEFAULT_MIN_EDGE, now: datetime | None = None, dry: bool = False,
+    fixtures_path: str | Path | None = None,
 ) -> list[str]:
     now = now or datetime.now(timezone.utc)
-    log = []
+    log, fixtures = [], []
     for sport in active_keys(client):
         decided = led.decided_events()
         raw, events = client.odds(sport)
+        fixtures += [_fixture(e, sport, ratings) for e in events if _parse_ts(e["commence_time"]) > now]
         due = [e for e in events
                if e["id"] not in decided and now < _parse_ts(e["commence_time"]) <= now + BET_WINDOW]
         if not due:
@@ -174,8 +176,21 @@ def run_bet(
         snap = None if dry else led.save_snapshot(raw, f"odds-{sport}")
         for e in due:
             log.append(_decide(led, e, sport, ratings, rule, min_edge, now, snap, dry))
+    if fixtures_path and not dry:
+        fixtures.sort(key=lambda f: f["kickoff"])
+        Path(fixtures_path).write_text(json.dumps(
+            {"fetched_at": now.isoformat(timespec="seconds"), "games": fixtures}, indent=1) + "\n")
     log.append(f"credits used this run: {client.used_this_run}, remaining: {client.remaining}")
     return log
+
+
+def _fixture(e: dict, sport: str, ratings: dict[str, float]) -> dict:
+    """Every listed game, any distance out: the odds pull already returns them, so no extra credits."""
+    home, away = canonical(e["home_team"]), canonical(e["away_team"])
+    p = (probs_from_ratings(ratings[home], ratings[away], neutral=sport in FINALS_KEYS)
+         if home in ratings and away in ratings else None)
+    return {"event_id": e["id"], "sport": sport, "kickoff": e["commence_time"], "home": home, "away": away,
+            "odds": sportsbet_1x2(e), "model_p": p}
 
 
 def _decide(led, e, sport, ratings, rule, min_edge, now, snap, dry) -> str:
@@ -290,6 +305,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Paper-money Sportsbet 1X2 bot.")
     ap.add_argument("task", choices=["bet", "close", "settle"])
     ap.add_argument("--ledger", default="ledger")
+    ap.add_argument("--fixtures", default="data/fixtures.json", help="bet run: every listed game, for the site")
     ap.add_argument("--rule", choices=["flat", "kelly"], default="flat")
     ap.add_argument("--min-edge", type=float, default=engine.DEFAULT_MIN_EDGE)
     ap.add_argument("--min-credits", type=int, default=MIN_CREDITS)
@@ -309,7 +325,8 @@ def main(argv: list[str] | None = None) -> int:
             return 2
         client = OddsClient(key, min_credits=args.min_credits)
         if args.task == "bet":
-            log = run_bet(led, client, load_ratings(), rule=args.rule, min_edge=args.min_edge, dry=args.dry)
+            log = run_bet(led, client, load_ratings(), rule=args.rule, min_edge=args.min_edge, dry=args.dry,
+                          fixtures_path=args.fixtures)
         else:
             log = run_close(led, client, dry=args.dry)
     print(f"[{now_utc()}] {args.task}")

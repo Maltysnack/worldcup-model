@@ -150,6 +150,26 @@ class BotTest(unittest.TestCase):
         self.assertIsNone(unknown["model_p"])
         self.assertEqual(ex.games(self.led, NOW + timedelta(hours=31))["upcoming"], [])
 
+    def test_fixtures_cover_every_listed_game(self):
+        import importlib.util, pathlib
+        p = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "export_site_v2.py"
+        spec = importlib.util.spec_from_file_location("export_site_v2", p)
+        ex = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(ex)
+        path = pathlib.Path(self.tmp.name) / "fixtures.json"
+        bot.run_bet(self.led, self.client, RATINGS, now=NOW, fixtures_path=path)
+        self.assertEqual(self.client.used_this_run, 1)  # no extra credits
+        g = {x["home"] + x["away"]: x for x in ex.fixtures(self.led, NOW, path)["games"]}
+        self.assertEqual(len(g), 5)  # includes "c", outside the 48h bet window
+        self.assertIsNone(g["TurkeyItaly"]["decision"])
+        self.assertAlmostEqual(sum(g["TurkeyItaly"]["model_p"]), 1.0, places=3)
+        self.assertEqual(g["SpainGeorgia"]["pick"], "home")
+        self.assertIsNone(g["SpainItaly"]["odds"])
+        self.assertIsNone(g["SpainNarnia"]["model_p"])
+        self.assertEqual(len(ex.fixtures(self.led, NOW + timedelta(hours=61), path)["games"]), 0)
+        bot.run_bet(self.led, self.client, RATINGS, now=NOW, dry=True, fixtures_path=path / "x")
+        self.assertFalse((path / "x").exists())
+
     def test_settle_with_closing_and_reversed_fixture(self):
         bot.run_bet(self.led, self.client, RATINGS, now=NOW)
         bot.run_close(self.led, self.client, now=NOW + timedelta(hours=29))
