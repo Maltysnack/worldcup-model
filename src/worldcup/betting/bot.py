@@ -167,7 +167,7 @@ def run_bet(
     for sport in active_keys(client):
         decided = led.decided_events()
         raw, events = client.odds(sport)
-        fixtures += [_fixture(e, sport, ratings) for e in events if _parse_ts(e["commence_time"]) > now]
+        fixtures += list_fixtures(client, sport, events, ratings, now)
         due = [e for e in events
                if e["id"] not in decided and now < _parse_ts(e["commence_time"]) <= now + BET_WINDOW]
         if not due:
@@ -177,15 +177,36 @@ def run_bet(
         for e in due:
             log.append(_decide(led, e, sport, ratings, rule, min_edge, now, snap, dry))
     if fixtures_path and not dry:
-        fixtures.sort(key=lambda f: f["kickoff"])
-        Path(fixtures_path).write_text(json.dumps(
-            {"fetched_at": now.isoformat(timespec="seconds"), "games": fixtures}, indent=1) + "\n")
+        write_fixtures(fixtures_path, fixtures, now)
     log.append(f"credits used this run: {client.used_this_run}, remaining: {client.remaining}")
     return log
 
 
+def run_fixtures(client: OddsClient, ratings: dict[str, float], path: str | Path, *,
+                 now: datetime | None = None) -> list[str]:
+    """Refresh the fixture list for the site without deciding anything (1 credit per active key)."""
+    now = now or datetime.now(timezone.utc)
+    fixtures = []
+    for sport in active_keys(client):
+        fixtures += list_fixtures(client, sport, client.odds(sport)[1], ratings, now)
+    write_fixtures(path, fixtures, now)
+    return [f"{len(fixtures)} fixtures", f"credits used this run: {client.used_this_run}, remaining: {client.remaining}"]
+
+
+def list_fixtures(client: OddsClient, sport: str, priced: list[dict], ratings: dict[str, float],
+                  now: datetime) -> list[dict]:
+    """Every scheduled game, any distance out: the free /events list, with Sportsbet prices where the odds pull had them."""
+    by_id = {e["id"]: e for e in client.events(sport)}
+    by_id.update({e["id"]: e for e in priced})
+    return [_fixture(e, sport, ratings) for e in by_id.values() if _parse_ts(e["commence_time"]) > now]
+
+
+def write_fixtures(path: str | Path, fixtures: list[dict], now: datetime) -> None:
+    fixtures.sort(key=lambda f: f["kickoff"])
+    Path(path).write_text(json.dumps({"fetched_at": now.isoformat(timespec="seconds"), "games": fixtures}, indent=1) + "\n")
+
+
 def _fixture(e: dict, sport: str, ratings: dict[str, float]) -> dict:
-    """Every listed game, any distance out: the odds pull already returns them, so no extra credits."""
     home, away = canonical(e["home_team"]), canonical(e["away_team"])
     p = (probs_from_ratings(ratings[home], ratings[away], neutral=sport in FINALS_KEYS)
          if home in ratings and away in ratings else None)
@@ -303,7 +324,7 @@ def run_settle(led: Ledger, con, *, now: datetime | None = None, dry: bool = Fal
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Paper-money Sportsbet 1X2 bot.")
-    ap.add_argument("task", choices=["bet", "close", "settle"])
+    ap.add_argument("task", choices=["bet", "close", "settle", "fixtures"])
     ap.add_argument("--ledger", default="ledger")
     ap.add_argument("--fixtures", default="data/fixtures.json", help="bet run: every listed game, for the site")
     ap.add_argument("--rule", choices=["flat", "kelly"], default="flat")
@@ -324,7 +345,9 @@ def main(argv: list[str] | None = None) -> int:
             print("ODDS_API_KEY not set", file=sys.stderr)
             return 2
         client = OddsClient(key, min_credits=args.min_credits)
-        if args.task == "bet":
+        if args.task == "fixtures":
+            log = run_fixtures(client, load_ratings(), args.fixtures)
+        elif args.task == "bet":
             log = run_bet(led, client, load_ratings(), rule=args.rule, min_edge=args.min_edge, dry=args.dry,
                           fixtures_path=args.fixtures)
         else:

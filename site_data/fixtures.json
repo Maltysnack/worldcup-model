@@ -1,0 +1,182 @@
+{
+ "generated_at": "2026-10-29",
+ "fetched_at": "2026-10-29T03:35:39+00:00",
+ "games": [
+  {
+   "kickoff": "2026-11-12",
+   "home": "Turkey",
+   "away": "Belgium",
+   "model_p": [
+    0.3341,
+    0.2685,
+    0.3974
+   ],
+   "odds": [
+    3.6,
+    4.0,
+    1.85
+   ],
+   "market_p": [
+    0.26,
+    0.234,
+    0.506
+   ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-12",
+   "home": "England",
+   "away": "Croatia",
+   "model_p": [
+    0.7253,
+    0.1792,
+    0.0955
+   ],
+   "odds": [
+    1.18,
+    6.5,
+    14.0
+   ],
+   "market_p": [
+    0.79,
+    0.1434,
+    0.0666
+   ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-12",
+   "home": "Czech Republic",
+   "away": "Spain",
+   "model_p": [
+    0.0276,
+    0.0706,
+    0.9018
+   ],
+   "odds": [
+    15.0,
+    7.0,
+    1.16
+   ],
+   "market_p": [
+    0.0622,
+    0.1333,
+    0.8045
+   ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-12",
+   "home": "Italy",
+   "away": "France",
+   "model_p": [
+    0.2864,
+    0.2615,
+    0.4522
+   ],
+   "odds": [
+    4.0,
+    4.0,
+    1.76
+   ],
+   "market_p": [
+    0.234,
+    0.234,
+    0.5319
+   ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-13",
+   "home": "Serbia",
+   "away": "Germany",
+   "model_p": [
+    0.215,
+    0.2399,
+    0.5451
+   ],
+   "odds": [
+    8.75,
+    5.9,
+    1.28
+   ],
+   "market_p": [
+    0.1073,
+    0.1591,
+    0.7335
+   ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-13",
+   "home": "Netherlands",
+   "away": "Greece",
+   "model_p": [
+    0.6847,
+    0.198,
+    0.1172
+   ],
+   "odds": [
+    1.38,
+    5.0,
+    6.75
+   ],
+   "market_p": [
+    0.6755,
+    0.1864,
+    0.1381
+   ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-14",
+   "home": "Norway",
+   "away": "Wales",
+   "model_p": [
+    0.7207,
+    0.1814,
+    0.0979
+   ],
+   "odds": [
+    1.23,
+    6.0,
+    10.0
+   ],
+   "market_p": [
+    0.753,
+    0.1544,
+    0.0926
+   ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-14",
+   "home": "Portugal",
+   "away": "Denmark",
+   "model_p": [
+    0.7078,
+    0.1876,
+    0.1047
+   ],
+   "odds": [
+    1.35,
+    5.0,
+    7.5
+   ],
+   "market_p": [
+    0.6897,
+    0.1862,
+    0.1241
+   ],
+   "decision": null,
+   "pick": null
+  }
+ ]
+}

@@ -81,7 +81,7 @@ class BotTest(unittest.TestCase):
         self.assertNotIn("e", bets.keys() | passes.keys())
         self.assertEqual(len(bets) + len(passes), 3)
         # Only the one active intl key is pulled; epl and inactive keys skipped.
-        self.assertEqual([c[0] for c in self.api.calls], ["/sports", f"/sports/{SPORT}/odds"])
+        self.assertEqual([c[0] for c in self.api.calls], ["/sports", f"/sports/{SPORT}/odds", f"/sports/{SPORT}/events"])
         self.assertEqual(self.client.used_this_run, 1)
         n = len(self.led.bets()) + len(self.led.passes())
         bot.run_bet(self.led, self.client, RATINGS, now=NOW + timedelta(hours=1))
@@ -169,6 +169,12 @@ class BotTest(unittest.TestCase):
         self.assertEqual(len(ex.fixtures(self.led, NOW + timedelta(hours=61), path)["games"]), 0)
         bot.run_bet(self.led, self.client, RATINGS, now=NOW, dry=True, fixtures_path=path / "x")
         self.assertFalse((path / "x").exists())
+        # Free /events adds games the odds pull left out; fixtures task decides nothing.
+        self.api.events.append(_event("f", "Wales", "Spain", 24 * 30))
+        n = len(self.led.bets()) + len(self.led.passes())
+        bot.run_fixtures(self.client, RATINGS, path, now=NOW)
+        self.assertEqual(len(ex.fixtures(self.led, NOW, path)["games"]), 6)
+        self.assertEqual(len(self.led.bets()) + len(self.led.passes()), n)
 
     def test_settle_with_closing_and_reversed_fixture(self):
         bot.run_bet(self.led, self.client, RATINGS, now=NOW)

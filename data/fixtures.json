@@ -1,0 +1,141 @@
+{
+ "fetched_at": "2026-10-29T03:35:39+00:00",
+ "games": [
+  {
+   "event_id": "d598d5e914a905ef70b01fd1b444aecb",
+   "sport": "soccer_uefa_nations_league",
+   "kickoff": "2026-11-12T17:00:00Z",
+   "home": "Turkey",
+   "away": "Belgium",
+   "odds": [
+    3.6,
+    4.0,
+    1.85
+   ],
+   "model_p": [
+    0.33405279334702287,
+    0.2685049950690655,
+    0.39744221158391146
+   ]
+  },
+  {
+   "event_id": "8a1174de9079b530bd6612e3fde6e2fa",
+   "sport": "soccer_uefa_nations_league",
+   "kickoff": "2026-11-12T19:45:00Z",
+   "home": "England",
+   "away": "Croatia",
+   "odds": [
+    1.18,
+    6.5,
+    14.0
+   ],
+   "model_p": [
+    0.7252564558897059,
+    0.1792138495934074,
+    0.0955296945168868
+   ]
+  },
+  {
+   "event_id": "87441c4ff41ea3d37812826345450408",
+   "sport": "soccer_uefa_nations_league",
+   "kickoff": "2026-11-12T19:45:00Z",
+   "home": "Czech Republic",
+   "away": "Spain",
+   "odds": [
+    15.0,
+    7.0,
+    1.16
+   ],
+   "model_p": [
+    0.02761037196256976,
+    0.0705924098258862,
+    0.9017972182115441
+   ]
+  },
+  {
+   "event_id": "c096e9bfabbbb93326413433b7c63511",
+   "sport": "soccer_uefa_nations_league",
+   "kickoff": "2026-11-12T19:45:00Z",
+   "home": "Italy",
+   "away": "France",
+   "odds": [
+    4.0,
+    4.0,
+    1.76
+   ],
+   "model_p": [
+    0.28636195491145167,
+    0.2614667237106913,
+    0.45217132137785715
+   ]
+  },
+  {
+   "event_id": "d0ee3d2f44cf592797f6ecae8de62edd",
+   "sport": "soccer_uefa_nations_league",
+   "kickoff": "2026-11-13T19:45:00Z",
+   "home": "Serbia",
+   "away": "Germany",
+   "odds": [
+    8.75,
+    5.9,
+    1.28
+   ],
+   "model_p": [
+    0.2149867389783963,
+    0.239921172885457,
+    0.545092088136147
+   ]
+  },
+  {
+   "event_id": "0010d3b2b15a2b8cb04053b0b1407cc5",
+   "sport": "soccer_uefa_nations_league",
+   "kickoff": "2026-11-13T19:45:00Z",
+   "home": "Netherlands",
+   "away": "Greece",
+   "odds": [
+    1.38,
+    5.0,
+    6.75
+   ],
+   "model_p": [
+    0.6847125140327746,
+    0.1980463208382993,
+    0.11724116512892634
+   ]
+  },
+  {
+   "event_id": "8d67c473dbea0c85b30eefee4bca53d9",
+   "sport": "soccer_uefa_nations_league",
+   "kickoff": "2026-11-14T17:00:00Z",
+   "home": "Norway",
+   "away": "Wales",
+   "odds": [
+    1.23,
+    6.0,
+    10.0
+   ],
+   "model_p": [
+    0.7206552314184494,
+    0.1814463399766331,
+    0.09789842860491747
+   ]
+  },
+  {
+   "event_id": "159554f486f93d1d8d4213c570117a0e",
+   "sport": "soccer_uefa_nations_league",
+   "kickoff": "2026-11-14T19:45:00Z",
+   "home": "Portugal",
+   "away": "Denmark",
+   "odds": [
+    1.35,
+    5.0,
+    7.5
+   ],
+   "model_p": [
+    0.7077667733785528,
+    0.18757056771545694,
+    0.10466265890599057
+   ]
+  }
+ ]
+}
