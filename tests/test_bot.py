@@ -8,7 +8,7 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 
 import duckdb
 
@@ -159,13 +159,19 @@ class BotTest(unittest.TestCase):
         path = pathlib.Path(self.tmp.name) / "fixtures.json"
         bot.run_bet(self.led, self.client, RATINGS, now=NOW, fixtures_path=path)
         self.assertEqual(self.client.used_this_run, 1)  # no extra credits
-        g = {x["home"] + x["away"]: x for x in ex.fixtures(self.led, NOW, path)["games"]}
+        g = {x["home"] + x["away"]: x for x in ex.fixtures(self.led, NOW, path, elo_by_team=RATINGS)["games"]}
         self.assertEqual(len(g), 5)  # includes "c", outside the 48h bet window
         self.assertIsNone(g["TurkeyItaly"]["decision"])
         self.assertAlmostEqual(sum(g["TurkeyItaly"]["model_p"]), 1.0, places=3)
         self.assertEqual(g["SpainGeorgia"]["pick"], "home")
         self.assertIsNone(g["SpainItaly"]["odds"])
         self.assertIsNone(g["SpainNarnia"]["model_p"])
+        self.assertEqual(g["TurkeyItaly"]["home_elo"], round(RATINGS["Turkey"]))
+        self.assertIsNone(g["SpainNarnia"]["away_elo"])
+        # Elo window: the latest run of match days after a 10+ day gap.
+        d = lambda m, x: date(2026, m, x)
+        self.assertEqual(ex.window_start([d(8, 26), d(9, 18), d(9, 24), d(9, 30), d(10, 6)]), d(9, 18))
+        self.assertEqual(ex.window_start([d(10, 6)]), d(10, 6))
         self.assertEqual(len(ex.fixtures(self.led, NOW + timedelta(hours=61), path)["games"]), 0)
         bot.run_bet(self.led, self.client, RATINGS, now=NOW, dry=True, fixtures_path=path / "x")
         self.assertFalse((path / "x").exists())

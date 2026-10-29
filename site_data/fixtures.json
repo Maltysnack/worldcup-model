@@ -6,6 +6,8 @@
    "kickoff": "2026-11-12",
    "home": "Turkey",
    "away": "Belgium",
+   "home_elo": 1790,
+   "away_elo": 1899,
    "model_p": [
     0.3341,
     0.2685,
@@ -28,6 +30,8 @@
    "kickoff": "2026-11-12",
    "home": "England",
    "away": "Croatia",
+   "home_elo": 2032,
+   "away_elo": 1850,
    "model_p": [
     0.7253,
     0.1792,
@@ -50,6 +54,8 @@
    "kickoff": "2026-11-12",
    "home": "Czech Republic",
    "away": "Spain",
+   "home_elo": 1686,
+   "away_elo": 2176,
    "model_p": [
     0.0276,
     0.0706,
@@ -72,6 +78,8 @@
    "kickoff": "2026-11-12",
    "home": "Italy",
    "away": "France",
+   "home_elo": 1898,
+   "away_elo": 2044,
    "model_p": [
     0.2864,
     0.2615,
@@ -94,6 +102,8 @@
    "kickoff": "2026-11-13",
    "home": "Serbia",
    "away": "Germany",
+   "home_elo": 1684,
+   "away_elo": 1891,
    "model_p": [
     0.215,
     0.2399,
@@ -116,6 +126,8 @@
    "kickoff": "2026-11-13",
    "home": "Netherlands",
    "away": "Greece",
+   "home_elo": 1939,
+   "away_elo": 1790,
    "model_p": [
     0.6847,
     0.198,
@@ -138,6 +150,8 @@
    "kickoff": "2026-11-14",
    "home": "Norway",
    "away": "Wales",
+   "home_elo": 1854,
+   "away_elo": 1676,
    "model_p": [
     0.7207,
     0.1814,
@@ -160,6 +174,8 @@
    "kickoff": "2026-11-14",
    "home": "Portugal",
    "away": "Denmark",
+   "home_elo": 2000,
+   "away_elo": 1833,
    "model_p": [
     0.7078,
     0.1876,

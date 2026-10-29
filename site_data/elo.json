@@ -1,126 +1,167 @@
 {
  "generated_at": "2026-10-29",
  "as_of": "2026-10-06",
+ "window_start": "2026-09-18",
  "top": [
   {
    "rank": 1,
    "team": "Spain",
    "rating": 2176,
-   "last_match": "2026-10-06"
+   "last_match": "2026-10-06",
+   "prev_rank": 1,
+   "prev_rating": 2147
   },
   {
    "rank": 2,
    "team": "Argentina",
    "rating": 2105,
-   "last_match": "2026-10-06"
+   "last_match": "2026-10-06",
+   "prev_rank": 2,
+   "prev_rating": 2099
   },
   {
    "rank": 3,
    "team": "France",
    "rating": 2044,
-   "last_match": "2026-10-05"
+   "last_match": "2026-10-05",
+   "prev_rank": 4,
+   "prev_rating": 2014
   },
   {
    "rank": 4,
    "team": "England",
    "rating": 2032,
-   "last_match": "2026-10-06"
+   "last_match": "2026-10-06",
+   "prev_rank": 3,
+   "prev_rating": 2022
   },
   {
    "rank": 5,
    "team": "Portugal",
    "rating": 2000,
-   "last_match": "2026-10-04"
+   "last_match": "2026-10-04",
+   "prev_rank": 7,
+   "prev_rating": 1949
   },
   {
    "rank": 6,
    "team": "Brazil",
    "rating": 1958,
-   "last_match": "2026-10-03"
+   "last_match": "2026-10-03",
+   "prev_rank": 6,
+   "prev_rating": 1951
   },
   {
    "rank": 7,
    "team": "Colombia",
    "rating": 1942,
-   "last_match": "2026-10-06"
+   "last_match": "2026-10-06",
+   "prev_rank": 5,
+   "prev_rating": 1958
   },
   {
    "rank": 8,
    "team": "Netherlands",
    "rating": 1939,
-   "last_match": "2026-10-04"
+   "last_match": "2026-10-04",
+   "prev_rank": 9,
+   "prev_rating": 1932
   },
   {
    "rank": 9,
    "team": "Morocco",
    "rating": 1933,
-   "last_match": "2026-10-04"
+   "last_match": "2026-10-04",
+   "prev_rank": 8,
+   "prev_rating": 1940
   },
   {
    "rank": 10,
    "team": "Switzerland",
    "rating": 1918,
-   "last_match": "2026-10-06"
+   "last_match": "2026-10-06",
+   "prev_rank": 15,
+   "prev_rating": 1885
   },
   {
    "rank": 11,
    "team": "Japan",
    "rating": 1902,
-   "last_match": "2026-10-05"
+   "last_match": "2026-10-05",
+   "prev_rank": 13,
+   "prev_rating": 1892
   },
   {
    "rank": 12,
    "team": "Belgium",
    "rating": 1899,
-   "last_match": "2026-10-05"
+   "last_match": "2026-10-05",
+   "prev_rank": 14,
+   "prev_rating": 1891
   },
   {
    "rank": 13,
    "team": "Italy",
    "rating": 1898,
-   "last_match": "2026-10-05"
+   "last_match": "2026-10-05",
+   "prev_rank": 17,
+   "prev_rating": 1873
   },
   {
    "rank": 14,
    "team": "Germany",
    "rating": 1891,
-   "last_match": "2026-10-04"
+   "last_match": "2026-10-04",
+   "prev_rank": 11,
+   "prev_rating": 1915
   },
   {
    "rank": 15,
    "team": "Mexico",
    "rating": 1879,
-   "last_match": "2026-10-06"
+   "last_match": "2026-10-06",
+   "prev_rank": 10,
+   "prev_rating": 1927
   },
   {
    "rank": 16,
    "team": "United States",
    "rating": 1860,
-   "last_match": "2026-10-06"
+   "last_match": "2026-10-06",
+   "prev_rank": 27,
+   "prev_rating": 1810
   },
   {
    "rank": 17,
    "team": "Norway",
    "rating": 1854,
-   "last_match": "2026-10-04"
+   "last_match": "2026-10-04",
+   "prev_rank": 12,
+   "prev_rating": 1901
   },
   {
    "rank": 18,
    "team": "Ecuador",
    "rating": 1851,
-   "last_match": "2026-10-05"
+   "last_match": "2026-10-05",
+   "prev_rank": 16,
+   "prev_rating": 1874
   },
   {
    "rank": 19,
    "team": "Croatia",
    "rating": 1850,
-   "last_match": "2026-10-06"
+   "last_match": "2026-10-06",
+   "prev_rank": 18,
+   "prev_rating": 1863
   },
   {
    "rank": 20,
    "team": "Paraguay",
    "rating": 1849,
-   "last_match": "2026-10-02"
+   "last_match": "2026-10-02",
+   "prev_rank": 23,
+   "prev_rating": 1820
   }
  ]
 }

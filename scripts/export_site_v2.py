@@ -51,9 +51,13 @@ def games(led: Ledger, now: datetime) -> dict:
     return {"upcoming": [_game(r) for r in future], "recent_passes": [_game(r) for r in passes]}
 
 
-def fixtures(led: Ledger, now: datetime, path: Path = FIXTURES) -> dict | None:
+def fixtures(led: Ledger, now: datetime, path: Path = FIXTURES, elo_by_team: dict | None = None) -> dict | None:
     """Every game the last bet run saw, not yet kicked off, with the bot's decision if it made one.
-    Sportsbet odds appear only once Sportsbet prices the game; model_p is null for unknown teams."""
+    Sportsbet odds appear only once Sportsbet prices the game; model_p and home/away_elo are null for unknown teams."""
+    from worldcup.betting.bot import canonical
+
+    elo_by_team = elo_by_team or {}
+    rate = lambda t: round(elo_by_team[canonical(t)]) if canonical(t) in elo_by_team else None
     if not path.exists():
         return None
     data = json.loads(path.read_text())
@@ -65,6 +69,7 @@ def fixtures(led: Ledger, now: datetime, path: Path = FIXTURES) -> dict | None:
         d = decided.get(f["event_id"])
         odds, p = f["odds"], f["model_p"]
         games.append({"kickoff": f["kickoff"][:10], "home": f["home"], "away": f["away"],
+                      "home_elo": rate(f["home"]), "away_elo": rate(f["away"]),
                       "model_p": [round(x, 4) for x in p] if p else None, "odds": odds,
                       "market_p": [round(x, 4) for x in engine.devig_proportional(odds)[0]] if odds else None,
                       "decision": d["type"] if d else None,
@@ -72,20 +77,54 @@ def fixtures(led: Ledger, now: datetime, path: Path = FIXTURES) -> dict | None:
     return {"generated_at": now.date().isoformat(), "fetched_at": data["fetched_at"], "games": games}
 
 
+def window_start(dates: list[date], gap_days: int = 10) -> date:
+    """First day of the latest run of matches: walk back from the newest date
+    until two consecutive match days are `gap_days` or more apart."""
+    ds = sorted(set(dates))
+    i = len(ds) - 1
+    while i > 0 and (ds[i] - ds[i - 1]).days < gap_days:
+        i -= 1
+    return ds[i]
+
+
 def elo(n: int = 20, active_years: int = 4) -> dict | None:
-    """Top `n` by current Elo among teams that played in the last `active_years`."""
+    """Top `n` by current Elo among teams that played in the last `active_years`,
+    with each team's rank and rating from before the latest international window."""
     from worldcup.db import DB_PATH, connect
 
     if not Path(DB_PATH).exists():
         return None
     with connect(read_only=True) as con:
         as_of = con.execute("SELECT max(date) FROM matches").fetchone()[0]
-        top = con.execute(
-            "SELECT team, rating, last_match FROM elo_current WHERE last_match >= ? ORDER BY rating DESC LIMIT ?",
-            [as_of - timedelta(days=365 * active_years), n]).fetchall()
-    return {"generated_at": date.today().isoformat(), "as_of": as_of.isoformat(),
-            "top": [{"rank": i + 1, "team": t, "rating": round(r), "last_match": lm.date().isoformat()}
-                    for i, (t, r, lm) in enumerate(top)]}
+        since = as_of - timedelta(days=365 * active_years)
+        active = con.execute(
+            "SELECT team, rating, last_match FROM elo_current WHERE last_match >= ? ORDER BY rating DESC",
+            [since]).fetchall()
+        start = window_start([d for (d,) in con.execute(
+            "SELECT DISTINCT date FROM matches WHERE date >= ?", [as_of - timedelta(days=120)]).fetchall()])
+        # A team's pre-window rating is its rating going into its first match of the window.
+        pre = dict(con.execute("""
+            SELECT team, arg_min(r, match_date) FROM (
+              SELECT home_team AS team, rating_home_pre AS r, match_date FROM predictions WHERE match_date >= ?
+              UNION ALL
+              SELECT away_team, rating_away_pre, match_date FROM predictions WHERE match_date >= ?)
+            GROUP BY team""", [start, start]).fetchall())
+    prev = sorted(((pre.get(t, r), t) for t, r, _ in active), reverse=True)
+    prev_rank = {t: i + 1 for i, (_, t) in enumerate(prev)}
+    return {"generated_at": date.today().isoformat(), "as_of": as_of.isoformat(), "window_start": start.isoformat(),
+            "top": [{"rank": i + 1, "team": t, "rating": round(r), "last_match": lm.date().isoformat(),
+                     "prev_rank": prev_rank[t], "prev_rating": round(pre.get(t, r))}
+                    for i, (t, r, lm) in enumerate(active[:n])]}
+
+
+def ratings() -> dict | None:
+    """Current Elo for every team, keyed by name, for fixtures.json."""
+    from worldcup.db import DB_PATH, connect
+
+    if not Path(DB_PATH).exists():
+        return None
+    with connect(read_only=True) as con:
+        return dict(con.execute("SELECT team, rating FROM elo_current").fetchall())
 
 
 def bankroll(ledger_dir: Path = ROOT / "ledger", now: datetime | None = None) -> dict:
@@ -160,7 +199,7 @@ def main() -> None:
     out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
     odds = json.loads(TITLE_ODDS.read_text()) if TITLE_ODDS.exists() else None
-    fx = fixtures(Ledger(ROOT / "ledger"), datetime.now(timezone.utc))
+    fx = fixtures(Ledger(ROOT / "ledger"), datetime.now(timezone.utc), elo_by_team=ratings())
     for name, data in (("bankroll", bankroll()), ("capsule", capsule()), ("elo", elo()), ("odds", odds),
                        ("fixtures", fx)):
         if data is None:
