@@ -1,11 +1,12 @@
 name: Weekly update
 
-# Tuesday 00:17 UTC (11:17 AEDT), after Monday's settle run. Posts
+# Tuesday 00:17 UTC (11:17 AEDT), only in months with a FIFA window or the
+# week after one (Mar, Apr, Jun, Sep, Oct, Nov); quiet months send nothing. Posts
 # scripts/weekly_report.py as an issue assigned to Maltysnack (GitHub emails
 # assignees) and closes last week's. No email secrets needed.
 on:
   schedule:
-    - cron: "17 0 * * 2"
+    - cron: "17 0 * 3,4,6,9,10,11 2"
   workflow_dispatch:
 
 permissions:
