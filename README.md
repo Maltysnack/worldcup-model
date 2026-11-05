@@ -2,7 +2,7 @@
 
 An international football prediction model. It predicted the 2026 World Cup before kickoff and was scored on all 104 matches. It now tests its Elo ratings against bookmaker prices with paper money.
 
-Live page: [maltysnack.github.io/projects/worldcup/](https://maltysnack.github.io/projects/worldcup/)
+Live page: [maltysnack.github.io/worldcup-model/](https://maltysnack.github.io/worldcup-model/)
 
 ## Results
 
@@ -55,6 +55,7 @@ tests/
 data/capsule/          2026 scorecard
 ledger/                bot decisions and settlements
 site_data/             JSON for the live page
+index.html             the live page, served by GitHub Pages
 ```
 
 ## Data

@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Football Bankroll</title>
+<meta name="description" content="A paper-money betting bot that bets Elo model chances against Sportsbet 1X2 prices, plus the scored 2026 World Cup forecast.">
+<!-- Data: site_data/*.json, written by scripts/export_site_v2.py.
+     Open with ?frames to see 1440x900 and 390x844 side by side. -->
+<link rel="stylesheet" href="/style.css?v=9">
+<style>
+:root {
+  /* The page's names, mapped onto the site palette and type. */
+  --paper: var(--bg); --paper-2: var(--bg-soft);
+  --ink: var(--text); --ink-2: var(--text-muted); --ink-3: var(--text-dim);
+  --rule: var(--border); --up: var(--good); --down: var(--bad); --hi: var(--accent);
+  --display: var(--font-display); --mono: var(--font-mono); --sans: var(--font-body);
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--sans);
+  overflow: hidden; -webkit-font-smoothing: antialiased;
+}
+.app {
+  flex: 1; min-height: 0; width: 100%; display: grid; grid-template-rows: auto 1fr auto;
+  padding: clamp(16px, 2.4vw, 36px) clamp(16px, 3.2vw, 56px);
+  gap: clamp(12px, 2vh, 24px);
+}
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.mark { font-family: var(--display); font-weight: 900; font-size: 22px; letter-spacing: .02em; text-transform: uppercase; }
+.mark span { color: var(--ink-3); font-weight: 600; }
+nav { display: flex; gap: 4px; }
+nav button, .ghost {
+  font: 500 13px/1 var(--sans); color: var(--ink-2); background: none; border: 0;
+  padding: 10px 14px; border-radius: 999px; cursor: pointer; letter-spacing: .02em;
+}
+/* Gradient, not an inset shadow: the shadow left a hairline on fractional-width tabs. */
+nav button[aria-selected="true"] { color: var(--ink); background: linear-gradient(var(--hi), var(--hi)) bottom / 100% 2px no-repeat; border-radius: 0; }
+nav button:hover:not([aria-selected="true"]), .ghost:hover { color: var(--ink); }
+.ghost { border: 1px solid var(--rule); }
+.tag { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); }
+
+main { position: relative; min-height: 0; }
+section { position: absolute; inset: 0; display: none; min-height: 0; }
+section.on { display: grid; }
+
+/* Bankroll */
+#bankroll { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: 1fr auto; gap: 0 clamp(24px, 4vw, 72px); }
+.hero { align-self: center; }
+.big { font: 900 clamp(64px, 11vw, 168px)/.86 var(--display); letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.big small { font-size: .42em; color: var(--ink-3); vertical-align: .9em; margin-right: .06em; }
+.delta { margin-top: 14px; font: 500 clamp(14px, 1.3vw, 18px)/1.3 var(--mono); }
+.up { color: var(--up); } .down { color: var(--down); }
+.sub { margin-top: 8px; color: var(--ink-2); font-size: 14px; max-width: 34ch; line-height: 1.45; }
+.chart { position: relative; min-height: 0; align-self: stretch; border-left: 1px solid var(--rule); padding-left: clamp(16px, 2vw, 32px); }
+.chart { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 12px; }
+.chart svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.recent { display: grid; gap: 4px; font: 500 12px/1.3 var(--mono); }
+.recent[hidden] { display: none; }
+.recent div { display: grid; grid-template-columns: 11ch 1fr 6ch 8ch; gap: 8px; color: var(--ink-2); }
+.recent div b { font-weight: 500; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recent div span:last-child { text-align: right; }
+.stat[hidden] { display: none; }
+.rules { margin-top: 14px; line-height: 1.5; }
+.stats { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); padding-top: 14px; gap: 16px; }
+.stat b { display: block; font: 600 clamp(20px, 2.2vw, 32px)/1 var(--mono); margin-top: 8px; font-variant-numeric: tabular-nums; }
+.next { grid-column: span 1; }
+.next b { font: 500 14px/1.35 var(--sans); }
+.next b em { font-style: normal; font-family: var(--mono); background: var(--hi); color: #fff; padding: 1px 6px; border-radius: 3px; }
+
+/* 2026 */
+#capsule { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: 1fr auto; gap: 0 clamp(24px, 4vw, 72px); }
+.called { font: 900 clamp(56px, 9vw, 144px)/.86 var(--display); text-transform: uppercase; }
+.called i { font-style: normal; color: var(--hi); -webkit-text-stroke: 0; }
+.bars { align-self: center; display: grid; gap: clamp(8px, 1.4vh, 14px); }
+.bar { display: grid; grid-template-columns: 9ch 1fr 7ch; align-items: center; gap: 12px; font-size: 14px; }
+.bar .track { height: clamp(18px, 3vh, 30px); background: var(--paper-2); position: relative; }
+.bar .fill { position: absolute; inset: 0 auto 0 0; background: var(--ink-3); }
+.bar.won .fill { background: var(--ink); }
+.bar.won .name { font-weight: 600; }
+.bar .fill::after { content: attr(data-p); position: absolute; right: -6ch; top: 50%; transform: translateY(-50%); font: 500 12px var(--mono); color: var(--ink-2); }
+.bar .stage { font: 500 11px var(--mono); text-transform: uppercase; color: var(--ink-3); text-align: right; letter-spacing: .06em; }
+.bar.won .stage { color: var(--ink); }
+.bars .tag { margin-bottom: 4px; }
+#capsule .verdict { grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr); align-items: start; }
+.verdict .stat .tag:last-child { display: block; margin-top: 8px; }
+.verdict .sub { margin: 0; }
+#scale { width: 100%; height: 56px; margin-top: 8px; overflow: visible; }
+
+/* Odds */
+#odds { grid-template-rows: 1fr auto; }
+.soon { align-self: center; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 32px); }
+.card { border-top: 2px solid var(--ink); padding-top: 14px; }
+.card h3 { font: 800 clamp(28px, 3.4vw, 52px)/.9 var(--display); text-transform: uppercase; }
+.card p { margin-top: 10px; color: var(--ink-2); font-size: 14px; }
+.ghostbars { margin-top: 18px; display: grid; gap: 6px; }
+.ghostbars div { height: 10px; background: repeating-linear-gradient(90deg, var(--rule) 0 6px, transparent 6px 10px); }
+
+/* Every listed game, no cap: the list scrolls inside the tab, the page never does. */
+.games { align-self: center; display: grid; gap: clamp(16px, 3vh, 32px); min-height: 0; max-height: 100%; overflow-y: auto; overscroll-behavior: contain; }
+.games[hidden], .glist[hidden], .soon[hidden] { display: none; }
+.glist { display: grid; gap: 4px; font: 500 12px/1.35 var(--mono); }
+.glist .tag { margin-bottom: 6px; }
+.g { display: grid; grid-template-columns: 9ch minmax(0, 1.3fr) repeat(3, 7ch) minmax(0, 1fr); gap: 14px; align-items: center; color: var(--ink-2); padding: 5px 0; border-top: 1px solid var(--rule); }
+.g b { font-weight: 500; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.g .p { text-align: right; font-variant-numeric: tabular-nums; }
+.g.head { position: sticky; top: 0; z-index: 1; background: var(--paper); border-top: 0; padding: 8px 0 4px; color: var(--ink-3); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+.g .why { padding-left: 2ch; }
+.g .o { display: inline-block; width: 7ch; text-align: right; }
+/* Home and away get their own columns so names and ratings line up down the list. */
+.g .m { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; align-items: center; gap: 4px 12px; min-width: 0; }
+.g .t { display: grid; grid-template-columns: 20px 15ch 4ch; align-items: center; gap: 8px; min-width: 0; }
+.g .t img { width: 20px; height: 13px; object-fit: cover; outline: 1px solid var(--rule); }
+.g .t i { font-style: normal; color: var(--ink-3); font-size: 11px; text-align: right; font-variant-numeric: tabular-nums; }
+.g .v { color: var(--ink-3); }
+.note[hidden] { display: none; }
+.note { align-self: end; margin-top: 12px; text-transform: none; letter-spacing: .02em; }
+.g .p.pick { color: var(--ink); font-weight: 600; }
+.g .why { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.g .why em { font-style: normal; background: var(--hi); color: #fff; padding: 1px 6px; border-radius: 3px; }
+
+footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.stamp { font: 600 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--down); border: 1px dashed currentColor; padding: 5px 8px; }
+
+dialog { max-width: min(560px, calc(100vw - 32px)); border: 0; padding: 28px; background: var(--paper); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+dialog::backdrop { background: rgba(10,9,7,.55); }
+dialog h2 { font: 900 40px/.9 var(--display); text-transform: uppercase; margin-bottom: 16px; }
+dialog p { font-size: 14px; line-height: 1.55; color: var(--ink-2); margin-bottom: 10px; }
+dialog p b { color: var(--ink); }
+
+/* Phone: tabs move to a bottom bar, one column, chart shrinks */
+@media (max-width: 700px) {
+  .app { grid-template-rows: auto 1fr auto auto; }
+  nav { order: 3; grid-row: 4; justify-content: space-between; border-top: 1px solid var(--rule); }
+  nav button { flex: 1; }
+  header nav { display: none; }
+  .mobile-nav { display: flex !important; }
+  #bankroll, #capsule { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr) auto; }
+  .chart { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 8px; margin: 12px 0; }
+  .stats { grid-template-columns: repeat(3, 1fr); }
+  .recent { display: none; }
+  #capsule .verdict { grid-template-columns: 1fr 2fr; gap: 8px 12px; }
+  .verdict .sub { grid-column: 1 / -1; }
+  .stats .next { grid-column: 1 / -1; }
+  .stat b { font-size: 20px; }
+  .bars { align-self: stretch; align-content: center; }
+  .bar { grid-template-columns: 8ch 1fr 4ch; font-size: 13px; }
+  .bar .stage { font-size: 10px; }
+  .called { font-size: 48px; }
+  .bars { gap: 6px; }
+  .bar .track { height: 16px; }
+  .soon { grid-template-columns: 1fr; gap: 20px; }
+  .g { grid-template-columns: minmax(0, 1fr) repeat(3, 6ch); gap: 8px; }
+  .g .m { grid-template-columns: minmax(0, 1fr); }
+  .g .t { grid-template-columns: 20px minmax(0, 1fr) 4ch; }
+  .g .v { display: none; }
+  .g .d, .g .why { display: none; }
+  .card .ghostbars { display: none; }
+  footer .tag.hide-sm { display: none; }
+  .sub { font-size: 13px; }
+}
+.mobile-nav { display: none; }
+@media (max-height: 760px) and (max-width: 700px) { .sub { display: none; } }
+
+/* ?frames board */
+.board { display: flex; gap: 40px; padding: 32px; align-items: flex-start; height: 100dvh; overflow: auto; background: var(--paper-2); }
+.board figure { margin: 0; }
+.board figcaption { font: 500 12px var(--mono); color: var(--ink-2); margin-bottom: 8px; }
+.board .clip { overflow: hidden; outline: 1px solid var(--rule); background: var(--paper); }
+.board iframe { border: 0; transform-origin: 0 0; display: block; }
+.stamp.live { color: var(--up); }
+
+/* Ratings: the Elo table behind every probability on the page */
+.elo { align-self: center; display: grid; gap: 14px; min-height: 0; }
+.elist { display: grid; grid-auto-flow: column; grid-template-rows: repeat(10, auto); grid-template-columns: 1fr 1fr; gap: 0 clamp(24px, 4vw, 72px); font: 500 13px/1.35 var(--mono); }
+.e { display: grid; grid-template-columns: 3ch 4ch 24px minmax(0, 1fr) 5ch 4ch; gap: 10px; align-items: center; padding: 6px 0; border-top: 1px solid var(--rule); color: var(--ink-2); }
+.e b { font-weight: 500; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.e img { width: 24px; height: 16px; object-fit: cover; outline: 1px solid var(--rule); }
+.e:first-child .r { color: var(--hi); }
+.e .r { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.e .mv { font-size: 11px; font-variant-numeric: tabular-nums; }
+.e .dr { text-align: right; font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+@media (max-width: 700px) {
+  .elist { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+  .e:nth-child(n+11), .elo .all { display: none; }
+  .elo .tag .ten { display: inline; }
+  .e { padding: 5px 0; }
+}
+.muted { color: var(--ink-3); }
+.elo .ten { display: none; }
+</style>
+</head>
+<body class="fit">
+<aside class="sidebar"></aside>
+<div class="app" id="app">
+  <header>
+    <div class="mark">Football <span>/ bankroll</span></div>
+    <nav role="tablist">
+      <button role="tab" data-tab="bankroll" aria-selected="true">Bankroll</button>
+      <button role="tab" data-tab="capsule" aria-selected="false">2026</button>
+      <button role="tab" data-tab="odds" aria-selected="false">Odds</button>
+      <button role="tab" data-tab="ratings" aria-selected="false">Ratings</button>
+    </nav>
+    <button class="ghost" id="how">How it works</button>
+  </header>
+
+  <main>
+    <section id="bankroll" class="on" role="tabpanel">
+      <div class="hero">
+        <div class="tag" id="bk-tag">Paper bankroll · started $1,000</div>
+        <div class="big" id="bk"><small>$</small>1,000</div>
+        <div class="delta" id="bkd">&nbsp;</div>
+        <p class="sub" id="bk-sub">Fake money, real Sportsbet prices. Every bet is hash-chained before kickoff, so nothing gets quietly deleted.</p>
+        <div class="tag rules" id="bk-rules"></div>
+      </div>
+      <div class="chart"><svg id="curve" viewBox="0 0 700 360" preserveAspectRatio="none" aria-label="Bankroll over bets"></svg>
+        <div class="recent" id="recent" hidden><span class="tag">Last settled</span></div></div>
+      <div class="stats">
+        <div class="stat" id="clv-stat" hidden><span class="tag">Beat the close</span><b id="clv">-</b></div>
+        <div class="stat" id="roi-stat" hidden><span class="tag">ROI</span><b id="roi">-</b></div>
+        <div class="stat" id="won-stat" hidden><span class="tag">Won</span><b id="won">-</b></div>
+        <div class="stat next"><span class="tag">Next bet</span><b id="next">-</b></div>
+      </div>
+    </section>
+
+    <section id="capsule" role="tabpanel">
+      <div class="hero">
+        <div class="tag" id="cap-tag">Frozen before kickoff</div>
+        <div class="called">We said<br><i id="cap-team">Spain.</i></div>
+        <p class="sub" id="cap-sub"></p>
+      </div>
+      <div class="bars" id="bars"><div class="tag">Pre-tournament title odds · how far they got</div></div>
+      <div class="stats verdict">
+        <div class="stat"><span class="tag">Results called right</span><b id="acc">-</b><span class="tag" id="acc-sub"></span></div>
+        <div class="scale"><span class="tag">Typical chance it gave what actually happened</span><svg id="scale" aria-label="Model versus plain Elo versus guessing"></svg></div>
+        <p class="sub" id="verdict"></p>
+      </div>
+    </section>
+
+    <section id="odds" role="tabpanel">
+      <div class="games" id="games" hidden>
+        <div class="glist" id="upcoming" hidden><div class="tag">Upcoming · chance of each result, our model / the market</div><div class="g head"><span class="d">Date</span><span>Match · Elo</span><span class="p">Home</span><span class="p">Draw</span><span class="p">Away</span><span class="why">Odds</span></div></div>
+        <div class="glist" id="passes" hidden><div class="tag">Recent passes · prices the bot saw and declined</div><div class="g head"><span class="d">Date</span><span>Match · Elo</span><span class="p">Home</span><span class="p">Draw</span><span class="p">Away</span><span class="why">Why not</span></div></div>
+      </div>
+      <div class="soon" id="soon">
+        <div class="card"><span class="tag">Opens 2027</span><h3>Euro 2028</h3><p>Title odds vs Sportsbet futures.</p><div class="ghostbars"><div style="width:80%"></div><div style="width:62%"></div><div style="width:48%"></div><div style="width:30%"></div></div></div>
+        <div class="card"><span class="tag">Opens 2027</span><h3>Copa 2028</h3><p>Same model, CONMEBOL draw.</p><div class="ghostbars"><div style="width:74%"></div><div style="width:66%"></div><div style="width:35%"></div><div style="width:22%"></div></div></div>
+        <div class="card"><span class="tag">Opens 2028</span><h3>WC 2030</h3><p>Elo drift model, years out.</p><div class="ghostbars"><div style="width:56%"></div><div style="width:50%"></div><div style="width:44%"></div><div style="width:38%"></div></div></div>
+      </div>
+      <div class="tag note" id="odds-note" hidden>Odds from Sportsbet. Market chance is Sportsbet's odds with the bookmaker margin removed.</div>
+    </section>
+
+    <section id="ratings" role="tabpanel">
+      <div class="elo">
+        <div class="tag" id="elo-tag">Elo ratings · top 20</div>
+        <div class="elist" id="elist"></div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="mobile-nav" role="tablist">
+    <button role="tab" data-tab="bankroll" aria-selected="true">Bankroll</button>
+    <button role="tab" data-tab="capsule" aria-selected="false">2026</button>
+    <button role="tab" data-tab="odds" aria-selected="false">Odds</button>
+    <button role="tab" data-tab="ratings" aria-selected="false">Ratings</button>
+  </nav>
+
+  <footer>
+    <span class="stamp" id="stamp">Loading</span>
+    <span class="tag hide-sm">Elo model · Sportsbet 1X2</span>
+  </footer>
+</div>
+
+<dialog id="method">
+  <h2>How it works</h2>
+  <p><b>Model.</b> Elo ratings from every international since 1872, turned into win/draw/loss chances by a goals model.</p>
+  <p><b>Bets.</b> When our chance times Sportsbet's price promises 3% profit or more, the bot puts $10 of fake money on it, once per match, up to 48 hours before kickoff. No prices above 6.0: on longshots a small disagreement looks like a huge edge.</p>
+  <p><b>Beat the close.</b> Did we get a better price than the final one before kickoff? The fairest test of skill. Bankroll is mostly luck over a few dozen bets.</p>
+  <p><b>Ledger.</b> Each bet is hashed and chained to the last, with the raw odds saved as evidence. Anyone can re-verify it.</p>
+  <p><b>Until it goes live.</b> The bankroll sits at $1,000. No backtest numbers are shown, because we have no real past Sportsbet prices to test against.</p>
+  <form method="dialog"><button class="ghost">Close</button></form>
+</dialog>
+
+<script>
+if (new URLSearchParams(location.search).has('frames')) {
+  const src = location.pathname;
+  document.body.innerHTML = `<div class="board">
+    <figure><figcaption>1440 x 900 at 50%</figcaption><div class="clip" style="width:720px;height:450px"><iframe src="${src}" width="1440" height="900" style="transform:scale(.5)"></iframe></div></figure>
+    <figure><figcaption>390 x 844 at 75%</figcaption><div class="clip" style="width:292.5px;height:633px"><iframe src="${src}" width="390" height="844" style="transform:scale(.75)"></iframe></div></figure>
+  </div>`;
+  document.body.style.overflow = 'auto';
+} else {
+  const $ = id => document.getElementById(id);
+  // Footer stamp follows the open tab: [text, extra class].
+  let current = 'bankroll';
+  const stamps = { bankroll: ['Loading', ''], capsule: ['Loading', ''], odds: ['Not open yet', ''], ratings: ['Loading', ''] };
+  const paintStamp = () => {
+    const [text, cls] = stamps[current];
+    $('stamp').textContent = text;
+    $('stamp').className = 'stamp' + (cls ? ' ' + cls : '');
+  };
+  const show = id => {
+    current = id;
+    document.querySelectorAll('section').forEach(s => s.classList.toggle('on', s.id === id));
+    document.querySelectorAll('[data-tab]').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === id));
+    try { localStorage.setItem('wc-tab', id); } catch (e) {}
+    paintStamp();
+  };
+  document.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => show(b.dataset.tab));
+  try { const t = localStorage.getItem('wc-tab'); if (t) show(t); } catch (e) {}
+  $('how').onclick = () => $('method').showModal();
+
+  // Flags from flagcdn by ISO code; unmapped teams get an empty slot, not a wrong flag.
+  const ISO = { Spain: 'es', Argentina: 'ar', France: 'fr', England: 'gb-eng', Scotland: 'gb-sct', Wales: 'gb-wls',
+    'Northern Ireland': 'gb-nir', 'Republic of Ireland': 'ie', Portugal: 'pt', Brazil: 'br', Colombia: 'co', Netherlands: 'nl',
+    Morocco: 'ma', Switzerland: 'ch', Japan: 'jp', Belgium: 'be', Italy: 'it', Germany: 'de', Mexico: 'mx',
+    'United States': 'us', Norway: 'no', Ecuador: 'ec', Croatia: 'hr', Paraguay: 'py', Uruguay: 'uy', Denmark: 'dk',
+    Turkey: 'tr', Austria: 'at', Senegal: 'sn', 'South Korea': 'kr', Iran: 'ir', Australia: 'au', Canada: 'ca',
+    Serbia: 'rs', Greece: 'gr', 'Czech Republic': 'cz', Poland: 'pl', Sweden: 'se', Ukraine: 'ua', Hungary: 'hu',
+    Egypt: 'eg', Nigeria: 'ng', Algeria: 'dz', Tunisia: 'tn', 'Ivory Coast': 'ci', Peru: 'pe', Chile: 'cl', Venezuela: 've' };
+  const flag = t => ISO[t] ? `<img src="https://flagcdn.com/w40/${ISO[t]}.png" alt="" loading="lazy">` : '<span></span>';
+
+  // Dates: data files are ISO, the page shows dd-mm-yyyy (site rule).
+  const dmy = iso => iso ? iso.slice(0, 10).split('-').reverse().join('-') : '';
+  // Game dates in words, no year: "12th Nov" (upcoming list).
+  const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const dayMon = iso => {
+    const d = +iso.slice(8, 10), th = d % 10 === 1 && d !== 11 ? 'st' : d % 10 === 2 && d !== 12 ? 'nd' : d % 10 === 3 && d !== 13 ? 'rd' : 'th';
+    return `${d}${th} ${MON[+iso.slice(5, 7) - 1]}`;
+  };
+  const sign = v => (v >= 0 ? '+' : '-');
+  const pct = v => v == null ? '-' : `${sign(v)}${Math.abs(v * 100).toFixed(1)}%`;
+  const tone = (el, v) => el.className = v == null ? '' : v >= 0 ? 'up' : 'down';
+
+  // Upcoming games and recent passes. Model vs market per outcome is the
+  // point; the bet, if any, is the outcome where the model is clearly higher.
+  const REASON = { 'no edge': 'prices fair or model not confident enough', 'zero stake': 'zero stake' };
+  const cell = (g, i) => {
+    const m = g.model_p ? Math.round(g.model_p[i] * 100) : '-', k = g.market_p ? Math.round(g.market_p[i] * 100) : '-';
+    return `<span class="p${g.pick === ['home', 'draw', 'away'][i] ? ' pick' : ''}">${m}/${k}</span>`;
+  };
+  const team = (t, elo) => `<span class="t">${flag(t)}<b>${t}</b><i>${elo || ''}</i></span>`;
+  const row = (g, why) => `<div class="g"><span class="d">${dayMon(g.kickoff)}</span><span class="m">${team(g.home, g.home_elo)}<span class="v">v</span>${team(g.away, g.away_elo)}</span>${[0, 1, 2].map(i => cell(g, i)).join('')}<span class="why">${why}</span></div>`;
+  // fixtures.json lists every game on the feed, any distance out; before the
+  // bot decides, the last column is Sportsbet's price, or a note if unpriced.
+  const why = g => g.decision === 'bet' && g.pick
+    ? `<em>${g.pick === 'draw' ? 'Draw' : g[g.pick]} ${g.odds[['home', 'draw', 'away'].indexOf(g.pick)].toFixed(2)}</em>`
+    : g.decision === 'pass' ? (REASON[g.reason] || g.reason || 'pass')
+    : g.odds ? g.odds.map(o => `<span class="o">${o.toFixed(2)}</span>`).join('') : 'not priced yet';
+  function renderGames(b, fx) {
+    const today = new Date().toISOString().slice(0, 10);
+    const up = fx ? fx.games.filter(g => g.kickoff >= today) : b.upcoming || [];
+    const passes = (b.recent_passes || []).slice(0, fx ? 4 : 6);
+    $('upcoming').insertAdjacentHTML('beforeend', up.map(g => row(g, why(g))).join(''));
+    $('passes').insertAdjacentHTML('beforeend', passes.map(g => row(g, REASON[g.reason] || g.reason || '')).join(''));
+    $('upcoming').hidden = !up.length;
+    $('passes').hidden = !passes.length;
+    $('games').hidden = !up.length && !passes.length;
+    $('soon').hidden = !$('games').hidden;
+    $('odds-note').hidden = $('games').hidden;
+    if (up.length) {
+      const [a, z] = [dayMon(up[0].kickoff), dayMon(up[up.length - 1].kickoff)];
+      stamps.odds = [`Next games ${a === z ? a : `${a} to ${z}`}`, 'live'];
+    } else if (passes.length) stamps.odds = [`${passes.length} recent passes`, 'live'];
+  }
+
+  // fixtures.json is optional: until the bot writes one, upcoming comes from bankroll.json.
+  const fixtures = fetch('site_data/fixtures.json').then(r => r.ok ? r.json() : null).catch(() => null);
+  Promise.all([fetch('site_data/bankroll.json').then(r => r.json()), fixtures]).then(([b, fx]) => {
+    const ru = b.rule;
+    $('bk-rules').textContent = `Locked rules: $${ru.stake} flat · edge ${Math.round(ru.min_edge * 100)}%+ · odds up to ${ru.max_odds.toFixed(1)}`;
+    stamps.bankroll = b.source === 'ledger' ? ['Live · paper money', 'live'] : ['Paper money · not started', ''];
+    renderGames(b, fx);
+    if (b.source !== 'ledger') {
+      // No bets yet: flat $1,000, empty chart with a baseline, no made-up numbers.
+      $('curve').innerHTML = `
+        <line x1="0" x2="700" y1="180" y2="180" stroke="var(--ink-3)" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"/>
+        <text x="0" y="168" fill="var(--ink-3)" style="font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase">$1,000 · first bet pending</text>`;
+      $('bkd').textContent = '0 bets placed';
+      $('bkd').className = 'delta muted';
+      $('bk-sub').textContent = 'Fake money, real Sportsbet prices. No bets yet: the bot checks prices daily and bets inside 48 hours of kickoff. Every bet is hash-chained before the game.';
+      $('next').textContent = 'None inside 48 hours yet.';
+      paintStamp();
+      return;
+    }
+    const pts = b.curve, start = b.start, last = pts[pts.length - 1];
+    const W = 700, H = 360, lo = Math.min(...pts, start) - 10, hi = Math.max(...pts, start) + 10;
+    const x = i => (i / Math.max(pts.length - 1, 1)) * W, y = v => H - ((v - lo) / (hi - lo)) * H;
+    const line = pts.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join('');
+    const col = last >= start ? 'var(--up)' : 'var(--down)';
+    $('curve').innerHTML = `
+      <line x1="0" x2="${W}" y1="${y(start)}" y2="${y(start)}" stroke="var(--ink-3)" stroke-dasharray="4 5" vector-effect="non-scaling-stroke"/>
+      <path d="${line}L${W},${y(start)}L0,${y(start)}Z" fill="${col}" opacity=".10"/>
+      <path d="${line}" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>`;
+    const live = b.source === 'ledger';
+    $('bk').innerHTML = `<small>$</small>${Math.round(last).toLocaleString('en-AU')}`;
+    const d = last - start;
+    $('bkd').textContent = `${sign(d)}$${Math.abs(d).toFixed(2)} · ${b.n_bets} bets · since ${dmy(b.first_kickoff)}`;
+    $('bkd').className = 'delta ' + (d >= 0 ? 'up' : 'down');
+    $('clv-stat').hidden = b.mean_clv == null;
+    $('clv').textContent = pct(b.mean_clv); tone($('clv'), b.mean_clv);
+    if (b.recent.length) {
+      const name = r => r.pick === 'draw' ? 'Draw' : r[r.pick];
+      $('recent').insertAdjacentHTML('beforeend', b.recent.slice().reverse().map(r =>
+        `<div><span>${dmy(r.kickoff)}</span><b>${r.home} v ${r.away}: ${name(r)}</b><span>${r.odds.toFixed(2)}</span><span class="${r.pnl >= 0 ? 'up' : 'down'}">${sign(r.pnl)}$${Math.abs(r.pnl).toFixed(2)}</span></div>`).join(''));
+      $('recent').hidden = false;
+    }
+    $('roi-stat').hidden = b.roi == null;
+    $('roi').textContent = pct(b.roi); tone($('roi'), b.roi);
+    $('won-stat').hidden = !b.n_settled;
+    $('won').textContent = `${b.n_won} / ${b.n_settled}`;
+    const n = b.next_bet;
+    $('next').innerHTML = n
+      ? `${n.home} v ${n.away}, ${dmy(n.kickoff)}<br>${n.pick_name} <em>${n.odds.toFixed(2)}</em> · $${n.stake}`
+      : 'None this week.';
+    paintStamp();
+  }).catch(() => { stamps.bankroll = ['Data failed to load', '']; paintStamp(); });
+
+  fetch('site_data/elo.json').then(r => r.json()).then(e => {
+    // Moves since before the latest international window; prev_* is absent in older exports.
+    const mv = d => `<span class="mv ${d > 0 ? 'up' : 'down'}">${d ? (d > 0 ? '▲' : '▼') + Math.abs(d) : ''}</span>`;
+    $('elist').innerHTML = e.top.map(t => {
+      const dr = t.prev_rank ? t.prev_rank - t.rank : 0, dp = t.prev_rating ? t.rating - t.prev_rating : 0;
+      return `<div class="e"><span>${t.rank}</span>${mv(dr)}${flag(t.team)}<b>${t.team}</b><span class="r">${t.rating}</span><span class="dr">${dp ? (dp > 0 ? '+' : '-') + Math.abs(dp) : ''}</span></div>`;
+    }).join('');
+    $('elo-tag').innerHTML = `Elo ratings · top <span class="all">${e.top.length}</span><span class="ten">10</span> active teams${e.window_start ? ` · moves since ${dayMon(e.window_start)}` : ''} · results to ${dmy(e.as_of)}`;
+    stamps.ratings = [`Ratings as of ${dmy(e.as_of)}`, ''];
+    paintStamp();
+  }).catch(() => { stamps.ratings = ['Data failed to load', '']; paintStamp(); });
+
+  fetch('site_data/capsule.json').then(r => r.json()).then(c => {
+    const [h, a] = [c.final.home, c.final.away], [hg, ag] = c.final.score;
+    $('cap-tag').textContent = `Built ${dmy(c.frozen_at)} · before kickoff`;
+    stamps.capsule = [`Scored · ${c.n_matches} matches`, 'live'];
+    paintStamp();
+    $('cap-team').textContent = `${c.champion.team}.`;
+    $('cap-sub').textContent = `Our #${c.champion.rank_by_p_champion} pick at ${c.champion.p_champion.toFixed(1)}%. Final: ${h} ${hg}-${ag} ${a}.`;
+    // Log-loss is unreadable; exp(-log-loss) is the same score as the typical (geometric mean) chance given to the real result.
+    const hit = Math.round(c.accuracy * c.n_matches), ch = k => Math.exp(-c.log_loss[k]);
+    $('acc').textContent = `${hit} / ${c.n_matches}`;
+    $('acc-sub').textContent = `${Math.round(c.accuracy * 100)}% · guessing gets 1 in 3`;
+    const pts = [['Guessing', ch('uniform')], ['Plain Elo', ch('plain_elo')], ['Model', ch('model')]];
+    const lo = .30, hi = .50, x = v => ((v - lo) / (hi - lo)) * 100 + '%'; // percentages keep text unscaled at any width
+    $('scale').innerHTML = `<line x1="0" x2="100%" y1="20" y2="20" stroke="var(--rule)" stroke-width="2"/>` +
+      pts.map(([n, v], i) => `<circle cx="${x(v)}" cy="20" r="6" fill="${i === 2 ? 'var(--hi)' : 'var(--ink-3)'}"/>
+        <text x="${x(v)}" y="${i === 1 ? 6 : 46}" text-anchor="${['start', 'end', 'start'][i]}" dx="${i === 1 ? 4 : -4}" fill="${i === 2 ? 'var(--ink)' : 'var(--ink-3)'}" style="font: 500 12px var(--mono)">${n} ${Math.round(v * 100)}%</text>`).join('');
+    const gap = (ch('model') - ch('plain_elo')) * 100;
+    $('verdict').textContent = `Average chance each forecast gave the real result, over ${c.n_matches} games. Guessing: 1 in 3. Plain Elo, team ratings alone: ${Math.round(ch('plain_elo') * 100)}%. Our model adds squad, form and home advantage: ${Math.round(ch('model') * 100)}%${gap > 0 ? `, ${gap.toFixed(1)} points better` : ', no better'}. Most of the edge is in the ratings.`;
+    const max = Math.max(...c.top.map(t => t.p_champion));
+    $('bars').insertAdjacentHTML('beforeend', c.top.map(t =>
+      `<div class="bar${t.stage === 'Won' ? ' won' : ''}"><span class="name">${t.team}</span>
+        <div class="track"><div class="fill" style="width:${(t.p_champion / max) * 75}%" data-p="${t.p_champion.toFixed(1)}%"></div></div>
+        <span class="stage">${t.stage}</span></div>`).join(''));
+  });
+}
+</script>
+<script src="/sidebar.js?v=9"></script>
+</body>
+</html>
