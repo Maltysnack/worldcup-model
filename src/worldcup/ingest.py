@@ -63,7 +63,7 @@ def load_into_duckdb(table_name: str, csv_path: Path) -> None:
     """
     with connect() as con:
         con.execute(f"DROP TABLE IF EXISTS {table_name}")
-        # nullstr=['NA', ''] — the dataset uses literal "NA" for unplayed
+        # nullstr=['NA', ''], the dataset uses literal "NA" for unplayed
         # future fixtures (e.g. 2026 World Cup matches that haven't kicked
         # off yet). Without this, DuckDB tries to parse "NA" as a number
         # and crashes. Treating both 'NA' and '' as NULL is safer.

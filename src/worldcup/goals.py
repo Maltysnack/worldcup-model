@@ -13,9 +13,9 @@ MAX_GOALS) are unchanged and the joint is re-normalised.
 
 from __future__ import annotations
 
-import numpy as np
-
 import os
+
+import numpy as np
 
 from worldcup.calibration import (
     DIXON_COLES_RHO,
@@ -83,7 +83,7 @@ def expected_goals(eff_gap, neutral=False):
 
 
 def _poisson_pmf(lam: float, max_k: int) -> np.ndarray:
-    """P(X=k) for k=0..max_k. Iterative — no scipy dependency."""
+    """P(X=k) for k=0..max_k. Iterative, no scipy dependency."""
     pmf = np.empty(max_k + 1)
     pmf[0] = np.exp(-lam)
     for k in range(1, max_k + 1):

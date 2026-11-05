@@ -22,8 +22,7 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import datetime, timezone
-from pathlib import Path
+from datetime import UTC, datetime
 
 from worldcup.db import PROJECT_ROOT
 
@@ -41,7 +40,7 @@ FROZEN_SENTINEL = PROJECT_ROOT / "data" / ".frozen"
 
 
 def main() -> None:
-    timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    timestamp = datetime.now(UTC).isoformat(timespec="seconds")
 
     for kind, src in SOURCE_PATHS.items():
         if not src.exists():

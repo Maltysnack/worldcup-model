@@ -1,5 +1,5 @@
 """Scrape Wikipedia squad pages for past tournaments to unlock the
-squad-strength blend weight (backlog #7). Re-uses the parser from
+squad-strength blend weight. Re-uses the parser from
 worldcup.wiki_rosters; loops a list of (tournament, year, url).
 
 Stores per-tournament JSON under data/raw/historical_rosters/.
@@ -8,18 +8,19 @@ Usage: uv run python scripts/scrape_historical_rosters.py
        uv run python scripts/scrape_historical_rosters.py --refresh
 """
 from __future__ import annotations
+
 import argparse
 import json
 import sys
 import time
 from dataclasses import asdict
-from datetime import datetime, timezone
+from datetime import UTC, datetime, timezone
 from pathlib import Path
 
 import requests
+from wiki_rosters import USER_AGENT, parse_page
 
 from worldcup.db import PROJECT_ROOT
-from wiki_rosters import USER_AGENT, parse_page
 
 OUT_DIR = PROJECT_ROOT / "data" / "raw" / "historical_rosters"
 
@@ -55,7 +56,7 @@ def fetch_one(tournament: str, year: int, url: str, refresh: bool) -> tuple[int,
     resp.raise_for_status()
     rosters = parse_page(resp.text)
     payload = {
-        "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "fetched_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "tournament": tournament,
         "year": year,
         "source": url,

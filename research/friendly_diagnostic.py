@@ -6,7 +6,7 @@ only ~58-77% of the time (mild overconfidence, ECE 0.039 vs majors'
 
   1. Date-distance to the next major tournament. Pre-tournament
      friendlies (within ~90 days of a WC/Euro/Copa) tend to be taken
-     more seriously — first-choice XIs, full-effort. Off-season
+     more seriously, first-choice XIs, full-effort. Off-season
      friendlies (180+ days from any major) are often rotated.
   2. Pre-match rating gap. Mismatched friendlies (gap > 300 Elo) often
      feature B-teams from the favourite or wholly experimental
@@ -35,7 +35,6 @@ from worldcup.calibration import (
 from worldcup.db import connect
 from worldcup.elo import HOME_ADVANTAGE
 from worldcup.goals import wld_probs
-
 
 MAJOR_TOURNAMENTS = (
     "FIFA World Cup",

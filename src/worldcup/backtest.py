@@ -170,7 +170,7 @@ def main() -> None:
 
     # Dixon-Coles rho sweep at slope_mult=1.0
     print()
-    print(f"  Dixon-Coles rho sweep (slope_mult = 1.00):")
+    print("  Dixon-Coles rho sweep (slope_mult = 1.00):")
     print(f"  {'rho':>10}  {'log-loss':>10}  {'Brier':>8}")
     print(f"  {'-' * 32}")
     best_rho = (None, float("inf"), None)
@@ -188,7 +188,7 @@ def main() -> None:
     print(f"Best slope multiplier: {best[0]:.2f}  (log-loss {best[1]:.4f})")
     print(f"Best rho:              {best_rho[0]:+.2f}  (log-loss {best_rho[1]:.4f})")
     print()
-    print(f"Reference: bookmaker log-loss for WC was around 0.95-1.00.")
+    print("Reference: bookmaker log-loss for WC was around 0.95-1.00.")
     print(f"  - Beats uniform if log-loss < {-np.log(1/3):.4f}")
     print(f"  - Beats the flat heuristic if log-loss < {log_loss(flat, actuals):.4f}")
 

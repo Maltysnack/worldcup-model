@@ -3,7 +3,7 @@
 The trophy aggregation falls back to hand-coded TEAM_TROPHY_SCORE when
 fewer than 50% of WC teams have computed scores from real rosters. When
 coverage crosses that threshold, the system auto-switches to computed
-scores — which can produce a discrete rating shift for several teams
+scores, which can produce a discrete rating shift for several teams
 simultaneously.
 
 This dry-run forces the computed scores active (overrides the gate),
@@ -21,15 +21,18 @@ from __future__ import annotations
 
 import sys
 
+import worldcup.trophies as trophies_mod
 from worldcup.bracket import FIFA_GROUPS
 from worldcup.form import apply_form
 from worldcup.host import apply_host_bonus
 from worldcup.squad import blended_ratings
 from worldcup.trophies import (
-    TEAM_TROPHY_SCORE, TROPHY_DEFAULT, apply_nt_bonus, team_trophy_score,
+    TEAM_TROPHY_SCORE,
+    TROPHY_DEFAULT,
     _load_computed_scores,
+    apply_nt_bonus,
+    team_trophy_score,
 )
-import worldcup.trophies as trophies_mod
 
 
 def get_full_ratings():
@@ -58,7 +61,7 @@ def main() -> None:
           f"= {coverage * 100:.1f}% (threshold {trophies_mod.COMPUTED_COVERAGE_THRESHOLD * 100:.0f}%)\n")
 
     if not computed:
-        print("No computed scores available — run worldcup-fetch-rosters + "
+        print("No computed scores available, run worldcup-fetch-rosters + "
               "worldcup-compute-trophies first.")
         return
 
@@ -77,7 +80,7 @@ def main() -> None:
     # 3) Diff per team for the WC field
     wc_teams = sorted({t for teams in FIFA_GROUPS.values() for t in teams})
 
-    print(f"\nPer-team rating impact (only teams with a non-zero shift shown):\n")
+    print("\nPer-team rating impact (only teams with a non-zero shift shown):\n")
     print(f"  {'team':30s}  {'trophy: hand → comp':<24s}  {'rating: before → after':<26s}  Δ")
     print(f"  {'-'*30}  {'-'*24}  {'-'*26}  {'-'*6}")
     rows = []

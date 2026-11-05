@@ -7,7 +7,7 @@ calibration slope < 1: probabilities are too extreme.
 
 Fix: fit a logistic Platt-scaling map on past friendlies and apply it
 to displayed friendly probabilities. Doesn't touch the Elo walk or
-the K-factor for friendlies (which is K=30 from v4a-flat-mild) — this
+the K-factor for friendlies (which is K=30 from v4a-flat-mild), this
 is purely a post-hoc correction to the prob output for the friendly
 tier.
 
@@ -30,8 +30,7 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import datetime, timezone
-from pathlib import Path
+from datetime import UTC, datetime
 
 import numpy as np
 
@@ -207,19 +206,19 @@ def main() -> None:
     p_test, a_test = probs[test_idx], actuals[test_idx]
     print(f"  train: {len(train_idx):,}  test: {len(test_idx):,}")
 
-    print(f"\nBefore calibration:")
+    print("\nBefore calibration:")
     print(f"  Train  log-loss = {log_loss(p_train, a_train):.4f}   ECE = {ece_multi(p_train, a_train):.4f}")
     print(f"  Test   log-loss = {log_loss(p_test, a_test):.4f}   ECE = {ece_multi(p_test, a_test):.4f}")
 
     a_fit, b_fit = fit_platt(p_train, a_train)
-    print(f"\nFitted parameters:")
+    print("\nFitted parameters:")
     print(f"  intercept = {a_fit:+.4f}")
     print(f"  slope     = {b_fit:+.4f}  (1.0 = no adjustment; < 1.0 = pulls toward 0.5)")
 
     p_train_cal = apply_calibration(p_train, a_fit, b_fit)
     p_test_cal = apply_calibration(p_test, a_fit, b_fit)
 
-    print(f"\nAfter calibration:")
+    print("\nAfter calibration:")
     print(f"  Train  log-loss = {log_loss(p_train_cal, a_train):.4f}   ECE = {ece_multi(p_train_cal, a_train):.4f}")
     print(f"  Test   log-loss = {log_loss(p_test_cal, a_test):.4f}   ECE = {ece_multi(p_test_cal, a_test):.4f}")
 
@@ -236,10 +235,10 @@ def main() -> None:
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps({
-        "fitted_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "fitted_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "tournament_tier": "Friendly",
-        "n_train": int(len(train_idx)),
-        "n_test": int(len(test_idx)),
+        "n_train": len(train_idx),
+        "n_test": len(test_idx),
         "split_seed": SPLIT_SEED,
         "intercept": float(a_fit),
         "slope": float(b_fit),

@@ -2,7 +2,7 @@
 
 For each club appearing in the WC rosters we resolve the club's main
 Wikipedia article (not the per-season subpage) and pull the thumbnail
-URL — for football club articles this is reliably the club crest.
+URL, for football club articles this is reliably the club crest.
 
 Output cached to data/raw/club_badges.json so re-runs are cheap. The
 top-scorer module reads this file and surfaces badges in the UI in
@@ -22,12 +22,12 @@ import json
 import sys
 import time
 import urllib.parse
-from datetime import datetime, timezone
+from datetime import UTC, datetime, timezone
 
 import requests
+from wiki_rosters import fetch_and_parse as fetch_rosters
 
 from worldcup.db import PROJECT_ROOT
-from wiki_rosters import fetch_and_parse as fetch_rosters
 
 USER_AGENT = "maltysnack-worldcup-hobby/0.1 (https://github.com/Maltysnack/worldcup)"
 CACHE_PATH = PROJECT_ROOT / "data" / "raw" / "club_badges.json"
@@ -259,7 +259,7 @@ def load_cache() -> dict[str, str]:
 def save_cache(badges: dict[str, str]) -> None:
     CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
     CACHE_PATH.write_text(json.dumps({
-        "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "fetched_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "n_badges": len(badges),
         "badges": badges,
     }, indent=2, ensure_ascii=False))

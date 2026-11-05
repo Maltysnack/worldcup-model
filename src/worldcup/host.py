@@ -20,7 +20,7 @@ USA a larger bonus than the co-hosts.
 from __future__ import annotations
 
 # Bonus magnitudes (halved from hand-set +60/+50/+30 after the issue #5
-# empirical sweep — scripts/sweep_host_bonus.py — found scale 0.5
+# empirical sweep, scripts/sweep_host_bonus.py, found scale 0.5
 # minimises pooled log-loss and Brier across the 16-tournament audit set.
 # The previous +60 was slightly over-aggressive given the calibration
 # regime introduced in issues #3/#10 (T=1.31 + neutral lambdas).

@@ -28,14 +28,14 @@ from datetime import datetime
 
 import numpy as np
 
+from worldcup.altitude import apply_altitude_bonus
 from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import MODEL_VERSION
-from worldcup.profiles import current_profile, file_suffix, table_suffix
 from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
-from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.host import apply_host_bonus
-from worldcup.altitude import apply_altitude_bonus
+from worldcup.profiles import current_profile, file_suffix, table_suffix
+from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.trophies import apply_nt_bonus
 
 # Number of group sims when computing predicted standings. The bracket
@@ -219,7 +219,7 @@ def simulate_group_mc(teams, fixtures, ratings, rng):
     compute average points/GD/GF (used to determine the canonical group
     ordering that the bracket builder will use). Then resamples until it
     finds a single representative trial whose top-3 standings ordering
-    matches the averaged one — points/GD/GF from that single trial are
+    matches the averaged one, points/GD/GF from that single trial are
     returned as integers, so the group tab shows a coherent "this is the
     one tournament path we're predicting" narrative rather than averaged
     decimals that don't correspond to any real outcome.
@@ -257,7 +257,7 @@ def simulate_group_mc(teams, fixtures, ratings, rng):
     )
 
     # Find a single trial whose ordering matches the averaged standings
-    # (top 3 in order — 4th position is implied). For most groups this is
+    # (top 3 in order, 4th position is implied). For most groups this is
     # the modal outcome and lands in a handful of draws. If we don't find
     # one in REP_MAX_ATTEMPTS, relax to matching top 2 only (4th and 3rd
     # may swap). If even that fails, fall back to using averaged numbers
@@ -426,10 +426,10 @@ def simulate_knockout_run(group_winners, group_runners, third_assignments,
                           ratings, rng):
     """Run one full knockout phase from the determined R32 fixtures and
     return a {match_no: match_dict} of how this specific tournament
-    unfolded — winners AND scorelines for every match.
+    unfolded, winners AND scorelines for every match.
 
     Each match scoreline is one Poisson sample from the goals model.
-    No clamps, no resamples — this is one honest draw from the
+    No clamps, no resamples, this is one honest draw from the
     distribution. Caller filters for plausibility across many runs.
     """
     matches: dict[int, dict] = {}
@@ -474,7 +474,11 @@ def _build_round_of_match_map() -> dict[int, int]:
     """Map each match number to the ordinal of the round it belongs to,
     matching the ordinals used by historical_corpus."""
     from worldcup.historical_corpus import (
-        ROUND_R32, ROUND_R16, ROUND_QF, ROUND_SF, ROUND_FINAL,
+        ROUND_FINAL,
+        ROUND_QF,
+        ROUND_R16,
+        ROUND_R32,
+        ROUND_SF,
     )
     rom = {}
     for i in range(73, 89):
@@ -494,7 +498,7 @@ def _sim_upset_score(sim, all_wc_teams, expected_rounds, round_of_match):
     rounds for one simulated knockout. Same definition as the historical
     corpus, so the two are directly comparable.
     """
-    from worldcup.historical_corpus import ROUND_GROUPS, ROUND_CHAMPION
+    from worldcup.historical_corpus import ROUND_CHAMPION, ROUND_GROUPS
     final_no = FINAL_FEED[0]
     actual = {t: ROUND_GROUPS for t in all_wc_teams}
     for mn, m in sim.items():
@@ -547,7 +551,7 @@ def find_exemplar_bracket(group_winners, group_runners, third_assignments,
     modal_champion, modal_n = champ_counts.most_common(1)[0]
 
     # Pre-compute expected-round per team using their Elo across the
-    # full WC field (slot counts must match actual occupancy — see the
+    # full WC field (slot counts must match actual occupancy, see the
     # historical_corpus docstring for the slot scheme).
     elo_for_field = {t: ratings.get(t, 1500) for t in all_wc_teams}
     expected = expected_rounds_from_elo(elo_for_field, len(all_wc_teams), 5)
@@ -624,7 +628,7 @@ def main() -> None:
         third_place_by_group[letter] = standings[2]
 
     # 8 best third-place teams advance, ranked by FIFA criteria using
-    # the rep-trial integer points/GD/GF — same trial that produced the
+    # the rep-trial integer points/GD/GF, same trial that produced the
     # displayed group standings. Falls back to averaged predicted_points
     # for any group whose rep trial search failed (no integer fields).
     def third_rank(s: dict) -> tuple:

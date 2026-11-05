@@ -331,6 +331,7 @@ def _load_computed_scores() -> dict[str, float]:
     if _COMPUTED_CACHE is not None:
         return _COMPUTED_CACHE
     import json
+
     from worldcup.db import PROJECT_ROOT
     path = PROJECT_ROOT / "data" / "raw" / "wc2026_trophy_scores.json"
     if not path.exists():

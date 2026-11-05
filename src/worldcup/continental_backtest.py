@@ -20,8 +20,6 @@ Run: `uv run worldcup-continental-backtest`
 
 from __future__ import annotations
 
-from datetime import date
-
 from worldcup.db import connect
 from worldcup.form import compute_form_bumps
 from worldcup.host import host_bonus
@@ -97,7 +95,7 @@ def fetch_actual_top4(tournament: str, year: int):
     elif final_row.home_score < final_row.away_score:
         champion, runner_up = final_row.away_team, final_row.home_team
     else:
-        # Drawn final — penalty result not in DB; use home as champ for now
+        # Drawn final, penalty result not in DB; use home as champ for now
         champion, runner_up = final_row.home_team, final_row.away_team
 
     # SF losers: teams that played within ~7 days before the final but

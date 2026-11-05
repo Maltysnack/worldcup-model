@@ -8,14 +8,14 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
-from datetime import date, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta
 
 import duckdb
 
 from worldcup.betting import bot
 from worldcup.betting.ledger import Ledger, verify
 
-NOW = datetime(2026, 11, 12, 9, 0, tzinfo=timezone.utc)
+NOW = datetime(2026, 11, 12, 9, 0, tzinfo=UTC)
 SPORT = "soccer_fifa_world_cup_qualifiers_europe"
 RATINGS = {"Spain": 2176.0, "Georgia": 1700.0, "Turkey": 1790.0, "Italy": 1898.0, "Wales": 1750.0}
 
@@ -112,7 +112,8 @@ class BotTest(unittest.TestCase):
 
     def test_close_due_gate_matches_run_close(self):
         # bot.yml skips the close job when scripts/close_due.py says nothing is due.
-        import importlib.util, pathlib
+        import importlib.util
+        import pathlib
         p = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "close_due.py"
         spec = importlib.util.spec_from_file_location("close_due", p)
         cd = importlib.util.module_from_spec(spec)
@@ -131,7 +132,8 @@ class BotTest(unittest.TestCase):
 
     def test_export_games(self):
         # scripts/export_site_v2.py: upcoming = decided games not yet kicked off.
-        import importlib.util, pathlib
+        import importlib.util
+        import pathlib
         p = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "export_site_v2.py"
         spec = importlib.util.spec_from_file_location("export_site_v2", p)
         ex = importlib.util.module_from_spec(spec)
@@ -151,7 +153,8 @@ class BotTest(unittest.TestCase):
         self.assertEqual(ex.games(self.led, NOW + timedelta(hours=31))["upcoming"], [])
 
     def test_fixtures_cover_every_listed_game(self):
-        import importlib.util, pathlib
+        import importlib.util
+        import pathlib
         p = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "export_site_v2.py"
         spec = importlib.util.spec_from_file_location("export_site_v2", p)
         ex = importlib.util.module_from_spec(spec)

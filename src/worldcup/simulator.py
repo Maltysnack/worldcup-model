@@ -16,7 +16,7 @@ We then simulate the entire tournament N times. Each simulation:
 Aggregating across the N runs gives per-team probabilities of winning,
 making the final, semis, etc. We also record a per-match "Spain beats
 France in 38% of sims" style statistic. Finally we identify the *modal*
-bracket — the most likely single outcome — and write it as the
+bracket, the most likely single outcome, and write it as the
 public-facing prediction.
 
 Run: `uv run worldcup-simulate`
@@ -31,6 +31,7 @@ from datetime import date, datetime
 
 import numpy as np
 
+from worldcup.altitude import apply_altitude_bonus
 from worldcup.bracket import (
     FIFA_GROUPS,
     FINAL_FEED,
@@ -51,12 +52,11 @@ from worldcup.calibration import (
 )
 from worldcup.db import PROJECT_ROOT
 from worldcup.elo import HOME_ADVANTAGE, MODEL_VERSION
-from worldcup.profiles import current_profile, file_suffix, table_suffix
 from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
-from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.host import apply_host_bonus
-from worldcup.altitude import apply_altitude_bonus
+from worldcup.profiles import current_profile, file_suffix
+from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.trophies import apply_nt_bonus
 
 _PROFILE = current_profile()
@@ -214,13 +214,6 @@ def predict_recent_played_matches(*, days_back: int = 90, max_matches: int = 12)
     what our model would have predicted for each (using the rating_pre
     values from the predictions table that captured the team strength
     immediately before the match)."""
-    from worldcup.bracket import FIFA_GROUPS
-    from worldcup.calibration import (
-        LAMBDA_AWAY_AT_PARITY,
-        LAMBDA_HOME_AT_PARITY,
-        SLOPE_AWAY,
-        SLOPE_HOME,
-    )
     from worldcup.db import connect
     from worldcup.elo import HOME_ADVANTAGE, actual_score, expected_score, k_for
     from worldcup.friendly_calibration import calibrate_friendly_probs
@@ -321,7 +314,6 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
 
     # Build a unified list of fixtures. Friendlies first, then WC, sorted by date.
     # Normalise everything to YYYY-MM-DD strings so date types don't collide.
-    import pandas as pd
     rows = []
     today = date.today()
     for f in UPCOMING_FRIENDLIES:
@@ -494,7 +486,7 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(output, indent=2))
     print(f"\n  wrote {OUTPUT_PATH}")
-    print(f"\nTop 10 by championship probability:")
+    print("\nTop 10 by championship probability:")
     for s in team_stats[:10]:
         print(f"  {s['team']:25s}  {s['p_champion']:6.2f}%   "
               f"(final {s['p_final']:5.2f}%, SF {s['p_semis']:5.2f}%, "

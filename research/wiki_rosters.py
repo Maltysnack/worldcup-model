@@ -23,8 +23,8 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from dataclasses import dataclass, asdict
-from datetime import datetime, timezone
+from dataclasses import asdict, dataclass
+from datetime import UTC, datetime, timezone
 
 import requests
 from bs4 import BeautifulSoup, NavigableString, Tag
@@ -255,7 +255,7 @@ def fetch_and_parse(refresh: bool = False) -> list[TeamRoster]:
     rosters = [r for r in parse_page(resp.text) if not r.is_provisional]
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps({
-        "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "fetched_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "source": WIKI_URL,
         "rosters": [
             {**asdict(r), "players": [asdict(p) for p in r.players]}

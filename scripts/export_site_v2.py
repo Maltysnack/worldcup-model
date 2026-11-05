@@ -12,7 +12,7 @@ weekly by `python -m worldcup.title_odds`). With no bets yet, bankroll.json is a
 
 import json
 import sys
-from datetime import date, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 from worldcup.betting import engine
@@ -136,7 +136,7 @@ def bankroll(ledger_dir: Path = ROOT / "ledger", now: datetime | None = None) ->
         "generated_at": date.today().isoformat(),
         "rule": {"staking": RULE, "stake": engine.FLAT_UNIT, "min_edge": MIN_EDGE, "max_odds": engine.MAX_ODDS},
         "start": start,
-        **games(led, now or datetime.now(timezone.utc)),
+        **games(led, now or datetime.now(UTC)),
     }
     if not bets:
         return {**base, "source": "not-started", "note": "No bets yet.", "first_kickoff": None,
@@ -199,7 +199,7 @@ def main() -> None:
     out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
     odds = json.loads(TITLE_ODDS.read_text()) if TITLE_ODDS.exists() else None
-    fx = fixtures(Ledger(ROOT / "ledger"), datetime.now(timezone.utc), elo_by_team=ratings())
+    fx = fixtures(Ledger(ROOT / "ledger"), datetime.now(UTC), elo_by_team=ratings())
     for name, data in (("bankroll", bankroll()), ("capsule", capsule()), ("elo", elo()), ("odds", odds),
                        ("fixtures", fx)):
         if data is None:

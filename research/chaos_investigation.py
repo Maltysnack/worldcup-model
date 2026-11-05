@@ -48,7 +48,6 @@ from worldcup.db import connect
 from worldcup.elo import HOME_ADVANTAGE
 from worldcup.goals import wld_probs
 
-
 MAJOR_TOURNAMENTS = (
     "FIFA World Cup",
     "UEFA Euro",
@@ -227,7 +226,7 @@ def test_tournament_autocorrelation(df, lh, la):
         print(f"  After an upset (within same tournament, next {WINDOW} matches):")
         print(f"    n: {len(after_upset)}  mean subsequent-upset rate: "
               f"{np.mean(after_upset):.3f}")
-        print(f"  After a chalk result:")
+        print("  After a chalk result:")
         print(f"    n: {len(after_chalk)}  mean subsequent-upset rate: "
               f"{np.mean(after_chalk):.3f}")
         diff = np.mean(after_upset) - np.mean(after_chalk)
@@ -239,7 +238,7 @@ def test_tournament_autocorrelation(df, lh, la):
             print(f"  Reading: actually less likely after upset "
                   f"({diff*100:.1f}pp). Regression to mean.")
         else:
-            print(f"  Reading: no meaningful clustering. iid is fine.")
+            print("  Reading: no meaningful clustering. iid is fine.")
     print()
 
 

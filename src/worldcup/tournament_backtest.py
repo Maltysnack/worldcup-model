@@ -315,7 +315,6 @@ def main() -> None:
         print(f"WARNING: missing pre-WC rating for: {missing}")
 
     # Apply form + NT trophy bonus + host bonus as-of the WC kickoff date
-    from datetime import date
     from worldcup.form import compute_form_bumps
     from worldcup.host import host_bonus
     from worldcup.trophies import nt_trophy_bonus
@@ -341,7 +340,7 @@ def main() -> None:
     probs = _round_probabilities(counts, N_SIMS)
 
     # Top 12 by championship probability
-    print(f"\n  Top 12 by championship probability:")
+    print("\n  Top 12 by championship probability:")
     print(f"  {'team':25s} {'rating':>6} {'champ':>7} {'final':>7} {'semi':>7} {'QF':>7}")
     ranked = sorted(probs.items(), key=lambda kv: -kv[1]["champion"])
     for team, p in ranked[:12]:
@@ -356,7 +355,7 @@ def main() -> None:
               f"{p['champion']:>6.1f}% {p['final']:>6.1f}% "
               f"{p['semis']:>6.1f}% {p['qf']:>6.1f}%{marker}")
 
-    print(f"\n  Where the actual top 4 finished in our prediction:")
+    print("\n  Where the actual top 4 finished in our prediction:")
     for team in [actual["champion"], actual["runner_up"], *sorted(actual["semifinalists"] - {actual["champion"], actual["runner_up"]})]:
         if team not in probs:
             continue
@@ -366,7 +365,7 @@ def main() -> None:
               f"P(SF)={p['semis']:5.1f}%, P(F)={p['final']:5.1f}%, P(W)={p['champion']:5.1f}%")
 
     # Group winner predictions vs actuals
-    print(f"\n  Group-winner predictions:")
+    print("\n  Group-winner predictions:")
     for letter in sorted(group_winners.keys()):
         sorted_winners = sorted(group_winners[letter].items(), key=lambda kv: -kv[1])
         top = sorted_winners[0]

@@ -1,7 +1,7 @@
 [project]
 name = "worldcup"
 version = "0.1.0"
-description = "Predicting the 2026 FIFA World Cup via Monte Carlo simulation."
+description = "Elo and Monte Carlo football prediction, scored on the 2026 World Cup and tested live on paper."
 readme = "README.md"
 authors = [
     { name = "maltysnack", email = "39046911+Maltysnack@users.noreply.github.com" }

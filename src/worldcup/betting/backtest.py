@@ -4,7 +4,7 @@ Model probabilities come from plain Elo (v4a-flat-mild) using the rating each
 team had strictly before kickoff (the `predictions` table records pre-match
 ratings as the Elo walk goes), mapped through the Poisson goals model.
 
-Until historical Sportsbet odds exist (queue item 6), odds are synthetic
+Until historical Sportsbet odds exist, odds are synthetic
 (see betting.synthetic). Two scenarios bracket what the engine does:
 
   - edge:    the model is the truth; the book quotes noisy prices
@@ -21,7 +21,6 @@ Run: uv run worldcup-betting-backtest
 from __future__ import annotations
 
 import math
-from dataclasses import asdict
 from pathlib import Path
 
 import numpy as np
@@ -218,7 +217,7 @@ def run_all() -> dict:
 
 def render_md(r: dict) -> str:
     L = ["# Betting backtest summary (synthetic odds)", "",
-         "Queue item 7. Engine: proportional devig, edge = p x odds - 1, one bet per match "
+         "Engine: proportional devig, edge = p x odds - 1, one bet per match "
          "on the largest edge above a threshold, flat $10 or quarter-Kelly capped at 5% of "
          "bankroll, $1000 start. Model: walk-forward plain Elo (v4a-flat-mild, pre-match "
          "ratings) through the Poisson goals model.", "",
@@ -258,7 +257,7 @@ def render_md(r: dict) -> str:
           "bets a year the ROI CI is wide either way, so variance control matters more than "
           "growth rate. Revisit once item 6 supplies real Sportsbet prices: if real CLV is "
           "reliably positive, quarter-Kelly becomes defensible.", "",
-          "**The USER locks the rule before live betting.**", "",
+          "**The rule is locked before live betting.**", "",
           "Limitations: synthetic odds; one bet per match; stakes use bankroll at placement in "
           "kickoff order (same-day matches settle sequentially); knockout results include extra "
           "time, unlike real 1X2 settlement.", ""]

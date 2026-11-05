@@ -5,6 +5,7 @@ log-loss optimum on non-neutral matches as well as the full set.
 Usage: uv run python scripts/sweep_home_advantage.py
 """
 from __future__ import annotations
+
 import time
 from datetime import timedelta
 

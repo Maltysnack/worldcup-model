@@ -30,19 +30,19 @@ from dataclasses import dataclass
 from datetime import date
 
 import numpy as np
+from iterate_profiles import score_profile
 
 from worldcup import squad as squad_mod
 from worldcup.bracket import (
     FIFA_GROUPS,
-    label_groups_by_fifa,
     derive_groups_from_fixtures,
+    label_groups_by_fifa,
 )
 from worldcup.db import connect
 from worldcup.elo import run as elo_run
 from worldcup.form import apply_form
 from worldcup.host import apply_host_bonus
-from iterate_profiles import score_profile
-from worldcup.profiles import PROFILES, Profile, V4A_FLAT_MILD
+from worldcup.profiles import PROFILES, V4A_FLAT_MILD, Profile
 from worldcup.simulator import simulate_one
 from worldcup.squad import blended_ratings
 from worldcup.trophies import apply_nt_bonus
@@ -105,7 +105,7 @@ FRIENDLY_K_SWEEP: list[Profile] = [
 
 def load_wc_fixtures():
     """Pull WC 2026 group-stage fixtures (the only ones simulate_one
-    needs to know about — knockouts come from R32_PAIRINGS etc)."""
+    needs to know about, knockouts come from R32_PAIRINGS etc)."""
     with connect(read_only=True) as con:
         fixtures = con.execute(
             """
@@ -273,7 +273,7 @@ def main() -> None:
     print("SWEEP 1: SQUAD-WEIGHT SENSITIVITY")
     print("=" * 90)
     print("Blend = w_elo · z(Elo) + w_squad · z(log market value) + w_trophy · z(log club trophies)")
-    print(f"Current production: Elo=0.65 / Squad=0.20 / Trophy=0.15\n")
+    print("Current production: Elo=0.65 / Squad=0.20 / Trophy=0.15\n")
 
     squad_results: dict[str, list[dict]] = {}
     for v in SQUAD_SWEEP:
@@ -346,7 +346,7 @@ def main() -> None:
     base_fr_stats = fr_results[base_fr.name]
 
     print("\n" + "-" * 90)
-    print(f"FRIENDLY-K SWEEP DELTAS vs Friendly=30 (current v4a)")
+    print("FRIENDLY-K SWEEP DELTAS vs Friendly=30 (current v4a)")
     print("-" * 90)
     for prof in FRIENDLY_K_SWEEP[1:]:
         fr_k = prof.k_factors["Friendly"]
@@ -360,7 +360,7 @@ def main() -> None:
     print("HEADLINE SUMMARY")
     print("=" * 90)
 
-    print("\nSquad sweep — top-3 champion% across variants:")
+    print("\nSquad sweep, top-3 champion% across variants:")
     print(f"  {'variant':22s}  {'1st':30s}  {'2nd':30s}  {'3rd':30s}")
     for v in SQUAD_SWEEP:
         s = squad_results[v.label]
@@ -369,7 +369,7 @@ def main() -> None:
             line += f"{s[k]['team']:14s} {s[k]['p_champion']:5.2f}%   "
         print(line)
 
-    print("\nFriendly-K sweep — log-loss (lower=better) + top-3 champion%:")
+    print("\nFriendly-K sweep, log-loss (lower=better) + top-3 champion%:")
     print(f"  {'Fr K':>4}  {'log-loss':>9}  {'1st':30s}  {'2nd':30s}  {'3rd':30s}")
     for prof in FRIENDLY_K_SWEEP:
         fr_k = prof.k_factors["Friendly"]

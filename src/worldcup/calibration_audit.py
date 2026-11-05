@@ -10,7 +10,7 @@ forecasts):
 
   1. For every match, compute (p_home, p_draw, p_away).
   2. Each match contributes 3 (probability, occurred 0/1) data points
-     — one per outcome class.
+    , one per outcome class.
   3. Bin these by predicted probability into N_BINS equal-width bins.
   4. Per bin: mean predicted prob, observed frequency, count.
   5. ECE (Expected Calibration Error) = sum_b (n_b/N) * |mean_p_b - freq_b|.
@@ -186,10 +186,10 @@ def print_reliability(label, table, ece_val):
 
 def calibration_verdict(ece_val):
     if ece_val < 0.02:
-        return "WELL CALIBRATED — no fix needed"
+        return "WELL CALIBRATED, no fix needed"
     if ece_val < 0.05:
-        return "MILD MISCALIBRATION — Platt scaling would tidy it up"
-    return "POOR CALIBRATION — calibration layer recommended"
+        return "MILD MISCALIBRATION, Platt scaling would tidy it up"
+    return "POOR CALIBRATION, calibration layer recommended"
 
 
 # --------------------------------------------------------------------- #
@@ -213,7 +213,7 @@ def main() -> None:
     skill = 1 - ll / base_ll
     marginals = np.bincount(actuals, minlength=3) / len(actuals)
 
-    print(f"\n[headline]")
+    print("\n[headline]")
     print(f"  Log-loss               : {ll:.4f}")
     print(f"  Brier (multi-class)    : {bs:.4f}")
     print(f"  Baseline log-loss      : {base_ll:.4f}  (always predict marginals: H {marginals[0]:.2f} / D {marginals[1]:.2f} / A {marginals[2]:.2f})")
@@ -345,7 +345,7 @@ def main() -> None:
     elif b > 1.1:
         print(f"  → model is UNDERCONFIDENT by ~{(b - 1) * 100:.0f}%; Platt scaling would help")
     else:
-        print(f"  → slope is within 10% of perfect; calibration is fine, no Platt layer needed")
+        print("  → slope is within 10% of perfect; calibration is fine, no Platt layer needed")
 
 
 if __name__ == "__main__":

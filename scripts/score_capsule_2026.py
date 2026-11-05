@@ -29,7 +29,8 @@ from pathlib import Path
 import numpy as np
 
 from worldcup.db import connect
-from worldcup.elo import HOME_ADVANTAGE, run as elo_run
+from worldcup.elo import HOME_ADVANTAGE
+from worldcup.elo import run as elo_run
 from worldcup.goals import PEN_ELO_DIVISOR, expected_goals
 
 ROOT = Path(__file__).resolve().parents[1]

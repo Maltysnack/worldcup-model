@@ -1,5 +1,4 @@
-"""Weekly status for the owner, as Markdown on stdout. weekly.yml posts it as a
-GitHub issue assigned to Maltysnack, which GitHub emails.
+"""Weekly status as Markdown on stdout. weekly.yml posts it as a GitHub issue.
 
 Usage: uv run python scripts/weekly_report.py [runs.json]
   runs.json: `gh run list --workflow bot.yml --json conclusion,createdAt,event,displayTitle,url`
@@ -9,13 +8,13 @@ Usage: uv run python scripts/weekly_report.py [runs.json]
 import json
 import os
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from export_site_v2 import ROOT, TITLE_ODDS, bankroll  # noqa: E402
+from export_site_v2 import ROOT, TITLE_ODDS, bankroll
 
-from worldcup.betting.ledger import Ledger  # noqa: E402
+from worldcup.betting.ledger import Ledger
 
 
 def report(now: datetime, runs: list[dict], credits: int | None) -> str:
@@ -40,16 +39,12 @@ def report(now: datetime, runs: list[dict], credits: int | None) -> str:
     L += ["", "## Health",
           f"- Bot runs in the last 7 days: {sum(r['createdAt'] >= since for r in runs)}, failed: {len(fails)}."]
     L += [f"  - [{r['createdAt'][:16]}Z failed]({r['url']})" for r in fails[:5]]
-    L.append(f"- Odds API credits left (shared with FPL): {credits if credits is not None else 'unknown'}.")
+    L.append(f"- Odds API credits left: {credits if credits is not None else 'unknown'}.")
     if TITLE_ODDS.exists():
         o = json.loads(TITLE_ODDS.read_text())
         L += ["", f"## Title odds (as of {o['as_of']})"]
         L += [f"- {t['name']}: " + ", ".join(f"{x['team']} {x['p_champion'] * 100:.0f}%" for x in t["top"][:3])
               for t in o["tournaments"]]
-    handoff = (ROOT / "HANDOFF.md").read_text()
-    if "## USER ACTION NEEDED" in handoff:
-        block = handoff.split("## USER ACTION NEEDED", 1)[1].split("\n## ", 1)[0].strip()
-        L += ["", "## Needs you", block]
     return "\n".join(L) + "\n"
 
 
@@ -62,4 +57,4 @@ if __name__ == "__main__":
         c = OddsClient(os.environ["ODDS_API_KEY"])
         c.sports()
         credits = c.remaining
-    print(report(datetime.now(timezone.utc), runs, credits), end="")
+    print(report(datetime.now(UTC), runs, credits), end="")

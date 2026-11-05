@@ -1,6 +1,6 @@
 # Betting backtest summary (synthetic odds)
 
-Queue item 7. Engine: proportional devig, edge = p x odds - 1, one bet per match on the largest edge above a threshold, flat $10 or quarter-Kelly capped at 5% of bankroll, $1000 start. Model: walk-forward plain Elo (v4a-flat-mild, pre-match ratings) through the Poisson goals model.
+Engine: proportional devig, edge = p x odds - 1, one bet per match on the largest edge above a threshold, flat $10 or quarter-Kelly capped at 5% of bankroll, $1000 start. Model: walk-forward plain Elo (v4a-flat-mild, pre-match ratings) through the Poisson goals model.
 
 **Odds are synthetic.** Real Sportsbet history needs the paid Odds API month (item 6, blocked). These numbers test the plumbing; they are not evidence of edge.
 
@@ -49,6 +49,6 @@ Log-loss / Brier: bettor 0.945 / 0.554, book open (devigged) 0.947 / 0.557, book
 
 **Flat $10, min edge 0.03.** Reasons: quarter-Kelly sizes bets by the model's own edge estimate, so a miscalibrated model bets biggest exactly where it is most wrong; flat stakes keep ROI and CLV readable per bet and drawdowns small; with roughly 100 bets a year the ROI CI is wide either way, so variance control matters more than growth rate. Revisit once item 6 supplies real Sportsbet prices: if real CLV is reliably positive, quarter-Kelly becomes defensible.
 
-**The USER locks the rule before live betting.**
+**The rule is locked before live betting.**
 
 Limitations: synthetic odds; one bet per match; stakes use bankroll at placement in kickoff order (same-day matches settle sequentially); knockout results include extra time, unlike real 1X2 settlement.

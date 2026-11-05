@@ -15,7 +15,7 @@ Three tasks, each run by `.github/workflows/bot.yml`:
 Model: plain Elo (`elo_current`, v4a-flat-mild) through the Poisson goals
 model, as in the backtest. Finals keys are treated as neutral venues,
 qualifiers and Nations League as home/away. Staking defaults to the
-provisional backtest rec (flat $10, min edge 0.03) until the USER locks it.
+provisional backtest rec (flat $10, min edge 0.03) until it is locked.
 
 Results caveat: martj42 knockout scores include extra time, so a 90-minute
 draw decided in ET would settle as a win. Matches in the shootouts table
@@ -35,9 +35,9 @@ import os
 import sys
 import urllib.parse
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from collections.abc import Callable
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import Callable
 
 from worldcup.betting import engine
 from worldcup.betting.backtest import outcome_idx, probs_from_ratings
@@ -162,7 +162,7 @@ def run_bet(
     min_edge: float = engine.DEFAULT_MIN_EDGE, now: datetime | None = None, dry: bool = False,
     fixtures_path: str | Path | None = None,
 ) -> list[str]:
-    now = now or datetime.now(timezone.utc)
+    now = now or datetime.now(UTC)
     log, fixtures = [], []
     for sport in active_keys(client):
         decided = led.decided_events()
@@ -185,7 +185,7 @@ def run_bet(
 def run_fixtures(client: OddsClient, ratings: dict[str, float], path: str | Path, *,
                  now: datetime | None = None) -> list[str]:
     """Refresh the fixture list for the site without deciding anything (1 credit per active key)."""
-    now = now or datetime.now(timezone.utc)
+    now = now or datetime.now(UTC)
     fixtures = []
     for sport in active_keys(client):
         fixtures += list_fixtures(client, sport, client.odds(sport)[1], ratings, now)
@@ -246,7 +246,7 @@ def _decide(led, e, sport, ratings, rule, min_edge, now, snap, dry) -> str:
 
 
 def run_close(led: Ledger, client: OddsClient, *, now: datetime | None = None, dry: bool = False) -> list[str]:
-    now = now or datetime.now(timezone.utc)
+    now = now or datetime.now(UTC)
     captured = {c["event_id"] for c in led.closing()}
     due = [b for b in led.open_bets()
            if b["event_id"] not in captured and now < _parse_ts(b["kickoff"]) <= now + CLOSE_WINDOW]
@@ -302,7 +302,7 @@ def find_result(con, bet: dict) -> int | None:
 
 
 def run_settle(led: Ledger, con, *, now: datetime | None = None, dry: bool = False) -> list[str]:
-    now = now or datetime.now(timezone.utc)
+    now = now or datetime.now(UTC)
     log = []
     for b in led.open_bets():
         ko = _parse_ts(b["kickoff"])

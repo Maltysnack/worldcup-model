@@ -10,13 +10,15 @@ Evaluates pooled log-loss across the 868 altitude matches in the DB.
 Usage: uv run python scripts/sweep_altitude_bonus.py
 """
 from __future__ import annotations
+
 import time
 from datetime import timedelta
 
 import numpy as np
 
 from worldcup.db import connect
-from worldcup.elo import HOME_ADVANTAGE, run as elo_run
+from worldcup.elo import HOME_ADVANTAGE
+from worldcup.elo import run as elo_run
 from worldcup.goals import expected_goals, wld_probs
 from worldcup.profiles import PROFILES, resolve_min_date
 
@@ -63,7 +65,7 @@ def main():
     # We need an Elo rating for each team AS OF the match date. The cheap
     # approximation: walk Elo to a cutoff date per-decade, reuse. Even
     # cheaper: walk once to today, use those ratings (regression toward
-    # current — biased but consistent across the sweep).
+    # current, biased but consistent across the sweep).
     print("  walking Elo to today (one pass)...")
     final_df, _ = elo_run(min_date=None, max_date=None,
                           k_factors=BASE.k_factors, default_k=BASE.default_k, quiet=True)

@@ -6,13 +6,17 @@ Writes data/raw/calibration_audit_pairs.csv with one row per match:
   tournament, year, date, home, away, p_h, p_d, p_a, actual (0=H, 1=D, 2=A)
 """
 from __future__ import annotations
+
 import csv
 import time
 
 import numpy as np
 
 from worldcup.comprehensive_validation import (
-    TOURNAMENTS, apply_layers, get_pre_tournament_ratings, actual_outcome,
+    TOURNAMENTS,
+    actual_outcome,
+    apply_layers,
+    get_pre_tournament_ratings,
 )
 from worldcup.db import PROJECT_ROOT, connect
 from worldcup.elo import HOME_ADVANTAGE

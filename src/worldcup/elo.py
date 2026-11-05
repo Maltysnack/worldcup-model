@@ -43,7 +43,7 @@ DEFAULT_K: float = _PROFILE.default_k
 def expected_score(rating_home_eff: float, rating_away_eff: float) -> float:
     """Elo expected score for the home team (a number between 0 and 1).
 
-    Counts a draw as 0.5. Not a literal win probability — that requires
+    Counts a draw as 0.5. Not a literal win probability, that requires
     a separate draw model, which we'll add later.
     """
     return 1.0 / (1.0 + 10 ** ((rating_away_eff - rating_home_eff) / 400.0))
@@ -73,7 +73,7 @@ def run(
     """Walk through history, return (final_ratings_df, predictions_df).
 
     Defaults come from the active profile (via module-level constants),
-    but each can be overridden — this is what the comparison tool uses
+    but each can be overridden, this is what the comparison tool uses
     to evaluate alternative profiles without touching the saved tables.
     """
     if min_date is None:
@@ -182,7 +182,7 @@ def main() -> None:
         print(f"\n  wrote {elo_table}: {len(final_df):,} teams")
         print(f"  wrote {pred_table}: {len(preds_df):,} rows")
 
-        print(f"\nTop 20 active teams (last match within past 18 months):")
+        print("\nTop 20 active teams (last match within past 18 months):")
         top = con.execute(
             f"""
             SELECT team, ROUND(rating) AS rating, n_matches, last_match

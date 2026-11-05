@@ -41,17 +41,16 @@ from __future__ import annotations
 import json
 import sys
 from collections import defaultdict
-from dataclasses import dataclass, asdict
-from datetime import datetime, timezone
+from dataclasses import asdict, dataclass
+from datetime import UTC, datetime
 
 import numpy as np
 
 from worldcup.db import PROJECT_ROOT, connect
 
-
 # Tournament editions to include in the corpus. We restrict to high-
 # quality international tournaments since 1998 (post-format-change era
-# for WC). AFCON, Asian Cup, Gold Cup are deliberately excluded — their
+# for WC). AFCON, Asian Cup, Gold Cup are deliberately excluded, their
 # upset patterns differ from WC/Euro/Copa and would skew the median.
 ELIGIBLE_TOURNAMENTS = {
     "FIFA World Cup",
@@ -321,7 +320,7 @@ def compute_tournament(tournament: str, year: int) -> TournamentResult | None:
 
 
 def main() -> None:
-    print(f"Building historical upset-score corpus")
+    print("Building historical upset-score corpus")
     print(f"Tournaments: {sorted(ELIGIBLE_TOURNAMENTS)}")
     print(f"Earliest year: {EARLIEST_YEAR}, hold-outs: {HOLDOUT_YEARS}\n")
 
@@ -387,7 +386,7 @@ def main() -> None:
 
     print(f"\n{len(results)} tournaments in corpus")
     scores = np.array([r.upset_score for r in results])
-    print(f"\nUpset-score statistics (per-team avg deviation):")
+    print("\nUpset-score statistics (per-team avg deviation):")
     print(f"  min:    {scores.min():.3f}")
     print(f"  q25:    {np.quantile(scores, 0.25):.3f}")
     print(f"  median: {np.quantile(scores, 0.5):.3f}")
@@ -396,7 +395,7 @@ def main() -> None:
     print(f"  max:    {scores.max():.3f}")
 
     # Per-tournament breakdown
-    print(f"\nBy tournament family:")
+    print("\nBy tournament family:")
     by_t: dict[str, list[float]] = defaultdict(list)
     for r in results:
         by_t[r.tournament].append(r.upset_score)
@@ -407,7 +406,7 @@ def main() -> None:
     out_path = PROJECT_ROOT / "data" / "raw" / "historical_upset_corpus.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps({
-        "computed_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "computed_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "tournaments_included": sorted(ELIGIBLE_TOURNAMENTS),
         "earliest_year": EARLIEST_YEAR,
         "holdout_years": [list(t) for t in HOLDOUT_YEARS],

@@ -6,7 +6,7 @@ hourly close runs. Mirrors the `due` filter in betting/bot.py run_close.
 
 import json
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 
@@ -26,4 +26,4 @@ def due(ledger: Path, now: datetime) -> bool:
 
 if __name__ == "__main__":
     ledger = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("ledger")
-    print(int(due(ledger, datetime.now(timezone.utc))))
+    print(int(due(ledger, datetime.now(UTC))))

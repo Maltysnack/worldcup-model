@@ -1,6 +1,6 @@
 """Geocoded host venues for the 2026 FIFA World Cup.
 
-A fixed dict — public coordinates from each stadium's Wikipedia page,
+A fixed dict, public coordinates from each stadium's Wikipedia page,
 elevation rounded to the nearest 10 m. Used downstream to derive
 altitude and travel-distance covariates (sub-issues of the deleted
 match-state #6).

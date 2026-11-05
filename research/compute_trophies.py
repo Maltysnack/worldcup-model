@@ -8,7 +8,7 @@ derived from:
 For each WC team that has a published roster, sums the trophy weights
 across the squad: each player contributes the sum of all trophy weights
 their club won. No minutes weighting yet (treats every squad member as
-contributing equally) — that's a follow-up via FBref player stats.
+contributing equally), that's a follow-up via FBref player stats.
 
 For teams without a published roster, the function returns None and
 the caller should fall back to the hand-coded TEAM_TROPHY_SCORE dict.
@@ -22,7 +22,7 @@ computed value and a per-player breakdown for inspection.
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime, timezone
 
 from club_trophies import (
     CLUB_TROPHIES_2025_26,
@@ -30,16 +30,16 @@ from club_trophies import (
     PENDING,
     trophies_for_club,
 )
-from worldcup.db import PROJECT_ROOT
 from wiki_rosters import fetch_and_parse
 
+from worldcup.db import PROJECT_ROOT
 
 OUTPUT_PATH = PROJECT_ROOT / "data" / "raw" / "wc2026_trophy_scores.json"
 
 
 # Baseline trophy contribution given to every WC qualifier, on top of
 # their actual trophy-weight aggregation. Rationale: WC qualification
-# itself is a competence signal — a squad of professional internationals
+# itself is a competence signal, a squad of professional internationals
 # who beat their continent's qualifying field. Pure "0 trophy weight"
 # would mean we treat a team like Bosnia (no big-club players, but
 # clearly elite within their region) as having zero squad strength via
@@ -55,7 +55,7 @@ def normalise_score(raw: float, players_in_squad: int) -> float:
 
     Without the baseline a team whose published squad happens to lack
     any 2025-26 trophy-winning-club players (e.g. Bosnia, May 2026)
-    scores 0, which produces a 50+ Elo drop relative to hand-coded —
+    scores 0, which produces a 50+ Elo drop relative to hand-coded -
     far too sensitive to one signal layer.
 
     The 0.85 multiplier on raw is calibrated so France/Spain/Brazil
@@ -97,7 +97,7 @@ def compute() -> dict:
         }
 
     out = {
-        "computed_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "computed_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "club_trophy_data_last_updated": LAST_UPDATED,
         "pending_trophies": PENDING,
         "teams": breakdown,
@@ -132,7 +132,7 @@ def main() -> None:
         print(f"  {team:30s} {d['computed_score']:>9.2f} {d['raw_total']:>7.2f} "
               f"{d['n_players']:>9} {d['n_contributing']:>9}")
 
-    print(f"\nTop contributing players overall (per team):")
+    print("\nTop contributing players overall (per team):")
     for team in sorted(teams, key=lambda t: -teams[t]["computed_score"])[:5]:
         d = teams[team]
         print(f"\n  {team}:")

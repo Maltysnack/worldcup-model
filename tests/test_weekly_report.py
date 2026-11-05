@@ -3,7 +3,7 @@
 import importlib.util
 import pathlib
 import unittest
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 P = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "weekly_report.py"
 
@@ -13,7 +13,7 @@ class WeeklyReportTest(unittest.TestCase):
         spec = importlib.util.spec_from_file_location("weekly_report", P)
         m = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(m)
-        now = datetime(2026, 11, 3, tzinfo=timezone.utc)
+        now = datetime(2026, 11, 3, tzinfo=UTC)
         runs = [{"conclusion": "failure", "createdAt": "2026-11-01T06:00:00Z", "url": "u", "event": "schedule"}]
         out = m.report(now, runs, 123)
         self.assertIn("**Bankroll $", out)

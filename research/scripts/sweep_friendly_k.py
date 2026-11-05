@@ -8,6 +8,7 @@ Picks the empirical optimum. ~1-2 minute wallclock total.
 Usage: uv run python scripts/sweep_friendly_k.py
 """
 from __future__ import annotations
+
 import time
 from datetime import timedelta
 
@@ -15,10 +16,13 @@ import numpy as np
 
 from worldcup.calibration import DIXON_COLES_RHO
 from worldcup.comprehensive_validation import (
-    TOURNAMENTS, apply_layers, actual_outcome,
+    TOURNAMENTS,
+    actual_outcome,
+    apply_layers,
 )
 from worldcup.db import connect
-from worldcup.elo import HOME_ADVANTAGE, run as elo_run
+from worldcup.elo import HOME_ADVANTAGE
+from worldcup.elo import run as elo_run
 from worldcup.goals import expected_goals, wld_probs
 from worldcup.profiles import PROFILES, resolve_min_date
 

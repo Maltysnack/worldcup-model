@@ -10,8 +10,8 @@ All triples are ordered (home, draw, away). Odds are decimal.
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import dataclass
-from typing import Sequence
 
 FLAT_UNIT = 10.0
 KELLY_FRACTION = 0.25

@@ -10,7 +10,7 @@ name: Betting bot
 # GitHub cron has no year, so the day ranges below are the union of the 2026
 # and 2027 windows (FIFA calendar: 21 Sep-6 Oct and 9-17 Nov 2026; 22-30 Mar,
 # 7-15 Jun, 20 Sep-5 Oct and 8-16 Nov 2027). Recheck every year and add
-# tournaments (Euro and Copa 2028) once dated; the autopilot routine reminds.
+# tournaments (Euro and Copa 2028) once dated.
 #   bet     06:00 on window days   one decision per event, at the first pull inside 48h
 #   close   :17 and :47, 11-21 UTC on window days (covers 14:00 to 21:00
 #           kickoffs; GitHub drops many runs, so two an hour), idle runs stop
@@ -18,7 +18,7 @@ name: Betting bot
 #   settle  12:00 on window days and 2 days after: ingest + Elo update +
 #           settle + title odds (Euro/Copa 2028, WC 2030)
 #
-# Credit budget (free tier, 500/month, SHARED with the FPL project's key).
+# Credit budget (free tier, 500/month).
 # Odds cost 1 credit per call (1 region x 1 market); /sports and /events
 # are free.
 #   bet:    1 credit per active intl key per window day, about 45 days a year.
@@ -27,7 +27,7 @@ name: Betting bot
 #   The bot refuses to pull below 50 remaining.
 #
 # Secrets: ODDS_API_KEY (Odds API). Bet and settle runs export the site data
-# to site_data/ in this repo; the site repo copies it from there (DISPLAY.md).
+# to site_data/ in this repo.
 on:
   schedule:
     # bet

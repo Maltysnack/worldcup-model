@@ -210,7 +210,7 @@ PROFILES: dict[str, Profile] = {p.name: p for p in [
 
 
 # The default profile gets the unsuffixed file/table names. It's the
-# "production" model — what the website reads. Validated via the 20-
+# "production" model, what the website reads. Validated via the 20-
 # iteration backtest (WC 2010-2018 + EUROs/Copa/AFCON/Asian Cup/Gold
 # Cup since 2010, ~1334 matches): v4a-flat-mild scored 0.9567 log-loss
 # vs v1's 0.9575. Tiny but real improvement, with much wider iteration
@@ -230,7 +230,8 @@ def resolve_min_date(profile: Profile, anchor=None):
     """
     if profile.min_date_offset_days is None:
         return None
-    from datetime import date as _date, timedelta
+    from datetime import date as _date
+    from datetime import timedelta
     anchor = anchor or _date.today()
     return anchor - timedelta(days=profile.min_date_offset_days)
 

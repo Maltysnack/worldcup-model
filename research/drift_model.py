@@ -1,4 +1,4 @@
-"""Queue item 13: Elo drift model for title odds years out.
+"""Elo drift model for title odds years out.
 
 Fits how far a team's Elo moves over a horizon of h years, as a function
 of its starting rating, then hindcasts World Cup title odds from ratings
@@ -24,7 +24,11 @@ import numpy as np
 from worldcup.db import connect
 from worldcup.drift import fit_drift, rating_at, rating_series
 from worldcup.tournament_backtest import (
-    _PRED_TABLE, fetch_actual_results, fetch_pre_wc_ratings, fetch_wc_teams_and_groups, simulate_tournament,
+    _PRED_TABLE,
+    fetch_actual_results,
+    fetch_pre_wc_ratings,
+    fetch_wc_teams_and_groups,
+    simulate_tournament,
 )
 
 OUT = Path(__file__).resolve().parents[1] / "data" / "raw" / "drift_model_summary.md"
@@ -105,7 +109,7 @@ def run_case(series, year: int, origin: date) -> dict:
 
 
 def report(cases: list[dict]) -> str:
-    L = ["# Elo drift model (queue item 13)", "",
+    L = ["# Elo drift model", "",
          f"_Generated {date.today().isoformat()} by `research/drift_model.py`._", "",
          "Question: when forecasting a World Cup years out, does modelling how Elo ratings drift beat freezing today's ratings?", "",
          "Method: for each team, Elo change over h years (start dates every 6 months from 1990, active teams rated 1600+ at the start, moves ending before the forecast origin) fitted as `delta = a + b*rating + N(0, sd)`. "

@@ -1,0 +1,20 @@
+name: Keep schedules alive
+
+# GitHub disables schedules in public repos after 60 days without activity,
+# and the gap between FIFA windows is longer than that.
+on:
+  schedule:
+    - cron: "0 3 1 * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  enable:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - run: for w in bot.yml weekly.yml keepalive.yml; do gh workflow enable "$w"; done

@@ -1,4 +1,4 @@
-# Elo drift model (queue item 13)
+# Elo drift model
 
 _Generated 2026-10-26 by `research/drift_model.py`._
 

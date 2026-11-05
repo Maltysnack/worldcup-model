@@ -1,7 +1,7 @@
 """Elo drift: how far a team's rating moves over h years, by starting rating.
 
 Fitted as delta = a + b*rating + N(0, sd) on rating moves since 1990.
-Validated in research/drift_model.py (queue item 13): beats frozen ratings
+Validated in research/drift_model.py: beats frozen ratings
 on 3 of 4 World Cup hindcasts from ~3.5 years out. Used by title_odds.py.
 """
 

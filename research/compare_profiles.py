@@ -22,11 +22,11 @@ from worldcup.elo import run as elo_run
 from worldcup.goals import sim_match, wld_probs
 from worldcup.profiles import PROFILES, Profile
 from worldcup.tournament_backtest import (
-    GROUPS_LEGACY,
-    R16_LEGACY,
-    QF_LEGACY,
-    SF_LEGACY,
     FINAL_LEGACY,
+    GROUPS_LEGACY,
+    QF_LEGACY,
+    R16_LEGACY,
+    SF_LEGACY,
     fetch_actual_results,
     fetch_wc_teams_and_groups,
 )

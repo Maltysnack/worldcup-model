@@ -103,7 +103,7 @@ CLUB_TROPHIES_2025_26.setdefault("Toluca", []).append(("liga_mx_apertura", 0.3))
 # Saudi Pro League 2025-26: still being contested as of 2026-05-13.
 # Will be refreshed once the season concludes.
 
-# Argentine Primera 2025-26 / 2026 — TBD; currently no champion to credit.
+# Argentine Primera 2025-26 / 2026, TBD; currently no champion to credit.
 
 # Club name aliases: Wikipedia squad pages often abbreviate or vary.
 # Map common variants to the canonical name used in CLUB_TROPHIES_2025_26.

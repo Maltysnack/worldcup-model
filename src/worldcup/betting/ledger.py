@@ -30,10 +30,11 @@ import argparse
 import hashlib
 import json
 import sys
+from collections.abc import Sequence
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Sequence
+from typing import Any
 
 from worldcup.betting import engine
 
@@ -67,7 +68,7 @@ def row_hash(row: dict) -> str:
 
 
 def now_utc() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="microseconds")
+    return datetime.now(UTC).isoformat(timespec="microseconds")
 
 
 def _parse_ts(ts: str) -> datetime:

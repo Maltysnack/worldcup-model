@@ -19,33 +19,23 @@ Run: `uv run worldcup-comprehensive-validation`
 
 from __future__ import annotations
 
-import json
+# ── Config ────────────────────────────────────────────────────────────
+import os
 import sys
 import time
 from collections import Counter, defaultdict
-from datetime import date, datetime, timezone
-from pathlib import Path
+from datetime import UTC, date, datetime
 
 import numpy as np
 
-from worldcup.calibration import (
-    LAMBDA_AWAY_AT_PARITY,
-    LAMBDA_HOME_AT_PARITY,
-    SLOPE_AWAY,
-    SLOPE_HOME,
-)
 from worldcup.db import PROJECT_ROOT, connect
-from worldcup.elo import HOME_ADVANTAGE, run as elo_run
+from worldcup.elo import HOME_ADVANTAGE
+from worldcup.elo import run as elo_run
 from worldcup.form import compute_form_bumps
 from worldcup.goals import expected_goals, sim_match, wld_probs
 from worldcup.host import host_bonus
 from worldcup.profiles import PROFILES, resolve_min_date
 from worldcup.trophies import nt_trophy_bonus
-
-
-# ── Config ────────────────────────────────────────────────────────────
-
-import os
 
 # Phase-aware scope. The default is the maximal grid for overnight runs;
 # pass WC_VAL_QUICK=1 to use the smaller phase-1 grid (kept as a sanity
@@ -88,7 +78,7 @@ TOURNAMENTS = [
     ("UEFA Euro",              2016, date(2016, 6, 9)),
     ("UEFA Euro",              2021, date(2021, 6, 10)),  # "Euro 2020" held in 2021
     ("UEFA Euro",              2024, date(2024, 6, 13)),
-    # Continental tournaments — expand the per-match base and stress-test
+    # Continental tournaments, expand the per-match base and stress-test
     # generalisation outside Europe / WC.
     ("African Cup of Nations", 2017, date(2017, 1, 14)),
     ("African Cup of Nations", 2019, date(2019, 6, 21)),
@@ -544,14 +534,14 @@ def main() -> None:
 
     md_lines = []
     md_lines.append("# Comprehensive validation summary\n")
-    md_lines.append(f"\n_Generated {datetime.now(timezone.utc).isoformat(timespec='seconds')}_\n")
+    md_lines.append(f"\n_Generated {datetime.now(UTC).isoformat(timespec='seconds')}_\n")
     md_lines.append(f"\nGrid: {len(PROFILES_TO_TEST)} profiles × {len(LAYER_CONFIGS)} layer configs × "
                     f"{len(TOURNAMENTS)} tournaments × {len(SIM_COUNTS)} sim counts = "
                     f"{total} evaluations ({len(rows)} successful)\n")
     md_lines.append(f"\nElapsed: {(time.time() - t0)/60:.1f} minutes\n\n")
     md_lines.append("## Ranked by mean per-match log-loss (lower = better) at N=10000\n\n")
-    md_lines.append(f"| Rank | Profile | Layer | Avg log-loss | Avg ECE | Avg Brier | Avg champ rank | Champ% of winner | Top-pick hits |\n")
-    md_lines.append(f"|---:|---|---|---:|---:|---:|---:|---:|---:|\n")
+    md_lines.append("| Rank | Profile | Layer | Avg log-loss | Avg ECE | Avg Brier | Avg champ rank | Champ% of winner | Top-pick hits |\n")
+    md_lines.append("|---:|---|---|---:|---:|---:|---:|---:|---:|\n")
     for i, r in enumerate(summary_rows, start=1):
         rank_str = f"{r['avg_champ_rank']:.1f}" if r['avg_champ_rank'] is not None else "n/a"
         md_lines.append(
@@ -565,8 +555,8 @@ def main() -> None:
     md_lines.append("\n## Profile comparison (layer=full, N=10000)\n\n")
     profile_full = [r for r in summary_rows if r["layer"] == "full"]
     profile_full.sort(key=lambda r: r["avg_log_loss"])
-    md_lines.append(f"| Rank | Profile | Avg log-loss | Avg ECE | Avg champ rank |\n")
-    md_lines.append(f"|---:|---|---:|---:|---:|\n")
+    md_lines.append("| Rank | Profile | Avg log-loss | Avg ECE | Avg champ rank |\n")
+    md_lines.append("|---:|---|---:|---:|---:|\n")
     for i, r in enumerate(profile_full, start=1):
         rank_str = f"{r['avg_champ_rank']:.1f}" if r['avg_champ_rank'] else "n/a"
         md_lines.append(f"| {i} | {r['profile']} | {r['avg_log_loss']:.4f} | "
@@ -577,7 +567,7 @@ def main() -> None:
     md_lines.append("Does each layer help? Compare elo_only → elo_form → elo_form_nt → full.\n\n")
     for profile in PROFILES_TO_TEST:
         md_lines.append(f"\n### {profile}\n\n")
-        md_lines.append(f"| Layer | Log-loss | ECE | Champ rank |\n|---|---:|---:|---:|\n")
+        md_lines.append("| Layer | Log-loss | ECE | Champ rank |\n|---|---:|---:|---:|\n")
         for layer in LAYER_CONFIGS:
             match = [s for s in summary_rows
                      if s["profile"] == profile and s["layer"] == layer]
@@ -593,7 +583,7 @@ def main() -> None:
     top3 = summary_rows[:3]
     for top in top3:
         md_lines.append(f"\n### {top['profile']} + {top['layer']}\n\n")
-        md_lines.append(f"| Tournament | N | Log-loss | Champ rank | Top pick |\n|---|---:|---:|---:|---|\n")
+        md_lines.append("| Tournament | N | Log-loss | Champ rank | Top pick |\n|---|---:|---:|---:|---|\n")
         for tournament, year, _ in TOURNAMENTS:
             for n in SIM_COUNTS:
                 match = [r for r in rows
@@ -613,7 +603,7 @@ def main() -> None:
     MD_OUT.write_text("".join(md_lines))
     print(f"  MD : {MD_OUT}")
     print(f"\nTotal time: {(time.time() - t0)/60:.1f} minutes")
-    print(f"\nTop 5 (profile, layer) combos by log-loss:")
+    print("\nTop 5 (profile, layer) combos by log-loss:")
     for i, r in enumerate(summary_rows[:5], start=1):
         rank_str = f"{r['avg_champ_rank']:.1f}" if r['avg_champ_rank'] is not None else "n/a"
         print(f"  {i}. {r['profile']:24s}  {r['layer']:14s}  ll={r['avg_log_loss']:.4f}  "

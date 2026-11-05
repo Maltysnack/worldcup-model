@@ -22,13 +22,13 @@ Layers active in this evaluation:
   - National-team trophy bonus (NT_FINISHES, as_of_year=2022)
   - Host bonus (Qatar for WC 2022)
 
-Layers explicitly skipped — they're 2026-specific data that would
+Layers explicitly skipped, they're 2026-specific data that would
 leak future info into the 2022 evaluation:
   - Squad market-value blend (SQUAD_VALUES is current 2026 Transfermarkt)
   - Computed trophy aggregation (2025-26 club trophies, current rosters)
   - Hand-coded TEAM_TROPHY_SCORE (estimated for 2026 squads)
 
-So this is "Elo + form + NT trophies + host" — the core date-aware
+So this is "Elo + form + NT trophies + host", the core date-aware
 model. About 80% of the current architecture, evaluated honestly
 against unseen data.
 
@@ -50,7 +50,8 @@ from worldcup.calibration import (
     SLOPE_HOME,
 )
 from worldcup.db import connect
-from worldcup.elo import HOME_ADVANTAGE, run as elo_run
+from worldcup.elo import HOME_ADVANTAGE
+from worldcup.elo import run as elo_run
 from worldcup.form import compute_form_bumps
 from worldcup.goals import expected_goals, wld_probs
 from worldcup.host import host_bonus
@@ -192,10 +193,10 @@ def main() -> None:
     print("WC 2022 DEEP HOLDOUT EVALUATION")
     print("=" * 72)
     print(f"Cutoff: {KICKOFF.isoformat()}  (day before kickoff)")
-    print(f"Layers active: Elo (v4a-flat-mild) + form + NT bonus + host")
-    print(f"Layers SKIPPED (2026-specific, would leak future info):")
-    print(f"  - Squad market-value blend")
-    print(f"  - Trophy density (computed + hand-coded)")
+    print("Layers active: Elo (v4a-flat-mild) + form + NT bonus + host")
+    print("Layers SKIPPED (2026-specific, would leak future info):")
+    print("  - Squad market-value blend")
+    print("  - Trophy density (computed + hand-coded)")
     print()
 
     raw_ratings, boosted_ratings = get_pre_kickoff_ratings()
@@ -204,7 +205,7 @@ def main() -> None:
     print(f"  {len(matches)} WC 2022 matches with results in DB")
 
     actual = fetch_actual_results(WC_YEAR)
-    print(f"\n  Actual outcome:")
+    print("\n  Actual outcome:")
     print(f"    Champion:        {actual['champion']}")
     print(f"    Runner-up:       {actual['runner_up']}")
     print(f"    Semifinalists:   {sorted(actual['semifinalists'])}")
@@ -220,10 +221,10 @@ def main() -> None:
     print(f"  Per-match log-loss:       {log_loss_rows(rows):.4f}")
     print(f"  Per-match Brier:          {brier_rows(rows):.4f}")
     print(f"  Per-match ECE:            {ece_rows(rows):.4f}")
-    print(f"  (Reference: overall historical log-loss is 0.91, ECE 0.008)")
+    print("  (Reference: overall historical log-loss is 0.91, ECE 0.008)")
 
     # ── Notable per-match calls ────────────────────────────────────
-    print(f"\n  Most CONFIDENT correct calls:")
+    print("\n  Most CONFIDENT correct calls:")
     correct = [r for r in rows if r["top_pick_correct"]]
     correct_sorted = sorted(correct, key=lambda r: -r["p_assigned_to_actual"])
     for r in correct_sorted[:5]:
@@ -231,8 +232,8 @@ def main() -> None:
         print(f"    {r['date']}  {r['home_team']:18s} {r['home_score']}-{r['away_score']} "
               f"{r['away_team']:18s}  (p={prob:.0f}%)")
 
-    print(f"\n  Most CONFIDENT misses (model said X with high conviction, "
-          f"got it wrong):")
+    print("\n  Most CONFIDENT misses (model said X with high conviction, "
+          "got it wrong):")
     wrong = [r for r in rows if not r["top_pick_correct"]]
     wrong_sorted = sorted(
         wrong,
@@ -263,7 +264,7 @@ def main() -> None:
     counts, group_winners = simulate_tournament(
         boosted_ratings, groups, n_sims=N_SIMS,
     )
-    # Round probabilities — simulate_tournament uses LONG key names.
+    # Round probabilities, simulate_tournament uses LONG key names.
     probs = {}
     for team, c in counts.items():
         n = sum(c.values()) or 1
@@ -279,7 +280,7 @@ def main() -> None:
         }
 
     ranked = sorted(probs.items(), key=lambda kv: -kv[1]["champion"])
-    print(f"\n  Top 12 by championship probability:")
+    print("\n  Top 12 by championship probability:")
     print(f"  {'team':25s}  {'rating':>6}  {'champ%':>7}  {'final%':>7}  "
           f"{'semi%':>7}  {'QF%':>7}")
     for team, p in ranked[:12]:
@@ -294,7 +295,7 @@ def main() -> None:
               f"{p['champion']:>6.1f}%  {p['final']:>6.1f}%  "
               f"{p['semis']:>6.1f}%  {p['qf']:>6.1f}%{marker}")
 
-    print(f"\n  Where each actual top-4 team ranked in our forecast:")
+    print("\n  Where each actual top-4 team ranked in our forecast:")
     top4_actual = [actual["champion"], actual["runner_up"], *sorted(
         actual["semifinalists"] - {actual["champion"], actual["runner_up"]}
     )]
@@ -307,7 +308,7 @@ def main() -> None:
               f"final={p['final']:.1f}%  semi={p['semis']:.1f}%  QF={p['qf']:.1f}%")
 
     # ── Group-stage prediction accuracy ─────────────────────────────
-    print(f"\n  Group winners — predicted vs actual:")
+    print("\n  Group winners, predicted vs actual:")
     # Determine actual group winners from match results
     actual_group_winners = {}
     actual_group_runners = {}

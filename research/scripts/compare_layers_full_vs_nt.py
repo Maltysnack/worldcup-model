@@ -6,6 +6,7 @@ for the layer-default decision: layers differ only by host bonus.
 Usage: uv run python scripts/compare_layers_full_vs_nt.py
 """
 from __future__ import annotations
+
 import time
 from datetime import timedelta
 
@@ -13,7 +14,8 @@ import numpy as np
 
 from worldcup.comprehensive_validation import TOURNAMENTS, actual_outcome
 from worldcup.db import connect
-from worldcup.elo import HOME_ADVANTAGE, run as elo_run
+from worldcup.elo import HOME_ADVANTAGE
+from worldcup.elo import run as elo_run
 from worldcup.form import compute_form_bumps
 from worldcup.goals import expected_goals, wld_probs
 from worldcup.host import TOURNAMENT_HOSTS

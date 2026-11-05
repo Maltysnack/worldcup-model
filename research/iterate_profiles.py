@@ -30,9 +30,10 @@ from worldcup.calibration import (
     SLOPE_AWAY,
     SLOPE_HOME,
 )
-from worldcup.elo import HOME_ADVANTAGE, run as elo_run
+from worldcup.elo import HOME_ADVANTAGE
+from worldcup.elo import run as elo_run
 from worldcup.goals import wld_probs
-from worldcup.profiles import PROFILES, Profile, V1_BASELINE, resolve_min_date
+from worldcup.profiles import PROFILES, V1_BASELINE, Profile, resolve_min_date
 
 TARGET_TOURNAMENTS = [
     "FIFA World Cup",
@@ -244,7 +245,7 @@ def main() -> None:
             print(f"  {name:24s}  | {k_summary(prof)}")
 
     # Iteration-by-iteration winner trajectory
-    print(f"\nWinner per iteration:")
+    print("\nWinner per iteration:")
     print(f"{'iter':>4}  {'name':24s} {'kind':5s} {'log-loss':>9}  notes")
     print("-" * 70)
     prev = None
@@ -264,10 +265,10 @@ def main() -> None:
         1 for h in history
         if any(kind == "RAND" for _, _, kind in h["ranked"][:3])
     )
-    print(f"\nRandom variants in 20 iterations:")
+    print("\nRandom variants in 20 iterations:")
     print(f"  Won iteration:        {rand_wins:>2} times")
     print(f"  Finished top 3:       {rand_top3:>2} times")
-    print(f"  (Negative-control check: if RAND often beats perturbations, we are in pure noise.)")
+    print("  (Negative-control check: if RAND often beats perturbations, we are in pure noise.)")
 
     # Pool-level: across all unique profiles tested, how do random vs
     # perturbations vs originals compare?

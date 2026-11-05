@@ -1,4 +1,4 @@
-"""Synthetic Sportsbet-style odds, used until real historical odds exist (queue item 6).
+"""Synthetic Sportsbet-style odds, used until real historical odds exist.
 
 A synthetic book takes fair probabilities, perturbs them with log-normal
 noise, applies a proportional margin, and quotes decimal odds. The closing
@@ -11,7 +11,7 @@ None of this says anything about real edge. It exercises the pipeline.
 
 from __future__ import annotations
 
-from typing import Sequence
+from collections.abc import Sequence
 
 import numpy as np
 
