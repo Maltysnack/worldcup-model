@@ -1,7 +1,7 @@
 name: Keep schedules alive
 
 # GitHub disables schedules in public repos after 60 days without activity,
-# and the gap between FIFA windows is longer than that.
+# and gaps between FIFA windows are longer than that.
 on:
   schedule:
     - cron: "0 3 1 * *"

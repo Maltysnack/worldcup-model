@@ -1,6 +1,6 @@
 name: Betting bot
 
-# Paper-money Sportsbet 1X2 bot (src/worldcup/betting/bot.py). Each run
+# Paper-money 1X2 bot against Sportsbet prices (src/worldcup/betting/bot.py). Each run
 # does one task, verifies the hash-chained ledger, and commits ledger/ (and,
 # for bet and settle, site_data/) back to this repo.
 #

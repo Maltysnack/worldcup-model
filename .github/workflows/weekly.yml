@@ -1,6 +1,6 @@
 name: Weekly update
 
-# Tuesday 00:17 UTC (11:17 AEDT), only in months with a FIFA window or the
+# Tuesdays 00:17 UTC (11:17 AEDT), only in months with a FIFA window or the
 # week after one (Mar, Apr, Jun, Sep, Oct, Nov); quiet months send nothing. Posts
 # scripts/weekly_report.py as an issue and closes last week's.
 on:
