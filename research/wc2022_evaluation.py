@@ -24,7 +24,7 @@ Layers active in this evaluation:
 
 Layers explicitly skipped, they're 2026-specific data that would
 leak future info into the 2022 evaluation:
-  - Squad market-value blend (SQUAD_VALUES is current 2026 Transfermarkt)
+  - Squad market-value blend (2026 values only, since removed)
   - Computed trophy aggregation (2025-26 club trophies, current rosters)
   - Hand-coded TEAM_TROPHY_SCORE (estimated for 2026 squads)
 

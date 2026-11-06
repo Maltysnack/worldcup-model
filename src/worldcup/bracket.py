@@ -35,7 +35,6 @@ from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
 from worldcup.host import apply_host_bonus
 from worldcup.profiles import current_profile, file_suffix, table_suffix
-from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.trophies import apply_nt_bonus
 
 # Number of group sims when computing predicted standings. The bracket
@@ -593,12 +592,12 @@ def find_exemplar_bracket(group_winners, group_runners, third_assignments,
 
 
 def main() -> None:
-    model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}+form"
+    model_id = f"{MODEL_VERSION}+form"
     print(f"Generating bracket using official FIFA 2026 structure (model: {model_id})")
     raw_ratings, fixtures = load_data()
     ratings = apply_altitude_bonus(
         apply_host_bonus(
-            apply_nt_bonus(apply_form(blended_ratings(raw_ratings))),
+            apply_nt_bonus(apply_form(raw_ratings)),
             "FIFA World Cup", 2026,
         ),
         "FIFA World Cup", 2026,
@@ -691,7 +690,6 @@ def main() -> None:
     output = {
         "model_version": model_id,
         "elo_version": MODEL_VERSION,
-        "elo_weight": ELO_WEIGHT,
         "generated_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
         "bracket_format": "fifa-2026",
         "flags": TEAM_ISO,

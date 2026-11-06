@@ -51,7 +51,7 @@ Scorelines are independent Poisson up to 10 goals, and win/draw/loss is summed f
 - Altitude: +50 for a host playing at altitude (Mexico, 2026). On.
 - Recent form: off. It hurt log-loss on 2026.
 
-On the 2026 ablation (104 matches) every layer's interval includes zero, so the overlay is unproven; see [data/capsule/layer_ablation_2026.md](data/capsule/layer_ablation_2026.md). Tournaments are defined in `src/worldcup/registry.py`.
+On the 2026 ablation (104 matches) every layer's interval includes zero, so the overlay is unproven; see [data/capsule/layer_ablation_2026.md](data/capsule/layer_ablation_2026.md). The squad layer and the script that ran this have since been removed, so the table stands as a record. Tournaments are defined in `src/worldcup/registry.py`.
 
 ### Paper bot
 
@@ -72,7 +72,6 @@ Requires [uv](https://github.com/astral-sh/uv).
 uv sync
 uv run worldcup-ingest
 uv run worldcup-elo
-uv run worldcup-simulate
 uv run worldcup-forecast wc2030
 uv run python -m unittest discover tests
 ```

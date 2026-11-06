@@ -56,7 +56,6 @@ from worldcup.form import apply_form
 from worldcup.goals import expected_goals, sim_match
 from worldcup.host import apply_host_bonus
 from worldcup.profiles import current_profile, file_suffix
-from worldcup.squad import ELO_WEIGHT, blended_ratings
 from worldcup.trophies import apply_nt_bonus
 
 _PROFILE = current_profile()
@@ -387,7 +386,7 @@ def predict_upcoming_matches(ratings, fixtures, *, n_samples: int = 5000, seed: 
 
 
 def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
-    model_id = f"{MODEL_VERSION}+squad{int(round((1 - ELO_WEIGHT) * 100))}+form"
+    model_id = f"{MODEL_VERSION}+form"
     print(f"Monte Carlo simulator (model: {model_id}, n={n_sims:,})")
 
     raw_ratings, fixtures = load_data()
@@ -396,7 +395,7 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
     # corrections we already apply).
     ratings = apply_altitude_bonus(
         apply_host_bonus(
-            apply_nt_bonus(apply_form(blended_ratings(raw_ratings))),
+            apply_nt_bonus(apply_form(raw_ratings)),
             "FIFA World Cup", 2026,
         ),
         "FIFA World Cup", 2026,
@@ -467,7 +466,6 @@ def main(n_sims: int = N_SIMS, seed: int = 42) -> None:
     output = {
         "model_version": model_id,
         "elo_version": MODEL_VERSION,
-        "elo_weight": ELO_WEIGHT,
         "match_predictions": match_predictions,
         "recent_matches": recent_matches,
         "generated_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
