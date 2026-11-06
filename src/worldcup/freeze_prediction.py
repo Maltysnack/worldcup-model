@@ -29,12 +29,10 @@ from worldcup.db import PROJECT_ROOT
 SOURCE_PATHS = {
     "simulation":  PROJECT_ROOT / "data" / "simulation.json",
     "bracket":     PROJECT_ROOT / "data" / "bracket.json",
-    "top_scorers": PROJECT_ROOT / "data" / "top_scorers.json",
 }
 TARGET_PATHS = {
     "simulation":  PROJECT_ROOT / "data" / "simulation-prediction.json",
     "bracket":     PROJECT_ROOT / "data" / "bracket-prediction.json",
-    "top_scorers": PROJECT_ROOT / "data" / "top_scorers-prediction.json",
 }
 FROZEN_SENTINEL = PROJECT_ROOT / "data" / ".frozen"
 
@@ -47,7 +45,6 @@ def main() -> None:
             cmd = {
                 "simulation": "worldcup-simulate",
                 "bracket": "worldcup-bracket",
-                "top_scorers": "worldcup-predict-top-scorer",
             }[kind]
             print(f"  ! {src} missing, run `uv run {cmd}` first")
             sys.exit(1)

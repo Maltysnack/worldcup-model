@@ -18,7 +18,7 @@ The model beat plain Elo on log-loss overall and in the group stage, but lost to
 
 ## How it works
 
-- **Ratings:** Elo from about 49,000 internationals since 1872.
+- **Ratings:** Elo built from the [international results dataset](https://github.com/martj42/international_results).
 - **Match model:** Poisson goals with a Dixon-Coles correction.
 - **Tournament:** Monte Carlo simulation of the full bracket.
 - **Paper bot:** compares Elo probabilities with Sportsbet 1X2 prices through The Odds API. Rules were locked on 2026-10-26: flat $10, minimum edge 3%, maximum odds 6.0. Decisions go in an append-only, hash-chained ledger in `ledger/`.
@@ -63,8 +63,6 @@ index.html             the live page, served by GitHub Pages
 - Results: [martj42/international_results](https://github.com/martj42/international_results) (MIT).
 - Prices: [The Odds API](https://the-odds-api.com/).
 - Squads and trophies: Wikipedia.
-
-Club player stats used for the 2026 squad and top-scorer inputs are not included.
 
 ## Contributing
 

@@ -13,8 +13,6 @@ wheels/
 # Exclude everything in data/raw/ EXCEPT manual artifacts that CI
 # cannot regenerate.
 data/raw/*
-!data/raw/historical_wc_top_scorers.csv
-!data/raw/historical_wc_top_scorers_seed.csv
 !data/raw/betting_backtest_summary.md
 data/*.duckdb
 data/*.duckdb.wal

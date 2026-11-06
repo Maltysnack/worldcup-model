@@ -8,7 +8,7 @@ derived from:
 For each WC team that has a published roster, sums the trophy weights
 across the squad: each player contributes the sum of all trophy weights
 their club won. No minutes weighting yet (treats every squad member as
-contributing equally), that's a follow-up via FBref player stats.
+contributing equally).
 
 For teams without a published roster, the function returns None and
 the caller should fall back to the hand-coded TEAM_TROPHY_SCORE dict.
@@ -60,7 +60,7 @@ def normalise_score(raw: float, players_in_squad: int) -> float:
 
     The 0.85 multiplier on raw is calibrated so France/Spain/Brazil
     land near their old hand-coded values (~30-38) once their squads
-    are scraped. Will be re-tuned post-FBref minutes data.
+    are scraped.
     """
     if players_in_squad == 0:
         return TROPHY_BASELINE
