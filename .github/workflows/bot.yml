@@ -15,7 +15,7 @@ name: Betting bot
 #   close   :17 and :47, 11-21 UTC on window days (covers 14:00 to 21:00
 #           kickoffs; GitHub drops many runs, so two an hour), idle runs stop
 #           after checkout (scripts/close_due.py), 0 credits
-#   settle  12:00 on window days and 2 days after: ingest + Elo update +
+#   settle  12:00 on window days, 2 days after, and every Monday: ingest + Elo update +
 #           settle + title odds and forecasts (Euro/Copa 2028, WC 2030)
 #
 # Credit budget (free tier, 500/month).
@@ -49,6 +49,8 @@ on:
     - cron: "0 12 22-30 9 *"
     - cron: "0 12 1-8 10 *"
     - cron: "0 12 10-19 11 *"
+    # settle weekly all year, 0 credits: keeps ratings, results and forecasts current between windows
+    - cron: "0 12 * * 1"
   workflow_dispatch:
     inputs:
       task:

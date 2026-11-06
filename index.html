@@ -33,7 +33,7 @@ header { display: flex; align-items: center; justify-content: space-between; gap
 nav { display: flex; gap: 4px; }
 nav button, .ghost {
   font: 500 13px/1 var(--sans); color: var(--ink-2); background: none; border: 0;
-  padding: 10px 14px; border-radius: 999px; cursor: pointer; letter-spacing: .02em;
+  padding: 10px 14px; border-radius: 0; cursor: pointer; letter-spacing: .02em;
 }
 /* Gradient, not an inset shadow: the shadow left a hairline on fractional-width tabs. */
 nav button[aria-selected="true"] { color: var(--ink); background: linear-gradient(var(--hi), var(--hi)) bottom / 100% 2px no-repeat; border-radius: 0; }
@@ -83,24 +83,24 @@ td.r { color: var(--ink); }
 .fx .tm i { font: 500 12px var(--mono); font-style: normal; text-align: right; color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .split { display: flex; gap: 2px; height: 10px; }
 .split span { min-width: 2px; }
-.split .h { background: var(--d2); border-radius: 4px 0 0 4px; }
+.split .h { background: var(--d2); }
 .split .d { background: var(--seq3); }
-.split .a { background: var(--d1); border-radius: 0 4px 4px 0; }
+.split .a { background: var(--d1); }
 .lab { display: flex; justify-content: space-between; gap: 8px; font: 500 12px/1.3 var(--mono); color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .lab b { color: var(--ink); font-weight: 600; }
 .bet { font: 500 12px/1.45 var(--mono); color: var(--ink-2); }
-.bet em { font-style: normal; background: var(--hi); color: #fff; padding: 1px 6px; border-radius: 3px; margin-right: 4px; }
+.bet em { font-style: normal; background: var(--hi); color: #fff; padding: 1px 6px; margin-right: 4px; }
 .empty { align-self: center; justify-self: center; text-align: center; max-width: 40ch; color: var(--ink-2); font-size: 15px; line-height: 1.5; }
 
 /* Tournaments */
 #tournaments { grid-template-rows: auto minmax(0, 1fr); gap: 12px; }
 .pick { display: flex; flex-wrap: wrap; gap: 6px; }
-.pick button { font: 500 12px/1 var(--sans); color: var(--ink-2); background: none; border: 1px solid var(--rule); padding: 8px 12px; border-radius: 999px; cursor: pointer; }
+.pick button { font: 500 12px/1 var(--sans); color: var(--ink-2); background: none; border: 1px solid var(--rule); padding: 8px 12px; border-radius: 0; cursor: pointer; }
 .pick button[aria-pressed="true"] { color: var(--paper); background: var(--ink); border-color: var(--ink); }
 .view h2 { font: 900 clamp(30px, 4vw, 52px)/.95 var(--display); text-transform: uppercase; }
 .lead { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 6px 24px; margin-bottom: 12px; }
 .legend { display: flex; gap: 14px; font: 500 12px var(--mono); color: var(--ink-2); }
-.legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 2px; background: var(--c); }
+.legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; margin-right: 6px; background: var(--c); }
 .to { display: grid; grid-template-columns: 20px minmax(9ch, 15ch) minmax(0, 1fr) minmax(0, 18ch); gap: 10px; align-items: center; padding: 5px 0; border-top: 1px solid var(--rule); font-size: 13px; }
 .to b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .to .why { font: 500 11px/1.3 var(--mono); color: var(--ink-3); text-align: right; }
@@ -108,7 +108,7 @@ td.r { color: var(--ink); }
 .pv { display: grid; grid-template-columns: minmax(0, 1fr) 6ch; gap: 8px; align-items: center; font: 500 11px/1.1 var(--mono); color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .pv.o { color: var(--ink); }
 .pv .tr { height: 7px; }
-.pv .tr span { display: block; height: 100%; min-width: 2px; border-radius: 0 3px 3px 0; background: var(--seq4); }
+.pv .tr span { display: block; height: 100%; min-width: 2px; background: var(--seq4); }
 .pv.o .tr span { background: var(--d1); }
 .pv > span:last-child { text-align: right; }
 .fine { margin-top: 12px; font-size: 13px; line-height: 1.5; color: var(--ink-2); max-width: 78ch; }
@@ -126,11 +126,15 @@ footer b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nu
 .stamp { font: 600 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--down); border: 1px dashed currentColor; padding: 5px 8px; }
 footer .end { margin-left: auto; color: var(--ink-3); }
 
-dialog { max-width: min(560px, calc(100vw - 32px)); border: 0; padding: 28px; background: var(--paper); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+dialog { margin: auto; max-width: min(560px, calc(100vw - 32px)); border: 0; padding: 28px; background: var(--paper); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
 dialog::backdrop { background: rgba(10,9,7,.55); }
 dialog h2 { font: 900 40px/.9 var(--display); text-transform: uppercase; margin-bottom: 16px; }
 dialog p { font-size: 14px; line-height: 1.55; color: var(--ink-2); margin-bottom: 10px; }
 dialog p b { color: var(--ink); }
+dialog table { margin-bottom: 14px; }
+dialog td.l { white-space: normal; }
+footer .end { display: flex; align-items: center; gap: 12px; }
+footer .ghost { padding: 6px 10px; font-size: 12px; }
 
 /* Phone: tabs move to a bottom bar, one column, the open tab scrolls as a whole. */
 @media (max-width: 700px) {
@@ -149,7 +153,6 @@ dialog p b { color: var(--ink); }
   .to { grid-template-columns: 20px minmax(0, 1fr); }
   .to .pair, .to .why { grid-column: 2; }
   .to .why { text-align: left; }
-  .hide-sm { display: none; }
   footer { gap: 4px 12px; padding-top: 6px; font-size: 11px; }
   footer .end { margin-left: 0; }
 }
@@ -180,7 +183,7 @@ dialog p b { color: var(--ink); }
       <div class="panel">
         <div class="tag" id="elo-tag">Elo ratings</div>
         <div class="scroll"><table>
-          <thead><tr><th>#</th><th class="l">Move</th><th class="l">Team</th><th>Rating</th><th>Change</th><th class="hide-sm">Last match</th></tr></thead>
+          <thead><tr><th>#</th><th class="l">Move</th><th class="l">Team</th><th>Rating</th><th>Change</th></tr></thead>
           <tbody id="elo-rows"></tbody>
         </table></div>
         <button class="ghost more" id="elo-more" hidden></button>
@@ -211,8 +214,7 @@ dialog p b { color: var(--ink); }
   <footer>
     <span class="stamp">Paper money</span>
     <span id="bot">Loading</span>
-    <span class="tag hide-sm" id="rules"></span>
-    <span class="end"><a id="ledger" href="#">Ledger</a> · <a id="botrules" href="#">Rules v1</a> · Not betting advice</span>
+    <span class="end"><button class="ghost" id="bot-open">Rules and ledger</button> Not betting advice</span>
   </footer>
 </div>
 
@@ -221,8 +223,13 @@ dialog p b { color: var(--ink); }
   <p><b>Ratings.</b> Elo over every international since 1990. Everyone starts at 1500; higher is stronger.</p>
   <p><b>Fixtures.</b> A goals model turns the rating gap into win, draw and loss chances. Home sides get +25 at non-neutral venues.</p>
   <p><b>Tournaments.</b> Current Elo plus a small overlay (past honours, host, altitude), then thousands of simulated tournaments. The overlay is unproven: on 2026 its effects were within noise.</p>
-  <p><b>Bot.</b> When plain Elo's chance times Sportsbet's price promises 3% profit or more, the bot stakes $10 of fake money, once per match, up to 48 hours before kickoff. No prices above 6.0. Each bet is hash-chained in a public ledger, so nothing gets quietly deleted.</p>
-  <p><b>Beat the close.</b> Did we get a better price than the last one before kickoff? The fairest test of skill; bankroll is mostly luck over a few dozen bets.</p>
+  <p><b>Bot.</b> A paper-money test of plain Elo against Sportsbet prices. The rules and every bet are under Rules and ledger, at the bottom of the page.</p>
+  <form method="dialog"><button class="ghost">Close</button></form>
+</dialog>
+
+<dialog id="bot-dlg">
+  <h2>Rules and ledger</h2>
+  <div id="bot-detail"><p>Loading.</p></div>
   <form method="dialog"><button class="ghost">Close</button></form>
 </dialog>
 
@@ -253,8 +260,7 @@ if (new URLSearchParams(location.search).has('frames')) {
   addEventListener('hashchange', fromHash);
   fromHash();
   $('how').onclick = () => $('method').showModal();
-  $('ledger').href = REPO.replace('blob', 'tree') + 'ledger';
-  $('botrules').href = REPO + 'README.md#paper-bot';
+  $('bot-open').onclick = () => $('bot-dlg').showModal();
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   // Flags from flagcdn by ISO code; unmapped teams get an empty slot, not a wrong flag.
@@ -267,8 +273,7 @@ if (new URLSearchParams(location.search).has('frames')) {
     Egypt: 'eg', Nigeria: 'ng', Algeria: 'dz', Tunisia: 'tn', 'Ivory Coast': 'ci', Peru: 'pe', Chile: 'cl', Venezuela: 've' };
   const flag = t => ISO[t] ? `<img class="f" src="https://flagcdn.com/w40/${ISO[t]}.png" alt="" loading="lazy">` : '<span></span>';
 
-  // Dates: data files are ISO, the page shows dd-mm-yyyy (site rule).
-  const dmy = iso => iso ? iso.slice(0, 10).split('-').reverse().join('-') : '';
+  // Dates: data files are ISO, the page shows day and month, no year.
   const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const dayMon = iso => {
     const d = +iso.slice(8, 10), th = d % 10 === 1 && d !== 11 ? 'st' : d % 10 === 2 && d !== 12 ? 'nd' : d % 10 === 3 && d !== 13 ? 'rd' : 'th';
@@ -286,14 +291,14 @@ if (new URLSearchParams(location.search).has('frames')) {
       const mv = t.prev_rank - t.rank, dp = t.rating - t.prev_rating;
       return `<tr><td>${t.rank}</td><td class="l ${toneOf(mv)}">${mv ? (mv > 0 ? '▲' : '▼') + Math.abs(mv) : ''}</td>
         <td class="l team"><div>${flag(t.team)}<span>${esc(t.team)}</span></div></td><td class="r">${t.rating}</td>
-        <td class="${toneOf(dp)}">${signed(dp)}</td><td class="hide-sm">${dmy(t.last_match)}</td></tr>`;
+        <td class="${toneOf(dp)}">${signed(dp)}</td></tr>`;
     };
     const fill = teams => $('elo-rows').innerHTML = teams.map(row).join('');
     fill(e.top);
     $('elo-more').textContent = `Show all ${e.top.length + e.rest.length}`;
     $('elo-more').hidden = !e.rest.length;
     $('elo-more').onclick = () => { fill(e.top.concat(e.rest)); $('elo-more').hidden = true; };
-    $('elo-tag').textContent = `As of ${dmy(e.as_of)} · 1500 start, higher is stronger · change since ${dayMon(e.window_start)}`;
+    $('elo-tag').textContent = `1500 start, higher is stronger · change since ${dayMon(e.window_start)}`;
     $('recent-tag').textContent = `Latest ${e.recent.length} matches · rating change, home and away`;
     $('recent').innerHTML = e.recent.map(m => `<div class="rm"><span>${m.date.slice(8)}-${m.date.slice(5, 7)}</span>
       <span><b>${esc(m.home)} ${m.score[0]}-${m.score[1]} ${esc(m.away)}</b><small>${esc(m.competition)}</small></span>
@@ -321,7 +326,7 @@ if (new URLSearchParams(location.search).has('frames')) {
     const up = fx.games.filter(g => g.kickoff >= today && g.kickoff <= end);
     if (!up.length) {
       const next = WINDOWS.find(w => w > today);
-      $('days').innerHTML = `<p class="empty">No fixtures in the next 14 days.${next ? ` Next window: ${dmy(next)}.` : ''}</p>`;
+      $('days').innerHTML = `<p class="empty">No fixtures in the next 14 days.${next ? ` Next window: ${dayMon(next)}.` : ''}</p>`;
       $('days').style.display = 'grid';
     } else {
       const days = [...new Set(up.map(g => g.kickoff))];
@@ -338,8 +343,13 @@ if (new URLSearchParams(location.search).has('frames')) {
     const roi = b.roi == null ? '' : ` · ROI <b>${signed(b.roi * 100, 1)}%</b>`;
     const clv = b.mean_clv == null ? '' : ` · beat the close <b>${signed(b.mean_clv * 100, 1)}%</b>`;
     $('bot').innerHTML = money + rec + roi + clv;
-    const r = b.rule;
-    $('rules').textContent = `$${r.stake} flat · edge ${Math.round(r.min_edge * 100)}%+ · odds up to ${r.max_odds.toFixed(1)} · locked 26-10-2026`;
+    const r = b.rule, n = b.next_bet, name = x => x.pick === 'draw' ? 'Draw' : esc(x[x.pick]);
+    $('bot-detail').innerHTML = `<p><b>Rules v1, locked 26th Oct 2026.</b> $${r.stake} flat from a $${b.start.toLocaleString('en-AU')} start. Bet only when Elo's chance times Sportsbet's price promises ${Math.round(r.min_edge * 100)}% profit or more, once per match, within 48 hours of kickoff. No odds above ${r.max_odds.toFixed(1)}: on longshots a small disagreement looks like a huge edge. Changing a rule means a new dated version, never a retroactive edit.</p>
+      <p><b>Beat the close.</b> Did we get a better price than the last one before kickoff? The fairest test of skill; bankroll is mostly luck over a few dozen bets.</p>
+      <p><b>Ledger.</b> Every bet is hashed and chained to the one before it, before kickoff, with the raw prices saved, so nothing gets quietly deleted. <a href="${REPO.replace('blob', 'tree')}ledger">Full ledger on GitHub</a>.</p>
+      ${n ? `<p><b>Next bet.</b> ${esc(n.home)} v ${esc(n.away)}, ${dayMon(n.kickoff)}: ${esc(n.pick_name)} at ${n.odds.toFixed(2)}, $${n.stake}.</p>` : ''}
+      ${b.recent.length ? `<table><thead><tr><th class="l">Last settled</th><th>Odds</th><th>P&amp;L</th></tr></thead><tbody>${b.recent.slice().reverse().map(x =>
+        `<tr><td class="l">${dayMon(x.kickoff)} ${esc(x.home)} v ${esc(x.away)}: ${name(x)}</td><td>${x.odds.toFixed(2)}</td><td class="${toneOf(x.pnl)}">${signed(x.pnl, 2)}</td></tr>`).join('')}</tbody></table>` : '<p>No bets yet.</p>'}`;
   }).catch(() => { $('bot').textContent = 'Data failed to load'; });
 
   // Tournaments
@@ -347,7 +357,7 @@ if (new URLSearchParams(location.search).has('frames')) {
   const pv = (p, max, on) => `<div class="pv${on ? ' o' : ''}"><div class="tr"><span style="width:${(p / max) * 100}%"></span></div><span>${pct(p, 1)}</span></div>`;
   const future = t => {
     const max = Math.max(...t.teams.flatMap(x => [x.p_champion, x.p_champion_elo]));
-    return `<div class="lead"><div><h2>${esc(t.name)}</h2><div class="tag">Updated ${dmy(t.as_of)} · Qualification not final</div></div>
+    return `<div class="lead"><div><h2>${esc(t.name)}</h2><div class="tag">Updated ${dayMon(t.as_of)} · Qualification not final</div></div>
       <div class="legend"><span style="--c:var(--seq4)">Elo only</span><span style="--c:var(--d1)">Elo + overlay</span></div></div>` +
       t.teams.map(x => `<div class="to">${flag(x.team)}<b>${esc(x.team)}</b>
         <div class="pair" role="img" aria-label="Elo only ${pct(x.p_champion_elo, 1)}, with overlay ${pct(x.p_champion, 1)}">${pv(x.p_champion_elo, max)}${pv(x.p_champion, max, true)}</div>
@@ -356,7 +366,7 @@ if (new URLSearchParams(location.search).has('frames')) {
   };
   const frozen = c => {
     const max = Math.max(...c.top.map(t => t.p_champion));
-    return `<div class="lead"><div><h2>World Cup 2026</h2><div class="tag">Frozen ${dmy(c.frozen_at)} · scored on all ${c.n_matches} matches</div></div></div>
+    return `<div class="lead"><div><h2>World Cup 2026</h2><div class="tag">Frozen ${dayMon(c.frozen_at)} · scored on all ${c.n_matches} matches</div></div></div>
       <div class="wc"><div><div class="tag">Title odds before kickoff · where they finished</div>
       ${c.top.map(t => `<div class="fin${t.stage === 'Won' ? ' won' : ''}">${flag(t.team)}<b>${esc(t.team)}</b>
         ${pv(t.p_champion / 100, max / 100, t.stage === 'Won')}<span class="st">${esc(t.stage)}</span></div>`).join('')}</div>
