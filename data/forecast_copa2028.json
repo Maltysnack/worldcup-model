@@ -1,0 +1,98 @@
+{
+ "tournament": "copa2028",
+ "name": "Copa America 2028",
+ "as_of": "2026-11-06",
+ "layers": {
+  "form": false,
+  "nt": true,
+  "host": true,
+  "altitude": true
+ },
+ "assumptions": "Host and format not confirmed. Assumed 16 teams (all 10 CONMEBOL plus 6 CONCACAF), 4 groups of 4, top 2 to the quarter-finals.",
+ "teams": [
+  {
+   "team": "Argentina",
+   "p_champion": 0.4467,
+   "p_final": 0.5915,
+   "p_qualify": 1.0,
+   "rating_now": 2130
+  },
+  {
+   "team": "Brazil",
+   "p_champion": 0.1344,
+   "p_final": 0.2781,
+   "p_qualify": 1.0,
+   "rating_now": 1963
+  },
+  {
+   "team": "Colombia",
+   "p_champion": 0.1097,
+   "p_final": 0.2489,
+   "p_qualify": 1.0,
+   "rating_now": 1948
+  },
+  {
+   "team": "Mexico",
+   "p_champion": 0.0836,
+   "p_final": 0.2002,
+   "p_qualify": 1.0,
+   "rating_now": 1917
+  },
+  {
+   "team": "United States",
+   "p_champion": 0.0586,
+   "p_final": 0.1465,
+   "p_qualify": 1.0,
+   "rating_now": 1876
+  },
+  {
+   "team": "Ecuador",
+   "p_champion": 0.0397,
+   "p_final": 0.11,
+   "p_qualify": 1.0,
+   "rating_now": 1851
+  },
+  {
+   "team": "Paraguay",
+   "p_champion": 0.0391,
+   "p_final": 0.1103,
+   "p_qualify": 1.0,
+   "rating_now": 1849
+  },
+  {
+   "team": "Uruguay",
+   "p_champion": 0.036,
+   "p_final": 0.1072,
+   "p_qualify": 1.0,
+   "rating_now": 1843
+  },
+  {
+   "team": "Canada",
+   "p_champion": 0.0208,
+   "p_final": 0.0641,
+   "p_qualify": 0.998,
+   "rating_now": 1802
+  },
+  {
+   "team": "Venezuela",
+   "p_champion": 0.0098,
+   "p_final": 0.0387,
+   "p_qualify": 1.0,
+   "rating_now": 1746
+  },
+  {
+   "team": "Chile",
+   "p_champion": 0.0089,
+   "p_final": 0.0376,
+   "p_qualify": 1.0,
+   "rating_now": 1740
+  },
+  {
+   "team": "Panama",
+   "p_champion": 0.0033,
+   "p_final": 0.017,
+   "p_qualify": 0.785,
+   "rating_now": 1692
+  }
+ ]
+}

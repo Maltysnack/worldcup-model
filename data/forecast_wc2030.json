@@ -1,0 +1,98 @@
+{
+ "tournament": "wc2030",
+ "name": "World Cup 2030",
+ "as_of": "2026-11-06",
+ "layers": {
+  "form": false,
+  "nt": true,
+  "host": true,
+  "altitude": true
+ },
+ "assumptions": "48 teams, 12 groups of 4, top 2 and 8 best thirds to the last 32. Six hosts qualify automatically inside their confederation's places; 2026 place allocation assumed; 2 play-off places go to the best remaining non-UEFA teams.",
+ "teams": [
+  {
+   "team": "Spain",
+   "p_champion": 0.3123,
+   "p_final": 0.4295,
+   "p_qualify": 1.0,
+   "rating_now": 2216
+  },
+  {
+   "team": "Argentina",
+   "p_champion": 0.1648,
+   "p_final": 0.2814,
+   "p_qualify": 1.0,
+   "rating_now": 2130
+  },
+  {
+   "team": "France",
+   "p_champion": 0.0774,
+   "p_final": 0.1511,
+   "p_qualify": 1.0,
+   "rating_now": 2046
+  },
+  {
+   "team": "England",
+   "p_champion": 0.0726,
+   "p_final": 0.1395,
+   "p_qualify": 1.0,
+   "rating_now": 2040
+  },
+  {
+   "team": "Portugal",
+   "p_champion": 0.0604,
+   "p_final": 0.1243,
+   "p_qualify": 1.0,
+   "rating_now": 2026
+  },
+  {
+   "team": "Morocco",
+   "p_champion": 0.0387,
+   "p_final": 0.0898,
+   "p_qualify": 1.0,
+   "rating_now": 1988
+  },
+  {
+   "team": "Brazil",
+   "p_champion": 0.0351,
+   "p_final": 0.0771,
+   "p_qualify": 1.0,
+   "rating_now": 1963
+  },
+  {
+   "team": "Colombia",
+   "p_champion": 0.0277,
+   "p_final": 0.0668,
+   "p_qualify": 0.995,
+   "rating_now": 1948
+  },
+  {
+   "team": "Netherlands",
+   "p_champion": 0.0239,
+   "p_final": 0.0574,
+   "p_qualify": 0.98,
+   "rating_now": 1939
+  },
+  {
+   "team": "Switzerland",
+   "p_champion": 0.0162,
+   "p_final": 0.0426,
+   "p_qualify": 0.965,
+   "rating_now": 1918
+  },
+  {
+   "team": "Mexico",
+   "p_champion": 0.0161,
+   "p_final": 0.0451,
+   "p_qualify": 1.0,
+   "rating_now": 1917
+  },
+  {
+   "team": "Italy",
+   "p_champion": 0.0152,
+   "p_final": 0.0431,
+   "p_qualify": 0.965,
+   "rating_now": 1902
+  }
+ ]
+}
