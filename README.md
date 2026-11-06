@@ -14,7 +14,7 @@ The prediction was frozen before kickoff under the tag `wc2026-final`. Spain wer
 | Plain Elo | 0.861 | 64.4% |
 | Uniform | 1.099 | 47.1% |
 
-The model beat plain Elo on log-loss overall and in the group stage, but lost to it in the knockouts. Full breakdown: [data/capsule/scorecard_2026.md](data/capsule/scorecard_2026.md).
+The model beat plain Elo on log-loss overall and in the group stage, but lost to it in the knockouts. The frozen model also used squad and form layers, since dropped. Full breakdown: [data/capsule/scorecard_2026.md](data/capsule/scorecard_2026.md).
 
 ## How it works
 
