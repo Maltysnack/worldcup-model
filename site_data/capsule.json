@@ -22,6 +22,7 @@
   "uniform": 1.099
  },
  "accuracy": 0.625,
+ "accuracy_plain_elo": 0.6442,
  "top": [
   {
    "team": "Spain",

@@ -16,7 +16,7 @@ name: Betting bot
 #           kickoffs; GitHub drops many runs, so two an hour), idle runs stop
 #           after checkout (scripts/close_due.py), 0 credits
 #   settle  12:00 on window days and 2 days after: ingest + Elo update +
-#           settle + title odds (Euro/Copa 2028, WC 2030)
+#           settle + title odds and forecasts (Euro/Copa 2028, WC 2030)
 #
 # Credit budget (free tier, 500/month).
 # Odds cost 1 credit per call (1 region x 1 market); /sports and /events
@@ -111,7 +111,9 @@ jobs:
 
       - name: Title odds
         if: steps.gate.outputs.go == '1' && env.TASK == 'settle' && env.DRY == ''
-        run: uv run python -m worldcup.title_odds
+        run: |
+          uv run python -m worldcup.title_odds
+          for t in euro2028 copa2028 wc2030; do uv run worldcup-forecast "$t"; done
 
       - name: Run bot
         if: steps.gate.outputs.go == '1'
@@ -132,7 +134,7 @@ jobs:
         run: |
           git config user.name  "worldcup-bot"
           git config user.email "bot@maltysnack.local"
-          git add ledger data/title_odds.json data/fixtures.json site_data
+          git add ledger data/title_odds.json data/forecast_*.json data/fixtures.json site_data
           # generated_at changes daily; only commit when something else does.
           if ! git diff --cached -U0 | grep '^[+-] ' | grep -vq '"generated_at"'; then
             echo "Nothing changed."

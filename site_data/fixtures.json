@@ -1,11 +1,12 @@
 {
- "generated_at": "2026-10-29",
+ "generated_at": "2026-11-06",
  "fetched_at": "2026-10-29T03:35:39+00:00",
  "games": [
   {
    "kickoff": "2026-11-12",
    "home": "Turkey",
    "away": "Belgium",
+   "neutral": false,
    "home_elo": 1790,
    "away_elo": 1899,
    "model_p": [
@@ -30,6 +31,7 @@
    "kickoff": "2026-11-12",
    "home": "England",
    "away": "Croatia",
+   "neutral": false,
    "home_elo": 2032,
    "away_elo": 1850,
    "model_p": [
@@ -54,6 +56,7 @@
    "kickoff": "2026-11-12",
    "home": "Czech Republic",
    "away": "Spain",
+   "neutral": false,
    "home_elo": 1686,
    "away_elo": 2176,
    "model_p": [
@@ -78,6 +81,7 @@
    "kickoff": "2026-11-12",
    "home": "Italy",
    "away": "France",
+   "neutral": false,
    "home_elo": 1898,
    "away_elo": 2044,
    "model_p": [
@@ -102,6 +106,7 @@
    "kickoff": "2026-11-13",
    "home": "Serbia",
    "away": "Germany",
+   "neutral": false,
    "home_elo": 1684,
    "away_elo": 1891,
    "model_p": [
@@ -126,6 +131,7 @@
    "kickoff": "2026-11-13",
    "home": "Netherlands",
    "away": "Greece",
+   "neutral": false,
    "home_elo": 1939,
    "away_elo": 1790,
    "model_p": [
@@ -150,6 +156,7 @@
    "kickoff": "2026-11-14",
    "home": "Norway",
    "away": "Wales",
+   "neutral": false,
    "home_elo": 1854,
    "away_elo": 1676,
    "model_p": [
@@ -174,6 +181,7 @@
    "kickoff": "2026-11-14",
    "home": "Portugal",
    "away": "Denmark",
+   "neutral": false,
    "home_elo": 2000,
    "away_elo": 1833,
    "model_p": [

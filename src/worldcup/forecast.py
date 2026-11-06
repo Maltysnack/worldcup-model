@@ -103,11 +103,23 @@ def simulate_fixtures(t: dict, ratings: dict[str, float], n_sims: int, seed: int
 
 
 def simulate_future(t: dict, ratings: dict[str, float], as_of: date, seed: int) -> list[dict]:
+    """Every team that won a simulated tournament, so an Elo-only run can be joined on the overlay's top teams."""
     from worldcup import title_odds as to
     from worldcup.drift import rating_series
     conf = {k: c for k, c in to.confederations(as_of - timedelta(days=ACTIVE_YEARS * 365)).items() if k in ratings}
     # shortcut: overlay is added before the drift draw, so drift sees overlay-shifted ratings; fine while bonuses are small.
-    return to.odds_for(t, rating_series(), ratings, conf, as_of, seed)["top"]
+    return to.odds_for(t, rating_series(), ratings, conf, as_of, seed, n_top=len(ratings))["top"]
+
+
+def layer_deltas(raw: dict[str, float], t: dict, as_of: date, layers: dict[str, bool]) -> dict[str, dict[str, float]]:
+    """Each enabled layer's own Elo effect per team, zero effects left out."""
+    off = {k: False for k in LAYERS}
+    out: dict[str, dict[str, float]] = {team: {} for team in raw}
+    for k in (k for k, on in layers.items() if on):
+        for team, r in apply_overlay(raw, t, as_of, {**off, k: True}).items():
+            if round(r - raw[team]):
+                out[team][k] = round(r - raw[team])
+    return out
 
 
 def forecast(key: str, as_of: date | None = None, layers: dict[str, bool] | None = None,
@@ -116,14 +128,16 @@ def forecast(key: str, as_of: date | None = None, layers: dict[str, bool] | None
     if as_of is None:
         as_of = t["kickoff"] - timedelta(days=1) if t["draw"] == "fixtures" else date.today()
     layers = {**LAYERS, **(layers or {})}
-    ratings = apply_overlay(raw_elo(as_of), t, as_of, layers)
-    if t["draw"] == "fixtures":
-        ratings = {k: v for k, v in ratings.items() if v is not None}
-        top = simulate_fixtures(t, ratings, n_sims, seed)
-    else:
-        top = simulate_future(t, ratings, as_of, seed)
+    raw = raw_elo(as_of)
+    simulate = (lambda r: simulate_fixtures(t, r, n_sims, seed)) if t["draw"] == "fixtures" \
+        else (lambda r: simulate_future(t, r, as_of, seed))
+    elo_only = {x["team"]: x["p_champion"] for x in simulate(raw)}
+    deltas = layer_deltas(raw, t, as_of, layers)
+    teams = simulate(apply_overlay(raw, t, as_of, layers))[:12]
+    for x in teams:
+        x.update(p_champion_elo=elo_only.get(x["team"], 0.0), elo=round(raw[x["team"]]), layers=deltas[x["team"]])
     return {"tournament": key, "name": t["name"], "as_of": as_of.isoformat(), "layers": layers,
-            "assumptions": t["assumptions"], "teams": top}
+            "assumptions": t["assumptions"], "teams": teams}
 
 
 def main() -> None:
@@ -140,7 +154,7 @@ def main() -> None:
     path.write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
     print(out["name"], "as of", out["as_of"], "layers", {k: v for k, v in out["layers"].items() if v})
     for x in out["teams"][:8]:
-        print(f"  {x['team']:22s} {x['p_champion'] * 100:5.1f}%")
+        print(f"  {x['team']:22s} {x['p_champion'] * 100:5.1f}%  Elo only {x['p_champion_elo'] * 100:5.1f}%")
     print(f"wrote {path}")
 
 

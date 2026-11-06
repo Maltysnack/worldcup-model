@@ -4,7 +4,8 @@ Usage: uv run python scripts/export_site_v2.py OUTDIR
 
 Writes OUTDIR/bankroll.json (from ledger/), OUTDIR/capsule.json,
 OUTDIR/elo.json (from the DuckDB elo_current table; skipped if the DB is
-missing) and OUTDIR/odds.json (copied from data/title_odds.json, written
+missing), OUTDIR/tournaments.json (from data/forecast_<key>.json, written by
+`worldcup-forecast <key>`) and OUTDIR/odds.json (copied from data/title_odds.json, written
 weekly by `python -m worldcup.title_odds`). With no bets yet, bankroll.json is an untouched $1,000 with
 `source: not-started`. The synthetic backtest stays internal
 (`uv run worldcup-betting-backtest`).
@@ -17,12 +18,15 @@ from pathlib import Path
 
 from worldcup.betting import engine
 from worldcup.betting.ledger import Ledger
+from worldcup.registry import REGISTRY
 
 ROOT = Path(__file__).resolve().parents[1]
 SCORECARD = ROOT / "data" / "capsule" / "scorecard_2026.json"
 FROZEN_SIM = ROOT / "data" / "simulation-prediction.json"
 TITLE_ODDS = ROOT / "data" / "title_odds.json"
 FIXTURES = ROOT / "data" / "fixtures.json"
+
+N_RECENT = 30
 
 RULE, MIN_EDGE = "flat", engine.DEFAULT_MIN_EDGE
 STAGE_SHORT = {"champion": "Won", "final": "Final", "semi_finals": "SF", "quarter_finals": "QF",
@@ -54,7 +58,7 @@ def games(led: Ledger, now: datetime) -> dict:
 def fixtures(led: Ledger, now: datetime, path: Path = FIXTURES, elo_by_team: dict | None = None) -> dict | None:
     """Every game the last bet run saw, not yet kicked off, with the bot's decision if it made one.
     Sportsbet odds appear only once Sportsbet prices the game; model_p and home/away_elo are null for unknown teams."""
-    from worldcup.betting.bot import canonical
+    from worldcup.betting.bot import FINALS_KEYS, canonical
 
     elo_by_team = elo_by_team or {}
     rate = lambda t: round(elo_by_team[canonical(t)]) if canonical(t) in elo_by_team else None
@@ -69,6 +73,7 @@ def fixtures(led: Ledger, now: datetime, path: Path = FIXTURES, elo_by_team: dic
         d = decided.get(f["event_id"])
         odds, p = f["odds"], f["model_p"]
         games.append({"kickoff": f["kickoff"][:10], "home": f["home"], "away": f["away"],
+                      "neutral": f["sport"] in FINALS_KEYS,
                       "home_elo": rate(f["home"]), "away_elo": rate(f["away"]),
                       "model_p": [round(x, 4) for x in p] if p else None, "odds": odds,
                       "market_p": [round(x, 4) for x in engine.devig_proportional(odds)[0]] if odds else None,
@@ -87,9 +92,20 @@ def window_start(dates: list[date], gap_days: int = 10) -> date:
     return ds[i]
 
 
-def elo(n: int = 20, active_years: int = 4) -> dict | None:
-    """Top `n` by current Elo among teams that played in the last `active_years`,
-    with each team's rank and rating from before the latest international window."""
+def recent_matches(rows: list[tuple], current: dict[str, float], n: int = N_RECENT) -> list[dict]:
+    """Last `n` of `rows` (date, tournament, home, away, home pre, away pre, home goals, away goals; oldest first).
+    A match's rating change is the team's next pre-match rating, or its current one, minus its pre-match rating."""
+    after, out = dict(current), []
+    for d, comp, home, away, home_pre, away_pre, hg, ag in reversed(rows):
+        out.append({"date": d.date().isoformat(), "competition": comp, "home": home, "away": away, "score": [hg, ag],
+                    "home_delta": round(after[home] - home_pre, 1), "away_delta": round(after[away] - away_pre, 1)})
+        after[home], after[away] = home_pre, away_pre
+    return out[:n]
+
+
+def elo(active_years: int = 4) -> dict | None:
+    """Every team that played in the last `active_years` by current Elo, each with
+    its rank and rating from before the latest international window, plus the latest matches."""
     from worldcup.db import DB_PATH, connect
 
     if not Path(DB_PATH).exists():
@@ -109,12 +125,18 @@ def elo(n: int = 20, active_years: int = 4) -> dict | None:
               UNION ALL
               SELECT away_team, rating_away_pre, match_date FROM predictions WHERE match_date >= ?)
             GROUP BY team""", [start, start]).fetchall())
+        rows = con.execute("""
+            SELECT match_date, tournament, home_team, away_team, rating_home_pre, rating_away_pre,
+                   actual_home_goals, actual_away_goals
+            FROM predictions WHERE match_date >= ? ORDER BY match_date, home_team""", [start]).fetchall()
+        current = dict(con.execute("SELECT team, rating FROM elo_current").fetchall())
     prev = sorted(((pre.get(t, r), t) for t, r, _ in active), reverse=True)
     prev_rank = {t: i + 1 for i, (_, t) in enumerate(prev)}
     return {"generated_at": date.today().isoformat(), "as_of": as_of.isoformat(), "window_start": start.isoformat(),
             "top": [{"rank": i + 1, "team": t, "rating": round(r), "last_match": lm.date().isoformat(),
                      "prev_rank": prev_rank[t], "prev_rating": round(pre.get(t, r))}
-                    for i, (t, r, lm) in enumerate(active[:n])]}
+                    for i, (t, r, lm) in enumerate(active)],
+            "recent": recent_matches(rows, current)}
 
 
 def ratings() -> dict | None:
@@ -176,6 +198,13 @@ def bankroll(ledger_dir: Path = ROOT / "ledger", now: datetime | None = None) ->
     }
 
 
+def tournaments(data_dir: Path = ROOT / "data") -> dict | None:
+    """Title odds for upcoming tournaments, skipping any with no forecast file yet."""
+    files = [data_dir / f"forecast_{k}.json" for k, t in REGISTRY.items() if t["draw"] == "simulated"]
+    found = [json.loads(f.read_text()) for f in files if f.exists()]
+    return {"generated_at": date.today().isoformat(), "tournaments": found} if found else None
+
+
 def capsule() -> dict:
     sc = json.loads(SCORECARD.read_text())
     frozen_at = json.loads(FROZEN_SIM.read_text())["generated_at"][:10]
@@ -190,6 +219,7 @@ def capsule() -> dict:
         "n_matches": allm["model"]["n"],
         "log_loss": {k: round(allm[k]["log_loss"], 3) for k in ("model", "plain_elo", "uniform")},
         "accuracy": round(allm["model"]["accuracy"], 4),
+        "accuracy_plain_elo": round(allm["plain_elo"]["accuracy"], 4),
         "top": [{"team": t["team"], "p_champion": t["p_champion"],
                  "stage": STAGE_SHORT.get(t["stage_reached"], t["stage_reached"])} for t in teams],
     }
@@ -201,7 +231,7 @@ def main() -> None:
     odds = json.loads(TITLE_ODDS.read_text()) if TITLE_ODDS.exists() else None
     fx = fixtures(Ledger(ROOT / "ledger"), datetime.now(UTC), elo_by_team=ratings())
     for name, data in (("bankroll", bankroll()), ("capsule", capsule()), ("elo", elo()), ("odds", odds),
-                       ("fixtures", fx)):
+                       ("fixtures", fx), ("tournaments", tournaments())):
         if data is None:
             print(f"skip {name}.json (no source data)")
             continue

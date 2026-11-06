@@ -132,7 +132,8 @@ def play(field: list[str], ratings: dict[str, float], n_groups: int, best_thirds
     return (a, b) if sim_match(ratings[a], ratings[b], neutral=True, ko=True, rng=rng)[2] == 0 else (b, a)
 
 
-def odds_for(t: dict, series, base: dict[str, float], conf: dict[str, str], as_of: date, seed: int) -> dict:
+def odds_for(t: dict, series, base: dict[str, float], conf: dict[str, str], as_of: date, seed: int,
+             n_top: int = 12) -> dict:
     fit = fit_drift(series, (t["kickoff"] - as_of).days / 365.25, as_of)
     rng = np.random.default_rng(seed)
     champ, final, qual = Counter(), Counter(), Counter()
@@ -148,7 +149,7 @@ def odds_for(t: dict, series, base: dict[str, float], conf: dict[str, str], as_o
             final[w] += 1
             final[r] += 1
     n = N_DRAWS * SIMS_PER_DRAW
-    top = sorted(champ, key=lambda x: -champ[x])[:12]
+    top = sorted(champ, key=lambda x: -champ[x])[:n_top]
     return {"key": t["key"], "name": t["name"], "kickoff": t["kickoff"].isoformat(),
             "years_out": round((t["kickoff"] - as_of).days / 365.25, 1), "n_teams": len(field),
             "assumptions": t["assumptions"], "n_sims": n,

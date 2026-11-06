@@ -67,6 +67,23 @@ class OverlayTest(unittest.TestCase):
     def test_defaults_follow_evidence(self):
         self.assertEqual(fc.LAYERS, {"form": False, "nt": True, "host": True, "altitude": True})
 
+    def test_layer_deltas_name_each_effect(self):
+        d = fc.layer_deltas(RAW, WC26, ASOF, {**OFF, "host": True, "altitude": True})
+        self.assertEqual(d["Mexico"]["altitude"], 50)
+        self.assertEqual(d["United States"]["host"], host_bonus("United States", "FIFA World Cup", 2026))
+        self.assertEqual(d["Argentina"], {})
+
+    def test_forecast_joins_elo_only_odds(self):
+        sims = iter([[{"team": "Spain", "p_champion": 0.4}, {"team": "Mexico", "p_champion": 0.1}],
+                     [{"team": "Mexico", "p_champion": 0.3}, {"team": "Argentina", "p_champion": 0.2}]])
+        with (mock.patch.object(fc, "raw_elo", return_value=RAW),
+              mock.patch.object(fc, "simulate_fixtures", side_effect=lambda *a: next(sims))):
+            out = fc.forecast("wc2026", ASOF, {**OFF, "altitude": True})
+        mex, arg = out["teams"]
+        self.assertEqual((mex["team"], mex["p_champion_elo"], mex["elo"], mex["layers"]),
+                         ("Mexico", 0.1, 1900, {"altitude": 50}))
+        self.assertEqual((arg["team"], arg["p_champion_elo"]), ("Argentina", 0.0))
+
     def test_unknown_layer_rejected(self):
         with self.assertRaises(AssertionError):
             fc.apply_overlay(RAW, WC26, ASOF, {"squad": True})

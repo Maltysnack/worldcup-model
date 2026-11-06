@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-29",
+ "generated_at": "2026-11-06",
  "as_of": "2026-10-06",
  "window_start": "2026-09-18",
  "top": [
@@ -162,6 +162,2264 @@
    "last_match": "2026-10-02",
    "prev_rank": 23,
    "prev_rating": 1820
+  },
+  {
+   "rank": 21,
+   "team": "Uruguay",
+   "rating": 1842,
+   "last_match": "2026-10-06",
+   "prev_rank": 21,
+   "prev_rating": 1826
+  },
+  {
+   "rank": 22,
+   "team": "Denmark",
+   "rating": 1833,
+   "last_match": "2026-10-04",
+   "prev_rank": 20,
+   "prev_rating": 1836
+  },
+  {
+   "rank": 23,
+   "team": "Austria",
+   "rating": 1826,
+   "last_match": "2026-10-04",
+   "prev_rank": 25,
+   "prev_rating": 1815
+  },
+  {
+   "rank": 24,
+   "team": "Australia",
+   "rating": 1813,
+   "last_match": "2026-09-29",
+   "prev_rank": 24,
+   "prev_rating": 1819
+  },
+  {
+   "rank": 25,
+   "team": "Algeria",
+   "rating": 1807,
+   "last_match": "2026-10-06",
+   "prev_rank": 26,
+   "prev_rating": 1814
+  },
+  {
+   "rank": 26,
+   "team": "Canada",
+   "rating": 1802,
+   "last_match": "2026-10-06",
+   "prev_rank": 29,
+   "prev_rating": 1793
+  },
+  {
+   "rank": 27,
+   "team": "South Korea",
+   "rating": 1799,
+   "last_match": "2026-10-06",
+   "prev_rank": 31,
+   "prev_rating": 1787
+  },
+  {
+   "rank": 28,
+   "team": "Russia",
+   "rating": 1798,
+   "last_match": "2026-10-06",
+   "prev_rank": 32,
+   "prev_rating": 1784
+  },
+  {
+   "rank": 29,
+   "team": "Turkey",
+   "rating": 1790,
+   "last_match": "2026-10-05",
+   "prev_rank": 19,
+   "prev_rating": 1852
+  },
+  {
+   "rank": 30,
+   "team": "Greece",
+   "rating": 1790,
+   "last_match": "2026-10-04",
+   "prev_rank": 45,
+   "prev_rating": 1726
+  },
+  {
+   "rank": 31,
+   "team": "Senegal",
+   "rating": 1790,
+   "last_match": "2026-10-04",
+   "prev_rank": 28,
+   "prev_rating": 1794
+  },
+  {
+   "rank": 32,
+   "team": "Iran",
+   "rating": 1788,
+   "last_match": "2026-09-29",
+   "prev_rank": 22,
+   "prev_rating": 1822
+  },
+  {
+   "rank": 33,
+   "team": "Sweden",
+   "rating": 1775,
+   "last_match": "2026-10-05",
+   "prev_rank": 41,
+   "prev_rating": 1738
+  },
+  {
+   "rank": 34,
+   "team": "Ivory Coast",
+   "rating": 1773,
+   "last_match": "2026-10-03",
+   "prev_rank": 33,
+   "prev_rating": 1784
+  },
+  {
+   "rank": 35,
+   "team": "Nigeria",
+   "rating": 1765,
+   "last_match": "2026-10-06",
+   "prev_rank": 30,
+   "prev_rating": 1792
+  },
+  {
+   "rank": 36,
+   "team": "Jersey",
+   "rating": 1761,
+   "last_match": "2025-07-18",
+   "prev_rank": 36,
+   "prev_rating": 1761
+  },
+  {
+   "rank": 37,
+   "team": "Egypt",
+   "rating": 1754,
+   "last_match": "2026-10-04",
+   "prev_rank": 34,
+   "prev_rating": 1784
+  },
+  {
+   "rank": 38,
+   "team": "Hungary",
+   "rating": 1750,
+   "last_match": "2026-10-05",
+   "prev_rank": 39,
+   "prev_rating": 1740
+  },
+  {
+   "rank": 39,
+   "team": "Venezuela",
+   "rating": 1746,
+   "last_match": "2026-10-06",
+   "prev_rank": 37,
+   "prev_rating": 1754
+  },
+  {
+   "rank": 40,
+   "team": "Chile",
+   "rating": 1739,
+   "last_match": "2026-10-06",
+   "prev_rank": 40,
+   "prev_rating": 1738
+  },
+  {
+   "rank": 41,
+   "team": "Basque Country",
+   "rating": 1731,
+   "last_match": "2025-11-15",
+   "prev_rank": 43,
+   "prev_rating": 1731
+  },
+  {
+   "rank": 42,
+   "team": "Uzbekistan",
+   "rating": 1727,
+   "last_match": "2026-10-06",
+   "prev_rank": 47,
+   "prev_rating": 1713
+  },
+  {
+   "rank": 43,
+   "team": "Ukraine",
+   "rating": 1726,
+   "last_match": "2026-10-05",
+   "prev_rank": 35,
+   "prev_rating": 1763
+  },
+  {
+   "rank": 44,
+   "team": "Slovenia",
+   "rating": 1726,
+   "last_match": "2026-10-06",
+   "prev_rank": 51,
+   "prev_rating": 1697
+  },
+  {
+   "rank": 45,
+   "team": "Scotland",
+   "rating": 1718,
+   "last_match": "2026-10-06",
+   "prev_rank": 38,
+   "prev_rating": 1744
+  },
+  {
+   "rank": 46,
+   "team": "Saudi Arabia",
+   "rating": 1717,
+   "last_match": "2026-10-06",
+   "prev_rank": 60,
+   "prev_rating": 1674
+  },
+  {
+   "rank": 47,
+   "team": "Kosovo",
+   "rating": 1707,
+   "last_match": "2026-10-04",
+   "prev_rank": 50,
+   "prev_rating": 1701
+  },
+  {
+   "rank": 48,
+   "team": "Republic of Ireland",
+   "rating": 1706,
+   "last_match": "2026-10-04",
+   "prev_rank": 49,
+   "prev_rating": 1708
+  },
+  {
+   "rank": 49,
+   "team": "DR Congo",
+   "rating": 1705,
+   "last_match": "2026-10-05",
+   "prev_rank": 46,
+   "prev_rating": 1721
+  },
+  {
+   "rank": 50,
+   "team": "Northern Cyprus",
+   "rating": 1697,
+   "last_match": "2026-06-06",
+   "prev_rank": 52,
+   "prev_rating": 1697
+  },
+  {
+   "rank": 51,
+   "team": "Poland",
+   "rating": 1697,
+   "last_match": "2026-10-05",
+   "prev_rank": 44,
+   "prev_rating": 1729
+  },
+  {
+   "rank": 52,
+   "team": "Cameroon",
+   "rating": 1693,
+   "last_match": "2026-10-03",
+   "prev_rank": 56,
+   "prev_rating": 1678
+  },
+  {
+   "rank": 53,
+   "team": "Guernsey",
+   "rating": 1691,
+   "last_match": "2023-07-13",
+   "prev_rank": 54,
+   "prev_rating": 1691
+  },
+  {
+   "rank": 54,
+   "team": "South Africa",
+   "rating": 1691,
+   "last_match": "2026-10-04",
+   "prev_rank": 66,
+   "prev_rating": 1656
+  },
+  {
+   "rank": 55,
+   "team": "Panama",
+   "rating": 1688,
+   "last_match": "2026-10-05",
+   "prev_rank": 53,
+   "prev_rating": 1694
+  },
+  {
+   "rank": 56,
+   "team": "Bosnia and Herzegovina",
+   "rating": 1686,
+   "last_match": "2026-10-05",
+   "prev_rank": 76,
+   "prev_rating": 1633
+  },
+  {
+   "rank": 57,
+   "team": "Czech Republic",
+   "rating": 1686,
+   "last_match": "2026-10-06",
+   "prev_rank": 48,
+   "prev_rating": 1712
+  },
+  {
+   "rank": 58,
+   "team": "Serbia",
+   "rating": 1684,
+   "last_match": "2026-10-04",
+   "prev_rank": 42,
+   "prev_rating": 1732
+  },
+  {
+   "rank": 59,
+   "team": "Mali",
+   "rating": 1684,
+   "last_match": "2026-10-04",
+   "prev_rank": 67,
+   "prev_rating": 1648
+  },
+  {
+   "rank": 60,
+   "team": "Wales",
+   "rating": 1676,
+   "last_match": "2026-10-04",
+   "prev_rank": 57,
+   "prev_rating": 1676
+  },
+  {
+   "rank": 61,
+   "team": "Peru",
+   "rating": 1676,
+   "last_match": "2026-10-06",
+   "prev_rank": 55,
+   "prev_rating": 1691
+  },
+  {
+   "rank": 62,
+   "team": "Slovakia",
+   "rating": 1676,
+   "last_match": "2026-10-06",
+   "prev_rank": 61,
+   "prev_rating": 1667
+  },
+  {
+   "rank": 63,
+   "team": "Iraq",
+   "rating": 1664,
+   "last_match": "2026-09-29",
+   "prev_rank": 58,
+   "prev_rating": 1675
+  },
+  {
+   "rank": 64,
+   "team": "Ynys Môn",
+   "rating": 1664,
+   "last_match": "2025-07-17",
+   "prev_rank": 63,
+   "prev_rating": 1664
+  },
+  {
+   "rank": 65,
+   "team": "Isle of Man",
+   "rating": 1663,
+   "last_match": "2025-07-18",
+   "prev_rank": 64,
+   "prev_rating": 1663
+  },
+  {
+   "rank": 66,
+   "team": "Jordan",
+   "rating": 1662,
+   "last_match": "2026-10-06",
+   "prev_rank": 62,
+   "prev_rating": 1665
+  },
+  {
+   "rank": 67,
+   "team": "Costa Rica",
+   "rating": 1656,
+   "last_match": "2026-10-04",
+   "prev_rank": 59,
+   "prev_rating": 1675
+  },
+  {
+   "rank": 68,
+   "team": "Northern Ireland",
+   "rating": 1653,
+   "last_match": "2026-10-05",
+   "prev_rank": 84,
+   "prev_rating": 1601
+  },
+  {
+   "rank": 69,
+   "team": "United Arab Emirates",
+   "rating": 1652,
+   "last_match": "2026-10-06",
+   "prev_rank": 72,
+   "prev_rating": 1640
+  },
+  {
+   "rank": 70,
+   "team": "Bolivia",
+   "rating": 1633,
+   "last_match": "2026-10-01",
+   "prev_rank": 69,
+   "prev_rating": 1645
+  },
+  {
+   "rank": 71,
+   "team": "Padania",
+   "rating": 1633,
+   "last_match": "2026-06-06",
+   "prev_rank": 75,
+   "prev_rating": 1633
+  },
+  {
+   "rank": 72,
+   "team": "Isle of Wight",
+   "rating": 1632,
+   "last_match": "2023-07-13",
+   "prev_rank": 77,
+   "prev_rating": 1632
+  },
+  {
+   "rank": 73,
+   "team": "New Zealand",
+   "rating": 1630,
+   "last_match": "2026-10-05",
+   "prev_rank": 79,
+   "prev_rating": 1623
+  },
+  {
+   "rank": 74,
+   "team": "Haiti",
+   "rating": 1629,
+   "last_match": "2026-10-04",
+   "prev_rank": 86,
+   "prev_rating": 1597
+  },
+  {
+   "rank": 75,
+   "team": "Jamaica",
+   "rating": 1628,
+   "last_match": "2026-10-05",
+   "prev_rank": 80,
+   "prev_rating": 1619
+  },
+  {
+   "rank": 76,
+   "team": "Burkina Faso",
+   "rating": 1622,
+   "last_match": "2026-10-03",
+   "prev_rank": 78,
+   "prev_rating": 1624
+  },
+  {
+   "rank": 77,
+   "team": "Israel",
+   "rating": 1620,
+   "last_match": "2026-10-04",
+   "prev_rank": 74,
+   "prev_rating": 1635
+  },
+  {
+   "rank": 78,
+   "team": "Tunisia",
+   "rating": 1620,
+   "last_match": "2026-09-28",
+   "prev_rank": 73,
+   "prev_rating": 1639
+  },
+  {
+   "rank": 79,
+   "team": "Georgia",
+   "rating": 1618,
+   "last_match": "2026-10-05",
+   "prev_rank": 70,
+   "prev_rating": 1645
+  },
+  {
+   "rank": 80,
+   "team": "Guatemala",
+   "rating": 1614,
+   "last_match": "2026-10-05",
+   "prev_rank": 85,
+   "prev_rating": 1598
+  },
+  {
+   "rank": 81,
+   "team": "Cape Verde",
+   "rating": 1612,
+   "last_match": "2026-09-29",
+   "prev_rank": 65,
+   "prev_rating": 1658
+  },
+  {
+   "rank": 82,
+   "team": "Honduras",
+   "rating": 1611,
+   "last_match": "2026-10-05",
+   "prev_rank": 68,
+   "prev_rating": 1646
+  },
+  {
+   "rank": 83,
+   "team": "Kernow",
+   "rating": 1603,
+   "last_match": "2023-07-16",
+   "prev_rank": 82,
+   "prev_rating": 1603
+  },
+  {
+   "rank": 84,
+   "team": "Albania",
+   "rating": 1597,
+   "last_match": "2026-10-06",
+   "prev_rank": 83,
+   "prev_rating": 1602
+  },
+  {
+   "rank": 85,
+   "team": "Curaçao",
+   "rating": 1595,
+   "last_match": "2026-10-04",
+   "prev_rank": 99,
+   "prev_rating": 1549
+  },
+  {
+   "rank": 86,
+   "team": "Qatar",
+   "rating": 1594,
+   "last_match": "2026-10-03",
+   "prev_rank": 92,
+   "prev_rating": 1561
+  },
+  {
+   "rank": 87,
+   "team": "Iceland",
+   "rating": 1594,
+   "last_match": "2026-10-06",
+   "prev_rank": 90,
+   "prev_rating": 1580
+  },
+  {
+   "rank": 88,
+   "team": "Romania",
+   "rating": 1581,
+   "last_match": "2026-10-05",
+   "prev_rank": 71,
+   "prev_rating": 1641
+  },
+  {
+   "rank": 89,
+   "team": "Angola",
+   "rating": 1580,
+   "last_match": "2026-10-06",
+   "prev_rank": 94,
+   "prev_rating": 1558
+  },
+  {
+   "rank": 90,
+   "team": "Ghana",
+   "rating": 1579,
+   "last_match": "2026-09-29",
+   "prev_rank": 81,
+   "prev_rating": 1614
+  },
+  {
+   "rank": 91,
+   "team": "Palestine",
+   "rating": 1578,
+   "last_match": "2026-10-02",
+   "prev_rank": 98,
+   "prev_rating": 1550
+  },
+  {
+   "rank": 92,
+   "team": "Oman",
+   "rating": 1573,
+   "last_match": "2026-10-03",
+   "prev_rank": 89,
+   "prev_rating": 1581
+  },
+  {
+   "rank": 93,
+   "team": "Suriname",
+   "rating": 1571,
+   "last_match": "2026-10-05",
+   "prev_rank": 97,
+   "prev_rating": 1552
+  },
+  {
+   "rank": 94,
+   "team": "Réunion",
+   "rating": 1564,
+   "last_match": "2023-09-02",
+   "prev_rank": 91,
+   "prev_rating": 1564
+  },
+  {
+   "rank": 95,
+   "team": "Belarus",
+   "rating": 1564,
+   "last_match": "2026-10-06",
+   "prev_rank": 96,
+   "prev_rating": 1555
+  },
+  {
+   "rank": 96,
+   "team": "Vietnam",
+   "rating": 1563,
+   "last_match": "2026-10-05",
+   "prev_rank": 88,
+   "prev_rating": 1591
+  },
+  {
+   "rank": 97,
+   "team": "Tamil Eelam",
+   "rating": 1561,
+   "last_match": "2025-07-04",
+   "prev_rank": 93,
+   "prev_rating": 1561
+  },
+  {
+   "rank": 98,
+   "team": "North Macedonia",
+   "rating": 1558,
+   "last_match": "2026-10-06",
+   "prev_rank": 87,
+   "prev_rating": 1595
+  },
+  {
+   "rank": 99,
+   "team": "Uganda",
+   "rating": 1555,
+   "last_match": "2026-10-05",
+   "prev_rank": 121,
+   "prev_rating": 1499
+  },
+  {
+   "rank": 100,
+   "team": "Syria",
+   "rating": 1553,
+   "last_match": "2026-10-01",
+   "prev_rank": 95,
+   "prev_rating": 1555
+  },
+  {
+   "rank": 101,
+   "team": "Montenegro",
+   "rating": 1549,
+   "last_match": "2026-10-05",
+   "prev_rank": 108,
+   "prev_rating": 1521
+  },
+  {
+   "rank": 102,
+   "team": "Galicia",
+   "rating": 1548,
+   "last_match": "2024-05-21",
+   "prev_rank": 100,
+   "prev_rating": 1548
+  },
+  {
+   "rank": 103,
+   "team": "Finland",
+   "rating": 1547,
+   "last_match": "2026-10-06",
+   "prev_rank": 103,
+   "prev_rating": 1546
+  },
+  {
+   "rank": 104,
+   "team": "Thailand",
+   "rating": 1541,
+   "last_match": "2026-10-05",
+   "prev_rank": 102,
+   "prev_rating": 1546
+  },
+  {
+   "rank": 105,
+   "team": "Malaysia",
+   "rating": 1541,
+   "last_match": "2026-10-05",
+   "prev_rank": 119,
+   "prev_rating": 1500
+  },
+  {
+   "rank": 106,
+   "team": "Benin",
+   "rating": 1540,
+   "last_match": "2026-10-06",
+   "prev_rank": 112,
+   "prev_rating": 1518
+  },
+  {
+   "rank": 107,
+   "team": "Zanzibar",
+   "rating": 1536,
+   "last_match": "2025-01-13",
+   "prev_rank": 105,
+   "prev_rating": 1536
+  },
+  {
+   "rank": 108,
+   "team": "Gambia",
+   "rating": 1533,
+   "last_match": "2026-09-29",
+   "prev_rank": 117,
+   "prev_rating": 1504
+  },
+  {
+   "rank": 109,
+   "team": "Menorca",
+   "rating": 1530,
+   "last_match": "2023-07-13",
+   "prev_rank": 106,
+   "prev_rating": 1530
+  },
+  {
+   "rank": 110,
+   "team": "Zambia",
+   "rating": 1528,
+   "last_match": "2026-09-29",
+   "prev_rank": 113,
+   "prev_rating": 1516
+  },
+  {
+   "rank": 111,
+   "team": "Gabon",
+   "rating": 1527,
+   "last_match": "2026-09-29",
+   "prev_rank": 114,
+   "prev_rating": 1515
+  },
+  {
+   "rank": 112,
+   "team": "Guinea",
+   "rating": 1523,
+   "last_match": "2026-10-01",
+   "prev_rank": 111,
+   "prev_rating": 1519
+  },
+  {
+   "rank": 113,
+   "team": "Chameria",
+   "rating": 1520,
+   "last_match": "2023-07-01",
+   "prev_rank": 110,
+   "prev_rating": 1520
+  },
+  {
+   "rank": 114,
+   "team": "Dominican Republic",
+   "rating": 1514,
+   "last_match": "2026-10-04",
+   "prev_rank": 142,
+   "prev_rating": 1469
+  },
+  {
+   "rank": 115,
+   "team": "Guyana",
+   "rating": 1513,
+   "last_match": "2026-10-04",
+   "prev_rank": 132,
+   "prev_rating": 1480
+  },
+  {
+   "rank": 116,
+   "team": "Indonesia",
+   "rating": 1511,
+   "last_match": "2026-10-05",
+   "prev_rank": 123,
+   "prev_rating": 1495
+  },
+  {
+   "rank": 117,
+   "team": "Mozambique",
+   "rating": 1506,
+   "last_match": "2026-09-29",
+   "prev_rank": 136,
+   "prev_rating": 1476
+  },
+  {
+   "rank": 118,
+   "team": "Libya",
+   "rating": 1504,
+   "last_match": "2026-09-29",
+   "prev_rank": 107,
+   "prev_rating": 1530
+  },
+  {
+   "rank": 119,
+   "team": "China",
+   "rating": 1501,
+   "last_match": "2026-10-06",
+   "prev_rank": 101,
+   "prev_rating": 1548
+  },
+  {
+   "rank": 120,
+   "team": "Rwanda",
+   "rating": 1501,
+   "last_match": "2026-10-05",
+   "prev_rank": 148,
+   "prev_rating": 1461
+  },
+  {
+   "rank": 121,
+   "team": "Greenland",
+   "rating": 1491,
+   "last_match": "2026-06-06",
+   "prev_rank": 125,
+   "prev_rating": 1491
+  },
+  {
+   "rank": 122,
+   "team": "North Korea",
+   "rating": 1491,
+   "last_match": "2025-06-10",
+   "prev_rank": 126,
+   "prev_rating": 1491
+  },
+  {
+   "rank": 123,
+   "team": "Bulgaria",
+   "rating": 1490,
+   "last_match": "2026-10-06",
+   "prev_rank": 115,
+   "prev_rating": 1512
+  },
+  {
+   "rank": 124,
+   "team": "Shetland",
+   "rating": 1489,
+   "last_match": "2025-07-17",
+   "prev_rank": 127,
+   "prev_rating": 1489
+  },
+  {
+   "rank": 125,
+   "team": "New Caledonia",
+   "rating": 1486,
+   "last_match": "2026-09-30",
+   "prev_rank": 104,
+   "prev_rating": 1537
+  },
+  {
+   "rank": 126,
+   "team": "Tahiti",
+   "rating": 1485,
+   "last_match": "2026-10-01",
+   "prev_rank": 118,
+   "prev_rating": 1502
+  },
+  {
+   "rank": 127,
+   "team": "Togo",
+   "rating": 1484,
+   "last_match": "2026-09-29",
+   "prev_rank": 128,
+   "prev_rating": 1487
+  },
+  {
+   "rank": 128,
+   "team": "Åland Islands",
+   "rating": 1483,
+   "last_match": "2023-07-13",
+   "prev_rank": 130,
+   "prev_rating": 1483
+  },
+  {
+   "rank": 129,
+   "team": "Kyrgyzstan",
+   "rating": 1483,
+   "last_match": "2026-10-04",
+   "prev_rank": 145,
+   "prev_rating": 1467
+  },
+  {
+   "rank": 130,
+   "team": "Comoros",
+   "rating": 1480,
+   "last_match": "2026-10-04",
+   "prev_rank": 135,
+   "prev_rating": 1478
+  },
+  {
+   "rank": 131,
+   "team": "West Papua",
+   "rating": 1480,
+   "last_match": "2022-11-13",
+   "prev_rank": 131,
+   "prev_rating": 1480
+  },
+  {
+   "rank": 132,
+   "team": "Madagascar",
+   "rating": 1479,
+   "last_match": "2026-09-29",
+   "prev_rank": 124,
+   "prev_rating": 1492
+  },
+  {
+   "rank": 133,
+   "team": "Hmong",
+   "rating": 1476,
+   "last_match": "2023-08-08",
+   "prev_rank": 137,
+   "prev_rating": 1476
+  },
+  {
+   "rank": 134,
+   "team": "Gozo",
+   "rating": 1475,
+   "last_match": "2025-07-17",
+   "prev_rank": 138,
+   "prev_rating": 1475
+  },
+  {
+   "rank": 135,
+   "team": "Estonia",
+   "rating": 1474,
+   "last_match": "2026-10-06",
+   "prev_rank": 164,
+   "prev_rating": 1437
+  },
+  {
+   "rank": 136,
+   "team": "East Turkestan",
+   "rating": 1474,
+   "last_match": "2025-07-04",
+   "prev_rank": 139,
+   "prev_rating": 1474
+  },
+  {
+   "rank": 137,
+   "team": "Székely Land",
+   "rating": 1473,
+   "last_match": "2023-07-02",
+   "prev_rank": 140,
+   "prev_rating": 1473
+  },
+  {
+   "rank": 138,
+   "team": "El Salvador",
+   "rating": 1469,
+   "last_match": "2026-10-05",
+   "prev_rank": 133,
+   "prev_rating": 1479
+  },
+  {
+   "rank": 139,
+   "team": "Bahrain",
+   "rating": 1469,
+   "last_match": "2026-09-30",
+   "prev_rank": 109,
+   "prev_rating": 1521
+  },
+  {
+   "rank": 140,
+   "team": "Rouet-Provence",
+   "rating": 1468,
+   "last_match": "2026-06-06",
+   "prev_rank": 144,
+   "prev_rating": 1468
+  },
+  {
+   "rank": 141,
+   "team": "Kuwait",
+   "rating": 1467,
+   "last_match": "2026-09-29",
+   "prev_rank": 122,
+   "prev_rating": 1498
+  },
+  {
+   "rank": 142,
+   "team": "Trinidad and Tobago",
+   "rating": 1467,
+   "last_match": "2026-10-04",
+   "prev_rank": 116,
+   "prev_rating": 1510
+  },
+  {
+   "rank": 143,
+   "team": "Sudan",
+   "rating": 1463,
+   "last_match": "2026-09-29",
+   "prev_rank": 146,
+   "prev_rating": 1463
+  },
+  {
+   "rank": 144,
+   "team": "Zimbabwe",
+   "rating": 1461,
+   "last_match": "2026-09-28",
+   "prev_rank": 155,
+   "prev_rating": 1450
+  },
+  {
+   "rank": 145,
+   "team": "Mauritania",
+   "rating": 1460,
+   "last_match": "2026-09-29",
+   "prev_rank": 147,
+   "prev_rating": 1462
+  },
+  {
+   "rank": 146,
+   "team": "Fiji",
+   "rating": 1457,
+   "last_match": "2026-10-03",
+   "prev_rank": 170,
+   "prev_rating": 1421
+  },
+  {
+   "rank": 147,
+   "team": "Western Isles",
+   "rating": 1456,
+   "last_match": "2025-07-17",
+   "prev_rank": 150,
+   "prev_rating": 1456
+  },
+  {
+   "rank": 148,
+   "team": "Saint Vincent and the Grenadines",
+   "rating": 1455,
+   "last_match": "2026-10-06",
+   "prev_rank": 186,
+   "prev_rating": 1390
+  },
+  {
+   "rank": 149,
+   "team": "Martinique",
+   "rating": 1454,
+   "last_match": "2026-10-05",
+   "prev_rank": 151,
+   "prev_rating": 1452
+  },
+  {
+   "rank": 150,
+   "team": "Niger",
+   "rating": 1453,
+   "last_match": "2026-10-06",
+   "prev_rank": 149,
+   "prev_rating": 1456
+  },
+  {
+   "rank": 151,
+   "team": "Equatorial Guinea",
+   "rating": 1452,
+   "last_match": "2026-09-28",
+   "prev_rank": 162,
+   "prev_rating": 1439
+  },
+  {
+   "rank": 152,
+   "team": "Canton Ticino",
+   "rating": 1452,
+   "last_match": "2026-06-06",
+   "prev_rank": 152,
+   "prev_rating": 1452
+  },
+  {
+   "rank": 153,
+   "team": "Sápmi",
+   "rating": 1451,
+   "last_match": "2023-07-16",
+   "prev_rank": 153,
+   "prev_rating": 1451
+  },
+  {
+   "rank": 154,
+   "team": "Kenya",
+   "rating": 1449,
+   "last_match": "2026-10-05",
+   "prev_rank": 141,
+   "prev_rating": 1471
+  },
+  {
+   "rank": 155,
+   "team": "Vanuatu",
+   "rating": 1447,
+   "last_match": "2026-10-03",
+   "prev_rank": 159,
+   "prev_rating": 1442
+  },
+  {
+   "rank": 156,
+   "team": "Papua New Guinea",
+   "rating": 1446,
+   "last_match": "2026-09-30",
+   "prev_rank": 143,
+   "prev_rating": 1468
+  },
+  {
+   "rank": 157,
+   "team": "Tajikistan",
+   "rating": 1444,
+   "last_match": "2026-10-06",
+   "prev_rank": 156,
+   "prev_rating": 1450
+  },
+  {
+   "rank": 158,
+   "team": "Mayotte",
+   "rating": 1441,
+   "last_match": "2023-08-26",
+   "prev_rank": 160,
+   "prev_rating": 1441
+  },
+  {
+   "rank": 159,
+   "team": "Guadeloupe",
+   "rating": 1441,
+   "last_match": "2026-10-05",
+   "prev_rank": 120,
+   "prev_rating": 1499
+  },
+  {
+   "rank": 160,
+   "team": "Two Sicilies",
+   "rating": 1440,
+   "last_match": "2023-07-02",
+   "prev_rank": 161,
+   "prev_rating": 1440
+  },
+  {
+   "rank": 161,
+   "team": "Kazakhstan",
+   "rating": 1438,
+   "last_match": "2026-10-06",
+   "prev_rank": 134,
+   "prev_rating": 1479
+  },
+  {
+   "rank": 162,
+   "team": "Marshall Islands",
+   "rating": 1437,
+   "last_match": "2025-08-16",
+   "prev_rank": 163,
+   "prev_rating": 1437
+  },
+  {
+   "rank": 163,
+   "team": "Faroe Islands",
+   "rating": 1437,
+   "last_match": "2026-10-06",
+   "prev_rank": 166,
+   "prev_rating": 1426
+  },
+  {
+   "rank": 164,
+   "team": "Orkney",
+   "rating": 1435,
+   "last_match": "2025-07-17",
+   "prev_rank": 165,
+   "prev_rating": 1435
+  },
+  {
+   "rank": 165,
+   "team": "Lebanon",
+   "rating": 1434,
+   "last_match": "2026-10-04",
+   "prev_rank": 158,
+   "prev_rating": 1443
+  },
+  {
+   "rank": 166,
+   "team": "Botswana",
+   "rating": 1432,
+   "last_match": "2026-09-28",
+   "prev_rank": 172,
+   "prev_rating": 1414
+  },
+  {
+   "rank": 167,
+   "team": "French Guiana",
+   "rating": 1431,
+   "last_match": "2026-10-06",
+   "prev_rank": 180,
+   "prev_rating": 1401
+  },
+  {
+   "rank": 168,
+   "team": "Cuba",
+   "rating": 1428,
+   "last_match": "2026-10-05",
+   "prev_rank": 174,
+   "prev_rating": 1412
+  },
+  {
+   "rank": 169,
+   "team": "Saint Barthélemy",
+   "rating": 1424,
+   "last_match": "2023-03-10",
+   "prev_rank": 168,
+   "prev_rating": 1424
+  },
+  {
+   "rank": 170,
+   "team": "Guinea-Bissau",
+   "rating": 1424,
+   "last_match": "2026-09-29",
+   "prev_rank": 193,
+   "prev_rating": 1367
+  },
+  {
+   "rank": 171,
+   "team": "Nicaragua",
+   "rating": 1423,
+   "last_match": "2026-10-04",
+   "prev_rank": 129,
+   "prev_rating": 1485
+  },
+  {
+   "rank": 172,
+   "team": "Burundi",
+   "rating": 1421,
+   "last_match": "2026-09-29",
+   "prev_rank": 171,
+   "prev_rating": 1420
+  },
+  {
+   "rank": 173,
+   "team": "Luxembourg",
+   "rating": 1420,
+   "last_match": "2026-10-06",
+   "prev_rank": 154,
+   "prev_rating": 1450
+  },
+  {
+   "rank": 174,
+   "team": "Cyprus",
+   "rating": 1420,
+   "last_match": "2026-10-05",
+   "prev_rank": 181,
+   "prev_rating": 1400
+  },
+  {
+   "rank": 175,
+   "team": "Malawi",
+   "rating": 1414,
+   "last_match": "2026-10-06",
+   "prev_rank": 173,
+   "prev_rating": 1413
+  },
+  {
+   "rank": 176,
+   "team": "Azerbaijan",
+   "rating": 1414,
+   "last_match": "2026-10-04",
+   "prev_rank": 179,
+   "prev_rating": 1401
+  },
+  {
+   "rank": 177,
+   "team": "Armenia",
+   "rating": 1409,
+   "last_match": "2026-10-05",
+   "prev_rank": 169,
+   "prev_rating": 1422
+  },
+  {
+   "rank": 178,
+   "team": "Puerto Rico",
+   "rating": 1408,
+   "last_match": "2026-10-04",
+   "prev_rank": 184,
+   "prev_rating": 1395
+  },
+  {
+   "rank": 179,
+   "team": "Namibia",
+   "rating": 1407,
+   "last_match": "2026-10-03",
+   "prev_rank": 176,
+   "prev_rating": 1409
+  },
+  {
+   "rank": 180,
+   "team": "Sierra Leone",
+   "rating": 1407,
+   "last_match": "2026-09-28",
+   "prev_rank": 157,
+   "prev_rating": 1444
+  },
+  {
+   "rank": 181,
+   "team": "Turkmenistan",
+   "rating": 1407,
+   "last_match": "2025-11-18",
+   "prev_rank": 177,
+   "prev_rating": 1407
+  },
+  {
+   "rank": 182,
+   "team": "Solomon Islands",
+   "rating": 1405,
+   "last_match": "2026-09-30",
+   "prev_rank": 191,
+   "prev_rating": 1371
+  },
+  {
+   "rank": 183,
+   "team": "Ethiopia",
+   "rating": 1404,
+   "last_match": "2026-09-29",
+   "prev_rank": 167,
+   "prev_rating": 1426
+  },
+  {
+   "rank": 184,
+   "team": "Raetia",
+   "rating": 1399,
+   "last_match": "2026-06-06",
+   "prev_rank": 182,
+   "prev_rating": 1399
+  },
+  {
+   "rank": 185,
+   "team": "Malta",
+   "rating": 1394,
+   "last_match": "2026-10-04",
+   "prev_rank": 189,
+   "prev_rating": 1384
+  },
+  {
+   "rank": 186,
+   "team": "Singapore",
+   "rating": 1391,
+   "last_match": "2026-10-01",
+   "prev_rank": 178,
+   "prev_rating": 1406
+  },
+  {
+   "rank": 187,
+   "team": "Hitra",
+   "rating": 1389,
+   "last_match": "2025-07-17",
+   "prev_rank": 187,
+   "prev_rating": 1389
+  },
+  {
+   "rank": 188,
+   "team": "Liberia",
+   "rating": 1387,
+   "last_match": "2026-09-29",
+   "prev_rank": 175,
+   "prev_rating": 1410
+  },
+  {
+   "rank": 189,
+   "team": "Saint Helena",
+   "rating": 1386,
+   "last_match": "2023-07-13",
+   "prev_rank": 188,
+   "prev_rating": 1386
+  },
+  {
+   "rank": 190,
+   "team": "Tanzania",
+   "rating": 1383,
+   "last_match": "2026-09-29",
+   "prev_rank": 183,
+   "prev_rating": 1397
+  },
+  {
+   "rank": 191,
+   "team": "Lesotho",
+   "rating": 1377,
+   "last_match": "2026-09-29",
+   "prev_rank": 185,
+   "prev_rating": 1394
+  },
+  {
+   "rank": 192,
+   "team": "Hong Kong",
+   "rating": 1367,
+   "last_match": "2026-10-03",
+   "prev_rank": 195,
+   "prev_rating": 1349
+  },
+  {
+   "rank": 193,
+   "team": "Saint Kitts and Nevis",
+   "rating": 1366,
+   "last_match": "2026-10-05",
+   "prev_rank": 202,
+   "prev_rating": 1328
+  },
+  {
+   "rank": 194,
+   "team": "Moldova",
+   "rating": 1364,
+   "last_match": "2026-10-06",
+   "prev_rank": 198,
+   "prev_rating": 1344
+  },
+  {
+   "rank": 195,
+   "team": "Philippines",
+   "rating": 1360,
+   "last_match": "2026-10-02",
+   "prev_rank": 196,
+   "prev_rating": 1347
+  },
+  {
+   "rank": 196,
+   "team": "Saint Lucia",
+   "rating": 1355,
+   "last_match": "2026-10-05",
+   "prev_rank": 209,
+   "prev_rating": 1299
+  },
+  {
+   "rank": 197,
+   "team": "Central African Republic",
+   "rating": 1350,
+   "last_match": "2026-09-28",
+   "prev_rank": 192,
+   "prev_rating": 1371
+  },
+  {
+   "rank": 198,
+   "team": "Yemen",
+   "rating": 1349,
+   "last_match": "2026-09-30",
+   "prev_rank": 200,
+   "prev_rating": 1335
+  },
+  {
+   "rank": 199,
+   "team": "Montserrat",
+   "rating": 1346,
+   "last_match": "2026-10-06",
+   "prev_rank": 210,
+   "prev_rating": 1299
+  },
+  {
+   "rank": 200,
+   "team": "Congo",
+   "rating": 1345,
+   "last_match": "2026-09-29",
+   "prev_rank": 197,
+   "prev_rating": 1347
+  },
+  {
+   "rank": 201,
+   "team": "Lithuania",
+   "rating": 1332,
+   "last_match": "2026-10-04",
+   "prev_rank": 201,
+   "prev_rating": 1330
+  },
+  {
+   "rank": 202,
+   "team": "Saint Martin",
+   "rating": 1319,
+   "last_match": "2026-10-06",
+   "prev_rank": 205,
+   "prev_rating": 1320
+  },
+  {
+   "rank": 203,
+   "team": "Samoa",
+   "rating": 1314,
+   "last_match": "2024-11-18",
+   "prev_rank": 206,
+   "prev_rating": 1314
+  },
+  {
+   "rank": 204,
+   "team": "Tibet",
+   "rating": 1312,
+   "last_match": "2025-07-03",
+   "prev_rank": 207,
+   "prev_rating": 1312
+  },
+  {
+   "rank": 205,
+   "team": "India",
+   "rating": 1308,
+   "last_match": "2026-10-06",
+   "prev_rank": 211,
+   "prev_rating": 1299
+  },
+  {
+   "rank": 206,
+   "team": "Tuvalu",
+   "rating": 1303,
+   "last_match": "2023-11-30",
+   "prev_rank": 208,
+   "prev_rating": 1303
+  },
+  {
+   "rank": 207,
+   "team": "Latvia",
+   "rating": 1301,
+   "last_match": "2026-10-05",
+   "prev_rank": 199,
+   "prev_rating": 1336
+  },
+  {
+   "rank": 208,
+   "team": "Bermuda",
+   "rating": 1299,
+   "last_match": "2026-10-05",
+   "prev_rank": 190,
+   "prev_rating": 1382
+  },
+  {
+   "rank": 209,
+   "team": "Belize",
+   "rating": 1297,
+   "last_match": "2026-10-06",
+   "prev_rank": 203,
+   "prev_rating": 1327
+  },
+  {
+   "rank": 210,
+   "team": "Sint Maarten",
+   "rating": 1296,
+   "last_match": "2026-10-06",
+   "prev_rank": 194,
+   "prev_rating": 1360
+  },
+  {
+   "rank": 211,
+   "team": "Eritrea",
+   "rating": 1293,
+   "last_match": "2026-09-30",
+   "prev_rank": 213,
+   "prev_rating": 1286
+  },
+  {
+   "rank": 212,
+   "team": "Falkland Islands",
+   "rating": 1291,
+   "last_match": "2023-07-13",
+   "prev_rank": 212,
+   "prev_rating": 1291
+  },
+  {
+   "rank": 213,
+   "team": "Barbados",
+   "rating": 1287,
+   "last_match": "2026-10-05",
+   "prev_rank": 227,
+   "prev_rating": 1200
+  },
+  {
+   "rank": 214,
+   "team": "Grenada",
+   "rating": 1282,
+   "last_match": "2026-10-05",
+   "prev_rank": 204,
+   "prev_rating": 1326
+  },
+  {
+   "rank": 215,
+   "team": "Eswatini",
+   "rating": 1280,
+   "last_match": "2026-03-31",
+   "prev_rank": 215,
+   "prev_rating": 1280
+  },
+  {
+   "rank": 216,
+   "team": "South Sudan",
+   "rating": 1268,
+   "last_match": "2026-09-29",
+   "prev_rank": 214,
+   "prev_rating": 1282
+  },
+  {
+   "rank": 217,
+   "team": "Cook Islands",
+   "rating": 1267,
+   "last_match": "2026-10-01",
+   "prev_rank": 220,
+   "prev_rating": 1250
+  },
+  {
+   "rank": 218,
+   "team": "Frøya",
+   "rating": 1265,
+   "last_match": "2025-07-17",
+   "prev_rank": 216,
+   "prev_rating": 1265
+  },
+  {
+   "rank": 219,
+   "team": "Aruba",
+   "rating": 1264,
+   "last_match": "2026-10-06",
+   "prev_rank": 217,
+   "prev_rating": 1254
+  },
+  {
+   "rank": 220,
+   "team": "Chad",
+   "rating": 1250,
+   "last_match": "2026-03-31",
+   "prev_rank": 219,
+   "prev_rating": 1250
+  },
+  {
+   "rank": 221,
+   "team": "Myanmar",
+   "rating": 1233,
+   "last_match": "2026-09-27",
+   "prev_rank": 218,
+   "prev_rating": 1251
+  },
+  {
+   "rank": 222,
+   "team": "Mauritius",
+   "rating": 1229,
+   "last_match": "2026-10-05",
+   "prev_rank": 221,
+   "prev_rating": 1239
+  },
+  {
+   "rank": 223,
+   "team": "Afghanistan",
+   "rating": 1228,
+   "last_match": "2026-06-10",
+   "prev_rank": 223,
+   "prev_rating": 1228
+  },
+  {
+   "rank": 224,
+   "team": "Antigua and Barbuda",
+   "rating": 1227,
+   "last_match": "2026-10-06",
+   "prev_rank": 226,
+   "prev_rating": 1202
+  },
+  {
+   "rank": 225,
+   "team": "Bonaire",
+   "rating": 1214,
+   "last_match": "2026-10-05",
+   "prev_rank": 225,
+   "prev_rating": 1224
+  },
+  {
+   "rank": 226,
+   "team": "Bangladesh",
+   "rating": 1209,
+   "last_match": "2026-10-01",
+   "prev_rank": 222,
+   "prev_rating": 1229
+  },
+  {
+   "rank": 227,
+   "team": "Gibraltar",
+   "rating": 1207,
+   "last_match": "2026-10-05",
+   "prev_rank": 230,
+   "prev_rating": 1188
+  },
+  {
+   "rank": 228,
+   "team": "Dominica",
+   "rating": 1203,
+   "last_match": "2026-10-04",
+   "prev_rank": 224,
+   "prev_rating": 1226
+  },
+  {
+   "rank": 229,
+   "team": "São Tomé and Príncipe",
+   "rating": 1200,
+   "last_match": "2026-09-23",
+   "prev_rank": 228,
+   "prev_rating": 1200
+  },
+  {
+   "rank": 230,
+   "team": "Nepal",
+   "rating": 1196,
+   "last_match": "2025-11-18",
+   "prev_rank": 229,
+   "prev_rating": 1196
+  },
+  {
+   "rank": 231,
+   "team": "Tonga",
+   "rating": 1185,
+   "last_match": "2024-09-09",
+   "prev_rank": 231,
+   "prev_rating": 1185
+  },
+  {
+   "rank": 232,
+   "team": "Pakistan",
+   "rating": 1180,
+   "last_match": "2026-10-02",
+   "prev_rank": 232,
+   "prev_rating": 1180
+  },
+  {
+   "rank": 233,
+   "team": "Turks and Caicos Islands",
+   "rating": 1176,
+   "last_match": "2026-10-06",
+   "prev_rank": 236,
+   "prev_rating": 1173
+  },
+  {
+   "rank": 234,
+   "team": "Taiwan",
+   "rating": 1175,
+   "last_match": "2025-11-18",
+   "prev_rank": 234,
+   "prev_rating": 1175
+  },
+  {
+   "rank": 235,
+   "team": "Cambodia",
+   "rating": 1175,
+   "last_match": "2026-10-03",
+   "prev_rank": 237,
+   "prev_rating": 1170
+  },
+  {
+   "rank": 236,
+   "team": "Sri Lanka",
+   "rating": 1165,
+   "last_match": "2026-10-05",
+   "prev_rank": 242,
+   "prev_rating": 1128
+  },
+  {
+   "rank": 237,
+   "team": "Djibouti",
+   "rating": 1160,
+   "last_match": "2026-03-29",
+   "prev_rank": 238,
+   "prev_rating": 1160
+  },
+  {
+   "rank": 238,
+   "team": "Cayman Islands",
+   "rating": 1158,
+   "last_match": "2026-10-04",
+   "prev_rank": 235,
+   "prev_rating": 1174
+  },
+  {
+   "rank": 239,
+   "team": "Andorra",
+   "rating": 1154,
+   "last_match": "2026-10-04",
+   "prev_rank": 233,
+   "prev_rating": 1177
+  },
+  {
+   "rank": 240,
+   "team": "Somalia",
+   "rating": 1146,
+   "last_match": "2026-09-29",
+   "prev_rank": 239,
+   "prev_rating": 1151
+  },
+  {
+   "rank": 241,
+   "team": "Northern Mariana Islands",
+   "rating": 1139,
+   "last_match": "2024-04-07",
+   "prev_rank": 240,
+   "prev_rating": 1139
+  },
+  {
+   "rank": 242,
+   "team": "United States Virgin Islands",
+   "rating": 1138,
+   "last_match": "2026-10-01",
+   "prev_rank": 244,
+   "prev_rating": 1106
+  },
+  {
+   "rank": 243,
+   "team": "American Samoa",
+   "rating": 1123,
+   "last_match": "2026-03-28",
+   "prev_rank": 243,
+   "prev_rating": 1123
+  },
+  {
+   "rank": 244,
+   "team": "Mongolia",
+   "rating": 1101,
+   "last_match": "2026-06-05",
+   "prev_rank": 246,
+   "prev_rating": 1101
+  },
+  {
+   "rank": 245,
+   "team": "Maldives",
+   "rating": 1094,
+   "last_match": "2026-10-01",
+   "prev_rank": 245,
+   "prev_rating": 1102
+  },
+  {
+   "rank": 246,
+   "team": "Guam",
+   "rating": 1089,
+   "last_match": "2026-06-06",
+   "prev_rank": 247,
+   "prev_rating": 1089
+  },
+  {
+   "rank": 247,
+   "team": "British Virgin Islands",
+   "rating": 1086,
+   "last_match": "2026-10-04",
+   "prev_rank": 241,
+   "prev_rating": 1137
+  },
+  {
+   "rank": 248,
+   "team": "Laos",
+   "rating": 1071,
+   "last_match": "2026-09-27",
+   "prev_rank": 252,
+   "prev_rating": 1058
+  },
+  {
+   "rank": 249,
+   "team": "Bahamas",
+   "rating": 1057,
+   "last_match": "2026-10-06",
+   "prev_rank": 248,
+   "prev_rating": 1088
+  },
+  {
+   "rank": 250,
+   "team": "Seychelles",
+   "rating": 1054,
+   "last_match": "2026-09-30",
+   "prev_rank": 249,
+   "prev_rating": 1081
+  },
+  {
+   "rank": 251,
+   "team": "Liechtenstein",
+   "rating": 1054,
+   "last_match": "2026-10-05",
+   "prev_rank": 251,
+   "prev_rating": 1060
+  },
+  {
+   "rank": 252,
+   "team": "Brunei",
+   "rating": 1039,
+   "last_match": "2026-09-30",
+   "prev_rank": 250,
+   "prev_rating": 1061
+  },
+  {
+   "rank": 253,
+   "team": "Anguilla",
+   "rating": 1006,
+   "last_match": "2026-10-04",
+   "prev_rank": 253,
+   "prev_rating": 1049
+  },
+  {
+   "rank": 254,
+   "team": "Timor-Leste",
+   "rating": 1005,
+   "last_match": "2026-09-30",
+   "prev_rank": 254,
+   "prev_rating": 1003
+  },
+  {
+   "rank": 255,
+   "team": "Bhutan",
+   "rating": 999,
+   "last_match": "2026-06-04",
+   "prev_rank": 255,
+   "prev_rating": 999
+  },
+  {
+   "rank": 256,
+   "team": "Macau",
+   "rating": 993,
+   "last_match": "2026-03-29",
+   "prev_rank": 256,
+   "prev_rating": 993
+  },
+  {
+   "rank": 257,
+   "team": "San Marino",
+   "rating": 968,
+   "last_match": "2026-10-06",
+   "prev_rank": 257,
+   "prev_rating": 973
+  }
+ ],
+ "recent": [
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "United States",
+   "away": "Canada",
+   "score": [
+    1,
+    0
+   ],
+   "home_delta": 12.5,
+   "away_delta": -12.5
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "CONCACAF Nations League",
+   "home": "Turks and Caicos Islands",
+   "away": "Montserrat",
+   "score": [
+    1,
+    4
+   ],
+   "home_delta": -13.5,
+   "away_delta": 13.5
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "Switzerland",
+   "away": "North Macedonia",
+   "score": [
+    3,
+    0
+   ],
+   "home_delta": 4.1,
+   "away_delta": -4.1
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "South Korea",
+   "away": "Uzbekistan",
+   "score": [
+    2,
+    0
+   ],
+   "home_delta": 11.9,
+   "away_delta": -11.9
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "Scotland",
+   "away": "Slovenia",
+   "score": [
+    1,
+    2
+   ],
+   "home_delta": -23.7,
+   "away_delta": 23.7
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Gulf Cup",
+   "home": "Saudi Arabia",
+   "away": "United Arab Emirates",
+   "score": [
+    2,
+    0
+   ],
+   "home_delta": 14.5,
+   "away_delta": -14.5
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "CONCACAF Nations League",
+   "home": "Saint Vincent and the Grenadines",
+   "away": "Sint Maarten",
+   "score": [
+    4,
+    0
+   ],
+   "home_delta": 12.6,
+   "away_delta": -12.6
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "CONCACAF Nations League",
+   "home": "Saint Martin",
+   "away": "Bahamas",
+   "score": [
+    6,
+    0
+   ],
+   "home_delta": 7.8,
+   "away_delta": -7.8
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "Russia",
+   "away": "Nigeria",
+   "score": [
+    3,
+    3
+   ],
+   "home_delta": -2.7,
+   "away_delta": 2.7
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "Moldova",
+   "away": "Slovakia",
+   "score": [
+    0,
+    4
+   ],
+   "home_delta": -6.9,
+   "away_delta": 6.9
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "Mexico",
+   "away": "Chile",
+   "score": [
+    0,
+    2
+   ],
+   "home_delta": -22.3,
+   "away_delta": 22.3
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "Luxembourg",
+   "away": "Bulgaria",
+   "score": [
+    0,
+    2
+   ],
+   "home_delta": -19.7,
+   "away_delta": 19.7
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "Kazakhstan",
+   "away": "Faroe Islands",
+   "score": [
+    2,
+    2
+   ],
+   "home_delta": -1.7,
+   "away_delta": 1.7
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "Jordan",
+   "away": "Venezuela",
+   "score": [
+    0,
+    0
+   ],
+   "home_delta": 2.7,
+   "away_delta": -2.7
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "India",
+   "away": "Uruguay",
+   "score": [
+    1,
+    6
+   ],
+   "home_delta": -1.5,
+   "away_delta": 1.5
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "Estonia",
+   "away": "Iceland",
+   "score": [
+    0,
+    0
+   ],
+   "home_delta": 5.9,
+   "away_delta": -5.9
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "England",
+   "away": "Czech Republic",
+   "score": [
+    3,
+    0
+   ],
+   "home_delta": 4.4,
+   "away_delta": -4.4
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "Croatia",
+   "away": "Spain",
+   "score": [
+    1,
+    2
+   ],
+   "home_delta": -6.4,
+   "away_delta": 6.4
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "Colombia",
+   "away": "Peru",
+   "score": [
+    2,
+    0
+   ],
+   "home_delta": 5.6,
+   "away_delta": -5.6
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "China",
+   "away": "Tajikistan",
+   "score": [
+    0,
+    1
+   ],
+   "home_delta": -20.1,
+   "away_delta": 20.1
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "CONCACAF Nations League",
+   "home": "Belize",
+   "away": "French Guiana",
+   "score": [
+    0,
+    1
+   ],
+   "home_delta": -15.6,
+   "away_delta": 15.6
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "Belarus",
+   "away": "Finland",
+   "score": [
+    1,
+    0
+   ],
+   "home_delta": 21.5,
+   "away_delta": -21.5
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "Argentina",
+   "away": "Benin",
+   "score": [
+    3,
+    0
+   ],
+   "home_delta": 1.0,
+   "away_delta": -1.0
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "CONCACAF Nations League",
+   "home": "Antigua and Barbuda",
+   "away": "Aruba",
+   "score": [
+    3,
+    2
+   ],
+   "home_delta": 23.3,
+   "away_delta": -23.3
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "African Cup of Nations qualification",
+   "home": "Angola",
+   "away": "Malawi",
+   "score": [
+    3,
+    1
+   ],
+   "home_delta": 10.3,
+   "away_delta": -10.3
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "Friendly",
+   "home": "Algeria",
+   "away": "Niger",
+   "score": [
+    2,
+    1
+   ],
+   "home_delta": 3.1,
+   "away_delta": -3.1
+  },
+  {
+   "date": "2026-10-06",
+   "competition": "UEFA Nations League",
+   "home": "Albania",
+   "away": "San Marino",
+   "score": [
+    2,
+    1
+   ],
+   "home_delta": 0.9,
+   "away_delta": -0.9
+  },
+  {
+   "date": "2026-10-05",
+   "competition": "UEFA Nations League",
+   "home": "Ukraine",
+   "away": "Hungary",
+   "score": [
+    1,
+    2
+   ],
+   "home_delta": -21.0,
+   "away_delta": 21.0
+  },
+  {
+   "date": "2026-10-05",
+   "competition": "Friendly",
+   "home": "Uganda",
+   "away": "DR Congo",
+   "score": [
+    1,
+    1
+   ],
+   "home_delta": 6.6,
+   "away_delta": -6.6
+  },
+  {
+   "date": "2026-10-05",
+   "competition": "Friendly",
+   "home": "Rwanda",
+   "away": "Kenya",
+   "score": [
+    0,
+    0
+   ],
+   "home_delta": -3.5,
+   "away_delta": 3.5
   }
  ]
 }
