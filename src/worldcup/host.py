@@ -35,6 +35,10 @@ TOURNAMENT_HOSTS: dict[tuple[str, int], dict[str, float]] = {
     ("UEFA Euro", 2016): {"France": HOST_BONUS_SOLO},
     ("UEFA Euro", 2021): {},  # Multi-city across Europe; no single host
     ("UEFA Euro", 2024): {"Germany": HOST_BONUS_SOLO},
+    # Euro 2028: five UK and Ireland hosts; England stages most matches.
+    ("UEFA Euro", 2028): {"England": HOST_BONUS_PRIMARY, "Scotland": HOST_BONUS_SECONDARY,
+                          "Wales": HOST_BONUS_SECONDARY, "Republic of Ireland": HOST_BONUS_SECONDARY,
+                          "Northern Ireland": HOST_BONUS_SECONDARY},
 
     ("Copa América", 2011): {"Argentina": HOST_BONUS_SOLO},
     ("Copa América", 2015): {"Chile": HOST_BONUS_SOLO},
@@ -83,6 +87,10 @@ TOURNAMENT_HOSTS: dict[tuple[str, int], dict[str, float]] = {
     ("FIFA World Cup", 2010): {"South Africa": HOST_BONUS_SOLO},
     ("FIFA World Cup", 2014): {"Brazil": HOST_BONUS_SOLO},
     ("FIFA World Cup", 2018): {"Russia": HOST_BONUS_SOLO},
+    # 2030: Spain, Portugal, Morocco host the tournament; Argentina, Uruguay
+    # and Paraguay stage one centenary match each, so get no bonus.
+    ("FIFA World Cup", 2030): {"Spain": HOST_BONUS_PRIMARY, "Portugal": HOST_BONUS_PRIMARY,
+                                "Morocco": HOST_BONUS_PRIMARY},
     ("FIFA World Cup", 2026): {
         "United States": HOST_BONUS_PRIMARY,
         "Mexico": HOST_BONUS_SECONDARY,

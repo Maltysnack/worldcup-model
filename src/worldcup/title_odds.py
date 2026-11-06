@@ -25,6 +25,7 @@ import numpy as np
 from worldcup.db import connect
 from worldcup.drift import fit_drift, rating_series
 from worldcup.goals import sim_match
+from worldcup.registry import REGISTRY
 
 OUT = Path(__file__).resolve().parents[2] / "data" / "title_odds.json"
 N_DRAWS, SIMS_PER_DRAW = 400, 25
@@ -41,19 +42,8 @@ MARKERS = {
     "OFC": ("Oceania Nations Cup", "OFC Nations Cup"),
 }
 
-TOURNAMENTS = [
-    {"key": "euro2028", "name": "Euro 2028", "kickoff": date(2028, 6, 9), "groups": 6, "best_thirds": 4,
-     "slots": {"UEFA": 24}, "hosts": ["England", "Scotland", "Wales", "Republic of Ireland", "Northern Ireland"],
-     "host_places": 2,
-     "assumptions": "24 teams, 6 groups of 4, top 2 and 4 best thirds to the last 16. Two places for the best UK and Ireland hosts that miss out."},
-    {"key": "copa2028", "name": "Copa America 2028", "kickoff": date(2028, 6, 15), "groups": 4, "best_thirds": 0,
-     "slots": {"CONMEBOL": 10, "CONCACAF": 6}, "hosts": [], "host_places": 0,
-     "assumptions": "Host and format not confirmed. Assumed 16 teams (all 10 CONMEBOL plus 6 CONCACAF), 4 groups of 4, top 2 to the quarter-finals."},
-    {"key": "wc2030", "name": "World Cup 2030", "kickoff": date(2030, 6, 13), "groups": 12, "best_thirds": 8,
-     "slots": {"UEFA": 16, "CAF": 9, "AFC": 8, "CONMEBOL": 6, "CONCACAF": 6, "OFC": 1, "PLAYOFF": 2},
-     "hosts": ["Spain", "Portugal", "Morocco", "Argentina", "Uruguay", "Paraguay"], "host_places": 6,
-     "assumptions": "48 teams, 12 groups of 4, top 2 and 8 best thirds to the last 32. Six hosts qualify automatically inside their confederation's places; 2026 place allocation assumed; 2 play-off places go to the best remaining non-UEFA teams."},
-]
+# Formats live in the registry; only tournaments without a real draw are simulated here.
+TOURNAMENTS = [t for t in REGISTRY.values() if t["draw"] == "simulated"]
 
 
 def confederations(since: date) -> dict[str, str]:
