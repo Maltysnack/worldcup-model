@@ -103,9 +103,9 @@ def recent_matches(rows: list[tuple], current: dict[str, float], n: int = N_RECE
     return out[:n]
 
 
-def elo(active_years: int = 4) -> dict | None:
-    """Every team that played in the last `active_years` by current Elo, each with
-    its rank and rating from before the latest international window, plus the latest matches."""
+def elo(n: int = 20, active_years: int = 4) -> dict | None:
+    """Teams that played in the last `active_years` by current Elo (`top` is the first `n`, `rest` the others),
+    each with its rank and rating from before the latest international window, plus the latest matches."""
     from worldcup.db import DB_PATH, connect
 
     if not Path(DB_PATH).exists():
@@ -132,10 +132,11 @@ def elo(active_years: int = 4) -> dict | None:
         current = dict(con.execute("SELECT team, rating FROM elo_current").fetchall())
     prev = sorted(((pre.get(t, r), t) for t, r, _ in active), reverse=True)
     prev_rank = {t: i + 1 for i, (_, t) in enumerate(prev)}
+    teams = [{"rank": i + 1, "team": t, "rating": round(r), "last_match": lm.date().isoformat(),
+              "prev_rank": prev_rank[t], "prev_rating": round(pre.get(t, r))}
+             for i, (t, r, lm) in enumerate(active)]
     return {"generated_at": date.today().isoformat(), "as_of": as_of.isoformat(), "window_start": start.isoformat(),
-            "top": [{"rank": i + 1, "team": t, "rating": round(r), "last_match": lm.date().isoformat(),
-                     "prev_rank": prev_rank[t], "prev_rating": round(pre.get(t, r))}
-                    for i, (t, r, lm) in enumerate(active)],
+            "top": teams[:n], "rest": teams[n:],
             "recent": recent_matches(rows, current)}
 
 

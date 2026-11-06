@@ -288,11 +288,11 @@ if (new URLSearchParams(location.search).has('frames')) {
         <td class="l team"><div>${flag(t.team)}<span>${esc(t.team)}</span></div></td><td class="r">${t.rating}</td>
         <td class="${toneOf(dp)}">${signed(dp)}</td><td class="hide-sm">${dmy(t.last_match)}</td></tr>`;
     };
-    const fill = n => $('elo-rows').innerHTML = e.top.slice(0, n).map(row).join('');
-    fill(20);
-    $('elo-more').textContent = `Show all ${e.top.length}`;
-    $('elo-more').hidden = e.top.length <= 20;
-    $('elo-more').onclick = () => { fill(e.top.length); $('elo-more').hidden = true; };
+    const fill = teams => $('elo-rows').innerHTML = teams.map(row).join('');
+    fill(e.top);
+    $('elo-more').textContent = `Show all ${e.top.length + e.rest.length}`;
+    $('elo-more').hidden = !e.rest.length;
+    $('elo-more').onclick = () => { fill(e.top.concat(e.rest)); $('elo-more').hidden = true; };
     $('elo-tag').textContent = `As of ${dmy(e.as_of)} · 1500 start, higher is stronger · change since ${dayMon(e.window_start)}`;
     $('recent-tag').textContent = `Latest ${e.recent.length} matches · rating change, home and away`;
     $('recent').innerHTML = e.recent.map(m => `<div class="rm"><span>${m.date.slice(8)}-${m.date.slice(5, 7)}</span>
