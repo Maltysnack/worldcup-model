@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06",
+ "generated_at": "2026-11-08",
  "as_of": "2026-10-06",
  "window_start": "2026-09-18",
  "top": [
@@ -1992,7 +1992,7 @@
   {
    "rank": 249,
    "team": "Bahamas",
-   "rating": 1057,
+   "rating": 1056,
    "last_match": "2026-10-06",
    "prev_rank": 248,
    "prev_rating": 1088
@@ -2024,10 +2024,10 @@
   {
    "rank": 253,
    "team": "Anguilla",
-   "rating": 1006,
+   "rating": 1005,
    "last_match": "2026-10-04",
    "prev_rank": 253,
-   "prev_rating": 1049
+   "prev_rating": 1048
   },
   {
    "rank": 254,
