@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28",
+ "generated_at": "2026-11-09",
  "as_of": "2026-10-06",
  "model": "elo-v4a-flat-mild + drift",
  "tournaments": [
@@ -204,87 +204,87 @@
    "top": [
     {
      "team": "Spain",
-     "p_champion": 0.2653,
-     "p_final": 0.378,
+     "p_champion": 0.2739,
+     "p_final": 0.3853,
      "p_qualify": 1.0,
      "rating_now": 2176
     },
     {
      "team": "Argentina",
-     "p_champion": 0.1548,
-     "p_final": 0.2545,
+     "p_champion": 0.1497,
+     "p_final": 0.2487,
      "p_qualify": 1.0,
      "rating_now": 2105
     },
     {
      "team": "France",
-     "p_champion": 0.0908,
-     "p_final": 0.1694,
+     "p_champion": 0.0872,
+     "p_final": 0.1624,
      "p_qualify": 1.0,
      "rating_now": 2044
     },
     {
      "team": "England",
-     "p_champion": 0.0833,
-     "p_final": 0.1544,
+     "p_champion": 0.0819,
+     "p_final": 0.1519,
      "p_qualify": 1.0,
      "rating_now": 2032
     },
     {
      "team": "Portugal",
-     "p_champion": 0.0584,
-     "p_final": 0.1168,
+     "p_champion": 0.0617,
+     "p_final": 0.1196,
      "p_qualify": 1.0,
      "rating_now": 2000
     },
     {
      "team": "Brazil",
-     "p_champion": 0.0339,
-     "p_final": 0.072,
+     "p_champion": 0.0402,
+     "p_final": 0.0884,
      "p_qualify": 1.0,
      "rating_now": 1958
     },
     {
+     "team": "Netherlands",
+     "p_champion": 0.031,
+     "p_final": 0.0696,
+     "p_qualify": 0.99,
+     "rating_now": 1939
+    },
+    {
      "team": "Colombia",
-     "p_champion": 0.0311,
-     "p_final": 0.0699,
+     "p_champion": 0.0309,
+     "p_final": 0.0685,
      "p_qualify": 1.0,
      "rating_now": 1942
     },
     {
-     "team": "Netherlands",
-     "p_champion": 0.0308,
-     "p_final": 0.0702,
-     "p_qualify": 0.983,
-     "rating_now": 1939
-    },
-    {
      "team": "Morocco",
-     "p_champion": 0.0254,
-     "p_final": 0.0633,
+     "p_champion": 0.0292,
+     "p_final": 0.0671,
      "p_qualify": 1.0,
      "rating_now": 1933
     },
     {
      "team": "Switzerland",
-     "p_champion": 0.0246,
-     "p_final": 0.0559,
-     "p_qualify": 0.97,
+     "p_champion": 0.0215,
+     "p_final": 0.053,
+     "p_qualify": 0.978,
      "rating_now": 1918
     },
     {
      "team": "Belgium",
-     "p_champion": 0.0185,
-     "p_final": 0.0459,
-     "p_qualify": 0.955,
+     "p_champion": 0.0167,
+     "p_final": 0.0448,
+     "p_qualify": 0.958,
      "rating_now": 1899
     },
     {
-     "team": "Germany",
-     "p_champion": 0.0168,
-     "p_final": 0.0428,
-     "p_qualify": 0.95,
-     "rating_now": 1891
+     "team": "Japan",
+     "p_champion": 0.0164,
+     "p_final": 0.0449,
+     "p_qualify": 0.998,
+     "rating_now": 1902
     }
    ]
   }
