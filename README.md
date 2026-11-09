@@ -55,9 +55,9 @@ On the 2026 ablation (104 matches) every layer's interval includes zero, so the 
 
 ### Paper bot
 
-Plain Elo (no overlay, no temperature scaling) through the match model, against de-vigged Sportsbet 1X2 prices from The Odds API.
+Plain Elo (no overlay, no temperature scaling) through the match model, against Sportsbet 1X2 prices from The Odds API.
 
-- Bet when `p_model * odds - 1 >= 0.03` and `odds <= 6.0`. Flat $10 on a $1,000 starting bankroll, one decision per event at the first daily pull within 48 hours of kickoff.
+- Bet when `p_model * odds - 1 >= 0.03` and `odds <= 6.0`, on the raw quoted price. A win returns stake x odds. Closing prices are de-vigged only to measure closing-line value. Flat $10 on a $1,000 starting bankroll, one decision per event at the first daily pull within 48 hours of kickoff.
 - Rules v1 were locked on 2026-10-26. Changes need a new dated version, never a retroactive edit.
 - Decisions and settlements are append-only and hash-chained in `ledger/`; `worldcup-verify-ledger` checks the chain.
 - Known bias: draws are under-predicted (26% against 31% observed), so bets skew towards draws. The odds cap limits longshot edges from favourite-longshot bias.
