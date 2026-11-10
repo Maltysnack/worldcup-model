@@ -1,7 +1,7 @@
 {
  "tournament": "wc2030",
  "name": "World Cup 2030",
- "as_of": "2026-11-09",
+ "as_of": "2026-11-10",
  "layers": {
   "form": false,
   "nt": true,
@@ -12,11 +12,11 @@
  "teams": [
   {
    "team": "Spain",
-   "p_champion": 0.3198,
-   "p_final": 0.4338,
+   "p_champion": 0.3132,
+   "p_final": 0.4278,
    "p_qualify": 1.0,
    "rating_now": 2216,
-   "p_champion_elo": 0.2615,
+   "p_champion_elo": 0.2679,
    "elo": 2176,
    "layers": {
     "nt": 15,
@@ -25,11 +25,11 @@
   },
   {
    "team": "Argentina",
-   "p_champion": 0.1552,
-   "p_final": 0.2608,
+   "p_champion": 0.1583,
+   "p_final": 0.2659,
    "p_qualify": 1.0,
    "rating_now": 2130,
-   "p_champion_elo": 0.1623,
+   "p_champion_elo": 0.1653,
    "elo": 2105,
    "layers": {
     "nt": 25
@@ -38,10 +38,10 @@
   {
    "team": "France",
    "p_champion": 0.0755,
-   "p_final": 0.1509,
+   "p_final": 0.1483,
    "p_qualify": 1.0,
    "rating_now": 2046,
-   "p_champion_elo": 0.0878,
+   "p_champion_elo": 0.0883,
    "elo": 2044,
    "layers": {
     "nt": 3
@@ -49,11 +49,11 @@
   },
   {
    "team": "England",
-   "p_champion": 0.0699,
-   "p_final": 0.1386,
+   "p_champion": 0.0751,
+   "p_final": 0.1413,
    "p_qualify": 1.0,
    "rating_now": 2040,
-   "p_champion_elo": 0.0834,
+   "p_champion_elo": 0.0813,
    "elo": 2032,
    "layers": {
     "nt": 8
@@ -61,11 +61,11 @@
   },
   {
    "team": "Portugal",
-   "p_champion": 0.064,
-   "p_final": 0.1309,
+   "p_champion": 0.0682,
+   "p_final": 0.1299,
    "p_qualify": 1.0,
    "rating_now": 2026,
-   "p_champion_elo": 0.059,
+   "p_champion_elo": 0.0584,
    "elo": 2000,
    "layers": {
     "nt": 1,
@@ -74,11 +74,11 @@
   },
   {
    "team": "Morocco",
-   "p_champion": 0.0382,
-   "p_final": 0.0888,
+   "p_champion": 0.0405,
+   "p_final": 0.0898,
    "p_qualify": 1.0,
    "rating_now": 1988,
-   "p_champion_elo": 0.0264,
+   "p_champion_elo": 0.0292,
    "elo": 1933,
    "layers": {
     "nt": 30,
@@ -87,11 +87,11 @@
   },
   {
    "team": "Brazil",
-   "p_champion": 0.0303,
-   "p_final": 0.072,
+   "p_champion": 0.0311,
+   "p_final": 0.0767,
    "p_qualify": 1.0,
    "rating_now": 1963,
-   "p_champion_elo": 0.036,
+   "p_champion_elo": 0.0385,
    "elo": 1958,
    "layers": {
     "nt": 5
@@ -99,11 +99,11 @@
   },
   {
    "team": "Colombia",
-   "p_champion": 0.027,
-   "p_final": 0.065,
+   "p_champion": 0.0266,
+   "p_final": 0.0641,
    "p_qualify": 1.0,
    "rating_now": 1948,
-   "p_champion_elo": 0.0284,
+   "p_champion_elo": 0.0265,
    "elo": 1942,
    "layers": {
     "nt": 6
@@ -111,21 +111,21 @@
   },
   {
    "team": "Netherlands",
-   "p_champion": 0.0238,
-   "p_final": 0.0566,
+   "p_champion": 0.0251,
+   "p_final": 0.062,
    "p_qualify": 0.988,
    "rating_now": 1939,
-   "p_champion_elo": 0.0269,
+   "p_champion_elo": 0.0266,
    "elo": 1939,
    "layers": {}
   },
   {
    "team": "Mexico",
-   "p_champion": 0.0198,
-   "p_final": 0.0467,
+   "p_champion": 0.0196,
+   "p_final": 0.0483,
    "p_qualify": 1.0,
    "rating_now": 1917,
-   "p_champion_elo": 0.0134,
+   "p_champion_elo": 0.0131,
    "elo": 1879,
    "layers": {
     "nt": 38
@@ -133,21 +133,21 @@
   },
   {
    "team": "Switzerland",
-   "p_champion": 0.0185,
-   "p_final": 0.0484,
-   "p_qualify": 0.98,
+   "p_champion": 0.0151,
+   "p_final": 0.0471,
+   "p_qualify": 0.988,
    "rating_now": 1918,
-   "p_champion_elo": 0.0219,
+   "p_champion_elo": 0.0215,
    "elo": 1918,
    "layers": {}
   },
   {
    "team": "Japan",
-   "p_champion": 0.0171,
-   "p_final": 0.0425,
-   "p_qualify": 1.0,
+   "p_champion": 0.0146,
+   "p_final": 0.0424,
+   "p_qualify": 0.998,
    "rating_now": 1904,
-   "p_champion_elo": 0.0171,
+   "p_champion_elo": 0.018,
    "elo": 1902,
    "layers": {
     "nt": 1
