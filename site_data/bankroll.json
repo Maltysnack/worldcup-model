@@ -10,29 +10,6 @@
  "upcoming": [
   {
    "kickoff": "2026-11-12",
-   "home": "Turkey",
-   "away": "Belgium",
-   "model_p": [
-    0.3341,
-    0.2685,
-    0.3974
-   ],
-   "odds": [
-    4.0,
-    4.0,
-    1.77
-   ],
-   "market_p": [
-    0.2347,
-    0.2347,
-    0.5305
-   ],
-   "decision": "bet",
-   "pick": "home",
-   "reason": null
-  },
-  {
-   "kickoff": "2026-11-12",
    "home": "Czech Republic",
    "away": "Spain",
    "model_p": [

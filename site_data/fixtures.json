@@ -4,48 +4,6 @@
  "games": [
   {
    "kickoff": "2026-11-12",
-   "home": "Armenia",
-   "away": "Cyprus",
-   "neutral": false,
-   "home_elo": 1409,
-   "away_elo": 1420,
-   "model_p": [
-    0.4673,
-    0.2639,
-    0.2689
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-12",
-   "home": "Turkey",
-   "away": "Belgium",
-   "neutral": false,
-   "home_elo": 1790,
-   "away_elo": 1899,
-   "model_p": [
-    0.3341,
-    0.2685,
-    0.3974
-   ],
-   "odds": [
-    3.45,
-    3.9,
-    1.92
-   ],
-   "market_p": [
-    0.2716,
-    0.2403,
-    0.4881
-   ],
-   "decision": "bet",
-   "pick": "home"
-  },
-  {
-   "kickoff": "2026-11-12",
    "home": "Albania",
    "away": "Finland",
    "neutral": false,
