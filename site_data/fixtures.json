@@ -4,23 +4,6 @@
  "games": [
   {
    "kickoff": "2026-11-13",
-   "home": "Moldova",
-   "away": "Kazakhstan",
-   "neutral": false,
-   "home_elo": 1364,
-   "away_elo": 1438,
-   "model_p": [
-    0.3796,
-    0.2706,
-    0.3498
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-13",
    "home": "Andorra",
    "away": "Gibraltar",
    "neutral": false,
