@@ -1,133 +1,7 @@
 {
- "generated_at": "2026-11-12",
- "fetched_at": "2026-11-12T14:33:30+00:00",
+ "generated_at": "2026-11-13",
+ "fetched_at": "2026-11-13T13:52:08+00:00",
  "games": [
-  {
-   "kickoff": "2026-11-12",
-   "home": "Albania",
-   "away": "Finland",
-   "neutral": false,
-   "home_elo": 1597,
-   "away_elo": 1547,
-   "model_p": [
-    0.5533,
-    0.2454,
-    0.2013
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-12",
-   "home": "San Marino",
-   "away": "Belarus",
-   "neutral": false,
-   "home_elo": 968,
-   "away_elo": 1564,
-   "model_p": [
-    0.0083,
-    0.0282,
-    0.9635
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-12",
-   "home": "England",
-   "away": "Croatia",
-   "neutral": false,
-   "home_elo": 2032,
-   "away_elo": 1850,
-   "model_p": [
-    0.7253,
-    0.1792,
-    0.0955
-   ],
-   "odds": [
-    1.24,
-    6.0,
-    9.75
-   ],
-   "market_p": [
-    0.7497,
-    0.1549,
-    0.0953
-   ],
-   "decision": "pass",
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-12",
-   "home": "Czech Republic",
-   "away": "Spain",
-   "neutral": false,
-   "home_elo": 1686,
-   "away_elo": 2176,
-   "model_p": [
-    0.0276,
-    0.0706,
-    0.9018
-   ],
-   "odds": [
-    12.0,
-    7.0,
-    1.18
-   ],
-   "market_p": [
-    0.0776,
-    0.1331,
-    0.7893
-   ],
-   "decision": "bet",
-   "pick": "away"
-  },
-  {
-   "kickoff": "2026-11-12",
-   "home": "Italy",
-   "away": "France",
-   "neutral": false,
-   "home_elo": 1898,
-   "away_elo": 2044,
-   "model_p": [
-    0.2864,
-    0.2615,
-    0.4522
-   ],
-   "odds": [
-    3.5,
-    3.5,
-    1.99
-   ],
-   "market_p": [
-    0.266,
-    0.266,
-    0.4679
-   ],
-   "decision": "bet",
-   "pick": "home"
-  },
-  {
-   "kickoff": "2026-11-12",
-   "home": "Montenegro",
-   "away": "Latvia",
-   "neutral": false,
-   "home_elo": 1549,
-   "away_elo": 1301,
-   "model_p": [
-    0.797,
-    0.1413,
-    0.0617
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
   {
    "kickoff": "2026-11-13",
    "home": "Moldova",
@@ -243,14 +117,14 @@
     0.5451
    ],
    "odds": [
-    9.5,
-    6.5,
+    10.0,
+    6.25,
     1.23
    ],
    "market_p": [
-    0.0982,
-    0.1435,
-    0.7583
+    0.0932,
+    0.1491,
+    0.7577
    ],
    "decision": "pass",
    "pick": null
@@ -268,14 +142,14 @@
     0.1172
    ],
    "odds": [
-    1.56,
-    4.2,
-    5.4
+    1.53,
+    4.4,
+    5.3
    ],
    "market_p": [
-    0.6023,
-    0.2237,
-    0.174
+    0.6111,
+    0.2125,
+    0.1764
    ],
    "decision": "bet",
    "pick": "home"
@@ -361,16 +235,16 @@
     0.0979
    ],
    "odds": [
-    1.18,
-    7.0,
-    12.0
+    1.2,
+    6.75,
+    10.5
    ],
    "market_p": [
-    0.7893,
-    0.1331,
-    0.0776
+    0.774,
+    0.1376,
+    0.0885
    ],
-   "decision": null,
+   "decision": "pass",
    "pick": null
   },
   {
@@ -439,15 +313,15 @@
    "odds": [
     1.48,
     4.6,
-    5.75
+    5.8
    ],
    "market_p": [
-    0.6333,
-    0.2037,
-    0.163
+    0.6342,
+    0.204,
+    0.1618
    ],
-   "decision": null,
-   "pick": null
+   "decision": "bet",
+   "pick": "home"
   },
   {
    "kickoff": "2026-11-14",
@@ -496,14 +370,14 @@
     0.2548
    ],
    "odds": [
-    2.15,
-    3.45,
+    2.05,
+    3.8,
     3.15
    ],
    "market_p": [
-    0.4337,
-    0.2703,
-    0.296
+    0.4566,
+    0.2463,
+    0.2971
    ],
    "decision": null,
    "pick": null
@@ -521,14 +395,14 @@
     0.1063
    ],
    "odds": [
-    1.35,
-    4.8,
-    7.75
+    1.46,
+    4.4,
+    6.25
    ],
    "market_p": [
-    0.6871,
-    0.1932,
-    0.1197
+    0.6388,
+    0.212,
+    0.1492
    ],
    "decision": null,
    "pick": null
@@ -546,14 +420,14 @@
     0.1211
    ],
    "odds": [
-    1.54,
-    4.4,
-    5.25
+    1.71,
+    4.0,
+    4.4
    ],
    "market_p": [
-    0.6085,
-    0.213,
-    0.1785
+    0.5506,
+    0.2354,
+    0.214
    ],
    "decision": null,
    "pick": null
@@ -571,14 +445,14 @@
     0.0591
    ],
    "odds": [
-    1.17,
-    7.25,
-    12.5
+    1.19,
+    7.0,
+    11.5
    ],
    "market_p": [
-    0.7968,
-    0.1286,
-    0.0746
+    0.7853,
+    0.1335,
+    0.0813
    ],
    "decision": null,
    "pick": null
@@ -621,14 +495,14 @@
     0.1503
    ],
    "odds": [
-    1.38,
-    4.8,
-    7.25
+    1.4,
+    4.7,
+    7.0
    ],
    "market_p": [
-    0.6767,
-    0.1945,
-    0.1288
+    0.6676,
+    0.1989,
+    0.1335
    ],
    "decision": null,
    "pick": null
@@ -646,14 +520,14 @@
     0.2816
    ],
    "odds": [
-    2.4,
+    2.45,
     3.7,
-    2.6
+    2.55
    ],
    "market_p": [
-    0.3888,
-    0.2522,
-    0.3589
+    0.3813,
+    0.2524,
+    0.3663
    ],
    "decision": null,
    "pick": null
@@ -671,14 +545,14 @@
     0.7179
    ],
    "odds": [
-    8.25,
-    5.4,
-    1.31
+    8.0,
+    5.3,
+    1.32
    ],
    "market_p": [
-    0.1133,
-    0.1731,
-    0.7136
+    0.1167,
+    0.1761,
+    0.7072
    ],
    "decision": null,
    "pick": null
