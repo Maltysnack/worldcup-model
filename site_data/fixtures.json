@@ -1,176 +1,7 @@
 {
- "generated_at": "2026-11-13",
- "fetched_at": "2026-11-13T13:52:08+00:00",
+ "generated_at": "2026-11-14",
+ "fetched_at": "2026-11-14T12:55:00+00:00",
  "games": [
-  {
-   "kickoff": "2026-11-13",
-   "home": "Andorra",
-   "away": "Gibraltar",
-   "neutral": false,
-   "home_elo": 1154,
-   "away_elo": 1207,
-   "model_p": [
-    0.4082,
-    0.2699,
-    0.3219
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-13",
-   "home": "Liechtenstein",
-   "away": "Azerbaijan",
-   "neutral": false,
-   "home_elo": 1054,
-   "away_elo": 1414,
-   "model_p": [
-    0.0846,
-    0.1501,
-    0.7653
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-13",
-   "home": "Bulgaria",
-   "away": "Iceland",
-   "neutral": false,
-   "home_elo": 1490,
-   "away_elo": 1594,
-   "model_p": [
-    0.3403,
-    0.2691,
-    0.3906
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-13",
-   "home": "Luxembourg",
-   "away": "Estonia",
-   "neutral": false,
-   "home_elo": 1420,
-   "away_elo": 1474,
-   "model_p": [
-    0.4072,
-    0.27,
-    0.3228
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-13",
-   "home": "Slovakia",
-   "away": "Faroe Islands",
-   "neutral": false,
-   "home_elo": 1676,
-   "away_elo": 1437,
-   "model_p": [
-    0.7882,
-    0.1463,
-    0.0656
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-13",
-   "home": "Serbia",
-   "away": "Germany",
-   "neutral": false,
-   "home_elo": 1684,
-   "away_elo": 1891,
-   "model_p": [
-    0.215,
-    0.2399,
-    0.5451
-   ],
-   "odds": [
-    10.0,
-    6.25,
-    1.23
-   ],
-   "market_p": [
-    0.0932,
-    0.1491,
-    0.7577
-   ],
-   "decision": "pass",
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-13",
-   "home": "Netherlands",
-   "away": "Greece",
-   "neutral": false,
-   "home_elo": 1939,
-   "away_elo": 1790,
-   "model_p": [
-    0.6847,
-    0.198,
-    0.1172
-   ],
-   "odds": [
-    1.53,
-    4.4,
-    5.3
-   ],
-   "market_p": [
-    0.6111,
-    0.2125,
-    0.1764
-   ],
-   "decision": "bet",
-   "pick": "home"
-  },
-  {
-   "kickoff": "2026-11-13",
-   "home": "Scotland",
-   "away": "North Macedonia",
-   "neutral": false,
-   "home_elo": 1718,
-   "away_elo": 1558,
-   "model_p": [
-    0.699,
-    0.1916,
-    0.1094
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-13",
-   "home": "Slovenia",
-   "away": "Switzerland",
-   "neutral": false,
-   "home_elo": 1726,
-   "away_elo": 1918,
-   "model_p": [
-    0.2316,
-    0.2463,
-    0.5222
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
   {
    "kickoff": "2026-11-14",
    "home": "Kosovo",
@@ -218,14 +49,14 @@
     0.0979
    ],
    "odds": [
-    1.2,
-    6.75,
-    10.5
+    1.23,
+    6.5,
+    9.75
    ],
    "market_p": [
-    0.774,
-    0.1376,
-    0.0885
+    0.7602,
+    0.1439,
+    0.0959
    ],
    "decision": "pass",
    "pick": null
@@ -294,14 +125,14 @@
     0.1047
    ],
    "odds": [
-    1.48,
-    4.6,
-    5.8
+    1.57,
+    4.3,
+    5.0
    ],
    "market_p": [
-    0.6342,
-    0.204,
-    0.1618
+    0.5956,
+    0.2174,
+    0.187
    ],
    "decision": "bet",
    "pick": "home"
@@ -342,6 +173,74 @@
   },
   {
    "kickoff": "2026-11-15",
+   "home": "Latvia",
+   "away": "Armenia",
+   "neutral": false,
+   "home_elo": 1301,
+   "away_elo": 1409,
+   "model_p": [
+    0.3354,
+    0.2686,
+    0.396
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-15",
+   "home": "Cyprus",
+   "away": "Montenegro",
+   "neutral": false,
+   "home_elo": 1420,
+   "away_elo": 1549,
+   "model_p": [
+    0.3075,
+    0.2652,
+    0.4273
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-15",
+   "home": "Belarus",
+   "away": "Albania",
+   "neutral": false,
+   "home_elo": 1564,
+   "away_elo": 1597,
+   "model_p": [
+    0.4363,
+    0.2678,
+    0.2959
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-15",
+   "home": "Finland",
+   "away": "San Marino",
+   "neutral": false,
+   "home_elo": 1547,
+   "away_elo": 968,
+   "model_p": [
+    0.9817,
+    0.0156,
+    0.0027
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-15",
    "home": "Belgium",
    "away": "Italy",
    "neutral": false,
@@ -353,17 +252,17 @@
     0.2548
    ],
    "odds": [
-    2.05,
-    3.8,
-    3.15
+    2.15,
+    3.75,
+    3.05
    ],
    "market_p": [
-    0.4566,
-    0.2463,
-    0.2971
+    0.4389,
+    0.2517,
+    0.3094
    ],
-   "decision": null,
-   "pick": null
+   "decision": "bet",
+   "pick": "home"
   },
   {
    "kickoff": "2026-11-15",
@@ -378,17 +277,17 @@
     0.1063
    ],
    "odds": [
-    1.46,
-    4.4,
-    6.25
+    1.56,
+    4.25,
+    5.3
    ],
    "market_p": [
-    0.6388,
-    0.212,
-    0.1492
+    0.6019,
+    0.2209,
+    0.1772
    ],
-   "decision": null,
-   "pick": null
+   "decision": "bet",
+   "pick": "home"
   },
   {
    "kickoff": "2026-11-15",
@@ -403,17 +302,17 @@
     0.1211
    ],
    "odds": [
-    1.71,
+    1.7,
     4.0,
-    4.4
+    4.3
    ],
    "market_p": [
-    0.5506,
-    0.2354,
-    0.214
+    0.5493,
+    0.2335,
+    0.2172
    ],
-   "decision": null,
-   "pick": null
+   "decision": "bet",
+   "pick": "home"
   },
   {
    "kickoff": "2026-11-15",
@@ -428,15 +327,100 @@
     0.0591
    ],
    "odds": [
-    1.19,
+    1.2,
     7.0,
-    11.5
+    10.5
    ],
    "market_p": [
-    0.7853,
-    0.1335,
-    0.0813
+    0.7778,
+    0.1333,
+    0.0889
    ],
+   "decision": "pass",
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-16",
+   "home": "Faroe Islands",
+   "away": "Moldova",
+   "neutral": false,
+   "home_elo": 1437,
+   "away_elo": 1364,
+   "model_p": [
+    0.5847,
+    0.2361,
+    0.1792
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-16",
+   "home": "Kazakhstan",
+   "away": "Slovakia",
+   "neutral": false,
+   "home_elo": 1438,
+   "away_elo": 1676,
+   "model_p": [
+    0.1835,
+    0.2253,
+    0.5912
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-16",
+   "home": "Estonia",
+   "away": "Bulgaria",
+   "neutral": false,
+   "home_elo": 1474,
+   "away_elo": 1490,
+   "model_p": [
+    0.4606,
+    0.2649,
+    0.2745
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-16",
+   "home": "Iceland",
+   "away": "Luxembourg",
+   "neutral": false,
+   "home_elo": 1594,
+   "away_elo": 1420,
+   "model_p": [
+    0.7149,
+    0.1842,
+    0.1009
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-16",
+   "home": "Lithuania",
+   "away": "Liechtenstein",
+   "neutral": false,
+   "home_elo": 1332,
+   "away_elo": 1054,
+   "model_p": [
+    0.8272,
+    0.1236,
+    0.0492
+   ],
+   "odds": null,
+   "market_p": null,
    "decision": null,
    "pick": null
   },
@@ -453,15 +437,32 @@
     0.3141
    ],
    "odds": [
-    1.78,
-    3.9,
-    3.9
+    1.91,
+    4.0,
+    3.4
    ],
    "market_p": [
-    0.5228,
-    0.2386,
-    0.2386
+    0.4904,
+    0.2342,
+    0.2755
    ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-16",
+   "home": "Gibraltar",
+   "away": "Malta",
+   "neutral": false,
+   "home_elo": 1207,
+   "away_elo": 1394,
+   "model_p": [
+    0.238,
+    0.2485,
+    0.5136
+   ],
+   "odds": null,
+   "market_p": null,
    "decision": null,
    "pick": null
   },
@@ -478,15 +479,83 @@
     0.1503
    ],
    "odds": [
-    1.4,
-    4.7,
-    7.0
+    1.41,
+    4.6,
+    6.75
    ],
    "market_p": [
-    0.6676,
-    0.1989,
-    0.1335
+    0.6599,
+    0.2023,
+    0.1378
    ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-16",
+   "home": "North Macedonia",
+   "away": "Slovenia",
+   "neutral": false,
+   "home_elo": 1558,
+   "away_elo": 1726,
+   "model_p": [
+    0.2596,
+    0.2551,
+    0.4854
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-16",
+   "home": "Switzerland",
+   "away": "Scotland",
+   "neutral": false,
+   "home_elo": 1918,
+   "away_elo": 1718,
+   "model_p": [
+    0.7458,
+    0.169,
+    0.0853
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-17",
+   "home": "Israel",
+   "away": "Austria",
+   "neutral": false,
+   "home_elo": 1620,
+   "away_elo": 1826,
+   "model_p": [
+    0.2164,
+    0.2405,
+    0.5431
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-17",
+   "home": "Bosnia and Herzegovina",
+   "away": "Romania",
+   "neutral": false,
+   "home_elo": 1686,
+   "away_elo": 1581,
+   "model_p": [
+    0.6281,
+    0.2211,
+    0.1508
+   ],
+   "odds": null,
+   "market_p": null,
    "decision": null,
    "pick": null
   },
@@ -503,15 +572,83 @@
     0.2816
    ],
    "odds": [
-    2.45,
-    3.7,
-    2.55
+    2.55,
+    3.6,
+    2.5
    ],
    "market_p": [
-    0.3813,
-    0.2524,
-    0.3663
+    0.3665,
+    0.2596,
+    0.3739
    ],
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-17",
+   "home": "Ukraine",
+   "away": "Georgia",
+   "neutral": false,
+   "home_elo": 1726,
+   "away_elo": 1618,
+   "model_p": [
+    0.6321,
+    0.2196,
+    0.1483
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-17",
+   "home": "Hungary",
+   "away": "Northern Ireland",
+   "neutral": false,
+   "home_elo": 1750,
+   "away_elo": 1653,
+   "model_p": [
+    0.618,
+    0.2248,
+    0.1572
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-17",
+   "home": "Republic of Ireland",
+   "away": "Kosovo",
+   "neutral": false,
+   "home_elo": 1706,
+   "away_elo": 1707,
+   "model_p": [
+    0.4808,
+    0.2617,
+    0.2575
+   ],
+   "odds": null,
+   "market_p": null,
+   "decision": null,
+   "pick": null
+  },
+  {
+   "kickoff": "2026-11-17",
+   "home": "Poland",
+   "away": "Sweden",
+   "neutral": false,
+   "home_elo": 1697,
+   "away_elo": 1775,
+   "model_p": [
+    0.374,
+    0.2706,
+    0.3554
+   ],
+   "odds": null,
+   "market_p": null,
    "decision": null,
    "pick": null
   },
