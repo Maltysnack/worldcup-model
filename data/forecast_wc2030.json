@@ -1,7 +1,7 @@
 {
  "tournament": "wc2030",
  "name": "World Cup 2030",
- "as_of": "2026-11-13",
+ "as_of": "2026-11-14",
  "layers": {
   "form": false,
   "nt": true,
@@ -12,11 +12,11 @@
  "teams": [
   {
    "team": "Spain",
-   "p_champion": 0.3162,
-   "p_final": 0.4285,
+   "p_champion": 0.3164,
+   "p_final": 0.4371,
    "p_qualify": 1.0,
    "rating_now": 2216,
-   "p_champion_elo": 0.2797,
+   "p_champion_elo": 0.2701,
    "elo": 2176,
    "layers": {
     "nt": 15,
@@ -25,47 +25,47 @@
   },
   {
    "team": "Argentina",
-   "p_champion": 0.1565,
-   "p_final": 0.2659,
+   "p_champion": 0.1735,
+   "p_final": 0.2827,
    "p_qualify": 1.0,
    "rating_now": 2130,
-   "p_champion_elo": 0.1552,
+   "p_champion_elo": 0.166,
    "elo": 2105,
    "layers": {
     "nt": 25
    }
   },
   {
-   "team": "France",
-   "p_champion": 0.0784,
-   "p_final": 0.1543,
-   "p_qualify": 1.0,
-   "rating_now": 2046,
-   "p_champion_elo": 0.0878,
-   "elo": 2044,
-   "layers": {
-    "nt": 3
-   }
-  },
-  {
    "team": "England",
-   "p_champion": 0.0747,
-   "p_final": 0.1491,
+   "p_champion": 0.0748,
+   "p_final": 0.1488,
    "p_qualify": 1.0,
    "rating_now": 2040,
-   "p_champion_elo": 0.0761,
+   "p_champion_elo": 0.0802,
    "elo": 2032,
    "layers": {
     "nt": 8
    }
   },
   {
+   "team": "France",
+   "p_champion": 0.0743,
+   "p_final": 0.1493,
+   "p_qualify": 1.0,
+   "rating_now": 2046,
+   "p_champion_elo": 0.0801,
+   "elo": 2044,
+   "layers": {
+    "nt": 3
+   }
+  },
+  {
    "team": "Portugal",
-   "p_champion": 0.0606,
-   "p_final": 0.1281,
+   "p_champion": 0.0641,
+   "p_final": 0.1354,
    "p_qualify": 1.0,
    "rating_now": 2026,
-   "p_champion_elo": 0.057,
+   "p_champion_elo": 0.0556,
    "elo": 2000,
    "layers": {
     "nt": 1,
@@ -74,11 +74,11 @@
   },
   {
    "team": "Morocco",
-   "p_champion": 0.04,
-   "p_final": 0.0883,
+   "p_champion": 0.0434,
+   "p_final": 0.0929,
    "p_qualify": 1.0,
    "rating_now": 1988,
-   "p_champion_elo": 0.0246,
+   "p_champion_elo": 0.0252,
    "elo": 1933,
    "layers": {
     "nt": 30,
@@ -87,11 +87,11 @@
   },
   {
    "team": "Brazil",
-   "p_champion": 0.0317,
-   "p_final": 0.0729,
+   "p_champion": 0.0264,
+   "p_final": 0.0649,
    "p_qualify": 1.0,
    "rating_now": 1963,
-   "p_champion_elo": 0.0337,
+   "p_champion_elo": 0.0386,
    "elo": 1958,
    "layers": {
     "nt": 5
@@ -99,11 +99,11 @@
   },
   {
    "team": "Colombia",
-   "p_champion": 0.0282,
-   "p_final": 0.065,
+   "p_champion": 0.0262,
+   "p_final": 0.0647,
    "p_qualify": 1.0,
    "rating_now": 1948,
-   "p_champion_elo": 0.0316,
+   "p_champion_elo": 0.0282,
    "elo": 1942,
    "layers": {
     "nt": 6
@@ -111,46 +111,48 @@
   },
   {
    "team": "Netherlands",
-   "p_champion": 0.0271,
-   "p_final": 0.0653,
-   "p_qualify": 0.995,
+   "p_champion": 0.0216,
+   "p_final": 0.0556,
+   "p_qualify": 0.965,
    "rating_now": 1939,
-   "p_champion_elo": 0.0273,
+   "p_champion_elo": 0.029,
    "elo": 1939,
    "layers": {}
   },
   {
-   "team": "Switzerland",
-   "p_champion": 0.0168,
-   "p_final": 0.0479,
-   "p_qualify": 0.988,
-   "rating_now": 1918,
-   "p_champion_elo": 0.0206,
-   "elo": 1918,
-   "layers": {}
-  },
-  {
-   "team": "Japan",
-   "p_champion": 0.0167,
-   "p_final": 0.0439,
-   "p_qualify": 1.0,
-   "rating_now": 1904,
-   "p_champion_elo": 0.0176,
-   "elo": 1902,
-   "layers": {
-    "nt": 1
-   }
-  },
-  {
    "team": "Mexico",
-   "p_champion": 0.0161,
-   "p_final": 0.0438,
+   "p_champion": 0.0202,
+   "p_final": 0.0512,
    "p_qualify": 1.0,
    "rating_now": 1917,
-   "p_champion_elo": 0.0103,
+   "p_champion_elo": 0.0133,
    "elo": 1879,
    "layers": {
     "nt": 38
+   }
+  },
+  {
+   "team": "Italy",
+   "p_champion": 0.0149,
+   "p_final": 0.0395,
+   "p_qualify": 0.97,
+   "rating_now": 1902,
+   "p_champion_elo": 0.0159,
+   "elo": 1898,
+   "layers": {
+    "nt": 4
+   }
+  },
+  {
+   "team": "Japan",
+   "p_champion": 0.0148,
+   "p_final": 0.0381,
+   "p_qualify": 1.0,
+   "rating_now": 1904,
+   "p_champion_elo": 0.0157,
+   "elo": 1902,
+   "layers": {
+    "nt": 1
    }
   }
  ]

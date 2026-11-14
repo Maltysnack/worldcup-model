@@ -4,65 +4,6 @@
  "games": [
   {
    "kickoff": "2026-11-14",
-   "home": "Kosovo",
-   "away": "Israel",
-   "neutral": false,
-   "home_elo": 1707,
-   "away_elo": 1620,
-   "model_p": [
-    0.6042,
-    0.2297,
-    0.1662
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-14",
-   "home": "Georgia",
-   "away": "Hungary",
-   "neutral": false,
-   "home_elo": 1618,
-   "away_elo": 1750,
-   "model_p": [
-    0.3032,
-    0.2646,
-    0.4323
-   ],
-   "odds": null,
-   "market_p": null,
-   "decision": null,
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-14",
-   "home": "Norway",
-   "away": "Wales",
-   "neutral": false,
-   "home_elo": 1854,
-   "away_elo": 1676,
-   "model_p": [
-    0.7207,
-    0.1814,
-    0.0979
-   ],
-   "odds": [
-    1.23,
-    6.5,
-    9.75
-   ],
-   "market_p": [
-    0.7602,
-    0.1439,
-    0.0959
-   ],
-   "decision": "pass",
-   "pick": null
-  },
-  {
-   "kickoff": "2026-11-14",
    "home": "Austria",
    "away": "Iceland",
    "neutral": false,

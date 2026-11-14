@@ -10,29 +10,6 @@
  "upcoming": [
   {
    "kickoff": "2026-11-14",
-   "home": "Norway",
-   "away": "Wales",
-   "model_p": [
-    0.7207,
-    0.1814,
-    0.0979
-   ],
-   "odds": [
-    1.2,
-    6.75,
-    10.5
-   ],
-   "market_p": [
-    0.774,
-    0.1376,
-    0.0885
-   ],
-   "decision": "pass",
-   "pick": null,
-   "reason": "no edge"
-  },
-  {
-   "kickoff": "2026-11-14",
    "home": "Portugal",
    "away": "Denmark",
    "model_p": [
