@@ -80,6 +80,10 @@ jobs:
     steps:
       - name: Checkout worldcup
         uses: actions/checkout@v4
+        with:
+          # Queued runs would otherwise check out the sha from trigger time and
+          # fail to push after an earlier run commits.
+          ref: master
 
       - name: Anything to do?
         # Close runs with no bet near kickoff are idle; stop before installing anything.
