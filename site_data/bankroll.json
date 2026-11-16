@@ -9,52 +9,6 @@
  "start": 1000.0,
  "upcoming": [
   {
-   "kickoff": "2026-11-16",
-   "home": "Germany",
-   "away": "Netherlands",
-   "model_p": [
-    0.4165,
-    0.2694,
-    0.3141
-   ],
-   "odds": [
-    1.83,
-    4.0,
-    3.6
-   ],
-   "market_p": [
-    0.5087,
-    0.2327,
-    0.2586
-   ],
-   "decision": "bet",
-   "pick": "away",
-   "reason": null
-  },
-  {
-   "kickoff": "2026-11-16",
-   "home": "Greece",
-   "away": "Serbia",
-   "model_p": [
-    0.6289,
-    0.2208,
-    0.1503
-   ],
-   "odds": [
-    1.39,
-    4.8,
-    7.0
-   ],
-   "market_p": [
-    0.672,
-    0.1946,
-    0.1334
-   ],
-   "decision": "bet",
-   "pick": "draw",
-   "reason": null
-  },
-  {
    "kickoff": "2026-11-17",
    "home": "Denmark",
    "away": "Norway",
