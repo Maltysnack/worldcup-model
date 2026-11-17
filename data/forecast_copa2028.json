@@ -1,7 +1,7 @@
 {
  "tournament": "copa2028",
  "name": "Copa America 2028",
- "as_of": "2026-11-16",
+ "as_of": "2026-11-17",
  "layers": {
   "form": false,
   "nt": true,
@@ -12,11 +12,11 @@
  "teams": [
   {
    "team": "Argentina",
-   "p_champion": 0.4468,
-   "p_final": 0.5924,
+   "p_champion": 0.4498,
+   "p_final": 0.5949,
    "p_qualify": 1.0,
    "rating_now": 2130,
-   "p_champion_elo": 0.4149,
+   "p_champion_elo": 0.4265,
    "elo": 2105,
    "layers": {
     "nt": 25
@@ -24,11 +24,11 @@
   },
   {
    "team": "Brazil",
-   "p_champion": 0.1354,
-   "p_final": 0.2864,
+   "p_champion": 0.1383,
+   "p_final": 0.2896,
    "p_qualify": 1.0,
    "rating_now": 1963,
-   "p_champion_elo": 0.1393,
+   "p_champion_elo": 0.1432,
    "elo": 1958,
    "layers": {
     "nt": 5
@@ -36,11 +36,11 @@
   },
   {
    "team": "Colombia",
-   "p_champion": 0.1184,
-   "p_final": 0.2522,
+   "p_champion": 0.1078,
+   "p_final": 0.2338,
    "p_qualify": 1.0,
    "rating_now": 1948,
-   "p_champion_elo": 0.1279,
+   "p_champion_elo": 0.1154,
    "elo": 1942,
    "layers": {
     "nt": 6
@@ -48,11 +48,11 @@
   },
   {
    "team": "Mexico",
-   "p_champion": 0.0839,
-   "p_final": 0.203,
+   "p_champion": 0.0868,
+   "p_final": 0.2058,
    "p_qualify": 1.0,
    "rating_now": 1917,
-   "p_champion_elo": 0.0617,
+   "p_champion_elo": 0.0645,
    "elo": 1879,
    "layers": {
     "nt": 38
@@ -60,88 +60,88 @@
   },
   {
    "team": "United States",
-   "p_champion": 0.0509,
-   "p_final": 0.1445,
+   "p_champion": 0.0511,
+   "p_final": 0.1425,
    "p_qualify": 1.0,
    "rating_now": 1876,
-   "p_champion_elo": 0.0516,
+   "p_champion_elo": 0.051,
    "elo": 1860,
    "layers": {
     "nt": 17
    }
   },
   {
-   "team": "Ecuador",
-   "p_champion": 0.0396,
-   "p_final": 0.1097,
-   "p_qualify": 1.0,
-   "rating_now": 1851,
-   "p_champion_elo": 0.0492,
-   "elo": 1851,
-   "layers": {}
-  },
-  {
    "team": "Paraguay",
-   "p_champion": 0.0376,
-   "p_final": 0.1062,
+   "p_champion": 0.0417,
+   "p_final": 0.1155,
    "p_qualify": 1.0,
    "rating_now": 1849,
-   "p_champion_elo": 0.0443,
+   "p_champion_elo": 0.0517,
    "elo": 1849,
    "layers": {}
   },
   {
    "team": "Uruguay",
-   "p_champion": 0.0351,
-   "p_final": 0.1026,
+   "p_champion": 0.0387,
+   "p_final": 0.1051,
    "p_qualify": 1.0,
    "rating_now": 1843,
-   "p_champion_elo": 0.0401,
+   "p_champion_elo": 0.0406,
    "elo": 1842,
    "layers": {}
   },
   {
+   "team": "Ecuador",
+   "p_champion": 0.0326,
+   "p_final": 0.102,
+   "p_qualify": 1.0,
+   "rating_now": 1851,
+   "p_champion_elo": 0.0464,
+   "elo": 1851,
+   "layers": {}
+  },
+  {
    "team": "Canada",
-   "p_champion": 0.0216,
-   "p_final": 0.0691,
-   "p_qualify": 0.998,
+   "p_champion": 0.0223,
+   "p_final": 0.0706,
+   "p_qualify": 1.0,
    "rating_now": 1802,
-   "p_champion_elo": 0.0284,
+   "p_champion_elo": 0.0236,
    "elo": 1802,
    "layers": {}
   },
   {
+   "team": "Venezuela",
+   "p_champion": 0.0101,
+   "p_final": 0.035,
+   "p_qualify": 1.0,
+   "rating_now": 1746,
+   "p_champion_elo": 0.0112,
+   "elo": 1746,
+   "layers": {}
+  },
+  {
    "team": "Chile",
-   "p_champion": 0.0084,
-   "p_final": 0.03,
+   "p_champion": 0.0075,
+   "p_final": 0.0339,
    "p_qualify": 1.0,
    "rating_now": 1740,
-   "p_champion_elo": 0.0112,
+   "p_champion_elo": 0.0096,
    "elo": 1739,
    "layers": {
     "nt": 2
    }
   },
   {
-   "team": "Venezuela",
-   "p_champion": 0.0079,
-   "p_final": 0.0326,
-   "p_qualify": 1.0,
-   "rating_now": 1746,
-   "p_champion_elo": 0.0128,
-   "elo": 1746,
-   "layers": {}
-  },
-  {
-   "team": "Peru",
-   "p_champion": 0.0032,
-   "p_final": 0.0159,
-   "p_qualify": 1.0,
-   "rating_now": 1677,
+   "team": "Panama",
+   "p_champion": 0.0046,
+   "p_final": 0.0192,
+   "p_qualify": 0.802,
+   "rating_now": 1692,
    "p_champion_elo": 0.0041,
-   "elo": 1676,
+   "elo": 1688,
    "layers": {
-    "nt": 1
+    "nt": 4
    }
   }
  ]
