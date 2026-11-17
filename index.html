@@ -7,7 +7,7 @@
 <meta name="description" content="Elo ratings for every international team, upcoming fixtures with win, draw and loss chances, tournament title odds, and a paper-money bot against Sportsbet prices.">
 <!-- Data: site_data/*.json, written by scripts/export_site_v2.py.
      Open with ?frames to see 1440x900 and 390x844 side by side. -->
-<link rel="stylesheet" href="/style.css?v=9">
+<link rel="stylesheet" href="page/style.css">
 <style>
 :root {
   /* The page's names, mapped onto the site palette and type. */
@@ -393,6 +393,6 @@ if (new URLSearchParams(location.search).has('frames')) {
   }).catch(() => failed($('view')));
 }
 </script>
-<script src="/sidebar.js?v=9"></script>
+<script src="page/bar.js" data-repo="worldcup-model"></script>
 </body>
 </html>

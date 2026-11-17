@@ -1,0 +1,847 @@
+/* ═══════════════════════════════════════
+   MALTYSNACK.GITHUB.IO - STYLESHEET
+   Black and white, one red. Light & dark.
+   Type: Big Shoulders, Instrument Sans, IBM Plex Mono. No frameworks.
+═══════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* Shared palette and type primitives, canonical in /design/palette.css and
+   copied into the portfolio site. Edit colours and fonts THERE, not here,
+   or the two sites drift. */
+/* palette, inlined from the portfolio site */
+/* ============================================================
+   Shared palette and type primitives.
+
+   CANONICAL SOURCE for both sites. This file lives here, in the
+   public repo, and the portfolio site copies it in. The direction
+   matters: this repo holds no reference to the portfolio, only the
+   other way round.
+
+   Only put things here that BOTH sites need: colour and type
+   primitives. Anything specific to one site (sidebar colours here,
+   deck and pane metrics there) stays in that site's own stylesheet.
+
+   Change a value here and both sites move together. Change it
+   anywhere else and they drift.
+   ============================================================ */
+
+:root {
+  /* ---- type ---- */
+  --font-body: 'Instrument Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --tracking-display: 0.01em;
+  --tracking-label: 0.1em;
+
+  /* ---- light: black on white, one red ---- */
+  --bg: #ffffff;
+  --bg-soft: #f5f5f4;
+  --surface: #ececeb;
+  --border: #e2e2e0;
+  --border-strong: #b8b8b5;
+
+  --text: #111111;
+  --text-strong: #000000;
+  --text-muted: #555555;
+  --text-dim: #8a8a8a;
+
+  --accent-red: #d7261e;
+  --accent: var(--accent-red);
+
+  /* Data palette. Separate from the UI palette because most of both
+     sites is charts, and chart colour has to stay stable while UI
+     colour changes. Red leads; no browns or yellows. The sequential
+     ramp is grey so an accent mark always reads on top of it. */
+  --d1: #d7261e;  --d2: #1f5fa8;  --d3: #6b6b6b;
+  --d4: #12805a;  --d5: #7a3fb0;  --d6: #c2307a;
+
+  --seq1: #f2f2f1; --seq2: #dcdcda; --seq3: #bdbdba;
+  --seq4: #8f8f8c; --seq5: #5e5e5b; --seq6: #2b2b29;
+
+  --div-neg: #1f5fa8;
+  --div-mid: #e6e6e4;
+  --div-pos: #d7261e;
+
+  --good: #0f7a4a;
+  --bad: #d7261e;
+
+  color-scheme: light;
+}
+
+/* Dark is authored rather than derived: the red is lifted and the greys
+   re-picked against a near-black ground. */
+:root[data-theme="dark"] {
+  --bg: #0c0c0c;
+  --bg-soft: #161616;
+  --surface: #1c1c1c;
+  --border: #2a2a2a;
+  --border-strong: #474747;
+
+  --text: #f2f2f2;
+  --text-strong: #ffffff;
+  --text-muted: #a8a8a8;
+  --text-dim: #707070;
+
+  --accent-red: #ff4a3d;
+  --accent: var(--accent-red);
+
+  --d1: #ff4a3d;  --d2: #5b9cf0;  --d3: #a3a3a3;
+  --d4: #3fcf8a;  --d5: #b98af0;  --d6: #f06aaf;
+
+  --seq1: #1a1a1a; --seq2: #2b2b2b; --seq3: #444444;
+  --seq4: #666666; --seq5: #8f8f8f; --seq6: #c4c4c4;
+
+  --div-neg: #5b9cf0;
+  --div-mid: #333333;
+  --div-pos: #ff4a3d;
+
+  --good: #3fcf8a;
+  --bad: #ff4a3d;
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0c0c;
+    --bg-soft: #161616;
+    --surface: #1c1c1c;
+    --border: #2a2a2a;
+    --border-strong: #474747;
+
+    --text: #f2f2f2;
+    --text-strong: #ffffff;
+    --text-muted: #a8a8a8;
+    --text-dim: #707070;
+
+    --accent-red: #ff4a3d;
+    --accent: var(--accent-red);
+
+    --d1: #ff4a3d;  --d2: #5b9cf0;  --d3: #a3a3a3;
+    --d4: #3fcf8a;  --d5: #b98af0;  --d6: #f06aaf;
+
+    --seq1: #1a1a1a; --seq2: #2b2b2b; --seq3: #444444;
+    --seq4: #666666; --seq5: #8f8f8f; --seq6: #c4c4c4;
+
+    --div-neg: #5b9cf0;
+    --div-mid: #333333;
+    --div-pos: #ff4a3d;
+
+    --good: #3fcf8a;
+    --bad: #ff4a3d;
+
+    color-scheme: dark;
+  }
+}
+
+
+/* ── THEME VARIABLES ─────────────────────── */
+
+:root {
+  /* Surfaces */
+  --bg-island:    #111111;
+  --border-light: #ececeb;
+
+  /* Text - warm near-black */
+
+  /* Sidebar (always darker than main) */
+  --nav-bg:       #111111;
+  --nav-text:     #8a8a8a;
+  --nav-active:   #ffffff;
+  --nav-border:   #2a2a2a;
+  --nav-label:    #4a4a4a;
+  --nav-icon:     #454545;
+
+  /* Secondary accents, kept for the pages that use them */
+  --accent-gold:  var(--bad);
+  --accent-blue:  var(--d2);
+
+  /* Selection is the red, like everything else that is marked */
+  --selection:    var(--accent);
+  --selection-fg: #ffffff;
+
+  /* Type families */
+  /* A condensed display face over a plain sans, figures in mono. */
+
+  /* Type scale (Major Third 1.25) */
+  --text-xs:      0.74rem;
+  --text-sm:      0.84rem;
+  --text-base:    1rem;
+  --text-md:      1.18rem;
+  --text-lg:      1.42rem;
+  --text-xl:      1.78rem;
+  --text-2xl:     2.4rem;
+  --text-3xl:     3rem;
+
+  /* Spacing scale (4px) */
+  --space-1:      0.25rem;
+  --space-2:      0.5rem;
+  --space-3:      0.75rem;
+  --space-4:      1rem;
+  --space-5:      1.25rem;
+  --space-6:      1.5rem;
+  --space-8:      2rem;
+  --space-10:     2.5rem;
+  --space-12:     3rem;
+  --space-16:     4rem;
+
+  /* Layout
+     Three named layout widths plus a fullscreen escape hatch. Pages
+     opt in by setting data-layout on <main>. Default (no attribute)
+     is "page", which matches the historical 680px content width.
+
+       prose : 620px  | essays, narrative, blog (Wren, intros)
+       page  : 680px  | default. project pages with mixed media
+       wide  : 1000px | docs, technical demos, data tables
+       full  : 100%   | fullscreen tools, no max width
+
+     Use:
+       <main class="main">                       (= page)
+       <main class="main" data-layout="prose">
+       <main class="main" data-layout="wide">
+       <main class="main" data-layout="full">
+  */
+  --sidebar-w:    216px;
+  --max-prose:    620px;
+  --max-page:     680px;
+  --max-wide:     1000px;
+  --max-full:     100%;
+  --content-max:  var(--max-page);
+
+  /* Motion */
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+  --transition:   180ms var(--ease);
+  --transition-slow: 280ms var(--ease);
+
+  /* Sidebar separator */
+  --sidebar-border: transparent;
+}
+
+[data-theme="dark"] {
+  --bg-island:    #000000;
+  --border-light: #222222;
+
+  --nav-bg:       #000000;
+  --nav-text:     #707070;
+  --nav-active:   #ffffff;
+  --nav-border:   #1c1c1c;
+  --nav-label:    #3a3a3a;
+  --nav-icon:     #4a4a4a;
+
+
+
+  --sidebar-border: rgba(60, 65, 75, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-island:    #000000;
+    --border-light: #222222;
+    --nav-bg:       #000000;
+    --nav-text:     #707070;
+    --nav-active:   #ffffff;
+    --nav-border:   #1c1c1c;
+    --nav-label:    #3a3a3a;
+    --nav-icon:     #4a4a4a;
+    --sidebar-border: rgba(60, 65, 75, 0.4);
+  }
+}
+
+
+/* ── RESET ─────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16.5px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  /* Column, because the nav is a top bar now, not a left sidebar. */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-feature-settings: "kern", "liga", "calt", "tnum";
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--selection-fg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition), opacity var(--transition), border-color var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.main {
+  animation: page-in 280ms var(--ease);
+}
+
+
+/* ═══════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════ */
+
+.sidebar {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background-color: var(--nav-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 36px 24px 28px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+  border-right: 1px solid var(--sidebar-border);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 44px;
+}
+
+.sidebar-toggle {
+  display: none;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--nav-active);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.logo-link:hover {
+  opacity: 0.7;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #2a2a2a;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.site-name {
+  color: var(--nav-active);
+  line-height: 1.2;
+}
+
+.sidebar-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--nav-label);
+  margin-top: 22px;
+  margin-bottom: 7px;
+}
+
+.nav-label-link {
+  display: inline-block;
+  width: fit-content;
+  transition: color var(--transition);
+  cursor: pointer;
+}
+
+.nav-label-link:hover {
+  color: var(--nav-active);
+}
+
+.nav-label-active {
+  color: var(--nav-active);
+}
+
+.nav-section:first-child .nav-label {
+  margin-top: 0;
+}
+
+.nav-section ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-section ul li a {
+  font-size: 0.86rem;
+  font-weight: 400;
+  color: var(--nav-text);
+  display: block;
+  padding: 5px 0;
+  transition: color var(--transition), padding-left var(--transition);
+  position: relative;
+}
+
+.nav-section ul li a:hover {
+  color: var(--nav-active);
+  padding-left: 4px;
+}
+
+.nav-section ul li a.nav-active {
+  color: var(--nav-active);
+}
+
+.nav-section ul li a.nav-active::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 12px;
+  background: var(--accent-red);
+  border-radius: 1px;
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--nav-border);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  color: var(--nav-icon);
+  transition: color var(--transition);
+  vertical-align: middle;
+}
+
+.sidebar-footer a:hover .icon {
+  color: var(--nav-active);
+}
+
+.sidebar-footer a.twitch-link:hover .icon {
+  color: #9146ff;
+}
+
+.sidebar-footer a.youtube-link:hover .icon {
+  color: #ff0000;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  color: var(--nav-icon);
+  transition: color var(--transition);
+}
+
+.theme-toggle:hover {
+  color: var(--nav-active);
+}
+
+.theme-toggle .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.theme-toggle .icon-sun  { display: none; }
+.theme-toggle .icon-moon { display: inline-block; }
+
+[data-theme="dark"] .theme-toggle .icon-sun  { display: inline-block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+
+/* ═══════════════════════════════════════
+   MAIN CONTENT
+═══════════════════════════════════════ */
+
+.main {
+  flex: 1;
+  padding: 80px 56px 80px 64px;
+  max-width: calc(var(--content-max) + 120px);
+  min-width: 0;
+  position: relative;
+}
+
+/* Layout variants. Default (no attribute) keeps --max-page for
+   backwards compatibility with every existing page. */
+.main[data-layout="prose"] { --content-max: var(--max-prose); }
+.main[data-layout="page"]  { --content-max: var(--max-page); }
+.main[data-layout="wide"]  { --content-max: var(--max-wide); }
+.main[data-layout="full"]  { --content-max: var(--max-full); max-width: none; }
+
+
+/* ── PAGE HEADER ─────────────────────── */
+.page-header {
+  margin-bottom: 48px;
+}
+
+.page-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.back-link:hover {
+  color: var(--text);
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--text-strong);
+  margin-bottom: 14px;
+}
+
+.page-subtitle {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  max-width: 540px;
+  line-height: 1.65;
+}
+
+
+/* ── DROP CAP UTILITY ─────────────────────── */
+.drop-cap::first-letter,
+.drop::first-letter {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 3.6em;
+  line-height: 0.85;
+  float: left;
+  margin: 0.06em 0.08em -0.05em 0;
+  color: var(--accent-red);
+}
+
+
+/* ── COMING SOON ─────────────────────── */
+.coming-soon {
+  padding-top: 8px;
+}
+
+.coming-soon-label {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 4px 10px;
+  margin-bottom: 40px;
+}
+
+
+/* ── CORNER WATERMARK (Wren mark) ─────────────────────── */
+.watermark {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  opacity: 0.18;
+  pointer-events: none;
+  transition: opacity var(--transition);
+  z-index: 1;
+  color: var(--text-strong);
+}
+
+/* Single red cell in the watermark for accent (the seed of rule 30) */
+.watermark .seed {
+  fill: var(--accent-red);
+  opacity: 0.85;
+}
+
+.watermark:hover {
+  opacity: 0.35;
+}
+
+.watermark svg {
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .watermark { display: none; }
+}
+
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+
+@media (max-width: 720px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    min-height: unset;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 16px 20px;
+    overflow: visible;
+    border-right: none;
+    border-bottom: 1px solid var(--sidebar-border);
+  }
+
+  .sidebar-header {
+    margin-bottom: 0;
+  }
+
+  .sidebar-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .sidebar-toggle span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--nav-text);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .sidebar-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .sidebar-toggle.open span:nth-child(2) { opacity: 0; }
+  .sidebar-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .sidebar-body {
+    display: none;
+    padding-top: 20px;
+    padding-bottom: 8px;
+  }
+
+  .sidebar-body.open {
+    display: flex;
+  }
+
+  .nav {
+    gap: 0;
+  }
+
+  .nav-label {
+    margin-top: 16px;
+  }
+
+  .sidebar-footer {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .main {
+    padding: 36px 24px 72px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+
+/* ── BASE HEADINGS ───────────────────────────────────────────────
+   No element-level heading rules existed, so every heading simply
+   inherited the body sans. Per-page <style> blocks still override
+   these, since they come later in the cascade. */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-display);
+  font-weight: 800;
+  line-height: 1.14;
+  text-wrap: balance;
+}
+
+/* Numbers line up wherever they are tabulated. */
+code, kbd, pre, time, .num, .mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+
+/* ── TOP BAR ─────────────────────────────────────────────────────
+   Pages still ship <aside class="sidebar">; sidebar.js fills it with
+   the bar markup and this styles it horizontally. That way the chrome
+   changed everywhere without editing a single page. */
+
+.sidebar {
+  width: 100%;
+  min-height: 0;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  /* Explicit: the earlier .sidebar rule sets column, and a later rule only
+     overrides the properties it actually declares. */
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.75rem);
+  padding: 0 clamp(1rem, 3.5vmin, 3rem);
+  height: 3.25rem;
+  overflow: visible;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-right: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.bar-wordmark {
+  margin-right: auto;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.bar-avatar {
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+.bar-name {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-display);
+}
+
+.bar-nav { display: flex; gap: clamp(0.6rem, 1.6vw, 1.5rem); }
+.bar-nav a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 2px 0;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.bar-nav a:hover { color: var(--text); }
+.bar-nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
+
+.bar-icon {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  color: var(--text-dim);
+  cursor: pointer;
+  text-decoration: none;
+}
+.bar-icon:hover { color: var(--text); background: var(--bg-soft); }
+.bar-icon .icon { width: 1.05rem; height: 1.05rem; }
+
+.icon-sun { display: none; }
+[data-theme="dark"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .icon-moon { display: none; }
+  :root:not([data-theme="light"]) .icon-sun { display: block; }
+}
+
+/* Main sits under the bar and is centred, since there is no longer a
+   sidebar taking up the left. */
+.main { margin-inline: auto; width: 100%; }
+
+@media (max-width: 720px) {
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    height: 3.25rem;
+    padding-inline: 1rem;
+  }
+}
+
+@media (max-width: 620px) {
+  /* The avatar carries the identity when the name will not fit. */
+  .bar-name { display: none; }
+  .bar-nav { gap: 0.6rem; }
+  .bar-nav a { font-size: var(--text-xs); }
+  /* Seven links do not fit a phone. The nav scrolls sideways inside the
+     bar rather than pushing the whole page wider than the screen. */
+  .bar-nav { min-width: 0; flex-shrink: 1; overflow-x: auto; scrollbar-width: none;
+             padding-right: 1.25rem;
+             /* Fade the right edge so a cut-off link reads as "more this way". */
+             -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent);
+                     mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent); }
+  .bar-nav::-webkit-scrollbar { display: none; }
+  .bar-nav a { flex-shrink: 0; white-space: nowrap; }
+}
