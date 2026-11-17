@@ -34,6 +34,7 @@ def _event(eid, home, away, hours, prices=None):
 class FakeApi:
     def __init__(self, events):
         self.events = events
+        self.scores = []
         self.calls = []
         self.remaining = 500
 
@@ -44,6 +45,9 @@ class FakeApi:
         if path == "/sports":
             body = [{"key": SPORT, "active": True}, {"key": "soccer_epl", "active": True},
                     {"key": "soccer_fifa_world_cup", "active": False}]
+        elif path.endswith("/scores"):
+            body = self.scores
+            cost = 2
         elif path.endswith("/events"):
             body = [{k: v for k, v in e.items() if k != "bookmakers"} for e in self.events]
         else:
@@ -200,14 +204,40 @@ class BotTest(unittest.TestCase):
         self.assertAlmostEqual(s["a"]["clv"], 1.6 * (1 / 1.6) / (1 / 1.6 + 1 / 4 + 1 / 6) - 1, places=5)
         self.assertTrue(verify(self.tmp.name).ok, verify(self.tmp.name).errors)
 
-    def test_settle_voids_after_two_weeks(self):
-        bot.run_bet(self.led, self.client, RATINGS, now=NOW)
+    def _empty_db(self):
         con = duckdb.connect()
         con.execute("CREATE TABLE matches (date DATE, home_team VARCHAR, away_team VARCHAR, home_score BIGINT, away_score BIGINT)")
         con.execute("CREATE TABLE shootouts (date DATE, home_team VARCHAR, away_team VARCHAR)")
-        bot.run_settle(self.led, con, now=NOW + timedelta(days=3))
+        return con
+
+    def test_settle_from_scores_feed_when_db_lags(self):
+        bot.run_bet(self.led, self.client, RATINGS, now=NOW)
+        # Feed names (Türkiye etc.) are matched via feed_home/feed_away, not canonical names.
+        self.api.scores = [
+            {"id": "a", "completed": True, "scores": [{"name": "Spain", "score": "3"}, {"name": "Georgia", "score": "1"}]},
+            {"id": "b", "completed": False, "scores": None},
+        ]
+        before = self.api.remaining
+        bot.run_settle(self.led, self._empty_db(), now=NOW + timedelta(hours=40), client=self.client)
+        s = {x["event_id"]: x for x in self.led.settlements()}
+        self.assertEqual(s["a"]["outcome"], "home")
+        self.assertNotIn("b", s)
+        self.assertEqual(before - self.api.remaining, 2)  # one scores call for the one sport
+        self.assertTrue(verify(self.tmp.name).ok, verify(self.tmp.name).errors)
+
+    def test_settle_skips_scores_feed_after_three_days(self):
+        bot.run_bet(self.led, self.client, RATINGS, now=NOW)
+        n = len(self.api.calls)
+        bot.run_settle(self.led, self._empty_db(), now=NOW + timedelta(days=5), client=self.client)
+        self.assertEqual(len(self.api.calls), n)
         self.assertEqual(self.led.settlements(), [])
-        bot.run_settle(self.led, con, now=NOW + timedelta(days=16))
+
+    def test_settle_waits_for_lagging_results_then_voids(self):
+        bot.run_bet(self.led, self.client, RATINGS, now=NOW)
+        con = self._empty_db()
+        bot.run_settle(self.led, con, now=NOW + timedelta(days=30))
+        self.assertEqual(self.led.settlements(), [])
+        bot.run_settle(self.led, con, now=NOW + timedelta(days=92))
         self.assertTrue(all(x["result"] == "void" for x in self.led.settlements()))
         self.assertEqual(self.led.bankroll(), 1000.0)
 

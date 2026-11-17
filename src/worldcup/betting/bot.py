@@ -10,7 +10,9 @@ Three tasks, each run by `.github/workflows/bot.yml`:
           event ids and record the closing price. Exits early (0 credits)
           when nothing is due.
   settle  match open bets to results in the DB (run worldcup-ingest and
-          worldcup-elo first) and settle them with the closing price.
+          worldcup-elo first) and settle them with the closing price. Games
+          martj42 has not caught up on yet settle from the Odds API scores
+          endpoint while they are under 3 days old; older ones wait.
 
 Model: plain Elo (`elo_current`, v4a-flat-mild) through the Poisson goals
 model, as in the backtest. Finals keys are treated as neutral venues,
@@ -50,7 +52,10 @@ MARKET = "h2h"
 BET_WINDOW = timedelta(hours=48)
 CLOSE_WINDOW = timedelta(hours=3)  # GitHub cron runs late; 3 h catches each kickoff
 SETTLE_AFTER = timedelta(hours=3)
-VOID_AFTER = timedelta(days=14)
+SCORES_WINDOW = timedelta(days=3)  # the scores endpoint only returns games up to 3 days old
+# martj42 is volunteer-run and can lag a month or more; void only when a result
+# is clearly never coming.
+VOID_AFTER = timedelta(days=90)
 MIN_CREDITS = 50
 
 FINALS_KEYS = {
@@ -123,6 +128,10 @@ class OddsClient:
         if event_ids:
             params["eventIds"] = ",".join(event_ids)
         return self.get(f"/sports/{sport}/odds", **params)
+
+    def scores(self, sport: str) -> list[dict]:
+        """Completed and live games from the last 3 days (2 credits)."""
+        return self.get(f"/sports/{sport}/scores", daysFrom=3)[1]
 
 
 def _http_get(url: str, params: dict) -> tuple[bytes, dict]:
@@ -301,15 +310,37 @@ def find_result(con, bet: dict) -> int | None:
     return out if home == bet["home"] or out == 1 else 2 - out
 
 
-def run_settle(led: Ledger, con, *, now: datetime | None = None, dry: bool = False) -> list[str]:
+def feed_result(event: dict, bet: dict) -> int | None:
+    """Outcome index from a completed scores-endpoint event, or None."""
+    if not event.get("completed") or not event.get("scores"):
+        return None
+    goals = {s["name"]: int(s["score"]) for s in event["scores"]}
+    home, away = bet.get("extra", {}).get("feed_home"), bet.get("extra", {}).get("feed_away")
+    if home not in goals or away not in goals:
+        return None
+    return outcome_idx(goals[home], goals[away])
+
+
+def run_settle(led: Ledger, con, *, now: datetime | None = None, dry: bool = False,
+               client: OddsClient | None = None) -> list[str]:
+    """Settle from martj42 first; for games under 3 days old that martj42 has
+    not caught up on, fall back to the Odds API scores endpoint (2 credits per
+    sport, only called when such a bet exists)."""
     now = now or datetime.now(UTC)
     log = []
+    feed: dict[str, dict[str, dict]] = {}
     for b in led.open_bets():
         ko = _parse_ts(b["kickoff"])
         if now < ko + SETTLE_AFTER:
             continue
         tag = f"{b['home']} v {b['away']} ({b['kickoff']})"
         out = find_result(con, b)
+        if out is None and client is not None and now < ko + SCORES_WINDOW:
+            sport = b.get("extra", {}).get("sport_key", "")
+            if sport not in feed:
+                feed[sport] = {e["id"]: e for e in client.scores(sport)}
+            if b["event_id"] in feed[sport]:
+                out = feed_result(feed[sport][b["event_id"]], b)
         if out is None and now < ko + VOID_AFTER:
             log.append(f"waiting {tag}: no result yet")
             continue
@@ -337,8 +368,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.task == "settle":
         from worldcup.db import connect
 
+        key = os.environ.get("ODDS_API_KEY")
+        client = OddsClient(key, min_credits=args.min_credits) if key else None
         with connect(read_only=True) as con:
-            log = run_settle(led, con, dry=args.dry)
+            log = run_settle(led, con, dry=args.dry, client=client)
+        if client and client.used_this_run:
+            log.append(f"credits used this run: {client.used_this_run}, remaining: {client.remaining}")
     else:
         key = os.environ.get("ODDS_API_KEY")
         if not key:
