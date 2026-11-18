@@ -1,100 +1,100 @@
 {
- "generated_at": "2026-11-17",
- "as_of": "2026-10-06",
+ "generated_at": "2026-11-18",
+ "as_of": "2026-11-17",
  "model": "elo-v4a-flat-mild + drift",
  "tournaments": [
   {
    "key": "euro2028",
    "name": "Euro 2028",
    "kickoff": "2028-06-09",
-   "years_out": 1.7,
+   "years_out": 1.6,
    "n_teams": 24,
    "assumptions": "24 teams, 6 groups of 4, top 2 and 4 best thirds to the last 16. Two places for the best UK and Ireland hosts that miss out.",
    "n_sims": 10000,
    "top": [
     {
      "team": "Spain",
-     "p_champion": 0.3733,
-     "p_final": 0.5122,
+     "p_champion": 0.3255,
+     "p_final": 0.4621,
      "p_qualify": 1.0,
-     "rating_now": 2176
-    },
-    {
-     "team": "France",
-     "p_champion": 0.1362,
-     "p_final": 0.2548,
-     "p_qualify": 1.0,
-     "rating_now": 2044
+     "rating_now": 2149
     },
     {
      "team": "England",
-     "p_champion": 0.1275,
-     "p_final": 0.2429,
+     "p_champion": 0.1762,
+     "p_final": 0.3057,
      "p_qualify": 1.0,
-     "rating_now": 2032
+     "rating_now": 2070
+    },
+    {
+     "team": "France",
+     "p_champion": 0.1142,
+     "p_final": 0.2192,
+     "p_qualify": 1.0,
+     "rating_now": 2024
     },
     {
      "team": "Portugal",
-     "p_champion": 0.1015,
-     "p_final": 0.2079,
+     "p_champion": 0.073,
+     "p_final": 0.1643,
      "p_qualify": 1.0,
-     "rating_now": 2000
-    },
-    {
-     "team": "Netherlands",
-     "p_champion": 0.0463,
-     "p_final": 0.1157,
-     "p_qualify": 1.0,
-     "rating_now": 1939
-    },
-    {
-     "team": "Switzerland",
-     "p_champion": 0.0388,
-     "p_final": 0.1009,
-     "p_qualify": 1.0,
-     "rating_now": 1918
-    },
-    {
-     "team": "Italy",
-     "p_champion": 0.0303,
-     "p_final": 0.0832,
-     "p_qualify": 1.0,
-     "rating_now": 1898
+     "rating_now": 1977
     },
     {
      "team": "Belgium",
-     "p_champion": 0.0292,
-     "p_final": 0.082,
+     "p_champion": 0.0464,
+     "p_final": 0.1115,
      "p_qualify": 1.0,
-     "rating_now": 1899
+     "rating_now": 1933
+    },
+    {
+     "team": "Netherlands",
+     "p_champion": 0.0454,
+     "p_final": 0.1057,
+     "p_qualify": 1.0,
+     "rating_now": 1928
     },
     {
      "team": "Germany",
-     "p_champion": 0.0241,
-     "p_final": 0.0714,
+     "p_champion": 0.0424,
+     "p_final": 0.1058,
      "p_qualify": 1.0,
-     "rating_now": 1891
+     "rating_now": 1923
+    },
+    {
+     "team": "Switzerland",
+     "p_champion": 0.0419,
+     "p_final": 0.0976,
+     "p_qualify": 1.0,
+     "rating_now": 1919
+    },
+    {
+     "team": "Italy",
+     "p_champion": 0.0329,
+     "p_final": 0.0842,
+     "p_qualify": 1.0,
+     "rating_now": 1905
     },
     {
      "team": "Norway",
-     "p_champion": 0.018,
-     "p_final": 0.056,
-     "p_qualify": 0.998,
-     "rating_now": 1854
+     "p_champion": 0.0239,
+     "p_final": 0.0673,
+     "p_qualify": 1.0,
+     "rating_now": 1885
     },
     {
      "team": "Croatia",
-     "p_champion": 0.0175,
+     "p_champion": 0.0172,
      "p_final": 0.0482,
      "p_qualify": 0.995,
-     "rating_now": 1850
+     "rating_now": 1851
     },
     {
      "team": "Denmark",
-     "p_champion": 0.0114,
-     "p_final": 0.0388,
-     "p_qualify": 1.0,
-     "rating_now": 1833
+     "p_champion": 0.0152,
+     "p_final": 0.0489,
+     "p_qualify": 0.995,
+     "rating_now": 1841
     }
    ]
   },
@@ -102,94 +102,94 @@
    "key": "copa2028",
    "name": "Copa America 2028",
    "kickoff": "2028-06-15",
-   "years_out": 1.7,
+   "years_out": 1.6,
    "n_teams": 16,
    "assumptions": "Host and format not confirmed. Assumed 16 teams (all 10 CONMEBOL plus 6 CONCACAF), 4 groups of 4, top 2 to the quarter-finals.",
    "n_sims": 10000,
    "top": [
     {
      "team": "Argentina",
-     "p_champion": 0.4149,
-     "p_final": 0.5642,
+     "p_champion": 0.3843,
+     "p_final": 0.5309,
      "p_qualify": 1.0,
-     "rating_now": 2105
-    },
-    {
-     "team": "Brazil",
-     "p_champion": 0.143,
-     "p_final": 0.2897,
-     "p_qualify": 1.0,
-     "rating_now": 1958
+     "rating_now": 2082
     },
     {
      "team": "Colombia",
-     "p_champion": 0.1178,
-     "p_final": 0.2516,
+     "p_champion": 0.1234,
+     "p_final": 0.2501,
      "p_qualify": 1.0,
-     "rating_now": 1942
+     "rating_now": 1941
     },
     {
-     "team": "Mexico",
-     "p_champion": 0.0645,
-     "p_final": 0.1611,
+     "team": "Brazil",
+     "p_champion": 0.1218,
+     "p_final": 0.2456,
      "p_qualify": 1.0,
-     "rating_now": 1879
+     "rating_now": 1940
     },
     {
      "team": "United States",
-     "p_champion": 0.0579,
-     "p_final": 0.1388,
+     "p_champion": 0.0637,
+     "p_final": 0.155,
      "p_qualify": 1.0,
-     "rating_now": 1860
-    },
-    {
-     "team": "Ecuador",
-     "p_champion": 0.0539,
-     "p_final": 0.1355,
-     "p_qualify": 1.0,
-     "rating_now": 1851
-    },
-    {
-     "team": "Paraguay",
-     "p_champion": 0.0447,
-     "p_final": 0.1215,
-     "p_qualify": 1.0,
-     "rating_now": 1849
+     "rating_now": 1874
     },
     {
      "team": "Uruguay",
-     "p_champion": 0.0432,
-     "p_final": 0.1108,
+     "p_champion": 0.0617,
+     "p_final": 0.146,
      "p_qualify": 1.0,
-     "rating_now": 1842
+     "rating_now": 1871
+    },
+    {
+     "team": "Paraguay",
+     "p_champion": 0.0606,
+     "p_final": 0.15,
+     "p_qualify": 1.0,
+     "rating_now": 1872
+    },
+    {
+     "team": "Ecuador",
+     "p_champion": 0.057,
+     "p_final": 0.1389,
+     "p_qualify": 1.0,
+     "rating_now": 1863
+    },
+    {
+     "team": "Mexico",
+     "p_champion": 0.0532,
+     "p_final": 0.1351,
+     "p_qualify": 1.0,
+     "rating_now": 1857
     },
     {
      "team": "Canada",
-     "p_champion": 0.0228,
-     "p_final": 0.071,
+     "p_champion": 0.0338,
+     "p_final": 0.093,
      "p_qualify": 1.0,
-     "rating_now": 1802
-    },
-    {
-     "team": "Venezuela",
-     "p_champion": 0.011,
-     "p_final": 0.0381,
-     "p_qualify": 1.0,
-     "rating_now": 1746
+     "rating_now": 1821
     },
     {
      "team": "Chile",
-     "p_champion": 0.0083,
-     "p_final": 0.0383,
+     "p_champion": 0.0115,
+     "p_final": 0.0386,
      "p_qualify": 1.0,
-     "rating_now": 1739
+     "rating_now": 1740
     },
     {
-     "team": "Peru",
-     "p_champion": 0.005,
-     "p_final": 0.0199,
+     "team": "Venezuela",
+     "p_champion": 0.0108,
+     "p_final": 0.0373,
      "p_qualify": 1.0,
-     "rating_now": 1676
+     "rating_now": 1721
+    },
+    {
+     "team": "Panama",
+     "p_champion": 0.0057,
+     "p_final": 0.02,
+     "p_qualify": 0.877,
+     "rating_now": 1698
     }
    ]
   },
@@ -197,94 +197,94 @@
    "key": "wc2030",
    "name": "World Cup 2030",
    "kickoff": "2030-06-13",
-   "years_out": 3.7,
+   "years_out": 3.6,
    "n_teams": 48,
    "assumptions": "48 teams, 12 groups of 4, top 2 and 8 best thirds to the last 32. Six hosts qualify automatically inside their confederation's places; 2026 place allocation assumed; 2 play-off places go to the best remaining non-UEFA teams.",
    "n_sims": 10000,
    "top": [
     {
      "team": "Spain",
-     "p_champion": 0.2739,
-     "p_final": 0.3853,
+     "p_champion": 0.2375,
+     "p_final": 0.3386,
      "p_qualify": 1.0,
-     "rating_now": 2176
+     "rating_now": 2149
     },
     {
      "team": "Argentina",
-     "p_champion": 0.1497,
-     "p_final": 0.2487,
+     "p_champion": 0.1308,
+     "p_final": 0.22,
      "p_qualify": 1.0,
-     "rating_now": 2105
-    },
-    {
-     "team": "France",
-     "p_champion": 0.0872,
-     "p_final": 0.1624,
-     "p_qualify": 1.0,
-     "rating_now": 2044
+     "rating_now": 2082
     },
     {
      "team": "England",
-     "p_champion": 0.0819,
-     "p_final": 0.1519,
+     "p_champion": 0.1219,
+     "p_final": 0.2001,
      "p_qualify": 1.0,
-     "rating_now": 2032
+     "rating_now": 2070
+    },
+    {
+     "team": "France",
+     "p_champion": 0.075,
+     "p_final": 0.1361,
+     "p_qualify": 1.0,
+     "rating_now": 2024
     },
     {
      "team": "Portugal",
-     "p_champion": 0.0617,
-     "p_final": 0.1196,
+     "p_champion": 0.0424,
+     "p_final": 0.0949,
      "p_qualify": 1.0,
-     "rating_now": 2000
-    },
-    {
-     "team": "Brazil",
-     "p_champion": 0.0402,
-     "p_final": 0.0884,
-     "p_qualify": 1.0,
-     "rating_now": 1958
-    },
-    {
-     "team": "Netherlands",
-     "p_champion": 0.031,
-     "p_final": 0.0696,
-     "p_qualify": 0.99,
-     "rating_now": 1939
+     "rating_now": 1977
     },
     {
      "team": "Colombia",
-     "p_champion": 0.0309,
-     "p_final": 0.0685,
-     "p_qualify": 1.0,
-     "rating_now": 1942
-    },
-    {
-     "team": "Morocco",
-     "p_champion": 0.0292,
-     "p_final": 0.0671,
-     "p_qualify": 1.0,
-     "rating_now": 1933
-    },
-    {
-     "team": "Switzerland",
-     "p_champion": 0.0215,
-     "p_final": 0.053,
-     "p_qualify": 0.978,
-     "rating_now": 1918
+     "p_champion": 0.0332,
+     "p_final": 0.0706,
+     "p_qualify": 0.998,
+     "rating_now": 1941
     },
     {
      "team": "Belgium",
-     "p_champion": 0.0167,
-     "p_final": 0.0448,
-     "p_qualify": 0.958,
-     "rating_now": 1899
+     "p_champion": 0.0292,
+     "p_final": 0.0648,
+     "p_qualify": 0.988,
+     "rating_now": 1933
     },
     {
-     "team": "Japan",
-     "p_champion": 0.0164,
-     "p_final": 0.0449,
-     "p_qualify": 0.998,
-     "rating_now": 1902
+     "team": "Brazil",
+     "p_champion": 0.0277,
+     "p_final": 0.0674,
+     "p_qualify": 1.0,
+     "rating_now": 1940
+    },
+    {
+     "team": "Morocco",
+     "p_champion": 0.0275,
+     "p_final": 0.0608,
+     "p_qualify": 1.0,
+     "rating_now": 1937
+    },
+    {
+     "team": "Switzerland",
+     "p_champion": 0.0249,
+     "p_final": 0.0601,
+     "p_qualify": 0.99,
+     "rating_now": 1919
+    },
+    {
+     "team": "Netherlands",
+     "p_champion": 0.0249,
+     "p_final": 0.0579,
+     "p_qualify": 0.965,
+     "rating_now": 1928
+    },
+    {
+     "team": "Germany",
+     "p_champion": 0.0239,
+     "p_final": 0.0568,
+     "p_qualify": 0.965,
+     "rating_now": 1923
     }
    ]
   }
