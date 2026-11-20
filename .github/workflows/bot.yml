@@ -142,7 +142,8 @@ jobs:
           git config user.email "bot@maltysnack.local"
           git add ledger data/title_odds.json data/forecast_*.json data/fixtures.json site_data
           # generated_at changes daily; only commit when something else does.
-          if ! git diff --cached -U0 | grep '^[+-] ' | grep -vq '"generated_at"'; then
+          # Match every changed line (ledger jsonl rows start "+{"), not diff headers.
+          if ! git diff --cached -U0 | grep -E '^[+-]' | grep -vE '^(\+\+\+|---) ' | grep -vq '"generated_at"'; then
             echo "Nothing changed."
           else
             git commit -m "bot: $TASK $(date -u +%Y-%m-%dT%H:%MZ)"
