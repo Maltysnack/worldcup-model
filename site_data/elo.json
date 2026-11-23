@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-19",
+ "generated_at": "2026-11-23",
  "as_of": "2026-11-17",
  "window_start": "2026-11-05",
  "top": [
   {
    "rank": 1,
    "team": "Spain",
-   "rating": 2149,
+   "rating": 2150,
    "last_match": "2026-11-15",
    "prev_rank": 1,
    "prev_rating": 2176
@@ -14,10 +14,10 @@
   {
    "rank": 2,
    "team": "Argentina",
-   "rating": 2082,
+   "rating": 2083,
    "last_match": "2026-11-17",
    "prev_rank": 2,
-   "prev_rating": 2105
+   "prev_rating": 2106
   },
   {
    "rank": 3,
@@ -33,7 +33,7 @@
    "rating": 2024,
    "last_match": "2026-11-15",
    "prev_rank": 3,
-   "prev_rating": 2044
+   "prev_rating": 2043
   },
   {
    "rank": 5,
@@ -54,7 +54,7 @@
   {
    "rank": 7,
    "team": "Brazil",
-   "rating": 1940,
+   "rating": 1939,
    "last_match": "2026-11-17",
    "prev_rank": 6,
    "prev_rating": 1958
@@ -81,7 +81,7 @@
    "rating": 1928,
    "last_match": "2026-11-16",
    "prev_rank": 8,
-   "prev_rating": 1939
+   "prev_rating": 1938
   },
   {
    "rank": 11,
@@ -94,10 +94,10 @@
   {
    "rank": 12,
    "team": "Switzerland",
-   "rating": 1919,
+   "rating": 1918,
    "last_match": "2026-11-16",
    "prev_rank": 10,
-   "prev_rating": 1918
+   "prev_rating": 1917
   },
   {
    "rank": 13,
@@ -137,15 +137,15 @@
    "rating": 1872,
    "last_match": "2026-11-17",
    "prev_rank": 20,
-   "prev_rating": 1849
+   "prev_rating": 1848
   },
   {
    "rank": 18,
    "team": "Uruguay",
-   "rating": 1871,
+   "rating": 1872,
    "last_match": "2026-11-17",
    "prev_rank": 21,
-   "prev_rating": 1842
+   "prev_rating": 1844
   },
   {
    "rank": 19,
@@ -192,7 +192,7 @@
   {
    "rank": 24,
    "team": "Russia",
-   "rating": 1822,
+   "rating": 1821,
    "last_match": "2026-11-17",
    "prev_rank": 28,
    "prev_rating": 1798
@@ -203,7 +203,7 @@
    "rating": 1821,
    "last_match": "2026-11-16",
    "prev_rank": 26,
-   "prev_rating": 1802
+   "prev_rating": 1801
   },
   {
    "rank": 26,
@@ -240,10 +240,10 @@
   {
    "rank": 30,
    "team": "South Korea",
-   "rating": 1789,
+   "rating": 1788,
    "last_match": "2026-11-17",
    "prev_rank": 27,
-   "prev_rating": 1799
+   "prev_rating": 1798
   },
   {
    "rank": 31,
@@ -299,23 +299,23 @@
    "rating": 1754,
    "last_match": "2026-11-17",
    "prev_rank": 35,
-   "prev_rating": 1765
+   "prev_rating": 1766
   },
   {
    "rank": 38,
-   "team": "Slovenia",
+   "team": "Basque Country",
    "rating": 1746,
-   "last_match": "2026-11-16",
-   "prev_rank": 44,
-   "prev_rating": 1726
+   "last_match": "2026-11-14",
+   "prev_rank": 41,
+   "prev_rating": 1732
   },
   {
    "rank": 39,
-   "team": "Basque Country",
+   "team": "Slovenia",
    "rating": 1745,
-   "last_match": "2026-11-14",
-   "prev_rank": 41,
-   "prev_rating": 1731
+   "last_match": "2026-11-16",
+   "prev_rank": 44,
+   "prev_rating": 1725
   },
   {
    "rank": 40,
@@ -343,6 +343,14 @@
   },
   {
    "rank": 43,
+   "team": "Saudi Arabia",
+   "rating": 1722,
+   "last_match": "2026-11-17",
+   "prev_rank": 45,
+   "prev_rating": 1720
+  },
+  {
+   "rank": 44,
    "team": "Venezuela",
    "rating": 1721,
    "last_match": "2026-11-17",
@@ -350,19 +358,11 @@
    "prev_rating": 1746
   },
   {
-   "rank": 44,
-   "team": "Saudi Arabia",
-   "rating": 1720,
-   "last_match": "2026-11-17",
-   "prev_rank": 46,
-   "prev_rating": 1717
-  },
-  {
    "rank": 45,
    "team": "Scotland",
    "rating": 1719,
    "last_match": "2026-11-16",
-   "prev_rank": 45,
+   "prev_rank": 46,
    "prev_rating": 1718
   },
   {
@@ -376,10 +376,10 @@
   {
    "rank": 47,
    "team": "Republic of Ireland",
-   "rating": 1713,
+   "rating": 1711,
    "last_match": "2026-11-17",
    "prev_rank": 48,
-   "prev_rating": 1706
+   "prev_rating": 1705
   },
   {
    "rank": 48,
@@ -391,18 +391,18 @@
   },
   {
    "rank": 49,
-   "team": "Mali",
-   "rating": 1703,
+   "team": "DR Congo",
+   "rating": 1698,
    "last_match": "2026-11-17",
-   "prev_rank": 59,
-   "prev_rating": 1684
+   "prev_rank": 47,
+   "prev_rating": 1707
   },
   {
    "rank": 50,
    "team": "Panama",
    "rating": 1698,
    "last_match": "2026-11-15",
-   "prev_rank": 55,
+   "prev_rank": 54,
    "prev_rating": 1688
   },
   {
@@ -415,11 +415,11 @@
   },
   {
    "rank": 52,
-   "team": "DR Congo",
-   "rating": 1697,
+   "team": "Mali",
+   "rating": 1696,
    "last_match": "2026-11-17",
-   "prev_rank": 49,
-   "prev_rating": 1705
+   "prev_rank": 60,
+   "prev_rating": 1676
   },
   {
    "rank": 53,
@@ -431,38 +431,30 @@
   },
   {
    "rank": 54,
-   "team": "South Africa",
-   "rating": 1688,
+   "team": "Jordan",
+   "rating": 1691,
    "last_match": "2026-11-17",
-   "prev_rank": 54,
-   "prev_rating": 1691
+   "prev_rank": 63,
+   "prev_rating": 1670
   },
   {
    "rank": 55,
+   "team": "Bosnia and Herzegovina",
+   "rating": 1689,
+   "last_match": "2026-11-17",
+   "prev_rank": 55,
+   "prev_rating": 1687
+  },
+  {
+   "rank": 56,
    "team": "Peru",
    "rating": 1688,
    "last_match": "2026-11-13",
    "prev_rank": 61,
-   "prev_rating": 1676
-  },
-  {
-   "rank": 56,
-   "team": "Bosnia and Herzegovina",
-   "rating": 1688,
-   "last_match": "2026-11-17",
-   "prev_rank": 56,
-   "prev_rating": 1686
+   "prev_rating": 1675
   },
   {
    "rank": 57,
-   "team": "Jordan",
-   "rating": 1683,
-   "last_match": "2026-11-17",
-   "prev_rank": 66,
-   "prev_rating": 1662
-  },
-  {
-   "rank": 58,
    "team": "Northern Ireland",
    "rating": 1682,
    "last_match": "2026-11-17",
@@ -470,20 +462,28 @@
    "prev_rating": 1653
   },
   {
-   "rank": 59,
-   "team": "Kosovo",
-   "rating": 1682,
+   "rank": 58,
+   "team": "South Africa",
+   "rating": 1678,
    "last_match": "2026-11-17",
-   "prev_rank": 47,
-   "prev_rating": 1707
+   "prev_rank": 58,
+   "prev_rating": 1680
   },
   {
-   "rank": 60,
+   "rank": 59,
    "team": "Poland",
-   "rating": 1677,
+   "rating": 1678,
    "last_match": "2026-11-17",
    "prev_rank": 51,
    "prev_rating": 1697
+  },
+  {
+   "rank": 60,
+   "team": "Kosovo",
+   "rating": 1674,
+   "last_match": "2026-11-17",
+   "prev_rank": 49,
+   "prev_rating": 1699
   },
   {
    "rank": 61,
@@ -496,17 +496,17 @@
   {
    "rank": 62,
    "team": "Czech Republic",
-   "rating": 1673,
+   "rating": 1671,
    "last_match": "2026-11-15",
    "prev_rank": 57,
-   "prev_rating": 1686
+   "prev_rating": 1684
   },
   {
    "rank": 63,
    "team": "Ynys Môn",
    "rating": 1664,
    "last_match": "2025-07-17",
-   "prev_rank": 64,
+   "prev_rank": 65,
    "prev_rating": 1664
   },
   {
@@ -514,53 +514,53 @@
    "team": "Isle of Man",
    "rating": 1663,
    "last_match": "2025-07-18",
-   "prev_rank": 65,
+   "prev_rank": 66,
    "prev_rating": 1663
   },
   {
    "rank": 65,
-   "team": "Serbia",
+   "team": "Jamaica",
    "rating": 1661,
-   "last_match": "2026-11-16",
-   "prev_rank": 58,
-   "prev_rating": 1684
+   "last_match": "2026-11-17",
+   "prev_rank": 70,
+   "prev_rating": 1640
   },
   {
    "rank": 66,
-   "team": "Wales",
-   "rating": 1660,
-   "last_match": "2026-11-17",
-   "prev_rank": 60,
-   "prev_rating": 1676
+   "team": "Serbia",
+   "rating": 1661,
+   "last_match": "2026-11-16",
+   "prev_rank": 56,
+   "prev_rating": 1684
   },
   {
    "rank": 67,
-   "team": "Iraq",
-   "rating": 1659,
+   "team": "Wales",
+   "rating": 1660,
    "last_match": "2026-11-17",
-   "prev_rank": 63,
-   "prev_rating": 1664
+   "prev_rank": 59,
+   "prev_rating": 1677
   },
   {
    "rank": 68,
-   "team": "Slovakia",
-   "rating": 1652,
-   "last_match": "2026-11-16",
-   "prev_rank": 62,
-   "prev_rating": 1676
+   "team": "Iraq",
+   "rating": 1660,
+   "last_match": "2026-11-17",
+   "prev_rank": 64,
+   "prev_rating": 1665
   },
   {
    "rank": 69,
-   "team": "Jamaica",
-   "rating": 1650,
-   "last_match": "2026-11-17",
-   "prev_rank": 75,
-   "prev_rating": 1628
+   "team": "Slovakia",
+   "rating": 1651,
+   "last_match": "2026-11-16",
+   "prev_rank": 62,
+   "prev_rating": 1675
   },
   {
    "rank": 70,
    "team": "Costa Rica",
-   "rating": 1647,
+   "rating": 1648,
    "last_match": "2026-11-17",
    "prev_rank": 67,
    "prev_rating": 1656
@@ -570,31 +570,31 @@
    "team": "Burkina Faso",
    "rating": 1643,
    "last_match": "2026-11-17",
-   "prev_rank": 76,
+   "prev_rank": 77,
    "prev_rating": 1622
   },
   {
    "rank": 72,
    "team": "New Zealand",
-   "rating": 1637,
+   "rating": 1638,
    "last_match": "2026-11-15",
-   "prev_rank": 73,
+   "prev_rank": 75,
    "prev_rating": 1630
   },
   {
    "rank": 73,
    "team": "Israel",
-   "rating": 1637,
+   "rating": 1636,
    "last_match": "2026-11-17",
-   "prev_rank": 77,
-   "prev_rating": 1620
+   "prev_rank": 79,
+   "prev_rating": 1619
   },
   {
    "rank": 74,
    "team": "Padania",
    "rating": 1633,
    "last_match": "2026-06-06",
-   "prev_rank": 71,
+   "prev_rank": 73,
    "prev_rating": 1633
   },
   {
@@ -602,51 +602,59 @@
    "team": "Isle of Wight",
    "rating": 1632,
    "last_match": "2023-07-13",
-   "prev_rank": 72,
+   "prev_rank": 74,
    "prev_rating": 1632
   },
   {
    "rank": 76,
    "team": "Albania",
-   "rating": 1630,
+   "rating": 1629,
    "last_match": "2026-11-15",
    "prev_rank": 84,
-   "prev_rating": 1597
+   "prev_rating": 1596
   },
   {
    "rank": 77,
    "team": "Iceland",
-   "rating": 1618,
+   "rating": 1616,
    "last_match": "2026-11-16",
    "prev_rank": 87,
-   "prev_rating": 1594
+   "prev_rating": 1592
   },
   {
    "rank": 78,
    "team": "Bolivia",
    "rating": 1616,
    "last_match": "2026-11-17",
-   "prev_rank": 70,
+   "prev_rank": 72,
    "prev_rating": 1633
   },
   {
    "rank": 79,
    "team": "Haiti",
-   "rating": 1615,
+   "rating": 1614,
    "last_match": "2026-11-17",
-   "prev_rank": 74,
+   "prev_rank": 76,
    "prev_rating": 1629
   },
   {
    "rank": 80,
    "team": "Honduras",
-   "rating": 1610,
+   "rating": 1611,
    "last_match": "2026-11-17",
    "prev_rank": 82,
-   "prev_rating": 1611
+   "prev_rating": 1612
   },
   {
    "rank": 81,
+   "team": "Cape Verde",
+   "rating": 1610,
+   "last_match": "2026-11-17",
+   "prev_rank": 71,
+   "prev_rating": 1634
+  },
+  {
+   "rank": 82,
    "team": "Kernow",
    "rating": 1603,
    "last_match": "2023-07-16",
@@ -654,52 +662,44 @@
    "prev_rating": 1603
   },
   {
-   "rank": 82,
-   "team": "Guatemala",
-   "rating": 1594,
-   "last_match": "2026-11-16",
-   "prev_rank": 80,
-   "prev_rating": 1614
-  },
-  {
    "rank": 83,
    "team": "Romania",
-   "rating": 1592,
+   "rating": 1600,
    "last_match": "2026-11-17",
    "prev_rank": 88,
-   "prev_rating": 1581
+   "prev_rating": 1591
   },
   {
    "rank": 84,
+   "team": "Guatemala",
+   "rating": 1594,
+   "last_match": "2026-11-16",
+   "prev_rank": 81,
+   "prev_rating": 1614
+  },
+  {
+   "rank": 85,
    "team": "Tunisia",
    "rating": 1591,
    "last_match": "2026-11-17",
    "prev_rank": 78,
-   "prev_rating": 1620
-  },
-  {
-   "rank": 85,
-   "team": "Angola",
-   "rating": 1591,
-   "last_match": "2026-11-17",
-   "prev_rank": 89,
-   "prev_rating": 1580
+   "prev_rating": 1619
   },
   {
    "rank": 86,
-   "team": "Georgia",
+   "team": "Angola",
    "rating": 1590,
    "last_match": "2026-11-17",
-   "prev_rank": 79,
-   "prev_rating": 1618
+   "prev_rank": 90,
+   "prev_rating": 1580
   },
   {
    "rank": 87,
-   "team": "Cape Verde",
+   "team": "Georgia",
    "rating": 1590,
    "last_match": "2026-11-17",
-   "prev_rank": 81,
-   "prev_rating": 1612
+   "prev_rank": 80,
+   "prev_rating": 1618
   },
   {
    "rank": 88,
@@ -714,48 +714,48 @@
    "team": "Ghana",
    "rating": 1584,
    "last_match": "2026-11-16",
-   "prev_rank": 90,
+   "prev_rank": 91,
    "prev_rating": 1579
   },
   {
    "rank": 90,
-   "team": "Qatar",
-   "rating": 1578,
+   "team": "Palestine",
+   "rating": 1579,
    "last_match": "2026-11-17",
    "prev_rank": 86,
    "prev_rating": 1594
   },
   {
    "rank": 91,
+   "team": "Qatar",
+   "rating": 1573,
+   "last_match": "2026-11-17",
+   "prev_rank": 89,
+   "prev_rating": 1588
+  },
+  {
+   "rank": 92,
    "team": "Montenegro",
    "rating": 1569,
    "last_match": "2026-11-15",
    "prev_rank": 101,
-   "prev_rating": 1549
-  },
-  {
-   "rank": 92,
-   "team": "Suriname",
-   "rating": 1567,
-   "last_match": "2026-11-15",
-   "prev_rank": 93,
-   "prev_rating": 1571
+   "prev_rating": 1548
   },
   {
    "rank": 93,
-   "team": "Réunion",
-   "rating": 1564,
-   "last_match": "2023-09-02",
+   "team": "Suriname",
+   "rating": 1567,
+   "last_match": "2026-11-15",
    "prev_rank": 94,
-   "prev_rating": 1564
+   "prev_rating": 1570
   },
   {
    "rank": 94,
-   "team": "Palestine",
+   "team": "Réunion",
    "rating": 1564,
-   "last_match": "2026-11-17",
-   "prev_rank": 91,
-   "prev_rating": 1578
+   "last_match": "2023-09-02",
+   "prev_rank": 96,
+   "prev_rating": 1564
   },
   {
    "rank": 95,
@@ -768,34 +768,34 @@
   {
    "rank": 96,
    "team": "Benin",
-   "rating": 1557,
+   "rating": 1560,
    "last_match": "2026-11-16",
-   "prev_rank": 106,
-   "prev_rating": 1540
+   "prev_rank": 104,
+   "prev_rating": 1543
   },
   {
    "rank": 97,
    "team": "Thailand",
    "rating": 1556,
    "last_match": "2026-11-17",
-   "prev_rank": 104,
-   "prev_rating": 1541
+   "prev_rank": 105,
+   "prev_rating": 1542
   },
   {
    "rank": 98,
-   "team": "Oman",
-   "rating": 1551,
+   "team": "Vietnam",
+   "rating": 1554,
    "last_match": "2026-11-17",
    "prev_rank": 92,
-   "prev_rating": 1573
+   "prev_rating": 1574
   },
   {
    "rank": 99,
-   "team": "Galicia",
-   "rating": 1548,
-   "last_match": "2024-05-21",
-   "prev_rank": 102,
-   "prev_rating": 1548
+   "team": "Oman",
+   "rating": 1551,
+   "last_match": "2026-11-17",
+   "prev_rank": 93,
+   "prev_rating": 1573
   },
   {
    "rank": 100,
@@ -807,26 +807,26 @@
   },
   {
    "rank": 101,
-   "team": "Vietnam",
-   "rating": 1544,
-   "last_match": "2026-11-17",
-   "prev_rank": 96,
-   "prev_rating": 1563
+   "team": "Galicia",
+   "rating": 1548,
+   "last_match": "2024-05-21",
+   "prev_rank": 102,
+   "prev_rating": 1548
   },
   {
    "rank": 102,
    "team": "Uganda",
-   "rating": 1543,
+   "rating": 1544,
    "last_match": "2026-11-17",
    "prev_rank": 99,
-   "prev_rating": 1555
+   "prev_rating": 1556
   },
   {
    "rank": 103,
    "team": "Guinea",
    "rating": 1538,
    "last_match": "2026-11-16",
-   "prev_rank": 112,
+   "prev_rank": 111,
    "prev_rating": 1523
   },
   {
@@ -834,13 +834,13 @@
    "team": "Gambia",
    "rating": 1537,
    "last_match": "2026-11-17",
-   "prev_rank": 108,
+   "prev_rank": 107,
    "prev_rating": 1533
   },
   {
    "rank": 105,
    "team": "North Macedonia",
-   "rating": 1537,
+   "rating": 1536,
    "last_match": "2026-11-16",
    "prev_rank": 98,
    "prev_rating": 1558
@@ -850,16 +850,16 @@
    "team": "Zanzibar",
    "rating": 1536,
    "last_match": "2025-01-13",
-   "prev_rank": 107,
+   "prev_rank": 106,
    "prev_rating": 1536
   },
   {
    "rank": 107,
-   "team": "Malaysia",
+   "team": "Libya",
    "rating": 1533,
    "last_match": "2026-11-17",
-   "prev_rank": 105,
-   "prev_rating": 1541
+   "prev_rank": 117,
+   "prev_rating": 1504
   },
   {
    "rank": 108,
@@ -867,70 +867,70 @@
    "rating": 1532,
    "last_match": "2026-11-15",
    "prev_rank": 103,
-   "prev_rating": 1547
+   "prev_rating": 1546
   },
   {
    "rank": 109,
-   "team": "Libya",
-   "rating": 1532,
-   "last_match": "2026-11-17",
-   "prev_rank": 118,
-   "prev_rating": 1504
+   "team": "Menorca",
+   "rating": 1530,
+   "last_match": "2023-07-13",
+   "prev_rank": 108,
+   "prev_rating": 1530
   },
   {
    "rank": 110,
    "team": "Guyana",
-   "rating": 1530,
+   "rating": 1529,
    "last_match": "2026-11-16",
-   "prev_rank": 115,
-   "prev_rating": 1513
+   "prev_rank": 114,
+   "prev_rating": 1512
   },
   {
    "rank": 111,
-   "team": "Menorca",
-   "rating": 1530,
-   "last_match": "2023-07-13",
-   "prev_rank": 109,
-   "prev_rating": 1530
+   "team": "Syria",
+   "rating": 1528,
+   "last_match": "2026-11-17",
+   "prev_rank": 100,
+   "prev_rating": 1554
   },
   {
    "rank": 112,
-   "team": "Syria",
-   "rating": 1527,
-   "last_match": "2026-11-17",
-   "prev_rank": 100,
-   "prev_rating": 1553
-  },
-  {
-   "rank": 113,
    "team": "Chameria",
    "rating": 1520,
    "last_match": "2023-07-01",
-   "prev_rank": 113,
+   "prev_rank": 112,
    "prev_rating": 1520
   },
   {
-   "rank": 114,
+   "rank": 113,
    "team": "Zambia",
    "rating": 1517,
    "last_match": "2026-11-17",
-   "prev_rank": 110,
+   "prev_rank": 109,
    "prev_rating": 1528
   },
   {
-   "rank": 115,
+   "rank": 114,
    "team": "China",
-   "rating": 1514,
+   "rating": 1513,
    "last_match": "2026-11-17",
-   "prev_rank": 119,
-   "prev_rating": 1501
+   "prev_rank": 118,
+   "prev_rating": 1503
+  },
+  {
+   "rank": 115,
+   "team": "Kyrgyzstan",
+   "rating": 1513,
+   "last_match": "2026-11-17",
+   "prev_rank": 124,
+   "prev_rating": 1485
   },
   {
    "rank": 116,
    "team": "Togo",
    "rating": 1512,
    "last_match": "2026-11-17",
-   "prev_rank": 127,
+   "prev_rank": 126,
    "prev_rating": 1484
   },
   {
@@ -938,16 +938,16 @@
    "team": "Indonesia",
    "rating": 1511,
    "last_match": "2026-10-05",
-   "prev_rank": 116,
+   "prev_rank": 115,
    "prev_rating": 1511
   },
   {
    "rank": 118,
    "team": "Dominican Republic",
-   "rating": 1511,
+   "rating": 1510,
    "last_match": "2026-11-17",
-   "prev_rank": 114,
-   "prev_rating": 1514
+   "prev_rank": 113,
+   "prev_rating": 1513
   },
   {
    "rank": 119,
@@ -959,54 +959,46 @@
   },
   {
    "rank": 120,
-   "team": "Kyrgyzstan",
-   "rating": 1510,
-   "last_match": "2026-11-17",
-   "prev_rank": 129,
-   "prev_rating": 1483
-  },
-  {
-   "rank": 121,
    "team": "Gabon",
    "rating": 1510,
    "last_match": "2026-11-17",
-   "prev_rank": 111,
+   "prev_rank": 110,
    "prev_rating": 1527
   },
   {
-   "rank": 122,
+   "rank": 121,
    "team": "Mozambique",
    "rating": 1498,
    "last_match": "2026-11-17",
-   "prev_rank": 117,
+   "prev_rank": 116,
    "prev_rating": 1506
   },
   {
-   "rank": 123,
+   "rank": 122,
    "team": "Greenland",
    "rating": 1491,
    "last_match": "2026-06-06",
+   "prev_rank": 120,
+   "prev_rating": 1491
+  },
+  {
+   "rank": 123,
+   "team": "North Korea",
+   "rating": 1491,
+   "last_match": "2025-06-10",
    "prev_rank": 121,
    "prev_rating": 1491
   },
   {
    "rank": 124,
-   "team": "North Korea",
-   "rating": 1491,
-   "last_match": "2025-06-10",
-   "prev_rank": 122,
-   "prev_rating": 1491
-  },
-  {
-   "rank": 125,
    "team": "Shetland",
    "rating": 1489,
    "last_match": "2025-07-17",
-   "prev_rank": 124,
+   "prev_rank": 123,
    "prev_rating": 1489
   },
   {
-   "rank": 126,
+   "rank": 125,
    "team": "Comoros",
    "rating": 1486,
    "last_match": "2026-11-17",
@@ -1014,15 +1006,15 @@
    "prev_rating": 1480
   },
   {
-   "rank": 127,
+   "rank": 126,
    "team": "New Caledonia",
-   "rating": 1486,
+   "rating": 1483,
    "last_match": "2026-09-30",
-   "prev_rank": 125,
-   "prev_rating": 1486
+   "prev_rank": 127,
+   "prev_rating": 1483
   },
   {
-   "rank": 128,
+   "rank": 127,
    "team": "Åland Islands",
    "rating": 1483,
    "last_match": "2023-07-13",
@@ -1030,87 +1022,87 @@
    "prev_rating": 1483
   },
   {
-   "rank": 129,
-   "team": "Rwanda",
-   "rating": 1482,
-   "last_match": "2026-11-17",
-   "prev_rank": 120,
-   "prev_rating": 1501
-  },
-  {
-   "rank": 130,
+   "rank": 128,
    "team": "Bahrain",
-   "rating": 1482,
+   "rating": 1481,
    "last_match": "2026-11-17",
-   "prev_rank": 138,
-   "prev_rating": 1469
+   "prev_rank": 137,
+   "prev_rating": 1468
   },
   {
-   "rank": 131,
+   "rank": 129,
    "team": "Tahiti",
    "rating": 1481,
    "last_match": "2026-11-16",
-   "prev_rank": 126,
-   "prev_rating": 1485
+   "prev_rank": 125,
+   "prev_rating": 1484
   },
   {
-   "rank": 132,
+   "rank": 130,
+   "team": "Rwanda",
+   "rating": 1477,
+   "last_match": "2026-11-17",
+   "prev_rank": 119,
+   "prev_rating": 1497
+  },
+  {
+   "rank": 131,
    "team": "Zimbabwe",
    "rating": 1477,
    "last_match": "2026-11-16",
    "prev_rank": 143,
-   "prev_rating": 1461
+   "prev_rating": 1460
   },
   {
-   "rank": 133,
+   "rank": 132,
    "team": "Hmong",
    "rating": 1476,
    "last_match": "2023-08-08",
-   "prev_rank": 132,
+   "prev_rank": 131,
    "prev_rating": 1476
   },
   {
-   "rank": 134,
+   "rank": 133,
    "team": "Gozo",
    "rating": 1475,
    "last_match": "2025-07-17",
-   "prev_rank": 133,
+   "prev_rank": 132,
    "prev_rating": 1475
+  },
+  {
+   "rank": 134,
+   "team": "Kuwait",
+   "rating": 1474,
+   "last_match": "2026-11-17",
+   "prev_rank": 138,
+   "prev_rating": 1468
   },
   {
    "rank": 135,
    "team": "East Turkestan",
    "rating": 1474,
    "last_match": "2025-07-04",
-   "prev_rank": 135,
+   "prev_rank": 133,
    "prev_rating": 1474
   },
   {
    "rank": 136,
-   "team": "Kuwait",
-   "rating": 1474,
-   "last_match": "2026-11-17",
-   "prev_rank": 140,
-   "prev_rating": 1467
-  },
-  {
-   "rank": 137,
    "team": "Székely Land",
    "rating": 1473,
    "last_match": "2023-07-02",
-   "prev_rank": 136,
+   "prev_rank": 135,
    "prev_rating": 1473
   },
   {
-   "rank": 138,
+   "rank": 137,
    "team": "El Salvador",
    "rating": 1469,
    "last_match": "2026-10-05",
-   "prev_rank": 137,
+   "prev_rank": 136,
    "prev_rating": 1469
   },
   {
-   "rank": 139,
+   "rank": 138,
    "team": "Rouet-Provence",
    "rating": 1468,
    "last_match": "2026-06-06",
@@ -1118,7 +1110,7 @@
    "prev_rating": 1468
   },
   {
-   "rank": 140,
+   "rank": 139,
    "team": "Trinidad and Tobago",
    "rating": 1467,
    "last_match": "2026-10-04",
@@ -1126,76 +1118,84 @@
    "prev_rating": 1467
   },
   {
-   "rank": 141,
-   "team": "French Guiana",
-   "rating": 1466,
-   "last_match": "2026-11-17",
-   "prev_rank": 166,
-   "prev_rating": 1431
-  },
-  {
-   "rank": 142,
+   "rank": 140,
    "team": "Faroe Islands",
    "rating": 1465,
    "last_match": "2026-11-16",
-   "prev_rank": 162,
+   "prev_rank": 163,
    "prev_rating": 1437
   },
   {
+   "rank": 141,
+   "team": "Malaysia",
+   "rating": 1465,
+   "last_match": "2026-11-17",
+   "prev_rank": 140,
+   "prev_rating": 1467
+  },
+  {
+   "rank": 142,
+   "team": "Lebanon",
+   "rating": 1463,
+   "last_match": "2026-11-17",
+   "prev_rank": 155,
+   "prev_rating": 1446
+  },
+  {
    "rank": 143,
-   "team": "Guadeloupe",
-   "rating": 1461,
-   "last_match": "2026-11-16",
-   "prev_rank": 158,
-   "prev_rating": 1441
+   "team": "French Guiana",
+   "rating": 1463,
+   "last_match": "2026-11-17",
+   "prev_rank": 167,
+   "prev_rating": 1427
   },
   {
    "rank": 144,
-   "team": "Bulgaria",
-   "rating": 1457,
+   "team": "Guadeloupe",
+   "rating": 1458,
    "last_match": "2026-11-16",
-   "prev_rank": 123,
-   "prev_rating": 1490
+   "prev_rank": 160,
+   "prev_rating": 1439
   },
   {
    "rank": 145,
    "team": "Fiji",
    "rating": 1457,
    "last_match": "2026-10-03",
-   "prev_rank": 145,
+   "prev_rank": 144,
    "prev_rating": 1457
   },
   {
    "rank": 146,
-   "team": "Madagascar",
-   "rating": 1456,
-   "last_match": "2026-11-17",
-   "prev_rank": 131,
-   "prev_rating": 1479
+   "team": "Bulgaria",
+   "rating": 1457,
+   "last_match": "2026-11-16",
+   "prev_rank": 122,
+   "prev_rating": 1490
   },
   {
    "rank": 147,
+   "team": "Madagascar",
+   "rating": 1457,
+   "last_match": "2026-11-17",
+   "prev_rank": 129,
+   "prev_rating": 1480
+  },
+  {
+   "rank": 148,
+   "team": "Tajikistan",
+   "rating": 1456,
+   "last_match": "2026-11-17",
+   "prev_rank": 157,
+   "prev_rating": 1444
+  },
+  {
+   "rank": 149,
    "team": "Western Isles",
    "rating": 1456,
    "last_match": "2025-07-17",
    "prev_rank": 146,
    "prev_rating": 1456
-  },
-  {
-   "rank": 148,
-   "team": "Tajikistan",
-   "rating": 1455,
-   "last_match": "2026-11-17",
-   "prev_rank": 156,
-   "prev_rating": 1444
-  },
-  {
-   "rank": 149,
-   "team": "Martinique",
-   "rating": 1454,
-   "last_match": "2026-10-05",
-   "prev_rank": 148,
-   "prev_rating": 1454
   },
   {
    "rank": 150,
@@ -1207,11 +1207,11 @@
   },
   {
    "rank": 151,
-   "team": "Kenya",
-   "rating": 1452,
-   "last_match": "2026-11-17",
-   "prev_rank": 153,
-   "prev_rating": 1449
+   "team": "Martinique",
+   "rating": 1453,
+   "last_match": "2026-10-05",
+   "prev_rank": 148,
+   "prev_rating": 1453
   },
   {
    "rank": 152,
@@ -1231,18 +1231,18 @@
   },
   {
    "rank": 154,
-   "team": "Lebanon",
+   "team": "Kenya",
    "rating": 1451,
    "last_match": "2026-11-17",
-   "prev_rank": 164,
-   "prev_rating": 1434
+   "prev_rank": 153,
+   "prev_rating": 1449
   },
   {
    "rank": 155,
    "team": "Niger",
    "rating": 1449,
    "last_match": "2026-11-17",
-   "prev_rank": 149,
+   "prev_rank": 150,
    "prev_rating": 1453
   },
   {
@@ -1250,13 +1250,13 @@
    "team": "Cuba",
    "rating": 1448,
    "last_match": "2026-11-16",
-   "prev_rank": 167,
+   "prev_rank": 166,
    "prev_rating": 1428
   },
   {
    "rank": 157,
    "team": "Guinea-Bissau",
-   "rating": 1447,
+   "rating": 1448,
    "last_match": "2026-11-17",
    "prev_rank": 169,
    "prev_rating": 1424
@@ -1274,7 +1274,7 @@
    "team": "Papua New Guinea",
    "rating": 1446,
    "last_match": "2026-09-30",
-   "prev_rank": 155,
+   "prev_rank": 156,
    "prev_rating": 1446
   },
   {
@@ -1288,17 +1288,17 @@
   {
    "rank": 161,
    "team": "Saint Vincent and the Grenadines",
-   "rating": 1443,
+   "rating": 1442,
    "last_match": "2026-11-17",
    "prev_rank": 147,
-   "prev_rating": 1455
+   "prev_rating": 1454
   },
   {
    "rank": 162,
    "team": "Mayotte",
    "rating": 1441,
    "last_match": "2023-08-26",
-   "prev_rank": 157,
+   "prev_rank": 158,
    "prev_rating": 1441
   },
   {
@@ -1311,50 +1311,50 @@
   },
   {
    "rank": 164,
-   "team": "Mauritania",
-   "rating": 1439,
-   "last_match": "2026-11-17",
-   "prev_rank": 144,
-   "prev_rating": 1460
-  },
-  {
-   "rank": 165,
    "team": "Marshall Islands",
    "rating": 1437,
    "last_match": "2025-08-16",
-   "prev_rank": 161,
+   "prev_rank": 162,
    "prev_rating": 1437
   },
   {
-   "rank": 166,
+   "rank": 165,
    "team": "Equatorial Guinea",
    "rating": 1436,
    "last_match": "2026-11-16",
-   "prev_rank": 150,
-   "prev_rating": 1452
+   "prev_rank": 149,
+   "prev_rating": 1453
+  },
+  {
+   "rank": 166,
+   "team": "Mauritania",
+   "rating": 1436,
+   "last_match": "2026-11-17",
+   "prev_rank": 145,
+   "prev_rating": 1456
   },
   {
    "rank": 167,
    "team": "Orkney",
    "rating": 1435,
    "last_match": "2025-07-17",
-   "prev_rank": 163,
+   "prev_rank": 164,
    "prev_rating": 1435
   },
   {
    "rank": 168,
    "team": "Burundi",
-   "rating": 1432,
+   "rating": 1433,
    "last_match": "2026-11-17",
    "prev_rank": 171,
-   "prev_rating": 1421
+   "prev_rating": 1422
   },
   {
    "rank": 169,
    "team": "Kazakhstan",
    "rating": 1427,
    "last_match": "2026-11-16",
-   "prev_rank": 160,
+   "prev_rank": 161,
    "prev_rating": 1438
   },
   {
@@ -1384,34 +1384,34 @@
   {
    "rank": 173,
    "team": "Nicaragua",
-   "rating": 1423,
+   "rating": 1422,
    "last_match": "2026-10-04",
    "prev_rank": 170,
-   "prev_rating": 1423
+   "prev_rating": 1422
   },
   {
    "rank": 174,
    "team": "Sierra Leone",
-   "rating": 1415,
+   "rating": 1417,
    "last_match": "2026-11-17",
-   "prev_rank": 179,
-   "prev_rating": 1407
+   "prev_rank": 176,
+   "prev_rating": 1408
   },
   {
    "rank": 175,
    "team": "Ethiopia",
-   "rating": 1412,
+   "rating": 1413,
    "last_match": "2026-11-17",
    "prev_rank": 182,
-   "prev_rating": 1404
+   "prev_rating": 1405
   },
   {
    "rank": 176,
    "team": "Liberia",
-   "rating": 1410,
+   "rating": 1412,
    "last_match": "2026-11-17",
    "prev_rank": 187,
-   "prev_rating": 1387
+   "prev_rating": 1388
   },
   {
    "rank": 177,
@@ -1419,7 +1419,7 @@
    "rating": 1407,
    "last_match": "2026-11-15",
    "prev_rank": 173,
-   "prev_rating": 1420
+   "prev_rating": 1421
   },
   {
    "rank": 178,
@@ -1432,15 +1432,15 @@
   {
    "rank": 179,
    "team": "Solomon Islands",
-   "rating": 1405,
+   "rating": 1406,
    "last_match": "2026-09-30",
    "prev_rank": 181,
-   "prev_rating": 1405
+   "prev_rating": 1406
   },
   {
    "rank": 180,
    "team": "Puerto Rico",
-   "rating": 1405,
+   "rating": 1404,
    "last_match": "2026-11-16",
    "prev_rank": 177,
    "prev_rating": 1408
@@ -1448,39 +1448,39 @@
   {
    "rank": 181,
    "team": "Armenia",
-   "rating": 1403,
+   "rating": 1402,
    "last_match": "2026-11-15",
-   "prev_rank": 176,
-   "prev_rating": 1409
+   "prev_rank": 178,
+   "prev_rating": 1408
   },
   {
    "rank": 182,
    "team": "Raetia",
    "rating": 1399,
    "last_match": "2026-06-06",
-   "prev_rank": 183,
+   "prev_rank": 184,
    "prev_rating": 1399
   },
   {
    "rank": 183,
-   "team": "Namibia",
-   "rating": 1396,
-   "last_match": "2026-11-16",
-   "prev_rank": 178,
-   "prev_rating": 1407
+   "team": "Singapore",
+   "rating": 1398,
+   "last_match": "2026-11-17",
+   "prev_rank": 183,
+   "prev_rating": 1403
   },
   {
    "rank": 184,
-   "team": "Lesotho",
-   "rating": 1394,
-   "last_match": "2026-11-17",
-   "prev_rank": 190,
-   "prev_rating": 1377
+   "team": "Namibia",
+   "rating": 1396,
+   "last_match": "2026-11-16",
+   "prev_rank": 179,
+   "prev_rating": 1407
   },
   {
    "rank": 185,
    "team": "Tanzania",
-   "rating": 1394,
+   "rating": 1395,
    "last_match": "2026-11-17",
    "prev_rank": 189,
    "prev_rating": 1383
@@ -1491,23 +1491,23 @@
    "rating": 1394,
    "last_match": "2026-11-16",
    "prev_rank": 172,
-   "prev_rating": 1420
+   "prev_rating": 1421
   },
   {
    "rank": 187,
+   "team": "Lesotho",
+   "rating": 1394,
+   "last_match": "2026-11-17",
+   "prev_rank": 190,
+   "prev_rating": 1376
+  },
+  {
+   "rank": 188,
    "team": "Hitra",
    "rating": 1389,
    "last_match": "2025-07-17",
    "prev_rank": 186,
    "prev_rating": 1389
-  },
-  {
-   "rank": 188,
-   "team": "Singapore",
-   "rating": 1387,
-   "last_match": "2026-11-17",
-   "prev_rank": 185,
-   "prev_rating": 1391
   },
   {
    "rank": 189,
@@ -1520,18 +1520,18 @@
   {
    "rank": 190,
    "team": "Saint Lucia",
-   "rating": 1386,
+   "rating": 1383,
    "last_match": "2026-11-17",
    "prev_rank": 195,
-   "prev_rating": 1355
+   "prev_rating": 1353
   },
   {
    "rank": 191,
    "team": "Malta",
    "rating": 1378,
    "last_match": "2026-11-16",
-   "prev_rank": 184,
-   "prev_rating": 1394
+   "prev_rank": 185,
+   "prev_rating": 1393
   },
   {
    "rank": 192,
@@ -1544,18 +1544,18 @@
   {
    "rank": 193,
    "team": "Hong Kong",
-   "rating": 1367,
+   "rating": 1369,
    "last_match": "2026-10-03",
    "prev_rank": 191,
-   "prev_rating": 1367
+   "prev_rating": 1369
   },
   {
    "rank": 194,
    "team": "Philippines",
-   "rating": 1360,
+   "rating": 1356,
    "last_match": "2026-10-02",
    "prev_rank": 194,
-   "prev_rating": 1360
+   "prev_rating": 1356
   },
   {
    "rank": 195,
@@ -1600,7 +1600,7 @@
   {
    "rank": 200,
    "team": "Yemen",
-   "rating": 1331,
+   "rating": 1329,
    "last_match": "2026-11-17",
    "prev_rank": 197,
    "prev_rating": 1349
@@ -1608,10 +1608,10 @@
   {
    "rank": 201,
    "team": "India",
-   "rating": 1323,
+   "rating": 1326,
    "last_match": "2026-11-15",
    "prev_rank": 204,
-   "prev_rating": 1308
+   "prev_rating": 1311
   },
   {
    "rank": 202,
@@ -1640,23 +1640,23 @@
   {
    "rank": 205,
    "team": "Tuvalu",
-   "rating": 1303,
+   "rating": 1304,
    "last_match": "2023-11-30",
    "prev_rank": 205,
-   "prev_rating": 1303
+   "prev_rating": 1304
   },
   {
    "rank": 206,
    "team": "Sint Maarten",
-   "rating": 1303,
+   "rating": 1302,
    "last_match": "2026-11-17",
-   "prev_rank": 209,
-   "prev_rating": 1296
+   "prev_rank": 208,
+   "prev_rating": 1295
   },
   {
    "rank": 207,
    "team": "Latvia",
-   "rating": 1300,
+   "rating": 1299,
    "last_match": "2026-11-15",
    "prev_rank": 206,
    "prev_rating": 1301
@@ -1664,45 +1664,37 @@
   {
    "rank": 208,
    "team": "Grenada",
-   "rating": 1295,
+   "rating": 1296,
    "last_match": "2026-11-16",
-   "prev_rank": 213,
-   "prev_rating": 1282
+   "prev_rank": 212,
+   "prev_rating": 1283
   },
   {
    "rank": 209,
    "team": "Falkland Islands",
    "rating": 1291,
    "last_match": "2023-07-13",
-   "prev_rank": 211,
+   "prev_rank": 210,
    "prev_rating": 1291
   },
   {
    "rank": 210,
    "team": "Eswatini",
-   "rating": 1281,
+   "rating": 1280,
    "last_match": "2026-11-15",
-   "prev_rank": 214,
-   "prev_rating": 1280
+   "prev_rank": 213,
+   "prev_rating": 1279
   },
   {
    "rank": 211,
    "team": "Eritrea",
    "rating": 1278,
    "last_match": "2026-11-16",
-   "prev_rank": 210,
-   "prev_rating": 1293
+   "prev_rank": 209,
+   "prev_rating": 1292
   },
   {
    "rank": 212,
-   "team": "Bermuda",
-   "rating": 1272,
-   "last_match": "2026-11-16",
-   "prev_rank": 207,
-   "prev_rating": 1299
-  },
-  {
-   "rank": 213,
    "team": "Cook Islands",
    "rating": 1271,
    "last_match": "2026-11-16",
@@ -1710,15 +1702,7 @@
    "prev_rating": 1267
   },
   {
-   "rank": 214,
-   "team": "Belize",
-   "rating": 1266,
-   "last_match": "2026-11-17",
-   "prev_rank": 208,
-   "prev_rating": 1297
-  },
-  {
-   "rank": 215,
+   "rank": 213,
    "team": "Frøya",
    "rating": 1265,
    "last_match": "2025-07-17",
@@ -1726,7 +1710,15 @@
    "prev_rating": 1265
   },
   {
-   "rank": 216,
+   "rank": 214,
+   "team": "Belize",
+   "rating": 1265,
+   "last_match": "2026-11-17",
+   "prev_rank": 207,
+   "prev_rating": 1295
+  },
+  {
+   "rank": 215,
    "team": "Aruba",
    "rating": 1264,
    "last_match": "2026-10-06",
@@ -1734,107 +1726,115 @@
    "prev_rating": 1264
   },
   {
-   "rank": 217,
+   "rank": 216,
    "team": "Barbados",
-   "rating": 1262,
+   "rating": 1259,
    "last_match": "2026-11-17",
-   "prev_rank": 212,
-   "prev_rating": 1287
+   "prev_rank": 211,
+   "prev_rating": 1284
   },
   {
-   "rank": 218,
+   "rank": 217,
    "team": "South Sudan",
    "rating": 1258,
    "last_match": "2026-11-17",
    "prev_rank": 215,
-   "prev_rating": 1268
+   "prev_rating": 1269
+  },
+  {
+   "rank": 218,
+   "team": "Chad",
+   "rating": 1255,
+   "last_match": "2026-03-31",
+   "prev_rank": 219,
+   "prev_rating": 1255
   },
   {
    "rank": 219,
-   "team": "Chad",
+   "team": "Bermuda",
    "rating": 1250,
-   "last_match": "2026-03-31",
-   "prev_rank": 219,
-   "prev_rating": 1250
+   "last_match": "2026-11-16",
+   "prev_rank": 214,
+   "prev_rating": 1274
   },
   {
    "rank": 220,
    "team": "Myanmar",
-   "rating": 1233,
+   "rating": 1232,
    "last_match": "2026-09-27",
    "prev_rank": 220,
-   "prev_rating": 1233
+   "prev_rating": 1232
   },
   {
    "rank": 221,
-   "team": "Mauritius",
-   "rating": 1229,
-   "last_match": "2026-10-05",
+   "team": "Afghanistan",
+   "rating": 1230,
+   "last_match": "2026-06-10",
    "prev_rank": 221,
-   "prev_rating": 1229
+   "prev_rating": 1230
   },
   {
    "rank": 222,
-   "team": "Afghanistan",
-   "rating": 1228,
-   "last_match": "2026-06-10",
-   "prev_rank": 222,
-   "prev_rating": 1228
-  },
-  {
-   "rank": 223,
    "team": "Antigua and Barbuda",
    "rating": 1227,
    "last_match": "2026-10-06",
-   "prev_rank": 223,
+   "prev_rank": 222,
    "prev_rating": 1227
   },
   {
+   "rank": 223,
+   "team": "Mauritius",
+   "rating": 1225,
+   "last_match": "2026-10-05",
+   "prev_rank": 223,
+   "prev_rating": 1225
+  },
+  {
    "rank": 224,
-   "team": "Dominica",
-   "rating": 1211,
-   "last_match": "2026-11-17",
-   "prev_rank": 227,
-   "prev_rating": 1203
+   "team": "Nepal",
+   "rating": 1224,
+   "last_match": "2025-11-18",
+   "prev_rank": 224,
+   "prev_rating": 1224
   },
   {
    "rank": 225,
-   "team": "Bangladesh",
-   "rating": 1208,
-   "last_match": "2026-11-14",
-   "prev_rank": 225,
-   "prev_rating": 1209
+   "team": "Dominica",
+   "rating": 1211,
+   "last_match": "2026-11-17",
+   "prev_rank": 229,
+   "prev_rating": 1203
   },
   {
    "rank": 226,
-   "team": "Pakistan",
-   "rating": 1204,
+   "team": "Bangladesh",
+   "rating": 1210,
    "last_match": "2026-11-14",
-   "prev_rank": 231,
-   "prev_rating": 1180
+   "prev_rank": 226,
+   "prev_rating": 1211
   },
   {
    "rank": 227,
    "team": "São Tomé and Príncipe",
-   "rating": 1200,
+   "rating": 1209,
    "last_match": "2026-09-23",
-   "prev_rank": 228,
-   "prev_rating": 1200
+   "prev_rank": 227,
+   "prev_rating": 1209
   },
   {
    "rank": 228,
-   "team": "Nepal",
-   "rating": 1196,
-   "last_match": "2025-11-18",
-   "prev_rank": 229,
-   "prev_rating": 1196
+   "team": "Pakistan",
+   "rating": 1205,
+   "last_match": "2026-11-14",
+   "prev_rank": 231,
+   "prev_rating": 1181
   },
   {
    "rank": 229,
    "team": "Gibraltar",
    "rating": 1195,
    "last_match": "2026-11-16",
-   "prev_rank": 226,
+   "prev_rank": 228,
    "prev_rating": 1207
   },
   {
@@ -1842,7 +1842,7 @@
    "team": "Bonaire",
    "rating": 1193,
    "last_match": "2026-11-17",
-   "prev_rank": 224,
+   "prev_rank": 225,
    "prev_rating": 1214
   },
   {
@@ -1866,7 +1866,7 @@
    "team": "Cambodia",
    "rating": 1175,
    "last_match": "2026-10-03",
-   "prev_rank": 234,
+   "prev_rank": 233,
    "prev_rating": 1175
   },
   {
@@ -1880,42 +1880,42 @@
   {
    "rank": 235,
    "team": "Taiwan",
-   "rating": 1167,
+   "rating": 1166,
    "last_match": "2026-11-14",
-   "prev_rank": 233,
-   "prev_rating": 1175
+   "prev_rank": 234,
+   "prev_rating": 1174
   },
   {
    "rank": 236,
    "team": "Djibouti",
-   "rating": 1160,
+   "rating": 1159,
    "last_match": "2026-03-29",
    "prev_rank": 236,
-   "prev_rating": 1160
+   "prev_rating": 1159
   },
   {
    "rank": 237,
    "team": "Sri Lanka",
-   "rating": 1144,
+   "rating": 1145,
    "last_match": "2026-11-11",
    "prev_rank": 235,
-   "prev_rating": 1165
+   "prev_rating": 1166
   },
   {
    "rank": 238,
-   "team": "Somalia",
-   "rating": 1141,
-   "last_match": "2026-11-16",
-   "prev_rank": 239,
-   "prev_rating": 1146
+   "team": "Northern Mariana Islands",
+   "rating": 1144,
+   "last_match": "2024-04-07",
+   "prev_rank": 240,
+   "prev_rating": 1144
   },
   {
    "rank": 239,
-   "team": "Northern Mariana Islands",
-   "rating": 1139,
-   "last_match": "2024-04-07",
-   "prev_rank": 240,
-   "prev_rating": 1139
+   "team": "Somalia",
+   "rating": 1140,
+   "last_match": "2026-11-16",
+   "prev_rank": 239,
+   "prev_rating": 1145
   },
   {
    "rank": 240,
@@ -1952,10 +1952,10 @@
   {
    "rank": 244,
    "team": "Guam",
-   "rating": 1089,
+   "rating": 1092,
    "last_match": "2026-06-06",
    "prev_rank": 245,
-   "prev_rating": 1089
+   "prev_rating": 1092
   },
   {
    "rank": 245,
@@ -1968,18 +1968,18 @@
   {
    "rank": 246,
    "team": "Maldives",
-   "rating": 1073,
+   "rating": 1074,
    "last_match": "2026-11-11",
    "prev_rank": 244,
-   "prev_rating": 1094
+   "prev_rating": 1095
   },
   {
    "rank": 247,
    "team": "Laos",
-   "rating": 1071,
+   "rating": 1069,
    "last_match": "2026-09-27",
    "prev_rank": 247,
-   "prev_rating": 1071
+   "prev_rating": 1069
   },
   {
    "rank": 248,
@@ -2008,10 +2008,10 @@
   {
    "rank": 251,
    "team": "Brunei",
-   "rating": 1035,
+   "rating": 1037,
    "last_match": "2026-11-17",
    "prev_rank": 251,
-   "prev_rating": 1039
+   "prev_rating": 1040
   },
   {
    "rank": 252,
@@ -2023,27 +2023,27 @@
   },
   {
    "rank": 253,
-   "team": "Timor-Leste",
-   "rating": 1005,
-   "last_match": "2026-09-30",
-   "prev_rank": 253,
-   "prev_rating": 1005
-  },
-  {
-   "rank": 254,
-   "team": "Bhutan",
-   "rating": 995,
-   "last_match": "2026-11-14",
+   "team": "Macau",
+   "rating": 999,
+   "last_match": "2026-03-29",
    "prev_rank": 254,
    "prev_rating": 999
   },
   {
+   "rank": 254,
+   "team": "Bhutan",
+   "rating": 997,
+   "last_match": "2026-11-14",
+   "prev_rank": 253,
+   "prev_rating": 1001
+  },
+  {
    "rank": 255,
-   "team": "Macau",
-   "rating": 993,
-   "last_match": "2026-03-29",
+   "team": "Timor-Leste",
+   "rating": 989,
+   "last_match": "2026-09-30",
    "prev_rank": 255,
-   "prev_rating": 993
+   "prev_rating": 989
   },
   {
    "rank": 256,
@@ -2076,8 +2076,8 @@
     1,
     2
    ],
-   "home_delta": -22.6,
-   "away_delta": 22.6
+   "home_delta": -23.0,
+   "away_delta": 23.0
   },
   {
    "date": "2026-11-17",
@@ -2124,8 +2124,8 @@
     1,
     0
    ],
-   "home_delta": 14.4,
-   "away_delta": -14.4
+   "home_delta": 14.5,
+   "away_delta": -14.5
   },
   {
    "date": "2026-11-17",
@@ -2136,8 +2136,8 @@
     3,
     0
    ],
-   "home_delta": 32.4,
-   "away_delta": -32.4
+   "home_delta": 32.5,
+   "away_delta": -32.5
   },
   {
    "date": "2026-11-17",
@@ -2172,8 +2172,8 @@
     0,
     1
    ],
-   "home_delta": -5.8,
-   "away_delta": 5.8
+   "home_delta": -5.9,
+   "away_delta": 5.9
   },
   {
    "date": "2026-11-17",
@@ -2184,8 +2184,8 @@
     0,
     7
    ],
-   "home_delta": -1.6,
-   "away_delta": 1.6
+   "home_delta": -1.7,
+   "away_delta": 1.7
   },
   {
    "date": "2026-11-17",
@@ -2208,8 +2208,8 @@
     1,
     2
    ],
-   "home_delta": -15.9,
-   "away_delta": 15.9
+   "home_delta": -16.0,
+   "away_delta": 16.0
   },
   {
    "date": "2026-11-17",
@@ -2220,8 +2220,8 @@
     0,
     1
    ],
-   "home_delta": -22.7,
-   "away_delta": 22.7
+   "home_delta": -22.8,
+   "away_delta": 22.8
   },
   {
    "date": "2026-11-17",
@@ -2232,8 +2232,8 @@
     2,
     0
    ],
-   "home_delta": 14.7,
-   "away_delta": -14.7
+   "home_delta": 14.6,
+   "away_delta": -14.6
   },
   {
    "date": "2026-11-17",
@@ -2256,8 +2256,8 @@
     0,
     2
    ],
-   "home_delta": -10.1,
-   "away_delta": 10.1
+   "home_delta": -10.3,
+   "away_delta": 10.3
   },
   {
    "date": "2026-11-17",
@@ -2280,8 +2280,8 @@
     3,
     0
    ],
-   "home_delta": 19.0,
-   "away_delta": -19.0
+   "home_delta": 18.6,
+   "away_delta": -18.6
   },
   {
    "date": "2026-11-17",
@@ -2292,8 +2292,8 @@
     0,
     1
    ],
-   "home_delta": -8.2,
-   "away_delta": 8.2
+   "home_delta": -8.1,
+   "away_delta": 8.1
   },
   {
    "date": "2026-11-17",
@@ -2304,8 +2304,8 @@
     1,
     1
    ],
-   "home_delta": 5.2,
-   "away_delta": -5.2
+   "home_delta": 5.1,
+   "away_delta": -5.1
   },
   {
    "date": "2026-11-17",
@@ -2316,8 +2316,8 @@
     7,
     0
    ],
-   "home_delta": 1.7,
-   "away_delta": -1.7
+   "home_delta": 1.8,
+   "away_delta": -1.8
   },
   {
    "date": "2026-11-17",
@@ -2340,8 +2340,8 @@
     1,
     0
    ],
-   "home_delta": 9.1,
-   "away_delta": -9.1
+   "home_delta": 9.5,
+   "away_delta": -9.5
   },
   {
    "date": "2026-11-17",
@@ -2352,8 +2352,8 @@
     1,
     3
    ],
-   "home_delta": -11.0,
-   "away_delta": 11.0
+   "home_delta": -10.8,
+   "away_delta": 10.8
   },
   {
    "date": "2026-11-17",
@@ -2364,8 +2364,8 @@
     2,
     1
    ],
-   "home_delta": 7.6,
-   "away_delta": -7.6
+   "home_delta": 10.2,
+   "away_delta": -10.2
   },
   {
    "date": "2026-11-17",
@@ -2388,8 +2388,8 @@
     1,
     1
    ],
-   "home_delta": 2.1,
-   "away_delta": -2.1
+   "home_delta": 2.0,
+   "away_delta": -2.0
   },
   {
    "date": "2026-11-17",
@@ -2400,8 +2400,8 @@
     2,
     0
    ],
-   "home_delta": 29.4,
-   "away_delta": -29.4
+   "home_delta": 30.2,
+   "away_delta": -30.2
   },
   {
    "date": "2026-11-17",
